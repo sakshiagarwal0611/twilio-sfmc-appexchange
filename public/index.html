@@ -69,34 +69,28 @@
         </div>
       
         
-// using ckeditor        
-<div>
- <div id="editor">
-    <p>This is the editor content.</p>
-</div>
-<script src="https://cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
-<script>
-    CKEDITOR.replace( 'editor' );
-</script>
-</div>
-        
  <button id="toggleLastStep">Toggle Last Step</button>       
 </div>
     
 <div id="step2" class="step">
-    Here's a second page with some info on it.
+<div>
+    <input type="checkbox" id="SMS" name="SMS" value="SMS">
+    <label for="SMS">Send SMS</label><br>
+    <input type="checkbox" id="WhatsappSMS" name="WhatsappSMS" value="Whatsapp SMS">
+    <label for="WhatsappSMS">Whatsapp SMS</label><br>
+    </div>
 </div>
 <div id="step3" class="step">
-   This is the text area editor:
+   <p>This is the text area editor:</p>
     <div>
- <div id="editor">
-    <p>This is the editor content.</p>
-</div>
-<script src="https://cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
-<script>
-    CKEDITOR.replace( 'editor' );
-</script>
-</div>
+    <div id="editor">
+      <p>This is the editor content.</p>
+    </div>
+    <script src="https://cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
+    <script>
+       CKEDITOR.replace( 'editor' );
+    </script>
+    </div>
 </div>
 <div id="step4" class="step">
     Hey, here's a fourth step, just for you.  Toggle this on or off from step 1.
