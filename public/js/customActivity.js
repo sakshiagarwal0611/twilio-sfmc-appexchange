@@ -92,7 +92,7 @@ define([
 
         connection.trigger('updateButton', {
             button: 'next',
-            text: 'done',
+            text: 'next',
             visible: true
         });
 
@@ -182,7 +182,7 @@ define([
                 } else {
                     connection.trigger('updateButton', {
                         button: 'next',
-                        text: 'next',
+                        text: 'Done',
                         visible: true
                     });
                 }
