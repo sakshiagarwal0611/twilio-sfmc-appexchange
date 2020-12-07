@@ -141,6 +141,7 @@ define([
         switch(currentStep.key) {
             case 'step1':
                 $('#step1').show();
+                console.log("---------------------------------------------------------------------------------------------------------------->This is step 1");
                  connection.trigger('updateButton', {
                   button: 'next',
                      text: 'next',
@@ -154,6 +155,7 @@ define([
                 break;
             case 'step2':
                 $('#step2').show();
+                console.log("---------------------------------------------------------------------------------------------------------------->This is step 2");
               /*  connection.trigger('updateButton', {
                     button: 'back',
                     visible: true
@@ -166,6 +168,7 @@ define([
                 break;
             case 'step3':
                 $('#step3').show();
+                console.log("---------------------------------------------------------------------------------------------------------------->This is step 3");
                connection.trigger('updateButton', {
                      button: 'back',
                      visible: true
@@ -186,6 +189,7 @@ define([
                 break;
             case 'step4':
                 $('#step4').show();
+                 console.log("---------------------------------------------------------------------------------------------------------------->This is step 4");
                 break;
         }
     }
