@@ -141,18 +141,18 @@ define([
         switch(currentStep.key) {
             case 'step1':
                 $('#step1').show();
-                connection.trigger('updateButton', {
-                    button: 'next',
+                 /*connection.trigger('updateButton', {
+                  button: 'next',
                     //enabled: Boolean(getMessage())
-                });
+               // });
                 connection.trigger('updateButton', {
                     button: 'back',
                     visible: false
-                });
+                });*/
                 break;
             case 'step2':
                 $('#step2').show();
-                connection.trigger('updateButton', {
+                /*connection.trigger('updateButton', {
                     button: 'back',
                     visible: true
                 });
@@ -160,14 +160,14 @@ define([
                     button: 'next',
                     text: 'next',
                     visible: true
-                });
+                });*/
                 break;
             case 'step3':
                 $('#step3').show();
-                connection.trigger('updateButton', {
+                /*connection.trigger('updateButton', {
                      button: 'back',
                      visible: true
-                });
+                });*/
                 if (lastStepEnabled) {
                     connection.trigger('updateButton', {
                         button: 'next',
