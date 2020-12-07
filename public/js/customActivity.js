@@ -100,13 +100,13 @@ define([
 
     function onGetTokens(tokens) {
         // Response: tokens = { token: <legacy token>, fuel2token: <fuel api token> }
-        console.log("Tokens function: " + JSON.stringify(tokens));
+        console.log("Tokens function-------------------------------------------------------------->: " + JSON.stringify(tokens));
         //authTokens = tokens;
     }
 
     function onGetEndpoints(endpoints) {
         // Response: endpoints = { restHost: <url> } i.e. "rest.s1.qa1.exacttarget.com"
-        console.log("Get End Points function: " + JSON.stringify(endpoints));
+        console.log("Get End Points function------------------------------------------------------>: " + JSON.stringify(endpoints));
     }
     
     function onClickedNext () {
@@ -141,33 +141,33 @@ define([
         switch(currentStep.key) {
             case 'step1':
                 $('#step1').show();
-                 /*connection.trigger('updateButton', {
+                 connection.trigger('updateButton', {
                   button: 'next',
                     //enabled: Boolean(getMessage())
                // });
-                connection.trigger('updateButton', {
+               /* connection.trigger('updateButton', {
                     button: 'back',
                     visible: false
                 });*/
                 break;
             case 'step2':
                 $('#step2').show();
-                /*connection.trigger('updateButton', {
+              /*  connection.trigger('updateButton', {
                     button: 'back',
                     visible: true
-                });
-                connection.trigger('updateButton', {
+                });*/
+               connection.trigger('updateButton', {
                     button: 'next',
                     text: 'next',
                     visible: true
-                });*/
+                });
                 break;
             case 'step3':
                 $('#step3').show();
-                /*connection.trigger('updateButton', {
+               connection.trigger('updateButton', {
                      button: 'back',
                      visible: true
-                });*/
+                });
                 if (lastStepEnabled) {
                     connection.trigger('updateButton', {
                         button: 'next',
@@ -205,7 +205,7 @@ define([
 
         payload['metaData'].isConfigured = true;
 
-        console.log("Payload on SAVE function: " + JSON.stringify(payload));
+        console.log("Payload on SAVE function--------------------------------------------------->: " + JSON.stringify(payload));
         connection.trigger('updateActivity', payload);
 
     }
