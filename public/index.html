@@ -87,7 +87,16 @@
     Here's a second page with some info on it.
 </div>
 <div id="step3" class="step">
-    You choose the message: <div id="message"></div>
+   This is the text area editor:
+    <div>
+ <div id="editor">
+    <p>This is the editor content.</p>
+</div>
+<script src="https://cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace( 'editor' );
+</script>
+</div>
 </div>
 <div id="step4" class="step">
     Hey, here's a fourth step, just for you.  Toggle this on or off from step 1.
