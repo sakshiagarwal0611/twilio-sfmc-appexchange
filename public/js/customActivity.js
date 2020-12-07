@@ -143,8 +143,10 @@ define([
                 $('#step1').show();
                  connection.trigger('updateButton', {
                   button: 'next',
+                     text: 'next',
+                  visible: true
                     //enabled: Boolean(getMessage())
-               // });
+                });
                /* connection.trigger('updateButton', {
                     button: 'back',
                     visible: false
