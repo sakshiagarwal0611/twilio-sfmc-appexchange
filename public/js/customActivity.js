@@ -12,7 +12,7 @@ define([
         { "label": "Enter Twilio Authentication Fields", "key": "step1" },
         { "label": "Select Channel", "key": "step2" },
         { "label": "Create Message", "key": "step3" },
-        { "label": "Step 4", "key": "step4", "active": false }
+        { "label": "Summary", "key": "step4" }
     ];
     var currentStep = steps[0].key;
 
@@ -38,7 +38,7 @@ define([
            connection.trigger('updateButton', { button: 'next', enabled: Boolean(message) });
 
             $('#message').html(message);
-     });*/
+     });
         
         // Toggle step 4 active/inactive
         // If inactive, wizard hides it and skips over it during navigation
@@ -47,7 +47,7 @@ define([
             steps[3].active = !steps[3].active; // toggle active
 
             connection.trigger('updateSteps', steps);
-        });
+        });*/
 
     }
 
