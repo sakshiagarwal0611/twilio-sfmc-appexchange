@@ -231,7 +231,7 @@ define([
         payload['metaData'].isConfigured = true;
 
         console.log("Payload on SAVE function--------------------------------------------------->: " + JSON.stringify(payload));
-        console.log("Messagebody-------------------------------------------------------------------->" + MessageBody);
+        console.log("Messagebody-------------------------------------------------------------------->" + smsmessagebody);
         connection.trigger('updateActivity', payload);
 
     }
