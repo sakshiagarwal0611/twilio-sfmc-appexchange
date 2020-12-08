@@ -86,6 +86,16 @@ define([
                 if (key === 'body') {
                     $('#messageBody').val(val);
                 }
+                if (key === 'SMS') {
+                    $('#SMS').val(val);
+                }
+                if (key === 'WhatsApp') {
+                    $('#WhatsApp').val(val);
+                }
+                if (key === 'MessageBody') {
+                    $('#sampleeditor').val(val);
+                }
+            
 
             })
         });
