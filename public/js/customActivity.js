@@ -210,18 +210,28 @@ define([
         var authToken = $('#authToken').val();
         var messagingService = $('#messagingService').val();
         var body = $('#messageBody').val();
+        var SMS = $('#SMS').val();
+        var WhatsApp = $('#WhatsApp').val();
+        var MessageBody = $('#sampleeditor').val();
+      
+        
+        
 
         payload['arguments'].execute.inArguments = [{
             "accountSid": accountSid,
             "authToken": authToken,
             "messagingService": messagingService,
             "body": body,
-            "to": "{{Contact.Attribute.TwilioV1.TwilioNumber}}" //<----This should map to your data extension name and phone number column
+            "to": "{{Contact.Attribute.TwilioV1.TwilioNumber}}",//<----This should map to your data extension name and phone number column
+            "SMS": SMS,
+            "WhatsApp": WhatsApp,
+            "MessageBody": MessageBody
         }];
 
         payload['metaData'].isConfigured = true;
 
         console.log("Payload on SAVE function--------------------------------------------------->: " + JSON.stringify(payload));
+        Console.log("Messagebody-------------------------------------------------------------------->" + MessageBody);
         connection.trigger('updateActivity', payload);
 
     }
