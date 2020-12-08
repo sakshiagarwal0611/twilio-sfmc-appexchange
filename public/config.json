@@ -69,7 +69,7 @@
         { "label": "Enter Twilio Authentication Fields", "key": "step1" },
         { "label": "Select Channel", "key": "step2" },
         { "label": "Create Message", "key": "step3" },
-        { "label": "Step 4", "key": "step4", "active": false }
+        { "label": "Summary", "key": "step4" }
     ],
     "userInterfaces": {
         "configModal": {
