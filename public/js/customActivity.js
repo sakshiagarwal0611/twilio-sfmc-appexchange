@@ -212,7 +212,8 @@ define([
         var messagingService = $('#messagingService').val();
         var body = $('#messageBody').val();
         var sms;
-        var whatsappsms = $('#WhatsApp').val();
+        var whatsappsms = $("#WhatsApp").is(":checked");
+            //$('#WhatsApp').val();
         var smsmessagebody = $('#sampleeditor').val();
       
         if ($('#SMS).attr('checked') == false) {
@@ -221,7 +222,7 @@ define([
                          sms =   $('#SMS').val('true');
                     }
         
-
+)
         payload['arguments'].execute.inArguments = [{
             "accountSid": accountSid,
             "authToken": authToken,
