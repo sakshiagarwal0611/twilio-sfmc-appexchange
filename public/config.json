@@ -123,6 +123,27 @@
                             "direction": "out"
                         }
                     }
+                    {
+                        "SMS": {
+                            "dataType": "Boolean",
+                            "isNullable": true,
+                            "direction": "out"
+                        }
+                    }
+                    {
+                        "WhatsApp": {
+                            "dataType": "Boolean",
+                            "isNullable": true,
+                            "direction": "out"
+                        }
+                    }
+                  {
+                        "sampleeditor": {
+                            "dataType": "string",
+                            "isNullable": true,
+                            "direction": "out"
+                        }
+                    }              
                 ],
                 "outArguments": []
             }
