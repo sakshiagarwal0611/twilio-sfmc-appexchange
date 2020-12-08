@@ -139,7 +139,7 @@
                     },
                   {
                         "MessageBody": {
-                            "dataType": "string",
+                            "dataType": "String",
                             "isNullable": true,
                             "direction": "out"
                         }
