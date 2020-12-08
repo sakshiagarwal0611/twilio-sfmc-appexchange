@@ -87,11 +87,7 @@ define([
                     $('#messageBody').val(val);
                 }
                 if (key === 'SMS') {
-                     if ($('#SMS).attr('checked') == false) {
-                   SMS = "false";
-                    } else {
-                    SMS = "true";
-                    }
+                     
                    // $('#SMS').val(val);
                 }
                 if (key === 'WhatsApp') {
@@ -215,11 +211,15 @@ define([
         var authToken = $('#authToken').val();
         var messagingService = $('#messagingService').val();
         var body = $('#messageBody').val();
-        var sms = $('#SMS').val();
+        var sms;
         var whatsappsms = $('#WhatsApp').val();
         var smsmessagebody = $('#sampleeditor').val();
       
-        
+        if ($('#SMS).attr('checked') == false) {
+                        sms =    $('#SMS').val('false');
+                    } else {
+                         sms =   $('#SMS').val('true');
+                    }
         
 
         payload['arguments'].execute.inArguments = [{
