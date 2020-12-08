@@ -101,8 +101,20 @@ exports.execute = function(req, res) {
     const authToken = requestBody.authToken;
     const to = requestBody.to;
     const from = requestBody.messagingService;
-    const body = requestBody.body;;
-
+    const body = requestBody.body;
+    const sms = requestBody.SMS;
+    const whatsapp = requestBody.WhatsApp;
+    const messagebody = requestBody.MessageBody;
+    
+    
+    if(whatsapp == 'true')
+    {
+        console.log("<---------------------------------------------------This message is sent on whatsApp number of the user--------------------------------------------------->");
+    }
+    
+    
+    if(sms == 'true')
+    {
     const client = require('twilio')(accountSid, authToken);
     console.log(to);
     client.messages
@@ -193,6 +205,8 @@ exports.execute = function(req, res) {
 //console.log("we have inserted the tracking data in to the DE");
                     
         } } );
+        
+    }
         
     logData(req);
     res.send(200, 'Publish');
