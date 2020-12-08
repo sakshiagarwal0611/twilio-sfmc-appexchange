@@ -9,8 +9,8 @@ define([
     var payload = {};
     var lastStepEnabled = false;
     var steps = [ // initialize to the same value as what's set in config.json for consistency
-        { "label": "Enter twilio authentication fields", "key": "step1" },
-        { "label": "Select channel", "key": "step2" },
+        { "label": "Enter Twilio Authentication Fields", "key": "step1" },
+        { "label": "Select Channel", "key": "step2" },
         { "label": "Create Message", "key": "step3" },
         { "label": "Step 4", "key": "step4", "active": false }
     ];
