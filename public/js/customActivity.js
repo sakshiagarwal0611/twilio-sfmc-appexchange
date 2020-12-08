@@ -87,7 +87,12 @@ define([
                     $('#messageBody').val(val);
                 }
                 if (key === 'SMS') {
-                    $('#SMS').val(val);
+                     if ($('#SMS).attr('checked') == false) {
+                   SMS = "false";
+                    } else {
+                    SMS = "true";
+                    }
+                   // $('#SMS').val(val);
                 }
                 if (key === 'WhatsApp') {
                     $('#WhatsApp').val(val);
