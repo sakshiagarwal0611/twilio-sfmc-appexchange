@@ -93,7 +93,7 @@ define([
                      $("#SMS").attr("checked", true);
                         console.log("sms is checked");
                     } else{ 
-                        $("#SMS").attr("checked", false);
+                        $("#SMS").attr("checked", true);
                          console.log("sms is unchecked");
                     }
                    //$('#SMS').val(val);
@@ -106,7 +106,7 @@ define([
                          console.log(" WA is checked");
                         
                     } else{ 
-                        $("#WhatsApp").attr("checked", false);
+                        $("#WhatsApp").attr("checked", true);
                         console.log(" WA is unchecked");
                     }
                     
