@@ -88,12 +88,24 @@ define([
                 }
                 if (key === 'SMS') {
                     console.log("sms---------------->" + val);
-                     $("#SMS").is(":checked");
+                    if(val == "true")
+                    {
+                     $("#SMS").prop("checked", true);
+                    } else{ 
+                        $("#SMS").prop("checked", false);
+                    }
                    //$('#SMS').val(val);
                 }
                 if (key === 'WhatsApp') {
                     console.log("WhatsApp---------------->" + val);
-                    $("#WhatsApp").is(":checked");
+                    if(val == "true")
+                    {
+                     $("#WhatsApp").prop("checked", true);
+                    } else{ 
+                        $("#WhatsApp").prop("checked", false);
+                    }
+                    
+                   // $("#WhatsApp").is(":checked");
                     //$('#WhatsApp').val(val);
                 }
                 if (key === 'MessageBody') {
