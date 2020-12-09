@@ -90,9 +90,11 @@ define([
                     console.log("sms---------------->" + val);
                     if(val == "true")
                     {
-                     $("#SMS").prop("checked", true);
+                     $("#SMS").attr("checked", true);
+                        console.log("sms is checked");
                     } else{ 
-                        $("#SMS").prop("checked", false);
+                        $("#SMS").attr("checked", false);
+                         console.log("sms is unchecked");
                     }
                    //$('#SMS').val(val);
                 }
@@ -100,9 +102,12 @@ define([
                     console.log("WhatsApp---------------->" + val);
                     if(val == "true")
                     {
-                     $("#WhatsApp").prop("checked", true);
+                     $("#WhatsApp").attr("checked", true);
+                         console.log(" WA is checked");
+                        
                     } else{ 
-                        $("#WhatsApp").prop("checked", false);
+                        $("#WhatsApp").attr("checked", false);
+                        console.log(" WA is unchecked");
                     }
                     
                    // $("#WhatsApp").is(":checked");
