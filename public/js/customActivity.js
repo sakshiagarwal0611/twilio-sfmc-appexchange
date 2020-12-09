@@ -222,7 +222,7 @@ define([
                          sms =   $('#SMS').val('true');
                     }
         
-)
+
         payload['arguments'].execute.inArguments = [{
             "accountSid": accountSid,
             "authToken": authToken,
