@@ -103,11 +103,16 @@ exports.execute = function(req, res) {
     const from = requestBody.messagingService;
     const body = requestBody.body;
     const sms = "true";
-          //requestBody.SMS;
+       const sms2 =   requestBody.SMS;
     const whatsapp = "true";
-          //requestBody.WhatsApp;
+      const whatsapp2 = requestBody.WhatsApp;
     const messagebody = requestBody.MessageBody;
     
+    
+    
+    console.log(sms2);
+     console.log(whatsapp2);
+    console.log(messagebody);
     
     if(whatsapp == "true")
     {
@@ -121,7 +126,7 @@ exports.execute = function(req, res) {
     console.log(to);
     client.messages
         .create({
-            body: body,
+            body: messagebody,
             statusCallback: "https://encwq9bqo98l04z.m.pipedream.net/",
             from: '+12058914350',
             to: '+91' + to
