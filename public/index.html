@@ -154,6 +154,11 @@
 		<a href="javascript:void(0)" onclick="format('bold')"><span class="fa fa-bold fa-fw"></span></a>
 		<a href="javascript:void(0)" onclick="format('italic')"><span class="fa fa-italic fa-fw"></span></a>
 		<a href="javascript:void(0)" onclick="format('insertunorderedlist')"><span class="fa fa-list fa-fw"></span></a>
+	        <select id="ps">
+			<option value="1">{{Contact.Default.EmailAddress}}</option>
+			<option value="2">{{Contact.Attribute.TwilioV1.TwilioNumber}}</option>
+	        </select>
+	    
 		<!-- <a href="javascript:void(0)" onclick="setUrl()"><span class="fa fa-link fa-fw"></span></a>
 		<span><input id="txtFormatUrl" placeholder="url" class="form-control"></span> -->
 </div>
