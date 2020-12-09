@@ -87,10 +87,12 @@ define([
                     $('#messageBody').val(val);
                 }
                 if (key === 'SMS') {
+                    console.log("sms---------------->" + val);
                      $("#SMS").is(":checked");
                    //$('#SMS').val(val);
                 }
                 if (key === 'WhatsApp') {
+                    console.log("WhatsApp---------------->" + val);
                     $("#WhatsApp").is(":checked");
                     //$('#WhatsApp').val(val);
                 }
