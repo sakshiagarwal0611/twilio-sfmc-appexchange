@@ -90,7 +90,7 @@ define([
                     console.log("sms---------------->" + val);
                     const boolval = val;
                     console.log("boolval-------------------->" + boolval);
-                    if(boolval == "true")
+                    if(boolval == true)
                     {
                      $("#SMS").attr("checked", true);
                         console.log("sms is checked");
@@ -104,7 +104,7 @@ define([
                     console.log("WhatsApp---------------->" + val);
                     const boolval = val;
                     console.log("boolval-------------------->" + boolval);
-                    if(boolval == "true")
+                    if(boolval == true)
                     {
                      $("#WhatsApp").attr("checked", true);
                          console.log(" WA is checked");
