@@ -88,25 +88,29 @@ define([
                 }
                 if (key === 'SMS') {
                     console.log("sms---------------->" + val);
-                    if(val == "true")
+                    const boolval = val;
+                    console.log("boolval-------------------->" + boolval);
+                    if(boolval == "true")
                     {
                      $("#SMS").attr("checked", true);
                         console.log("sms is checked");
                     } else{ 
-                        $("#SMS").attr("checked", true);
+                        $("#SMS").attr("checked", false);
                          console.log("sms is unchecked");
                     }
                    //$('#SMS').val(val);
                 }
                 if (key === 'WhatsApp') {
                     console.log("WhatsApp---------------->" + val);
-                    if(val == "true")
+                    const boolval = val;
+                    console.log("boolval-------------------->" + boolval);
+                    if(boolval == "true")
                     {
                      $("#WhatsApp").attr("checked", true);
                          console.log(" WA is checked");
                         
                     } else{ 
-                        $("#WhatsApp").attr("checked", true);
+                        $("#WhatsApp").attr("checked", false);
                         console.log(" WA is unchecked");
                     }
                     
