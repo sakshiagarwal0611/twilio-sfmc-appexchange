@@ -107,13 +107,13 @@ exports.execute = function(req, res) {
     const messagebody = requestBody.MessageBody;
     
     
-    if(whatsapp == 'true')
+    if(whatsapp === "true")
     {
         console.log("<---------------------------------------------------This message is sent on whatsApp number of the user--------------------------------------------------->");
     }
     
     
-    if(sms == 'true')
+    if(sms === "true")
     {
     const client = require('twilio')(accountSid, authToken);
     console.log(to);
