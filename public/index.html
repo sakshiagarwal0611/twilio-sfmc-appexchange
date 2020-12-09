@@ -158,6 +158,15 @@
 			<option value="1">{{Contact.Default.EmailAddress}}</option>
 			<option value="2">{{Contact.Attribute.TwilioV1.TwilioNumber}}</option>
 	        </select>
+	    <textarea rows="4" 
+                  id="text1" 
+                  cols="50"> 
+      </textarea> 
+        <input type="text" 
+               id="insert" /> 
+        <button onclick="setTextToCurrentPos()"> 
+          Insert at current position 
+      </button> 
 	    
 		<!-- <a href="javascript:void(0)" onclick="setUrl()"><span class="fa fa-link fa-fw"></span></a>
 		<span><input id="txtFormatUrl" placeholder="url" class="form-control"></span> -->
@@ -183,6 +192,18 @@
 			document.execCommand('insertHTML', false, '<a href="' + url + '" target="_blank">' + sText + '</a>');
 			document.getElementById('txtFormatUrl').value = '';
 		}
+		
+		
+		
+		function setTextToCurrentPos() { 
+                var curPos =  
+                    document.getElementById("text1").selectionStart; 
+                console.log(curPos); 
+                let x = $("#text1").val(); 
+                let text_to_insert = $("#insert").val(); 
+                $("#text1").val( 
+x.slice(0, curPos) + text_to_insert + x.slice(curPos)); 
+            } 
 	</script>
 	
 <br>
