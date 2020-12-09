@@ -87,11 +87,12 @@ define([
                     $('#messageBody').val(val);
                 }
                 if (key === 'SMS') {
-                     
-                   // $('#SMS').val(val);
+                     $("#SMS").is(":checked");
+                   //$('#SMS').val(val);
                 }
                 if (key === 'WhatsApp') {
-                    $('#WhatsApp').val(val);
+                    $("#WhatsApp").is(":checked");
+                    //$('#WhatsApp').val(val);
                 }
                 if (key === 'MessageBody') {
                     $('#sampleeditor').val(val);
@@ -211,7 +212,7 @@ define([
         var authToken = $('#authToken').val();
         var messagingService = $('#messagingService').val();
         var body = $('#messageBody').val();
-        var sms = $("#SMS").is(":checked");;
+        var sms = $("#SMS").is(":checked");
         var whatsappsms = $("#WhatsApp").is(":checked");
             //$('#WhatsApp').val();
         var smsmessagebody = $('#sampleeditor').val();
