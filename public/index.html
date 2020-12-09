@@ -158,14 +158,14 @@
 		<span><input id="txtFormatUrl" placeholder="url" class="form-control"></span> -->
 </div>
 
-<div>
+<div id="sampleeditor" class="editor">
 	<textarea cols="60" rows="5" id="sampleeditor" name="message"class="editor"></textarea>
 	</div>
 
 	<script>
 		window.addEventListener('load', function(){
 			document.getElementById('sampleeditor').setAttribute('contenteditable', 'true');
-			//document.getElementById('sampleeditor2').setAttribute('contenteditable', 'true');
+			
         });
 
 		function format(command, value) {
