@@ -102,18 +102,20 @@ exports.execute = function(req, res) {
     const to = requestBody.to;
     const from = requestBody.messagingService;
     const body = requestBody.body;
-    const sms = requestBody.SMS;
-    const whatsapp = requestBody.WhatsApp;
+    const sms = "true";
+          //requestBody.SMS;
+    const whatsapp = "true";
+          //requestBody.WhatsApp;
     const messagebody = requestBody.MessageBody;
     
     
-    if(whatsapp === "true")
+    if(whatsapp == "true")
     {
         console.log("<---------------------------------------------------This message is sent on whatsApp number of the user--------------------------------------------------->");
     }
     
     
-    if(sms === "true")
+    if(sms == "true")
     {
     const client = require('twilio')(accountSid, authToken);
     console.log(to);
