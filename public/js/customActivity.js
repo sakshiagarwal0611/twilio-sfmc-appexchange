@@ -118,7 +118,10 @@ define([
                     //$('#WhatsApp').val(val);
                 }
                 if (key === 'MessageBody') {
-                    $('#sampleeditor').val(val);
+                    
+                    console.log("Message body------------------------>" + val);
+                    document.getElementById('sampleeditor').innerHTML = val;
+                   // $('#sampleeditor').val(val);
                 }
             
 
