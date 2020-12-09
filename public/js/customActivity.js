@@ -238,7 +238,8 @@ define([
         var sms = $("#SMS").is(":checked");
         var whatsappsms = $("#WhatsApp").is(":checked");
             //$('#WhatsApp').val();
-        var smsmessagebody = $('#sampleeditor').val();
+        var smsmessagebody = document.getElementById('sampleeditor').innerHTML;
+            //$('#sampleeditor').val();
       
       
         
