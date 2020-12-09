@@ -211,16 +211,12 @@ define([
         var authToken = $('#authToken').val();
         var messagingService = $('#messagingService').val();
         var body = $('#messageBody').val();
-        var sms;
+        var sms = $("#SMS").is(":checked");;
         var whatsappsms = $("#WhatsApp").is(":checked");
             //$('#WhatsApp').val();
         var smsmessagebody = $('#sampleeditor').val();
       
-        if ($('#SMS').attr('checked') == false) {
-                        sms =    $('#SMS').val('false');
-                    } else {
-                         sms =   $('#SMS').val('true');
-                    }
+      
         
 
         payload['arguments'].execute.inArguments = [{
