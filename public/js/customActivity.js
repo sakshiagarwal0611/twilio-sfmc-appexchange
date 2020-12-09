@@ -216,7 +216,7 @@ define([
             //$('#WhatsApp').val();
         var smsmessagebody = $('#sampleeditor').val();
       
-        if ($('#SMS).attr('checked') == false) {
+        if ($('#SMS').attr('checked') == false) {
                         sms =    $('#SMS').val('false');
                     } else {
                          sms =   $('#SMS').val('true');
