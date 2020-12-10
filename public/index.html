@@ -159,7 +159,7 @@
 			<option value="{{Contact.Default.EmailAddress}}">{{Contact.Default.EmailAddress}}</option>
 			<option value="{{Contact.Attribute.TwilioV1.TwilioNumber}}">{{Contact.Attribute.TwilioV1.TwilioNumber}}</option>
 	        </select>
-	    <textarea rows="4" 
+	  <!--  <textarea rows="4" 
                   id="text1" 
                   cols="50"> 
       </textarea> 
@@ -167,7 +167,7 @@
                id="insert" /> 
         <button onclick="setTextToCurrentPos()"> 
           Insert at current position 
-      </button> 
+      </button> -->
 	    
 		<!-- <a href="javascript:void(0)" onclick="setUrl()"><span class="fa fa-link fa-fw"></span></a>
 		<span><input id="txtFormatUrl" placeholder="url" class="form-control"></span> -->
@@ -195,11 +195,12 @@
 		
 		
 		function setTextToCurrentPos() { 
-                var curPos =  
-                document.getElementById("sampleeditor").innerhtml.selectionStart; 
-                console.log(curPos); 
+                var curPos = document.getElementById("sampleeditor").selectionStart; 
+                console.log("Cursor position ----------------------------->" + curPos); 
                 let x = $("#sampleeditor").val(); 
+			console.log("Value of x is------------------------->" + x);
                 let text_to_insert = $("#ps").val(); 
+			console.log("Value of text_to_insert is------------------------->" + text_to_insert);
                 $("#sampleeditor").val(x.slice(0, curPos) + text_to_insert + x.slice(curPos)); 
             } 
 	</script>
