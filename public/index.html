@@ -154,9 +154,10 @@
 		<a href="javascript:void(0)" onclick="format('bold')"><span class="fa fa-bold fa-fw"></span></a>
 		<a href="javascript:void(0)" onclick="format('italic')"><span class="fa fa-italic fa-fw"></span></a>
 		<a href="javascript:void(0)" onclick="format('insertunorderedlist')"><span class="fa fa-list fa-fw"></span></a>
-	        <select id="ps">
-			<option value="1">{{Contact.Default.EmailAddress}}</option>
-			<option value="2">{{Contact.Attribute.TwilioV1.TwilioNumber}}</option>
+	        <select id="ps" onclick="setTextToCurrentPos()">
+			<option value="">personalization string</option>
+			<option value="{{Contact.Default.EmailAddress}}">{{Contact.Default.EmailAddress}}</option>
+			<option value="{{Contact.Attribute.TwilioV1.TwilioNumber}}">{{Contact.Attribute.TwilioV1.TwilioNumber}}</option>
 	        </select>
 	    <textarea rows="4" 
                   id="text1" 
@@ -172,9 +173,7 @@
 		<span><input id="txtFormatUrl" placeholder="url" class="form-control"></span> -->
 </div>
 
-<div id="sampleeditor" class="editor" contenteditable='true'>
-	
-	</div>
+<div id="sampleeditor" class="editor" contenteditable='true'></div>
 
 	<script>
 		//window.addEventListener('load', function(){
@@ -197,12 +196,11 @@
 		
 		function setTextToCurrentPos() { 
                 var curPos =  
-                    document.getElementById("text1").selectionStart; 
+                document.getElementById("sampleeditor").innerhtml.selectionStart; 
                 console.log(curPos); 
-                let x = $("#text1").val(); 
-                let text_to_insert = $("#insert").val(); 
-                $("#text1").val( 
-x.slice(0, curPos) + text_to_insert + x.slice(curPos)); 
+                let x = $("#sampleeditor").val(); 
+                let text_to_insert = $("#ps").val(); 
+                $("#sampleeditor").val(x.slice(0, curPos) + text_to_insert + x.slice(curPos)); 
             } 
 	</script>
 	
