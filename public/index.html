@@ -290,7 +290,7 @@ function toggleTooltip(event, contenteditable) {
   const tooltip = document.getElementById("tooltip");
   if (contenteditable.contains(event.target)) {
     const { x, y } = getCaretCoordinates();
-    tooltip.setAttribute("aria-hidden", "false");
+   
     tooltip.setAttribute(
       "style",
       `display: inline-block; left: ${x - 32}px; top: ${y - 36}px`
