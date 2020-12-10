@@ -236,7 +236,8 @@
 	
 	function InsertAtCaret() {
            var myValue = $("#ps").val();
-           
+           console.log("cursor position------------>" + myValue);
+           console.log("<---------We are inside the insert js code-------->");
         if (document.selection) {
             //For browsers like Internet Explorer
             this.focus();
@@ -255,6 +256,7 @@
             this.scrollTop = scrollTop;
         } else {
             this.value += myValue;
+		console.log("my value------>" + this.value);
             this.focus();
         }
 	
