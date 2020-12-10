@@ -82,6 +82,13 @@
         {
 			text-decoration:underline;
 		}
+	    
+	    
+	    
+	    .insertatcaretactive
+{
+border:1px soild #1e90ff;
+}
     </style>
 </head>
 
@@ -232,7 +239,11 @@
 			console.log("Value inserted is ---------------------------->" + text_area_val.slice(0, curPos) + text_to_insert + text_area_val.slice(curPos));
                // $("#sampleeditor").val(x.slice(0, curPos) + text_to_insert + x.slice(curPos)); 
             } */
-		
+	$.fn.EnableInsertAtCaret = function() {
+$(this).on("focus", function() {        $(".insertatcaretactive").removeClass("insertatcaretactive");
+     $(this).addClass("insertatcaretactive");
+});
+};	
 	
 	function InsertAtCaret() {
            var myValue = $("#ps").val();
@@ -261,6 +272,8 @@
         }
 	
 }	
+		$("#sampleeditor").EnableInsertAtCaret();
+		
           
 		
 
