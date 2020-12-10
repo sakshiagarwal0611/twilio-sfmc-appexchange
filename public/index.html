@@ -196,7 +196,12 @@
 </div>
 
 <div id="sampleeditor" class="editor" contenteditable='true'></div>
-
+	<div id="contenteditable" contenteditable="true">Hello, I am a <strong>Container</strong> with <a href="/">a lot of interesting <i>things</i></a> inside.<br />Finding the cursor must be hard<sup>2</sup>, right?</div>
+div id="indexHint">
+        <p>Cursor Index: <span id="caretIndex">–</span></p>
+      </div>
+    </div>
+    
 	<script>
 		//window.addEventListener('load', function(){
 		//	document.getElementById('sampleeditor').setAttribute('contenteditable', 'true');
@@ -232,59 +237,89 @@
                // $("#sampleeditor").val(x.slice(0, curPos) + text_to_insert + x.slice(curPos)); 
             } 
 		
-		function InsertAtCaret(myValue) {
-
-    return $(".insertatcaretactive").each(function(i) {
-        if (document.selection) {
-            //For browsers like Internet Explorer
-            this.focus();
-            sel = document.selection.createRange();
-            sel.text = myValue;
-            this.focus();
-        } else if (this.selectionStart || this.selectionStart == '0') {
-            //For browsers like Firefox and Webkit based
-            var startPos = this.selectionStart;
-            var endPos = this.selectionEnd;
-            var scrollTop = this.scrollTop;
-            this.value = this.value.substring(0, startPos) + myValue + this.value.substring(endPos, this.value.length);
-            this.focus();
-            this.selectionStart = startPos + myValue.length;
-            this.selectionEnd = startPos + myValue.length;
-            this.scrollTop = scrollTop;
-        } else {
-            this.value += myValue;
-            this.focus();
-        }
-    })
-}
+	
 		
           
 		
-	/*	function  getCaretPosition() {
-if (window.getSelection && window.getSelection().getRangeAt) {
-                var range = window.getSelection().getRangeAt(0);
-                var selectedObj = window.getSelection();
-                var rangeCount = 0;
-                var childNodes = selectedObj.anchorNode.parentNode.childNodes;
-                for (var i = 0; i < childNodes.length; i++) {
-                    if (childNodes[i] == selectedObj.anchorNode) {
-                        break;
-                    }
-                    if (childNodes[i].outerHTML)
-                        rangeCount += childNodes[i].outerHTML.length;
-                    else if (childNodes[i].nodeType == 3) {
-                        rangeCount += childNodes[i].textContent.length;                       
-                    }
-                }
-                return range.startOffset + rangeCount;
-            }
-return -1;
-}*/
+function getCaretCoordinates() {
+  let x = 0,
+    y = 0;
+  const isSupported = typeof window.getSelection !== "undefined";
+  if (isSupported) {
+    const selection = window.getSelection();
+    // Check if there is a selection (i.e. cursor in place)
+    if (selection.rangeCount !== 0) {
+      // Clone the range
+      const range = selection.getRangeAt(0).cloneRange();
+      // Collapse the range to the start, so there are not multiple chars selected
+      range.collapse(true);
+      // getCientRects returns all the positioning information we need
+      const rect = range.getClientRects()[0];
+      if (rect) {
+        x = rect.left; // since the caret is only 1px wide, left == right
+        y = rect.top; // top edge of the caret
+      }
+    }
+  }
+  return { x, y };
+}
+
+function getCaretIndex(element) {
+  let position = 0;
+  const isSupported = typeof window.getSelection !== "undefined";
+  if (isSupported) {
+    const selection = window.getSelection();
+    // Check if there is a selection (i.e. cursor in place)
+    if (selection.rangeCount !== 0) {
+      // Store the original range
+      const range = window.getSelection().getRangeAt(0);
+      // Clone the range
+      const preCaretRange = range.cloneRange();
+      // Select all textual contents from the contenteditable element
+      preCaretRange.selectNodeContents(element);
+      // And set the range end to the original clicked position
+      preCaretRange.setEnd(range.endContainer, range.endOffset);
+      // Return the text length from contenteditable start to the range end
+      position = preCaretRange.toString().length;
+    }
+  }
+  return position;
+}
+
+function toggleTooltip(event, contenteditable) {
+  const tooltip = document.getElementById("tooltip");
+  if (contenteditable.contains(event.target)) {
+    const { x, y } = getCaretCoordinates();
+    tooltip.setAttribute("aria-hidden", "false");
+    tooltip.setAttribute(
+      "style",
+      `display: inline-block; left: ${x - 32}px; top: ${y - 36}px`
+    );
+  } else {
+    tooltip.setAttribute("aria-hidden", "true");
+    tooltip.setAttribute("style", "display: none;");
+  }
+}
+
+function updateIndex(event, element) {
+  const textPosition = document.getElementById("caretIndex");
+  if (element.contains(event.target)) {
+    textPosition.innerText = getCaretIndex(element).toString();
+  } else {
+    textPosition.innerText = "–";
+  }
+}
+
+const editable = document.getElementById("contenteditable");
+document.addEventListener("click", (e) => toggleTooltip(e, editable));
+document.addEventListener("click", (e) => updateIndex(e, editable));
+document.addEventListener("keyup", (e) => toggleTooltip(e, editable));
+document.addEventListener("keyup", (e) => updateIndex(e, editable));
 	</script>
 	
 <br>
 	<br>
-	
+</script>	
 	
 	
 <!-- Lightning text editor -->	
