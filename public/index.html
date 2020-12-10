@@ -218,7 +218,7 @@
 		
 		function setTextToCurrentPos() { 
                 var curPos =  5;
-		var cur = getCaretPosition();	
+		var cur = getCaretIndex('sampleeditor');	
 			console.log("Cursor position 2  ----------------------------->" + cur); 
  		    //document.getElementById('sampleeditor').innerHTML.selectionStart; 
                 console.log("Cursor position ----------------------------->" + curPos); 
@@ -230,7 +230,25 @@
                // $("#sampleeditor").val(x.slice(0, curPos) + text_to_insert + x.slice(curPos)); 
             } 
 		
-		function  getCaretPosition() {
+		
+		
+             function getCaretIndex(element) {
+		  let position = 0;
+		  const isSupported = typeof window.getSelection !== "undefined";
+		  if (isSupported) {
+		    const selection = window.getSelection();
+		    if (selection.rangeCount !== 0) {
+		      const range = window.getSelection().getRangeAt(0);
+		      const preCaretRange = range.cloneRange();
+		      preCaretRange.selectNodeContents(element);
+		      preCaretRange.setEnd(range.endContainer, range.endOffset);
+		      position = preCaretRange.toString().length;
+		    }
+		  }
+		  return position;
+		}
+		
+	/*	function  getCaretPosition() {
 if (window.getSelection && window.getSelection().getRangeAt) {
                 var range = window.getSelection().getRangeAt(0);
                 var selectedObj = window.getSelection();
@@ -249,7 +267,7 @@ if (window.getSelection && window.getSelection().getRangeAt) {
                 return range.startOffset + rangeCount;
             }
 return -1;
-}
+}*/
 	</script>
 	
 <br>
