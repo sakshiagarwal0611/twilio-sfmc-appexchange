@@ -159,7 +159,7 @@
 		  
 		  <div class="slds-form-element__control">
 		    <div class="slds-select_container">
-		      <select class="slds-select">
+		      <select class="slds-select" onclick="updateIndex('sampleeditor')">
 			
 			<option value="{{Contact.Default.EmailAddress}}" id="ps">Email</option>
 			<option value="{{Contact.Attribute.TwilioV1.TwilioNumber}}">Phone number</option>
@@ -193,7 +193,7 @@
 			document.execCommand(command, false, value);
 		}
 
-		function setTextToCurrentPos() { 
+	/*	function setTextToCurrentPos() { 
                 var curPos = getCaretIndex('sampleeditor');	
 			
                 console.log("Cursor position ----------------------------->" + curPos); 
@@ -204,7 +204,7 @@
 			document.getElementById('sampleeditor').innerHTML = text_area_val.slice(0, curPos) + text_to_insert + text_area_val.slice(curPos);
 			console.log("Value inserted is ---------------------------->" + text_area_val.slice(0, curPos) + text_to_insert + text_area_val.slice(curPos));
                // $("#sampleeditor").val(x.slice(0, curPos) + text_to_insert + x.slice(curPos)); 
-            } 
+            } */
 		
 		
 		function getCaretCoordinates() {
@@ -254,13 +254,13 @@ function getCaretIndex(element) {
 
 
 
-function updateIndex(event, element) {
+function updateIndex(element) {
   const textPosition = document.getElementById("caretIndex");
-  if (element.contains(event.target)) {
+ /* if (element.contains(event.target)) {
     textPosition.innerText = getCaretIndex(element).toString();
   } else {
     textPosition.innerText = "–";
-  }
+  }*/
 	 var curPos = getCaretIndex(element).toString();	
 			
                 console.log("Cursor position ----------------------------->" + curPos); 
@@ -274,9 +274,9 @@ function updateIndex(event, element) {
 
 const editable = document.getElementById("sampleeditor");
 //document.addEventListener("click", (e) => toggleTooltip(e, editable));
-document.addEventListener("click", (e) => updateIndex(e, editable));
+//document.addEventListener("click", (e) => updateIndex(e, editable));
 //document.addEventListener("keyup", (e) => toggleTooltip(e, editable));
-document.addEventListener("keyup", (e) => updateIndex(e, editable));
+//document.addEventListener("keyup", (e) => updateIndex(e, editable));
 
 </script>	
 	
