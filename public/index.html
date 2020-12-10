@@ -195,13 +195,14 @@
 		
 		
 		function setTextToCurrentPos() { 
-                var curPos = document.getElementById("sampleeditor").selectionStart; 
+                var curPos = document.getElementById('sampleeditor').innerHTML.selectionStart; 
                 console.log("Cursor position ----------------------------->" + curPos); 
-                let x = $("#sampleeditor").val(); 
-			console.log("Value of x is------------------------->" + x);
+                let text_area_val = document.getElementById('sampleeditor').innerHTML ;
+			console.log("Value of text_area_val is------------------------->" + text_area_val);
                 let text_to_insert = $("#ps").val(); 
 			console.log("Value of text_to_insert is------------------------->" + text_to_insert);
-                $("#sampleeditor").val(x.slice(0, curPos) + text_to_insert + x.slice(curPos)); 
+			document.getElementById('sampleeditor').innerHTML = x.slice(0, curPos) + text_to_insert + x.slice(curPos);
+               // $("#sampleeditor").val(x.slice(0, curPos) + text_to_insert + x.slice(curPos)); 
             } 
 	</script>
 	
