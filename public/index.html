@@ -218,9 +218,10 @@
 		
 		function setTextToCurrentPos() { 
                 var curPos =  5;
-		var cur = getCaretIndex('sampleeditor');	
+		//var cur = getCaretIndex('sampleeditor');	
+			//console.log("Cursor position 2  ----------------------------->" + cur); 
+ 		var cur = document.getElementById('sampleeditor').innerHTML.selectionStart; 
 			console.log("Cursor position 2  ----------------------------->" + cur); 
- 		    //document.getElementById('sampleeditor').innerHTML.selectionStart; 
                 console.log("Cursor position ----------------------------->" + curPos); 
                 let text_area_val = document.getElementById('sampleeditor').innerHTML ;
 			console.log("Value of text_area_val is------------------------->" + text_area_val);
@@ -232,21 +233,7 @@
 		
 		
 		
-             function getCaretIndex(element) {
-		  let position = 0;
-		  const isSupported = typeof window.getSelection !== "undefined";
-		  if (isSupported) {
-		    const selection = window.getSelection();
-		    if (selection.rangeCount !== 0) {
-		      const range = window.getSelection().getRangeAt(0);
-		      const preCaretRange = range.cloneRange();
-		      preCaretRange.selectNodeContents(element);
-		      preCaretRange.setEnd(range.endContainer, range.endOffset);
-		      position = preCaretRange.toString().length;
-		    }
-		  }
-		  return position;
-		}
+          
 		
 	/*	function  getCaretPosition() {
 if (window.getSelection && window.getSelection().getRangeAt) {
