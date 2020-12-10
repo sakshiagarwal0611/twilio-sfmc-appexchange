@@ -168,6 +168,7 @@
 		  </div>
 		</div>
 	     <!--    <select id="ps" onclick="setTextToCurrentPos()">
+			<optgroup label="Primary Attributes" disabled>
 			<option value="">personalization string</option>
 			<option value="{{Contact.Default.EmailAddress}}">{{Contact.Default.EmailAddress}}</option>
 			<option value="{{Contact.Attribute.TwilioV1.TwilioNumber}}">{{Contact.Default.EmailAddress}}</option>
@@ -204,8 +205,10 @@
 			document.execCommand('insertHTML', false, '<a href="' + url + '" target="_blank">' + sText + '</a>');
 			document.getElementById('txtFormatUrl').value = '';
 		}*/
-		
-		
+		 window.onload=function(){
+		 $('.scrollMe .dropdown-menu').scrollyou();
+		 };
+
 		
 		function setTextToCurrentPos() { 
                 var curPos =  5;
