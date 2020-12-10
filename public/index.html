@@ -82,13 +82,7 @@
         {
 			text-decoration:underline;
 		}
-	    
-	    
-	    
-	    .insertatcaretactive
-{
-border:1px soild #1e90ff;
-}
+	
     </style>
 </head>
 
@@ -174,57 +168,32 @@ border:1px soild #1e90ff;
 		    </div>
 		  </div>
 		</div>
-	    <div class="dropdown btn-group">
+	   <!-- <div class="dropdown btn-group">
 	    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">P<span class="fuelux-icon fuelux-icon-person"></span><span class="caret"></span></button>
              <ul class="dropdown-menu" role="menu">
              <li><a href="javascript:void(0)" onclick="setTextToCurrentPos(value)" value="{{Contact.Default.EmailAddress}}">Email</a></li>
              <li><a href="javascript:void(0)" onclick="setTextToCurrentPos(value)" value="{{Contact.Attribute.TwilioV1.TwilioNumber}}">Phone number</a></li>
              
             </ul>
-      	</div>		    
-	     <!--    <select id="ps" onclick="setTextToCurrentPos()">
-			<optgroup label="Primary Attributes" disabled>
-			<option value="">personalization string</option>
-			<option value="{{Contact.Default.EmailAddress}}">{{Contact.Default.EmailAddress}}</option>
-			<option value="{{Contact.Attribute.TwilioV1.TwilioNumber}}">{{Contact.Default.EmailAddress}}</option>
-	        </select>
-	   <textarea rows="4" 
-                  id="text1" 
-                  cols="50"> 
-      </textarea> 
-        <input type="text" 
-               id="insert" /> 
-        <button onclick="setTextToCurrentPos()"> 
-          Insert at current position 
-      </button> -->
+      	</div>		-->    
 	    
-		<!-- <a href="javascript:void(0)" onclick="setUrl()"><span class="fa fa-link fa-fw"></span></a>
-		<span><input id="txtFormatUrl" placeholder="url" class="form-control"></span> -->
+	       
 </div>
 
 <div id="sampleeditor" class="editor" contenteditable='true'></div>
-<input type="text" id="txtInput"  />	
-    <button id="test">Insert "Test" at Cursor position</button>
-	<script>
-		//window.addEventListener('load', function(){
-		//	document.getElementById('sampleeditor').setAttribute('contenteditable', 'true');
-			
-       // });
+	
+	<div id="indexHint">
+        <p>Cursor Index: <span id="caretIndex">–</span></p>
+      </div>
+    </div>
 
+	<script>
+		
 		function format(command, value) {
 			document.execCommand(command, false, value);
 		}
 
-		/*function setUrl() {
-			var url = document.getElementById('txtFormatUrl').value;
-			var sText = document.getSelection();
-			document.execCommand('insertHTML', false, '<a href="' + url + '" target="_blank">' + sText + '</a>');
-			document.getElementById('txtFormatUrl').value = '';
-		}*/
-		
-
-		
-		/*function setTextToCurrentPos() { 
+		function setTextToCurrentPos() { 
                 var curPos =  5;
 		var cur = getCaretIndex('sampleeditor');	
 			//console.log("Cursor position 2  ----------------------------->" + cur); 
@@ -238,209 +207,75 @@ border:1px soild #1e90ff;
 			document.getElementById('sampleeditor').innerHTML = text_area_val.slice(0, curPos) + text_to_insert + text_area_val.slice(curPos);
 			console.log("Value inserted is ---------------------------->" + text_area_val.slice(0, curPos) + text_to_insert + text_area_val.slice(curPos));
                // $("#sampleeditor").val(x.slice(0, curPos) + text_to_insert + x.slice(curPos)); 
-            } */
-	$.fn.EnableInsertAtCaret = function() {
-$(this).on("focus", function() {        $(".insertatcaretactive").removeClass("insertatcaretactive");
-     $(this).addClass("insertatcaretactive");
-});
-};	
-	
-	function InsertAtCaret(myvalue) {
-         //  var myValue = $("#ps").val();
-         // console.log("cursor position------------>" + myValue);
-           console.log("<---------We are inside the insert js code-------->");
-        if (document.selection) {
-            //For browsers like Internet Explorer
-            this.focus();
-            sel = document.selection.createRange();
-            sel.text = myValue;
-            this.focus();
-        } else if (this.selectionStart || this.selectionStart == '0') {
-            //For browsers like Firefox and Webkit based
-            var startPos = this.selectionStart;
-            var endPos = this.selectionEnd;
-            var scrollTop = this.scrollTop;
-            this.value = this.value.substring(0, startPos) + myValue + this.value.substring(endPos, this.value.length);
-            this.focus();
-            this.selectionStart = startPos + myValue.length;
-            this.selectionEnd = startPos + myValue.length;
-            this.scrollTop = scrollTop;
-        } else {
-            this.value += myValue;
-		console.log("my value------>" + this.value);
-            this.focus();
-        }
-	
-}	
-		$("#sampleeditor,#txtInput").EnableInsertAtCaret();
+            } 
 		
-          
-		$('#ps').click(function() {
-    InsertAtCaret('test');
-});
-		$('#test').click(function() {
-    InsertAtCaret('test');
-});
+		
+		function getCaretCoordinates() {
+  let x = 0,
+    y = 0;
+  const isSupported = typeof window.getSelection !== "undefined";
+  if (isSupported) {
+    const selection = window.getSelection();
+    // Check if there is a selection (i.e. cursor in place)
+    if (selection.rangeCount !== 0) {
+      // Clone the range
+      const range = selection.getRangeAt(0).cloneRange();
+      // Collapse the range to the start, so there are not multiple chars selected
+      range.collapse(true);
+      // getCientRects returns all the positioning information we need
+      const rect = range.getClientRects()[0];
+      if (rect) {
+        x = rect.left; // since the caret is only 1px wide, left == right
+        y = rect.top; // top edge of the caret
+      }
+    }
+  }
+  return { x, y };
+}
+
+function getCaretIndex(element) {
+  let position = 0;
+  const isSupported = typeof window.getSelection !== "undefined";
+  if (isSupported) {
+    const selection = window.getSelection();
+    // Check if there is a selection (i.e. cursor in place)
+    if (selection.rangeCount !== 0) {
+      // Store the original range
+      const range = window.getSelection().getRangeAt(0);
+      // Clone the range
+      const preCaretRange = range.cloneRange();
+      // Select all textual contents from the contenteditable element
+      preCaretRange.selectNodeContents(element);
+      // And set the range end to the original clicked position
+      preCaretRange.setEnd(range.endContainer, range.endOffset);
+      // Return the text length from contenteditable start to the range end
+      position = preCaretRange.toString().length;
+    }
+  }
+  return position;
+}
+
+
+
+function updateIndex(event, element) {
+  const textPosition = document.getElementById("caretIndex");
+  if (element.contains(event.target)) {
+    textPosition.innerText = getCaretIndex(element).toString();
+  } else {
+    textPosition.innerText = "–";
+  }
+}
+
+const editable = document.getElementById("contenteditable");
+//document.addEventListener("click", (e) => toggleTooltip(e, editable));
+document.addEventListener("click", (e) => updateIndex(e, editable));
+//document.addEventListener("keyup", (e) => toggleTooltip(e, editable));
+document.addEventListener("keyup", (e) => updateIndex(e, editable));
 
 </script>	
 	
 	
-<!-- Lightning text editor -->	
-	
-<!--	<div class="demo-only" style="min-height:180px">
-<div class="slds-form-element">
-<div class="slds-form-element__control">
-<div class="slds-rich-text-editor slds-grid slds-grid_vertical slds-nowrap">
-<div role="toolbar" class="slds-rich-text-editor__toolbar slds-shrink-none">
-<ul aria-label="Format text" class="slds-button-group-list">
-<li>
-<button class="slds-button slds-button_icon slds-button_icon-border-filled" tabindex="0">
-<svg class="slds-button__icon" aria-hidden="true">
-<use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#bold"></use>
-</svg>
-<span class="slds-assistive-text">Bold</span>
-</button>
-</li>
-<li>
-<button class="slds-button slds-button_icon slds-button_icon-border-filled" tabindex="-1">
-<svg class="slds-button__icon" aria-hidden="true">
-<use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#italic"></use>
-</svg>
-<span class="slds-assistive-text">Italic</span>
-</button>
-</li>
-<li>
-<button class="slds-button slds-button_icon slds-button_icon-border-filled" tabindex="-1">
-<svg class="slds-button__icon" aria-hidden="true">
-<use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#underline"></use>
-</svg>
-<span class="slds-assistive-text">Underline</span>
-</button>
-</li>
-<li>
-<button class="slds-button slds-button_icon slds-button_icon-border-filled" tabindex="-1">
-<svg class="slds-button__icon" aria-hidden="true">
-<use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#strikethrough"></use>
-</svg>
-<span class="slds-assistive-text">Strike Through</span>
-</button>
-</li>
-</ul>
-<ul aria-label="Format body" class="slds-button-group-list">
-<li>
-<button class="slds-button slds-button_icon slds-button_icon-border-filled" tabindex="-1">
-<svg class="slds-button__icon" aria-hidden="true">
-<use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#richtextbulletedlist"></use>
-</svg>
-<span class="slds-assistive-text">Bulleted List</span>
-</button>
-</li>
-<li>
-<button class="slds-button slds-button_icon slds-button_icon-border-filled" tabindex="-1">
-<svg class="slds-button__icon" aria-hidden="true">
-<use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#richtextnumberedlist"></use>
-</svg>
-<span class="slds-assistive-text">Numbered List</span>
-</button>
-</li>
-<li>
-<button class="slds-button slds-button_icon slds-button_icon-border-filled" tabindex="-1">
-<svg class="slds-button__icon" aria-hidden="true">
-<use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#richtextindent"></use>
-</svg>
-<span class="slds-assistive-text">Indent</span>
-</button>
-</li>
-<li>
-<button class="slds-button slds-button_icon slds-button_icon-border-filled" tabindex="-1">
-<svg class="slds-button__icon" aria-hidden="true">
-<use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#richtextoutdent"></use>
-</svg>
-<span class="slds-assistive-text">Outdent</span>
-</button>
-</li>
-</ul>
-<ul aria-label="Align text" class="slds-button-group-list">
-<li>
-<button class="slds-button slds-button_icon slds-button_icon-border-filled" tabindex="-1">
-<svg class="slds-button__icon" aria-hidden="true">
-<use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#left_align_text"></use>
-</svg>
-<span class="slds-assistive-text">Left Align Text</span>
-</button>
-</li>
-<li>
-<button class="slds-button slds-button_icon slds-button_icon-border-filled" tabindex="-1">
-<svg class="slds-button__icon" aria-hidden="true">
-<use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#center_align_text"></use>
-</svg>
-<span class="slds-assistive-text">Center Align Text</span>
-</button>
-</li>
-<li>
-<button class="slds-button slds-button_icon slds-button_icon-border-filled" tabindex="-1">
-<svg class="slds-button__icon" aria-hidden="true">
-<use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#right_align_text"></use>
-</svg>
-<span class="slds-assistive-text">Right Align Text</span>
-</button>
-</li>
-</ul>
-<ul aria-label="Insert content" class="slds-button-group-list">
-<li>
-<button class="slds-button slds-button_icon slds-button_icon-border-filled" tabindex="-1">
-<svg class="slds-button__icon" aria-hidden="true">
-<use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#emoji"></use>
-</svg>
-<span class="slds-assistive-text">Add Emoji</span>
-</button>
-</li>
-<li>
-<button class="slds-button slds-button_icon slds-button_icon-border-filled" tabindex="-1">
-<svg class="slds-button__icon" aria-hidden="true">
-<use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#image"></use>
-</svg>
-<span class="slds-assistive-text">Add Image</span>
-</button>
-</li>
-<li>
-<button class="slds-button slds-button_icon slds-button_icon-border-filled" tabindex="-1">
-<svg class="slds-button__icon" aria-hidden="true">
-<use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#link"></use>
-</svg>
-<span class="slds-assistive-text">Add Link</span>
-</button>
-</li>
-</ul>
-<ul aria-label="Add user" class="slds-button-group-list">
-<li>
-<button class="slds-button slds-button_icon slds-button_icon-border-filled" tabindex="-1">
-<svg class="slds-button__icon" aria-hidden="true">
-<use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#adduser"></use>
-</svg>
-<span class="slds-assistive-text">Add User</span>
-</button>
-</li>
-</ul>
-<ul aria-label="Remove Formatting" class="slds-button-group-list">
-<li>
-<button class="slds-button slds-button_icon slds-button_icon-border-filled" tabindex="-1">
-<svg class="slds-button__icon" aria-hidden="true">
-<use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#remove_formatting"></use>
-</svg>
-<span class="slds-assistive-text">Remove Formatting</span>
-</button>
-</li>
-</ul>
-</div>
-<div class="slds-rich-text-editor__textarea slds-grid">
-<div aria-label="Post to feed" contenteditable="true" class="slds-rich-text-area__content slds-text-color_weak slds-grow">Post to feed...</div>
-</div>
-</div>
-</div>
-</div>
-</div> -->	
-    
+
     
    <!-- <div>
     <div>
