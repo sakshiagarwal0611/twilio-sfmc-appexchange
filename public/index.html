@@ -196,11 +196,7 @@
 </div>
 
 <div id="sampleeditor" class="editor" contenteditable='true'></div>
-	<div id="contenteditable" contenteditable="true">Hello, I am a <strong>Container</strong> with <a href="/">a lot of interesting <i>things</i></a> inside.<br />Finding the cursor must be hard<sup>2</sup>, right?</div>
-div id="indexHint">
-        <p>Cursor Index: <span id="caretIndex">–</span></p>
-      </div>
-    </div>
+	
     
 	<script>
 		//window.addEventListener('load', function(){
@@ -239,8 +235,8 @@ div id="indexHint">
 		
 	
 	function InsertAtCaret() {
-var myValue = $("#ps").val();
-    return $(".insertatcaretactive").each(function(i) {
+           var myValue = $("#ps").val();
+           
         if (document.selection) {
             //For browsers like Internet Explorer
             this.focus();
@@ -261,7 +257,7 @@ var myValue = $("#ps").val();
             this.value += myValue;
             this.focus();
         }
-    })
+	
 }	
           
 		
