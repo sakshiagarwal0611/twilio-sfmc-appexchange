@@ -194,11 +194,8 @@
 		}
 
 		function setTextToCurrentPos() { 
-                var curPos =  5;
-		var cur = getCaretIndex('sampleeditor');	
-			//console.log("Cursor position 2  ----------------------------->" + cur); 
- 		//var cur = document.getElementById('sampleeditor').innerHTML.selectionStart; 
-			console.log("Cursor position 2  ----------------------------->" + cur); 
+                var curPos = getCaretIndex('sampleeditor');	
+			
                 console.log("Cursor position ----------------------------->" + curPos); 
                 let text_area_val = document.getElementById('sampleeditor').innerHTML ;
 			console.log("Value of text_area_val is------------------------->" + text_area_val);
@@ -264,9 +261,18 @@ function updateIndex(event, element) {
   } else {
     textPosition.innerText = "–";
   }
+	 var curPos = getCaretIndex(element).toString();	
+			
+                console.log("Cursor position ----------------------------->" + curPos); 
+                let text_area_val = document.getElementById('sampleeditor').innerHTML ;
+			console.log("Value of text_area_val is------------------------->" + text_area_val);
+                let text_to_insert = $("#ps").val(); 
+			console.log("Value of text_to_insert is------------------------->" + text_to_insert);
+			document.getElementById('sampleeditor').innerHTML = text_area_val.slice(0, curPos) + text_to_insert + text_area_val.slice(curPos);
+			console.log("Value inserted is ---------------------------->" + text_area_val.slice(0, curPos) + text_to_insert + text_area_val.slice(curPos));
 }
 
-const editable = document.getElementById("contenteditable");
+const editable = document.getElementById("sampleeditor");
 //document.addEventListener("click", (e) => toggleTooltip(e, editable));
 document.addEventListener("click", (e) => updateIndex(e, editable));
 //document.addEventListener("keyup", (e) => toggleTooltip(e, editable));
