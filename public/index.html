@@ -203,7 +203,7 @@ border:1px soild #1e90ff;
 </div>
 
 <div id="sampleeditor" class="editor" contenteditable='true'></div>
-	
+<input type="text" id="txtInput"  />	
     
 	<script>
 		//window.addEventListener('load', function(){
@@ -272,7 +272,7 @@ $(this).on("focus", function() {        $(".insertatcaretactive").removeClass("i
         }
 	
 }	
-		$("#sampleeditor").EnableInsertAtCaret();
+		$("#sampleeditor,#txtInput").EnableInsertAtCaret();
 		
           
 		$('#ps').click(function() {
