@@ -111,13 +111,26 @@ exports.execute = function(req, res) {
     
     
     console.log(sms2);
-     console.log(whatsapp2);
+    console.log(whatsapp2);
     console.log(messagebody);
     
     if(whatsapp == "true")
     {
+        
         console.log("<---------------------------------------------------This message is sent on whatsApp number of the user--------------------------------------------------->");
+       /* const client = require('twilio')(accountSid, authToken);
+        console.log(to);
+        client.messages
+        .create({
+            body: "hello there, this is my first whatsapp message",
+            from: 'whatsapp:+14155238886',
+            to: 'whatsapp:+91' + to
+        })
+          .then(message => console.log(message.sid)) 
+          .done();*/
+    
     }
+   
     
     
     if(sms == "true")
