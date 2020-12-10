@@ -154,12 +154,25 @@
 		<a href="javascript:void(0)" onclick="format('bold')"><span class="fa fa-bold fa-fw"></span></a>
 		<a href="javascript:void(0)" onclick="format('italic')"><span class="fa fa-italic fa-fw"></span></a>
 		<a href="javascript:void(0)" onclick="format('insertunorderedlist')"><span class="fa fa-list fa-fw"></span></a>
-	        <select id="ps" onclick="setTextToCurrentPos()">
+	    <div class="slds-form-element">
+		  
+		  <div class="slds-form-element__control">
+		    <div class="slds-select_container">
+		      <select class="slds-select" id="ps">
+			<option value="" >PS icon/option>
+			<option value="{{Contact.Default.EmailAddress}}" onclick="setTextToCurrentPos()">{{Contact.Default.EmailAddress}}</option>
+			<option value="{{Contact.Default.EmailAddress}}" onclick="setTextToCurrentPos()">{{Contact.Default.EmailAddress}}</option>
+			
+		      </select>
+		    </div>
+		  </div>
+		</div>
+	     <!--    <select id="ps" onclick="setTextToCurrentPos()">
 			<option value="">personalization string</option>
 			<option value="{{Contact.Default.EmailAddress}}">{{Contact.Default.EmailAddress}}</option>
-			<option value="{{Contact.Attribute.TwilioV1.TwilioNumber}}">{{Contact.Attribute.TwilioV1.TwilioNumber}}</option>
+			<option value="{{Contact.Attribute.TwilioV1.TwilioNumber}}">{{Contact.Default.EmailAddress}}</option>
 	        </select>
-	  <!--  <textarea rows="4" 
+	   <textarea rows="4" 
                   id="text1" 
                   cols="50"> 
       </textarea> 
