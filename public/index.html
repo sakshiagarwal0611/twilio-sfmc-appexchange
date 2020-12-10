@@ -204,7 +204,7 @@ border:1px soild #1e90ff;
 
 <div id="sampleeditor" class="editor" contenteditable='true'></div>
 <input type="text" id="txtInput"  />	
-    
+    <button id="test">Insert "Test" at Cursor position</button>
 	<script>
 		//window.addEventListener('load', function(){
 		//	document.getElementById('sampleeditor').setAttribute('contenteditable', 'true');
@@ -276,6 +276,9 @@ $(this).on("focus", function() {        $(".insertatcaretactive").removeClass("i
 		
           
 		$('#ps').click(function() {
+    InsertAtCaret('test');
+});
+		$('#test').click(function() {
     InsertAtCaret('test');
 });
 
