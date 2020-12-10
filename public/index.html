@@ -167,7 +167,7 @@ border:1px soild #1e90ff;
 		    <div class="slds-select_container">
 		      <select class="slds-select">
 			
-			<option value="{{Contact.Default.EmailAddress}}" id="ps" onclick="InsertAtCaret()">Email</option>
+			<option value="{{Contact.Default.EmailAddress}}" id="ps">Email</option>
 			<option value="{{Contact.Attribute.TwilioV1.TwilioNumber}}">Phone number</option>
 			
 		      </select>
@@ -245,8 +245,8 @@ $(this).on("focus", function() {        $(".insertatcaretactive").removeClass("i
 });
 };	
 	
-	function InsertAtCaret() {
-           var myValue = $("#ps").val();
+	function InsertAtCaret(myvalue) {
+         //  var myValue = $("#ps").val();
            console.log("cursor position------------>" + myValue);
            console.log("<---------We are inside the insert js code-------->");
         if (document.selection) {
@@ -275,7 +275,9 @@ $(this).on("focus", function() {        $(".insertatcaretactive").removeClass("i
 		$("#sampleeditor").EnableInsertAtCaret();
 		
           
-		
+		$('#ps').click(function() {
+    InsertAtCaret('test');
+});
 
 </script>	
 	
