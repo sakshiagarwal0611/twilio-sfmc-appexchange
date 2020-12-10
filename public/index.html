@@ -167,13 +167,14 @@
 		    </div>
 		  </div>
 		</div>
-	    
-	    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">PS<span class="caret"></span></button>
+	    <div class="dropdown btn-group">
+	    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">P<span class="fuelux-icon fuelux-icon-person"></span><span class="caret"></span></button>
              <ul class="dropdown-menu" role="menu">
              <li><a href="javascript:void(0)" onclick="setTextToCurrentPos(value)" value="{{Contact.Default.EmailAddress}}">Email</a></li>
-             <li><a href="javascript:void(0)" onclick="setTextToCurrentPos()" value="{{Contact.Attribute.TwilioV1.TwilioNumber}}">Phone number</a></li>
+             <li><a href="javascript:void(0)" onclick="setTextToCurrentPos(value)" value="{{Contact.Attribute.TwilioV1.TwilioNumber}}">Phone number</a></li>
              
             </ul>
+      	</div>		    
 	     <!--    <select id="ps" onclick="setTextToCurrentPos()">
 			<optgroup label="Primary Attributes" disabled>
 			<option value="">personalization string</option>
