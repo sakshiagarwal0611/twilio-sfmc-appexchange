@@ -194,10 +194,10 @@
 		  
 		  <div class="slds-form-element__control">
 		    <div class="slds-select_container">
-		      <select class="slds-select" onclick="setTextToCurrentPos()">
+		      <select class="slds-select" id="ps" onclick="setTextToCurrentPos()">
 			
-			<option value="{{Contact.Default.EmailAddress}}" id="ps">Email</option>
-			<option value="{{Contact.Attribute.TwilioV1.TwilioNumber}}">Phone number</option>
+			<option value="{{Contact.Default.EmailAddress}}" id="ps1">Email</option>
+			<option value="{{Contact.Attribute.TwilioV1.TwilioNumber}}" id="ps2"> Phone number</option>
 			
 		      </select>
 		    </div>
@@ -210,7 +210,7 @@
              <li><a href="javascript:void(0)" onclick="setTextToCurrentPos(value)" value="{{Contact.Attribute.TwilioV1.TwilioNumber}}">Phone number</a></li>
              
             </ul>
-      	</div>		-->    
+</div>-->    
 	    
 	       
 </div>
@@ -230,6 +230,32 @@
 		function execVal(command, value) {
 		       document.execCommand(command, false, value);
 		}
+		
+		
+		$.fn.EnableInsertAtCaret = function() {
+		$(this).on("focus", function() {        $(".insertatcaretactive").removeClass("insertatcaretactive");
+		     $(this).addClass("insertatcaretactive");
+		});
+		};
+		function insertTextAtCaret(text) {
+		    var sel, range;
+		    if (window.getSelection) {
+			sel = window.getSelection();
+			if (sel.getRangeAt && sel.rangeCount) {
+			    range = sel.getRangeAt(0);
+			    range.deleteContents();
+			    range.insertNode( document.createTextNode(text) );
+			}
+		    } else if (document.selection && document.selection.createRange) {
+			document.selection.createRange().text = text;
+		    }
+		}
+		$("#sampleeditor").EnableInsertAtCaret();
+		$('#ps1').click(function() {
+		    insertTextAtCaret('test');
+		    console.log("hey");
+		});
+
 
 		/*function setTextToCurrentPos() { 
                 var curPos = getCaretIndex('sampleeditor');	
@@ -244,7 +270,7 @@
                // $("#sampleeditor").val(x.slice(0, curPos) + text_to_insert + x.slice(curPos)); 
             } */
 		
-function getCaretPosition(editableDiv) {
+/* function getCaretPosition(editableDiv) {
 	  var caretPos = 0,
 	    sel, range;
 	  if (window.getSelection) {
@@ -275,7 +301,7 @@ function setTextToCurrentPos(){
 	let text_to_insert = $("#ps").val();
 	console.log("text_to_insert-------------------->" + text_to_insert);
 	$('#sampleeditor').html(content+ text_to_insert );
-}
+} */
 
 /*$('.msg').on('keyup',function(e){
 	$('.cursor').html(getCaretPosition(document.getElementById('msg')));
