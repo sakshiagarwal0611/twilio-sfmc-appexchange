@@ -233,14 +233,20 @@
 function getCaretIndex(element) {
   let position = 0;
   const isSupported = typeof window.getSelection !== "undefined";
+	
+	console.log(isSupported);
   if (isSupported) {
     const selection = window.getSelection();
+	  console.log(selection);
     // Check if there is a selection (i.e. cursor in place)
     if (selection.rangeCount !== 0) {
       // Store the original range
       const range = window.getSelection().getRangeAt(0);
+	    console.log(range);
       // Clone the range
       const preCaretRange = range.cloneRange();
+	    
+	    console.log(preCaretRange);
       // Select all textual contents from the contenteditable element
       preCaretRange.selectNodeContents(element);
       // And set the range end to the original clicked position
