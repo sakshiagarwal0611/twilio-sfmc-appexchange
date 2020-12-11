@@ -251,8 +251,12 @@
 		    }
 		}
 		$("#sampleeditor").EnableInsertAtCaret();
-		$('#ps').click(function() {
-		    insertTextAtCaret('test');
+		$('#ps1').click(function() {
+		    insertTextAtCaret($("#ps1").val());
+		    console.log("hey");
+		});
+		$('##ps2').click(function() {
+		    insertTextAtCaret($("#ps2").val());
 		    console.log("hey");
 		});
 
