@@ -158,12 +158,38 @@
 	        <a href="javascript:void(0)" onclick="format('cut')"><span class="fa fa-cut fa-fw"></span></a>
 	        <a href="javascript:void(0)" onclick="format('underline')"><span class="fa fa-underline fa-fw"></span></a>
 	        <a href="javascript:void(0)" onclick="format('strikeThrough')"><span class="fa fa-strikeThrough fa-fw"></span></a>
-	   	<a href="javascript:void(0)" onclick="format('justifyLeft')"><span class="fa fa-Align Left fa-fw"></span></a>
+	   	<a href="javascript:void(0)" onclick="format('justifyLeft')"><span class="fa fa-align-left fa-fw"></span></a>
 		<a href="javascript:void(0)" onclick="format('justifyCenter')"><span class="fa fa-align-center fa-fw"></span></a>
 		<a href="javascript:void(0)" onclick="format('indent')"><span class="fa fa-indent fa-fw"></span></a>
 	        <a href="javascript:void(0)" onclick="format('outdent')"><span class="fa fa-outdent fa-fw"></span></a>
 	        <a href="javascript:void(0)" onclick="format('subscript')"><span class="fa fa-subscript fa-fw"></span></a>
 	        <a href="javascript:void(0)" onclick="format('superscript')"><span class="fa fa-superscript fa-fw"></span></a>
+	    	<a href="javascript:void(0)" onclick="format('strikeThrough')"><span class="fa fa-strikeThrough fa-fw"></span></a>
+	   	<a href="javascript:void(0)" onclick="format('undo')"><span class="fa fa-undo fa-fw"></span></a>
+		<a href="javascript:void(0)" onclick="format('redo')"><span class="fa fa-redo fa-fw"></span></a>
+		<a href="javascript:void(0)" onclick="format('insertUnorderedList')"><span class="fa fa-list fa-fw"></span></a>
+	        <a href="javascript:void(0)" onclick="format('insertOrderedList')"><span class="fa fa-ol fa-fw"></span></a>
+	        <a href="javascript:void(0)" onclick="format('insertParagraph')"><span class="fa fa-paragraph fa-fw"></span></a>
+	        <a href="javascript:void(0)" onclick="format('superscript')"><span class="fa fa-superscript fa-fw"></span></a>
+	    	<button onclick="Edit('insertHorizontalRule')" title="insert Horizontal Rule">insert Horizontal Rule</button>
+	    	<select onchange="execVal('fontName',this.value)">
+			<option value="Arial">Arial</option>
+			<option value="Comic Sans MS">Comic Sans MS</option>
+			<option value="Courier">Courier</option>
+			<option value="Georgia">Georgia</option>
+			<option value="Tahoma">Tahoma</option>
+			<option value="Times New Roman">Times New Roman</option>
+			<option value="Verdana">Verdana</option>
+		</select>
+	    	<select onchange="execVal('fontSize',this.value)" title="font size">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+      		</select>
 	    <div class="slds-form-element">
 		  
 		  <div class="slds-form-element__control">
@@ -200,6 +226,9 @@
 		
 		function format(command, value) {
 			document.execCommand(command, false, value);
+		}
+		function execVal(command, value) {
+		  richTextField.document.execCommand(command, false, value);
 		}
 
 		/*function setTextToCurrentPos() { 
