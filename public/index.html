@@ -194,7 +194,7 @@
 		  
 		  <div class="slds-form-element__control">
 		    <div class="slds-select_container">
-		      <select class="slds-select" id="ps" onclick="setTextToCurrentPos()">
+		      <select class="slds-select" id="ps">
 			
 			<option value="{{Contact.Default.EmailAddress}}" id="ps1">Email</option>
 			<option value="{{Contact.Attribute.TwilioV1.TwilioNumber}}" id="ps2"> Phone number</option>
@@ -251,7 +251,7 @@
 		    }
 		}
 		$("#sampleeditor").EnableInsertAtCaret();
-		$('#ps1').click(function() {
+		$('#ps').click(function() {
 		    insertTextAtCaret('test');
 		    console.log("hey");
 		});
