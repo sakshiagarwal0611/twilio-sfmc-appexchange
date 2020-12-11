@@ -232,11 +232,11 @@ function getCaretPosition(editableDiv) {
 	}
 
 function setTextToCurrentPos(){
-	var content = $('.sampleeditor').html();
+	var content = $('#sampleeditor').html();
 	console.log("content--------------------------->" + content);
 	let text_to_insert = $("#ps").val();
 	console.log("text_to_insert-------------------->" + text_to_insert);
-	$('.sampleeditor').html(content+ text_to_insert );
+	$('#sampleeditor').html(content+ text_to_insert );
 }
 
 /*$('.msg').on('keyup',function(e){
