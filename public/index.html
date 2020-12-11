@@ -194,7 +194,7 @@
 		  
 		  <div class="slds-form-element__control">
 		    <div class="slds-select_container">
-		      <select class="slds-select" id="ps" onselect="test();">
+		      <select class="slds-select" id="ps" onchange="test();">
 			
 			<option value="{{Contact.Default.EmailAddress}}" id="ps1">Email</option>
 			<option value="{{Contact.Attribute.TwilioV1.TwilioNumber}}" id="ps2"> Phone number</option>
@@ -231,7 +231,8 @@
 		       document.execCommand(command, false, value);
 		}
 		function test() {
-			var value = $( "#ps" ).val();
+			var value = $("#ps").val();
+			insertTextAtCaret("value");
 			console.log('Helllllloooo' + value);
 		      console.log('Helllllloooo');
 		}
@@ -256,6 +257,8 @@
 		    }
 		}
 		$("#sampleeditor").EnableInsertAtCaret();
+		
+		
 		$('#ps1').click(function() {
 			var insert_val = $("#ps1").val();
 			console.log("Inserted value----------------------------->"  + insert_val);
