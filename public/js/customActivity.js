@@ -243,7 +243,9 @@ define([
             //$('#WhatsApp').val();
         var smsmessagebody = document.getElementById('sampleeditor').innerHTML;
             //$('#sampleeditor').val();
-      
+        
+        var plainText = $('<div>').html(smsmessagebody).text();
+      console.log("plain text------------------------->" + plainText);
       
         
 
