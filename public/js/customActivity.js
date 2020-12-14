@@ -257,7 +257,7 @@ define([
             "to": "{{Contact.Attribute.TwilioV1.TwilioNumber}}",//<----This should map to your data extension name and phone number column
             "SMS": sms,
             "WhatsApp": whatsappsms,
-            "MessageBody": smsmessagebody
+            "MessageBody": plainText
         }];
 
         payload['metaData'].isConfigured = true;
