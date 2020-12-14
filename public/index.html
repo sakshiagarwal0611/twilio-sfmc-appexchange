@@ -234,12 +234,6 @@
 		      
 		}
 		
-		
-		$.fn.EnableInsertAtCaret = function() {
-		$(this).on("focus", function() {$(".insertatcaretactive").removeClass("insertatcaretactive");
-		     $(this).addClass("insertatcaretactive");
-		});
-		};
 		function insertTextAtCaret(text) {
 		    var sel, range;
 		    if (window.getSelection) {
@@ -255,10 +249,6 @@
 			document.selection.createRange().text = text;
 		    }
 		}
-		$("#sampleeditor").EnableInsertAtCaret();
-		
-		
-		
 
 		/*function setTextToCurrentPos() { 
                 var curPos = getCaretIndex('sampleeditor');	
@@ -272,10 +262,6 @@
 			console.log("Value inserted is ---------------------------->" + text_area_val.slice(0, curPos) + text_to_insert + text_area_val.slice(curPos));
                // $("#sampleeditor").val(x.slice(0, curPos) + text_to_insert + x.slice(curPos)); 
             } */
-		
-
-
-
 </script>	
 	
 	
