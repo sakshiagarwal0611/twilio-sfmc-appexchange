@@ -245,8 +245,8 @@ define([
             //$('#sampleeditor').val();
         
         var plainText = $('<div>').html(smsmessagebody).text();
-      console.log("plain text------------------------->" + plainText);
-      
+        console.log("plain text------------------------->" + plainText);
+        var WPmessage = document.getElementById('sampleeditor').innerHTML;
         
 
         payload['arguments'].execute.inArguments = [{
@@ -257,7 +257,8 @@ define([
             "to": "{{Contact.Attribute.TwilioV1.TwilioNumber}}",//<----This should map to your data extension name and phone number column
             "SMS": sms,
             "WhatsApp": whatsappsms,
-            "MessageBody": plainText
+            "MessageBody": plainText,
+            "WPmessage" : WPmessage
         }];
 
         payload['metaData'].isConfigured = true;
