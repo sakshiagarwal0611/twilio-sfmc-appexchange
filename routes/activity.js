@@ -107,6 +107,7 @@ exports.execute = function(req, res) {
     const whatsapp = "true";
       const whatsapp2 = requestBody.WhatsApp;
     const messagebody = requestBody.MessageBody;
+    const WPmessage  = requestBody.WPmessage;
     
     
     
@@ -120,7 +121,8 @@ exports.execute = function(req, res) {
     {
         
         console.log("<---------------------------------------------------This message is sent on whatsApp number of the user--------------------------------------------------->");
-       /* const client = require('twilio')(accountSid, authToken);
+        console.log("Whatsapp message----------->" + WPmessage);
+        /* const client = require('twilio')(accountSid, authToken);
         console.log(to);
         client.messages
         .create({
