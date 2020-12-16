@@ -143,7 +143,14 @@
                             "isNullable": true,
                             "direction": "in"
                         }
-                    }              
+                    },   
+                                {
+                        "WPmessage": {
+                            "dataType": "String",
+                            "isNullable": true,
+                            "direction": "in"
+                        }
+                    }  
                 ],
                 "outArguments": []
             }
