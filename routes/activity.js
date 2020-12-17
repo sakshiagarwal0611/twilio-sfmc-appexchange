@@ -102,10 +102,10 @@ exports.execute = function(req, res) {
     const to = requestBody.to;
     const from = requestBody.messagingService;
     const body = requestBody.body;
-    const sms = "true";
-       const sms2 =   requestBody.SMS;
-    const whatsapp = "true";
-      const whatsapp2 = requestBody.WhatsApp;
+    const sms2 = "true";
+       const sms =   requestBody.SMS;
+    const whatsapp2 = "true";
+      const whatsapp = requestBody.WhatsApp;
     const messagebody = requestBody.MessageBody;
     const WPmessage  = requestBody.WPmessage;
     
@@ -114,10 +114,11 @@ exports.execute = function(req, res) {
     console.log(sms2);
     console.log(whatsapp2);
     console.log(messagebody);
+    console.log("Whatsapp message--------------->" + WPmessage);
     
     
     
-    if(whatsapp == "true")
+    if(whatsapp == true)
     {
         
         console.log("<---------------------------------------------------This message is sent on whatsApp number of the user--------------------------------------------------->");
@@ -137,7 +138,7 @@ exports.execute = function(req, res) {
    
     
     
-    if(sms == "true")
+    if(sms == true)
     {
     const client = require('twilio')(accountSid, authToken);
     console.log(to);
