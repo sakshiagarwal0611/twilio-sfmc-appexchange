@@ -96,7 +96,7 @@ define([
                 if (key === 'MessageBody') {
                     
                     console.log("Message body------------------------>" + val);
-                    document.getElementById('sampleeditor').innerHTML = val;
+                    document.getElementById('RichTextEditor').innerHTML = val;
                    
                 }
             })
@@ -214,9 +214,9 @@ define([
         var body = $('#messageBody').val();
         var sms = $("#SMS").is(":checked");
         var whatsappsms = $("#WhatsApp").is(":checked");   
-        var messagebody = document.getElementById('sampleeditor').innerHTML;
-        var SmsMessageBody = document.getElementById('sampleeditor').innerHTML;
-        var WPmessage = document.getElementById('sampleeditor').innerHTML;
+        var messagebody = document.getElementById('RichTextEditor').innerHTML;
+        var SmsMessageBody = document.getElementById('RichTextEditor').innerHTML;
+        var WPmessage = document.getElementById('RichTextEditor').innerHTML;
         
         
         
@@ -225,7 +225,7 @@ define([
         //convert html formatted message body to plain text
         var plainText = $('<div>').html(SmsMessageBody).text();
         console.log("plain text------------------------->" + plainText);
-        plaintext = SmsMessageBody;
+        plainText = SmsMessageBody;
         console.log("SMS Message body-------------------------------------------------------------------->" + SmsMessageBody);
         
         
