@@ -154,7 +154,8 @@
 	        <a href="javascript:void(0)" onclick="format('insertOrderedList')"><span class="fa fa-list-ol fa-fw"></span></a>
 	        <a href="javascript:void(0)" onclick="format('insertParagraph')"><span class="fa fa-paragraph fa-fw"></span></a>
 	        <a href="javascript:void(0)" onclick="format('insertHorizontalRule')" title="insert Horizontal Rule">Horizontal Rule</a>
-	    	<a href="/images"><span class="fa fa-image fa-fw"></span></a>
+	    	<a href="javascript:void(0)"><span class="fa fa-image fa-fw"></span></a>
+	        <div id="button"><input type="button" value="Submit"></div>
 	    	<select onchange="execVal('fontName',this.value)">
 			<option value="Arial">Arial</option>
 			<option value="Comic Sans MS">Comic Sans MS</option>
@@ -264,6 +265,19 @@
           .catch(err => console.log(err));
 		
      }
+	
+	$('#button').click(function() {
+          $.ajax('/', function(list) {
+            $.ajax({
+            type: 'POST',
+            url: '/image',
+            data: $('#myField').text()
+            success: function(result) {
+            console.log('Response:', result);
+            }
+        }
+    });
+});
 
 		/*function setTextToCurrentPos() { 
                 var curPos = getCaretIndex('sampleeditor');	
