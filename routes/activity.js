@@ -101,21 +101,16 @@ exports.execute = function(req, res) {
     const authToken = requestBody.authToken;
     const to = requestBody.to;
     const from = requestBody.messagingService;
-    const body = requestBody.body;
-    const sms2 = "true";
-       const sms =   requestBody.SMS;
-    const whatsapp2 = "true";
-      const whatsapp = requestBody.WhatsApp;
+    const sms =   requestBody.SMS;
+    const whatsapp = requestBody.WhatsApp;
     const messagebody = requestBody.MessageBody;
+    const SmsMessage = requestBody.SmsMessage;
     const WPmessage  = requestBody.WPmessage;
     
-    
-    
-    console.log(sms2);
-    console.log(whatsapp2);
-    console.log(messagebody);
+
+    console.log("Original message body with html formatting--------->" + messagebody);
     console.log("Whatsapp message--------------->" + WPmessage);
-    
+    console.log("SMS message--------------->" + SmsMessage);
     
     
     if(whatsapp == true)
@@ -144,7 +139,7 @@ exports.execute = function(req, res) {
     console.log(to);
     client.messages
         .create({
-            body: messagebody,
+            body: SmsMessage,
             statusCallback: "https://encwq9bqo98l04z.m.pipedream.net/",
             from: '+12058914350',
             to: '+91' + to
