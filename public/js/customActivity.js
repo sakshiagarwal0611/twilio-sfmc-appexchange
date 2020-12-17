@@ -239,14 +239,14 @@ define([
         var messagingService = $('#messagingService').val();
         var body = $('#messageBody').val();
         var sms = $("#SMS").is(":checked");
-        var whatsappsms = $("#WhatsApp").is(":checked");
-            //$('#WhatsApp').val();
+        var whatsappsms = $("#WhatsApp").is(":checked");   
         var smsmessagebody = document.getElementById('sampleeditor').innerHTML;
-            //$('#sampleeditor').val();
-        
+           
+        //convert html formatted message body to plain text
         var plainText = $('<div>').html(smsmessagebody).text();
         console.log("plain text------------------------->" + plainText);
         
+        //convert html formatted message body to whatsapp formatted text
         var WPmessage = document.getElementById('sampleeditor').innerHTML;
         console.log("WhatsApp message------------------->" + WPmessage);
         WPmessage = WPmessage.replaceAll("<b>", "*");
@@ -259,7 +259,6 @@ define([
         WPmessage = WPmessage.replaceAll("</i>", "_");
         WPmessage = WPmessage.replaceAll("<strike>", "~");
         WPmessage = WPmessage.replaceAll("</strike>", "~");
-        
         console.log("WhatsApp message------------------->" + WPmessage);
         
 
