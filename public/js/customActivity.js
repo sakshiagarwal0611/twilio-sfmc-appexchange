@@ -31,24 +31,6 @@ define([
         connection.trigger('ready');
         connection.trigger('requestTokens');
         connection.trigger('requestEndpoints');
-        
-        // Disable the next button if a value isn't selected
-      /* $('#select1').change(function() {
-            var message = getMessage();
-           connection.trigger('updateButton', { button: 'next', enabled: Boolean(message) });
-
-            $('#message').html(message);
-     });
-        
-        // Toggle step 4 active/inactive
-        // If inactive, wizard hides it and skips over it during navigation
-        $('#toggleLastStep').click(function() {
-            lastStepEnabled = !lastStepEnabled; // toggle status
-            steps[3].active = !steps[3].active; // toggle active
-
-            connection.trigger('updateSteps', steps);
-        });*/
-
     }
 
     function initialize(data) {
@@ -82,10 +64,6 @@ define([
                 if (key === 'messagingService') {
                     $('#messagingService').val(val);
                 }
-
-                if (key === 'body') {
-                    $('#messageBody').val(val);
-                }
                 if (key === 'SMS') {
                     console.log("sms---------------->" + val);
                     const boolval = val;
@@ -113,18 +91,14 @@ define([
                         $("#WhatsApp").attr("checked", false);
                         console.log(" WA is unchecked");
                     }
-                    
-                   // $("#WhatsApp").is(":checked");
-                    //$('#WhatsApp').val(val);
+
                 }
                 if (key === 'MessageBody') {
                     
                     console.log("Message body------------------------>" + val);
                     document.getElementById('sampleeditor').innerHTML = val;
-                   // $('#sampleeditor').val(val);
+                   
                 }
-            
-
             })
         });
 
@@ -240,14 +214,23 @@ define([
         var body = $('#messageBody').val();
         var sms = $("#SMS").is(":checked");
         var whatsappsms = $("#WhatsApp").is(":checked");   
-        var smsmessagebody = document.getElementById('sampleeditor').innerHTML;
-           
+        var messagebody = document.getElementById('sampleeditor').innerHTML;
+        var SmsMessageBody = document.getElementById('sampleeditor').innerHTML;
+        var WPmessage = document.getElementById('sampleeditor').innerHTML;
+        
+        
+        
+        console.log("Messagebody-------------------------------------------------------------------->" + messagebody);
+        
         //convert html formatted message body to plain text
-        var plainText = $('<div>').html(smsmessagebody).text();
+        var plainText = $('<div>').html(SmsMessageBody).text();
         console.log("plain text------------------------->" + plainText);
+        plaintext = SmsMessageBody;
+        console.log("SMS Message body-------------------------------------------------------------------->" + SmsMessageBody);
+        
         
         //convert html formatted message body to whatsapp formatted text
-        var WPmessage = document.getElementById('sampleeditor').innerHTML;
+        
         console.log("WhatsApp message------------------->" + WPmessage);
         WPmessage = WPmessage.replaceAll("<b>", "*");
         WPmessage = WPmessage.replaceAll("</b>", "*");
@@ -266,18 +249,17 @@ define([
             "accountSid": accountSid,
             "authToken": authToken,
             "messagingService": messagingService,
-            "body": body,
             "to": "{{Contact.Attribute.TwilioV1.TwilioNumber}}",//<----This should map to your data extension name and phone number column
             "SMS": sms,
             "WhatsApp": whatsappsms,
-            "MessageBody": plainText,
+            "MessageBody": messagebody,
+            "SmsMessage" : SmsMessageBody,
             "WPmessage" : WPmessage
         }];
 
         payload['metaData'].isConfigured = true;
 
         console.log("Payload on SAVE function--------------------------------------------------->: " + JSON.stringify(payload));
-        console.log("Messagebody-------------------------------------------------------------------->" + smsmessagebody);
         connection.trigger('updateActivity', payload);
 
     }
