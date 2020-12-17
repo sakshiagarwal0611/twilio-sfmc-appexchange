@@ -251,6 +251,15 @@ define([
         console.log("WhatsApp message------------------->" + WPmessage);
         WPmessage = WPmessage.replaceAll("<b>", "*");
         WPmessage = WPmessage.replaceAll("</b>", "*");
+        WPmessage = WPmessage.replaceAll("&nbsp;", " ");
+        WPmessage = WPmessage.replaceAll("<div>", "");
+        WPmessage = WPmessage.replaceAll("</div>", "");
+        WPmessage = WPmessage.replaceAll("<br>", " ");
+        WPmessage = WPmessage.replaceAll("<i>", "_");
+        WPmessage = WPmessage.replaceAll("</i>", "_");
+        WPmessage = WPmessage.replaceAll("<strike>", "~");
+        WPmessage = WPmessage.replaceAll("</strike>", "~");
+        
         console.log("WhatsApp message------------------->" + WPmessage);
         
 
