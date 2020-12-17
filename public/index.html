@@ -148,7 +148,7 @@
 	        <a href="javascript:void(0)" onclick="format('insertOrderedList')"><span class="fa fa-list-ol fa-fw"></span></a>
 	        <a href="javascript:void(0)" onclick="format('insertParagraph')"><span class="fa fa-paragraph fa-fw"></span></a>
 	        <a href="javascript:void(0)" onclick="format('insertHorizontalRule')" title="insert Horizontal Rule">Horizontal Rule</a>
-	    	<a href="javascript:void(0)" onclick="format('insertimage')"><span class="fa fa-image fa-fw"></span></a>
+	    	<a href="javascript:void(0)" onclick="insertImage()"><span class="fa fa-image fa-fw"></span></a>
 	    	<select onchange="execVal('fontName',this.value)">
 			<option value="Arial">Arial</option>
 			<option value="Comic Sans MS">Comic Sans MS</option>
@@ -171,10 +171,10 @@
 		  
 		  <div class="slds-form-element__control">
 		    <div class="slds-select_container">
-		      <select class="slds-select" id="ps" onchange="Test();" onfocus="this.selectedIndex = -1;">
+		      <select class="slds-select" id="ps" onchange="Test()" onfocus="this.selectedIndex = -1;">
 			
 			<option value="{{Contact.Default.EmailAddress}}" id="ps1">Email</option>
-			<option value="{{Contact.Attribute.TwilioV1.TwilioNumber}}" id="ps2"> Phone number</option>
+			<option value="{{Contact.Attribute.TwilioV1.TwilioNumber}}" id="ps2">Phone number</option>
 			
 		      </select>
 		    </div>
@@ -194,7 +194,7 @@
 		function execVal(command, value) {
 		       document.execCommand(command, false, value);
 		}
-		function Test(){
+		function Test() {
 			var value = $("#ps").val();
 			insertTextAtCaret(value);
 			console.log('value------------------->' + value);
@@ -222,7 +222,7 @@
 			   	    }
 			  }
 		    } else if (document.selection && document.selection.createRange) {
-			    console.log("I don't know what this is" + document.selection.createRange().text));
+			    console.log("I don't know what this is" + document.selection.createRange().text);
 			document.selection.createRange().text = text;
 			 console.log("Text-------->" + text);
 		    }
