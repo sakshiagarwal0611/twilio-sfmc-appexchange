@@ -202,6 +202,16 @@ define([
             case 'step4':
                 $('#step4').show();
                  console.log("---------------------------------------------------------------------------------------------------------------->This is step 4");
+                 var WPtrue = $("#WhatsApp").is(":checked");
+                  if(WPtrue == true){
+                  document.getElementById('channel').innerHTML = 'WhatsApp, ';   
+                  }
+                  var SMStrue = $("#SMS").is(":checked");
+                  if(SMStrue == true){
+                  document.getElementById('channel').innerHTML = document.getElementById('channel').innerHTML + 'SMS';
+                  }
+                   
+                  document.getElementById('Message').innerHTML = document.getElementById('RichTextEditor').innerHTML;
                 break;
         }
     }
@@ -230,7 +240,6 @@ define([
         
         
         //convert html formatted message body to whatsapp formatted text
-        
         console.log("WhatsApp message------------------->" + WPmessage);
         WPmessage = WPmessage.replaceAll("<b>", "*");
         WPmessage = WPmessage.replaceAll("</b>", "*");
@@ -243,6 +252,8 @@ define([
         WPmessage = WPmessage.replaceAll("<strike>", "~");
         WPmessage = WPmessage.replaceAll("</strike>", "~");
         console.log("WhatsApp message------------------->" + WPmessage);
+        
+        
         
 
         payload['arguments'].execute.inArguments = [{
