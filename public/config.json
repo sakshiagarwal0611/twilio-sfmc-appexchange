@@ -110,7 +110,7 @@
                         }
                     },
                     {
-                        "body": {
+                        "MessageBody": {
                             "dataType": "String",
                             "isNullable": true,
                             "direction": "in"
@@ -138,7 +138,7 @@
                         }
                     },
                   {
-                        "MessageBody": {
+                        "SmsMessage": {
                             "dataType": "String",
                             "isNullable": true,
                             "direction": "in"
