@@ -211,17 +211,19 @@
 			    console.log("window.getSelection().anchorNode.id---------------->" + window.getSelection().anchorNode.id);
 			    console.log("window.getSelection().id--------------------------->" + window.getSelection().id);
 			    var parentID = window.getSelection().anchorNode.parentNode.id;
-			    if(parentID == 'RichTextEditor') 
-			    {
+			   // if(parentID == 'RichTextEditor') 
+			   // {
 				    if (sel.getRangeAt && sel.rangeCount) 
 				    {
 					    range = sel.getRangeAt(0);
 					    range.deleteContents();
 					    range.insertNode( document.createTextNode(text) );
 			   	    }
-			  }
+			  //}
 		    } else if (document.selection && document.selection.createRange) {
+			    console.log("I don't know what this is" + document.selection.createRange().text));
 			document.selection.createRange().text = text;
+			 console.log("Text-------->" + text);
 		    }
 		}
 
