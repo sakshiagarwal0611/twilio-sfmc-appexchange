@@ -1,30 +1,16 @@
 <!DOCTYPE html>
 
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-
-    <title>TESTING: Custom Journey Builder Activity</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-    <script src="https://cdn.tiny.cloud/1/8zy98iygd3ouqncc5mhw6f5n3jj15f3xeikmeum4izpkw3mw/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-    
-   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-    
-    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/assets/styles/salesforce-lightning-design-system.css" />
     
-    <script>
-    tinymce.init({
-      selector: '#mytextarea'
-    });
-  </script>
-    
-    
-   
+ 
     <script type="text/javascript">
         (function() {
             var config = {
@@ -86,18 +72,13 @@
     </style>
 </head>
 
+	
+	
 <body>
-    <div id="step1" class="step">
-	    <div class="slds-text-heading_small instruction">Enter authentication values for twilio.</div>
-       
+<div id="step1" class="step">
+	<div class="slds-text-heading_small instruction">Enter authentication values for twilio.</div>
         <br>
-        <!--<div class="form-group">
-            <div><label for="messageBody">Create message body:</label></div>
-            <input class="form-control" id="messageBody" type="text" name="messageBody" value="">
-        </div> -->
-        <div class="form-group">
-        <input class="form-control" id="messagingService" type="hidden" name="messagingService" value="">
-             </div>
+	<!-- enter twilio authentication details-->
         <div class="form-group">
             <div><label for="accountSID">Account SID:</label></div>
             <input class="form-control" id="accountSID" type="text" name="accountSID" value="">
@@ -107,17 +88,14 @@
             <input class="form-control" id="authToken" type="text" name="authToken" value="">
         </div> 
 </div>
-    
+
+
 <div id="step2" class="step">
-<div class="slds-text-heading_small instruction">Select channels. The user will be sent messages only on the channel you are selecting.</div>
+  <div class="slds-text-heading_small instruction">Select channels. The user will be sent messages on the channels you are selecting.</div>
   <br><br>
-  <!--  <input type="checkbox" id="SMS" name="SMS" value="SMS">
-    <label for="SMS">Send SMS</label><br>
-    <input type="checkbox" id="WhatsappSMS" name="WhatsappSMS" value="Whatsapp SMS">
-    <label for="WhatsappSMS">Whatsapp SMS</label><br>-->
+
     
-	
-	<div class="slds-form-element">
+  <div class="slds-form-element">
   <div class="slds-form-element__control">
     <div class="slds-checkbox">
       <input type="checkbox" name="options" id="SMS" value=""  />
@@ -126,27 +104,26 @@
         <span class="slds-form-element__label">SMS</span>
       </label>
     </div>
-  </div>
-</div>
+    </div>
+    </div>
  
 	
 	
 	<div class="slds-form-element">
-  <div class="slds-form-element__control">
-    <div class="slds-checkbox">
-      <input type="checkbox" name="options" id="WhatsApp" value="" />
-      <label class="slds-checkbox__label" for="WhatsApp">
+        <div class="slds-form-element__control">
+        <div class="slds-checkbox">
+         <input type="checkbox" name="options" id="WhatsApp" value="" />
+          <label class="slds-checkbox__label" for="WhatsApp">
         <span class="slds-checkbox_faux"></span>
         <span class="slds-form-element__label">WhatsApp</span>
       </label>
-    </div>
-  </div>
+      </div>
+      </div>
+      </div>    
 </div>
 	
-<!--	<span class="slds-checkbox"><input type="checkbox" id="H1D9-3ijP" value="on"><label class="slds-checkbox__label" for="H1D9-3ijP"><span class="slds-checkbox--faux"></span><span class="slds-form-element__label">Is Created</span>
-</label></span>-->
-    
-</div>
+	
+	
 <div id="step3" class="step">
 <div class="slds-text-heading_small instruction">Create a message:</div>
 
@@ -190,7 +167,7 @@
 			<option value="6">6</option>
 			<option value="7">7</option>
       		</select>
-	    <div class="slds-form-element">
+	       <div class="slds-form-element">
 		  
 		  <div class="slds-form-element__control">
 		    <div class="slds-select_container">
@@ -202,25 +179,14 @@
 		      </select>
 		    </div>
 		  </div>
-		</div>
-	   <!-- <div class="dropdown btn-group">
-	    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">P<span class="fuelux-icon fuelux-icon-person"></span><span class="caret"></span></button>
-             <ul class="dropdown-menu" role="menu">
-             <li><a href="javascript:void(0)" onclick="setTextToCurrentPos(value)" value="{{Contact.Default.EmailAddress}}">Email</a></li>
-             <li><a href="javascript:void(0)" onclick="setTextToCurrentPos(value)" value="{{Contact.Attribute.TwilioV1.TwilioNumber}}">Phone number</a></li>
-             
-            </ul>
-</div>-->    
-	    
-	       
+		</div>       
+               </div>
+	<!-- content editable div -->
+         <div id="sampleeditor" class="editor" contenteditable='true'>
+	 </div>
 </div>
 
-<div id="sampleeditor" class="editor" contenteditable='true'>
-	<img src="https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/c42752a3-e464-492e-a6a6-0777b5f32fad.png"></div>
-	
-    </div>
-
-	<script>
+<script>
 		
 		function format(command, value) {
 			document.execCommand(command, false, value);
@@ -272,19 +238,6 @@
                // $("#sampleeditor").val(x.slice(0, curPos) + text_to_insert + x.slice(curPos)); 
             } */
 </script>	
-	
-	
-
-    
-   <!--// <div>
-    <div>
-        <textarea class="form-control" id="messageBody" type="text" name="messageBody" value="">
-    </div>
-    <script src="https://cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
-    <script>
-       CKEDITOR.replace( 'messageBody' );
-    </script>
-    </div>-->
 </div>
 	
 	
