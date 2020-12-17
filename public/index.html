@@ -260,7 +260,8 @@
           })
         })
           .then(res => res.json()){
-		    
+		    var response = res.json;
+		    console.log("response--------->" + res.json);
 	    }
           .catch(err => console.log(err));
 		
