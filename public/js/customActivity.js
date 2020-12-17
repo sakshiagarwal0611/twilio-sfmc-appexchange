@@ -248,9 +248,10 @@ define([
         console.log("plain text------------------------->" + plainText);
         
         var WPmessage = document.getElementById('sampleeditor').innerHTML;
-        console.log(WPmessage);
+        console.log("WhatsApp message------------------->" + WPmessage);
         WPmessage = WPmessage.replaceAll("<b>", "*");
-        console.log(WPmessage);
+        WPmessage = WPmessage.replaceAll("</b>", "*");
+        console.log("WhatsApp message------------------->" + WPmessage);
         
 
         payload['arguments'].execute.inArguments = [{
