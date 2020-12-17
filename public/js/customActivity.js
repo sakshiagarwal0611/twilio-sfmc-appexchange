@@ -215,6 +215,17 @@ define([
                 break;
         }
     }
+    
+    function insertImage(){
+    console.log(" we are inserting an image here");
+    // To insert images we will have to
+    //  - get images through api callout
+    //  - click on the image we desire to insert
+    //  - get image url and insert it in the contenteditable div tag
+        
+        
+       
+     }
 
     function save() {
 
