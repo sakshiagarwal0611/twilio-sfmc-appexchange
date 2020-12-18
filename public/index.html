@@ -286,9 +286,12 @@
        
  $.ajax({
   type: 'POST',
+  crossDomain: true,
   dataType: "json",
   contentType: "application/json",
   url: 'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.auth.marketingcloudapis.com/v1/tokenn',
+  headers: {  'Access-Control-Allow-Origin': *,
+	   'Access-Control-Allow-Methods': 'POST'},
   data: JSON.stringify({
     "grant_type": "client_credentials",
 	    "client_id": "4nfraga57ld98tn00rmrhbn9",
@@ -296,6 +299,8 @@
     }),
   success:function(output) {
   //  console.log(output.sessionID);
+	  console.log('------we have successfully calles this api from client side--------');
+	  
     getData(output.sessionID, numberOrigin);
   },
   error:function(output) {
