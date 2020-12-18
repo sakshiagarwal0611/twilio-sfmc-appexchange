@@ -43,7 +43,7 @@ http.createServer(app).listen(app.get('port'), function(){
 });
 
 
-app.get('/images', function(req, res) =>{
+/*app.get('/images', function(req, res) =>{
  // Your function to be called goes here.
   console.log("this is the function called on button click. This function is present in app.js file");
-});
+});*/
