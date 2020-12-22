@@ -154,8 +154,8 @@
 	        <a href="javascript:void(0)" onclick="format('insertOrderedList')"><span class="fa fa-list-ol fa-fw"></span></a>
 	        <a href="javascript:void(0)" onclick="format('insertParagraph')"><span class="fa fa-paragraph fa-fw"></span></a>
 	        <a href="javascript:void(0)" onclick="format('insertHorizontalRule')" title="insert Horizontal Rule">Horizontal Rule</a>
-	    	<a href="javascript:void(0)" onclick = "insertImage2()"><span class="fa fa-image fa-fw"></span></a>
-	    <a href="/images"><span class="fa fa-image fa-fw"></span></a>
+	    	<a href="javascript:void(0)" onclick = "insertImage()"><span class="fa fa-image fa-fw"></span></a>
+	        
 	       <!--  <div id="button" onclick = "insertImage2()"><span class="fa fa-image fa-fw"></div> -->
 	    	<select onchange="execVal('fontName',this.value)">
 			<option value="Arial">Arial</option>
@@ -238,7 +238,7 @@
 		    }
 		}
 	
-	/* function insertImage()
+	function insertImage()
 	{
 	    console.log(" we are inserting an image here");
 	    // To insert images we will have to
@@ -248,26 +248,25 @@
 
 	    var url = 'https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/c42752a3-e464-492e-a6a6-0777b5f32fad.png';  
 	    document.getElementById('image').innerHTML = '<img src="' + url + '" width="100" height="120">'; 
-		}); */
+	
 
 		
-	  /*  fetch("https://mc6vgk-sxj9p08pqwxqz9hw9-4my.auth.marketingcloudapis.com/v1/token", {
+	  fetch("https://mc6vgk-sxj9p08pqwxqz9hw9-4my.auth.marketingcloudapis.com/v1/token", {
                    method: "POST",
                    headers: {
             			"Content-Type": "application/json"
-          			},
-          body: JSON.stringify({
-            "grant_type": "client_credentials",
-	    "client_id": "4nfraga57ld98tn00rmrhbn9",
-	    "client_secret": "qlm3OG67VzLC6nekeeGo1XY2",
-            "mode":"no-cors"
+          			}
          
-          })
         })
-          .then(res => res.json())
-          .catch(err => console.log(err));
+          .then(function(res) {
+                      window.alert("Success!");
+                      
+              })
+              .catch(function(err) {
+                  window.alert("Error!");
+              });
 		
-     } */
+     } 
 	
 /*	$('#button').click(function() {
           $.ajax('/', function(list) {
@@ -282,7 +281,7 @@
     }); */
 
 	
-	function insertImage2(){
+/*function insertImage2(){
        
  $.ajax({
   type: 'POST',
@@ -293,7 +292,7 @@
   headers: {  'Access-Control-Allow-Origin':'*',
 	      'Access-Control-Allow-Headers':'x-requested-with',
 	      'Access-Control-Allow-Methods':'POST, GET, OPTIONS'
-	     // 'Access-Control-Request-Headers': 'x-requested-with'
+	    //'Access-Control-Request-Headers': 'x-requested-with'
 	   },
   data: JSON.stringify({
             "grant_type": "client_credentials",
@@ -309,7 +308,7 @@
   error:function(output) {
      }
   });
-}
+}*/
 		/*function setTextToCurrentPos() { 
                 var curPos = getCaretIndex('sampleeditor');	
 			
