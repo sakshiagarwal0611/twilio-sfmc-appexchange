@@ -44,6 +44,9 @@ app.post('/journeybuilder/execute/', activity.execute );
 //----------------------------------------authentication and get asset API--------------------------------------------------------------------------------------------------
   app.get("/images", (req, res) => {
   console.log('this is the function called on button click. This function is present in app.js file');
+  
+    
+  const https = require('https');  
   var request = require('request');
   request.post({
   headers: {'content-type' : 'application/json'},
