@@ -64,8 +64,10 @@ app.post('/journeybuilder/execute/', activity.execute );
     console.log("Response---------------------->"+ response);
     
   })
-    res.send(200, 'Publish');
-  });
+   
+  }
+          res.send(200, 'Publish');
+);
 //----------------------------------------authentication and get asset API--------------------------------------------------------------------------------------------------
 
   
