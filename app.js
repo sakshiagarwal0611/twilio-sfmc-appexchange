@@ -38,15 +38,37 @@ app.post('/journeybuilder/validate/', activity.validate );
 app.post('/journeybuilder/publish/', activity.publish );
 app.post('/journeybuilder/execute/', activity.execute );
 
+
+
+
 //----------------------------------------authentication and get asset API--------------------------------------------------------------------------------------------------
-app.get("/images", (req, res) => {
+  app.post("/images", (req, res) => {
   console.log('this is the function called on button click. This function is present in app.js file');
-  
+  var request = require('request');
+  request.post({
+  headers: {'content-type' : 'application/json'},
+  url:     'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.auth.marketingcloudapis.com/v1/token',
+  body:    {
+        'client_id': '4nfraga57ld98tn00rmrhbn9',
+        'client_secret':'qlm3OG67VzLC6nekeeGo1XY2' , 
+        'grant_type': 'client_credentials'
+},
+     json: true
+}, function(error, response, body){
+    var access_token = body.access_token;
+    console.log("Access token after assigning it to a variable------------------>"+ access_token);
+    console.log("Access token------------------>"+ body.access_token);
+    console.log("Response---------------------->"+ response);
+    
+  }
   
   
   });
 //----------------------------------------authentication and get asset API--------------------------------------------------------------------------------------------------
-http.createServer(app).listen(app.get('port'), function(){
+
+  
+  
+  http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
 
