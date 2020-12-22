@@ -60,10 +60,9 @@ app.post('/journeybuilder/execute/', activity.execute );
     console.log("Access token------------------>"+ body.access_token);
     console.log("Response---------------------->"+ response);
     
-  }
-  
-  
-  )});
+  })
+    res.send(200, 'Publish');
+  });
 //----------------------------------------authentication and get asset API--------------------------------------------------------------------------------------------------
 
   
