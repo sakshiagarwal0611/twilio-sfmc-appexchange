@@ -38,17 +38,16 @@ app.post('/journeybuilder/validate/', activity.validate );
 app.post('/journeybuilder/publish/', activity.publish );
 app.post('/journeybuilder/execute/', activity.execute );
 
-
+//----------------------------------------authentication and get asset API--------------------------------------------------------------------------------------------------
 app.get("/images", (req, res) => {
   console.log('this is the function called on button click. This function is present in app.js file');
+  
+  
+  
   });
-
+//----------------------------------------authentication and get asset API--------------------------------------------------------------------------------------------------
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
 
 
-/*app.get('/images', function(req, res) =>{
- // Your function to be called goes here.
-  console.log("this is the function called on button click. This function is present in app.js file");
-});*/
