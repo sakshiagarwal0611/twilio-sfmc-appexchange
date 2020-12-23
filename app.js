@@ -63,7 +63,33 @@ app.post('/journeybuilder/execute/', activity.execute );
     console.log("Access token------------------>"+ body.access_token);
     console.log("Response---------------------->"+ response);
     
-  })
+                                        var request = require('request');
+                                        request.post({
+                                                    headers: {'content-type' : 'application/json','Authorization': 'Bearer ' + access_token},
+                                                    url:     'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.rest.marketingcloudapis.com/asset/v1/content/assets/query',
+                                                    body:    {
+                                                               "query":
+                                                                                {
+                                                                                      "property":"assetType.displayName",
+                                                                                      "simpleOperator":"equal",
+                                                                                      "value": 'image'
+                                                                                },
+                                                                   "fields": [
+                                                                   "name",
+                                                                   "fileProperties"
+                                                                   ]
+
+                                                            },
+                                                    json: true
+                                        }, function(error, response, body){
+                                       
+
+                                           console.log(JSON.stringify(response.body));    
+                                          
+                                          });
+    
+    
+  });
    
   }
           res.send(200, 'Publish');
