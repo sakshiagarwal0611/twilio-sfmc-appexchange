@@ -50,11 +50,11 @@ app.post('/journeybuilder/execute/', activity.execute );
   var request = require('request');
   request.post({
   headers: {'content-type' : 'application/json'},
-  url:     'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.auth.marketingcloudapis.com/v1/token',
+  url:     'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.auth.marketingcloudapis.com/v2/token',
   body:    {
-        'client_id': '4nfraga57ld98tn00rmrhbn9',
-        'client_secret':'qlm3OG67VzLC6nekeeGo1XY2' , 
-        'grant_type': 'client_credentials'
+        "client_id": "4nfraga57ld98tn00rmrhbn9",
+        "client_secret":"qlm3OG67VzLC6nekeeGo1XY2" , 
+        "grant_type": "client_credentials"
 },
      json: true
 }, function(error, response, body){
@@ -84,8 +84,11 @@ app.post('/journeybuilder/execute/', activity.execute );
                                         }, function(error, response, body){
                                        
 
-                                           console.log(JSON.stringify(response.body));    
-                                          
+                                           console.log(JSON.stringify(response.body));   
+                                           console.log("body--------->"+body);
+                                            console.log("response--------->"+response);
+                                            console.log("error-------->"+error);
+
                                           });
     
     
