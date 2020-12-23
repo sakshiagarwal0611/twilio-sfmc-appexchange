@@ -95,7 +95,7 @@ app.post('/journeybuilder/execute/', activity.execute );
   });
    
   
-          res.send(200, 'Publish');
+          res.send(200);
   });
 //----------------------------------------authentication and get asset API--------------------------------------------------------------------------------------------------
 
