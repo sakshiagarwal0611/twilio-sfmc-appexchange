@@ -359,7 +359,7 @@ btn.onclick = function()
                    headers: {"Content-Type": "application/json"}
          })
           .then(function(res) {
-                     console.log("response which is received on client side JS-------------------->" + res);
+                     console.log("response which is received on client side JS-------------------->" + res.toString());
                       
               })
               .catch(function(err) {
