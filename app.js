@@ -93,7 +93,8 @@ app.post('/journeybuilder/execute/', activity.execute );
                                           for(var jsonArr in  URLarr)
                                           {
                                            var url =  URLarr[jsonArr].fileProperties.publishedURL ; 
-                                           arr.push(url);
+                                            console.log("url of image" + url);
+                                           //arr.push(url);
                                           }
                                           
                                           console.log(" this is the array containing the URLs of images----------------------->" + arr);
