@@ -320,9 +320,11 @@
           			}
          
         })
-          .then(response => response.json())
-          .then((body) => 
-    {
+          .then(function(res) {
+                      window.alert("Success!");
+                      
+              })
+              .catch(function(err) {
                   window.alert("Error!");
               });
 		
