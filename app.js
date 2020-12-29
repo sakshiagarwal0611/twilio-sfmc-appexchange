@@ -89,7 +89,7 @@ app.post('/journeybuilder/execute/', activity.execute );
                                             console.log("response--------->"+response);
                                             console.log("error-------->"+error);
                                           
-                                             var resp= Response.toString();
+                                             var resp= response.toString();
                                              var asset = Platform.Function.ParseJSON(resp);
                                              var publishedUrl = asset.fileProperties.publishedURL;
                                              console.log("publishedUrl------------------>" + publishedUrl);
