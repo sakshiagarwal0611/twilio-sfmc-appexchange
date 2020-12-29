@@ -88,16 +88,19 @@ app.post('/journeybuilder/execute/', activity.execute );
                                             console.log("body--------->"+body);
                                             console.log("response--------->"+response);
                                             console.log("error-------->"+error);
-                                          var arr ;
+                                          var arr =[];
                                           var URLarr = response.body.items;
                                           for(var jsonArr in  URLarr)
                                           {
                                            var url =  URLarr[jsonArr].fileProperties.publishedURL ; 
-                                            console.log("url of image" + url);
-                                           //arr.push(url);
+                                            console.log("url of image------------->   " + url);
+                                           arr.push(url);
                                           }
                                           
-                                          console.log(" this is the array containing the URLs of images----------------------->" + arr);
+                                          console.log("url of image------------->   " + arr);
+                                          
+                                          
+                                          res.send(arr);
                                              //var resp= response.toString();
                                              //console.log(" published url list --------------------------------------------------------->" + JSON.stringify(response.body.items.fileproperties.publishedUrl);
                                           //   var asset = Platform.Function.ParseJSON(resp);
