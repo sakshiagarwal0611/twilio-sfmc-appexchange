@@ -89,8 +89,8 @@ app.post('/journeybuilder/execute/', activity.execute );
                                             console.log("response--------->"+response);
                                             console.log("error-------->"+error);
                                           
-                                             var resp= response.toString();
-                                             console.log(" published url list --------------------------------------------------------->" + JSON.stringify(response.body.items.fileproperties.publishedUrl);
+                                             //var resp= response.toString();
+                                             //console.log(" published url list --------------------------------------------------------->" + JSON.stringify(response.body.items.fileproperties.publishedUrl);
                                           //   var asset = Platform.Function.ParseJSON(resp);
                                           //   var publishedUrl = asset.fileProperties.publishedURL;
                                            //  console.log("publishedUrl------------------>" + publishedUrl);
