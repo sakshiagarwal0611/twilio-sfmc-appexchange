@@ -360,7 +360,7 @@ btn.onclick = function()
          })
           .then(function(res) {
                      console.log("response which is received on client side JS-------------------->" + res.toString());
-                      
+                      console.log(res.body);
               })
               .catch(function(err) {
                   window.alert("Error!");
