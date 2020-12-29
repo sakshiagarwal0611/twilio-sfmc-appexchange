@@ -334,14 +334,14 @@ btn.onclick = function()
                    headers: {"Content-Type": "application/json"}
          })
           .then((body) => {
-                     console.log("response which is received on client side JS-------------------->" + res.toString());
+                     //console.log("response which is received on client side JS-------------------->" + res.toString());
                       console.log(body);
-		      console.log(res.arr);
+		    //  console.log(res.arr);
 		  
 		  
               })
               .catch(function(err) {
-                  window.alert("Error!");
+                  window.alert("Error!" + err);
               });
 	
 }
