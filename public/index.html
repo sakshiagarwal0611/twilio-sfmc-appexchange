@@ -300,32 +300,7 @@
 		    }
 		}
 	
-	function insertImage()
-	{
-	    console.log(" we are inserting an image here");
-	    // To insert images we will have to
-	    //  - get images through api callout
-	    //  - click on the image we desire to insert
-	    //  - get image url and insert it in the contenteditable div tag
-
-	    var url = '/imagesContent';  
-	    //document.getElementById('image').innerHTML = '<img src="' + url + '" width="100" height="120">'; 
 	
-
-		
-	  fetch( url, {
-                   method: "POST",
-                   headers: {"Content-Type": "application/json"}
-         })
-          .then(function(res) {
-                     
-                      
-              })
-              .catch(function(err) {
-                  window.alert("Error!");
-              });
-		
-     } 
 	
 function imageinsert()
 	{
@@ -361,6 +336,7 @@ btn.onclick = function()
           .then(function(res) {
                      console.log("response which is received on client side JS-------------------->" + res.toString());
                       console.log(res.body);
+		      console.log(res.arr);
 		  
 		  
               })
