@@ -90,9 +90,10 @@ app.post('/journeybuilder/execute/', activity.execute );
                                             console.log("error-------->"+error);
                                           
                                              var resp= response.toString();
-                                             var asset = Platform.Function.ParseJSON(resp);
-                                             var publishedUrl = asset.fileProperties.publishedURL;
-                                             console.log("publishedUrl------------------>" + publishedUrl);
+                                              
+                                          //   var asset = Platform.Function.ParseJSON(resp);
+                                          //   var publishedUrl = asset.fileProperties.publishedURL;
+                                           //  console.log("publishedUrl------------------>" + publishedUrl);
                                           });
     
     
