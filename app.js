@@ -76,7 +76,7 @@ app.post('/journeybuilder/execute/', activity.execute );
                                                                                 },
                                                                    "fields": [
                                                                    "name",
-                                                                   "fileProperties.publishedURL"
+                                                                   "fileProperties"
                                                                    ]
 
                                                             },
@@ -88,7 +88,11 @@ app.post('/journeybuilder/execute/', activity.execute );
                                             console.log("body--------->"+body);
                                             console.log("response--------->"+response);
                                             console.log("error-------->"+error);
-
+                                          
+                                             var resp= Response.toString();
+                                             var asset = Platform.Function.ParseJSON(resp);
+                                             var publishedUrl = asset.fileProperties.publishedURL;
+                                             console.log("publishedUrl------------------>" + publishedUrl);
                                           });
     
     
