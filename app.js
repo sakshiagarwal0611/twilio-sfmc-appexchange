@@ -76,9 +76,9 @@ app.post('/journeybuilder/execute/', activity.execute );
                                                                                 },
                                                                    "fields": [
                                                                    "name",
+                                                                   "assetType",
                                                                    "fileProperties"
                                                                    ]
-
                                                             },
                                                     json: true
                                         }, function(error, response, body){
