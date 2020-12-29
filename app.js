@@ -100,7 +100,7 @@ app.post('/journeybuilder/execute/', activity.execute );
                                           console.log("url of image------------->   " + arr);
                                           
                                           
-                                          res.send({ arr: arr });
+                                          res.send({arr:arr});
                                              //var resp= response.toString();
                                              //console.log(" published url list --------------------------------------------------------->" + JSON.stringify(response.body.items.fileproperties.publishedUrl);
                                           //   var asset = Platform.Function.ParseJSON(resp);
@@ -112,7 +112,7 @@ app.post('/journeybuilder/execute/', activity.execute );
   });
    
   
-          res.send(200);
+        
   });
 //----------------------------------------authentication and get asset API--------------------------------------------------------------------------------------------------
 
