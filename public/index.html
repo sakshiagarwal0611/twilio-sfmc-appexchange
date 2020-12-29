@@ -332,14 +332,11 @@ btn.onclick = function()
 	  fetch( url, {
                    method: "POST",
                    headers: {"Content-Type": "application/json"}
-         }).then((response)=> console.log(response.text()))
-          .then((body) => {
-                     //console.log("response which is received on client side JS-------------------->" + res.toString());
-                      console.log(body);
-		    //  console.log(res.arr);
+         }).then((response)=>{
+		  console.log(response.json());
 		  
-		  
-              })
+		 }
+		)
               .catch(function(err) {
                   window.alert("Error!" + err);
               });
