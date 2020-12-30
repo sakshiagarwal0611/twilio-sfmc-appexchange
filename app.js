@@ -118,22 +118,20 @@ app.post('/journeybuilder/execute/', activity.execute );
 //----------------------------------------get base 64------------------------------------------------------------------------------------------------------->
  app.post("/base64", (req, res) => {
   console.log('this is the function called when we want to convert the image into base 64');
-   var base = 'base6s string';
+  // var base = 'base6s string';
    
    var request = require('request');
    var url = 'https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/c42752a3-e464-492e-a6a6-0777b5f32fad.png';
     // Make request to our image url
-    request({url: url, encoding: null}, function (err, res, body) {
+    request.get(url, function (err, res, body) {
         if (!err && res.statusCode == 200) {
             // So as encoding set to null then request body became Buffer object
-            var base = 'data:' + res.headers['content-type'] + ';base64,'
-                , 
-                image = body.toString('base64');
+            data = "data:" + response.headers["content-type"] + ";base64," + Buffer.from(body).toString('base64');
+                                                 var base64enc=data.split(";base64,")[1];
             
-        } else {
-            throw new Error('Can not download image');
+        } 
         }
-    });
+    );
    console.log(base);
    
    res.json({base:base});
