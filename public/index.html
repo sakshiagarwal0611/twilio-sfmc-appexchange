@@ -303,11 +303,9 @@
 	
 	
 	
-function imageinsert(url)
+function imageinsert()
 	{
-		var url = 'https:="" image.s11.sfmc-content.com="" lib="" fe3811717164047a751476="" m="" 1="" 6f8b422f-ef4a-44e3-87cd-ea541e6aecf1.png';
-		var url2 = Platform.Function.ParseJSON(url);
-             console.log(url2);
+		//console.log("url----->" + url);
 		console.log("We are inserting the image now");
 		/*document.getElementById('image').innerHTML += '<img style="margin:3px;" src="' + url + '" width="100" height="120">';
 
@@ -375,15 +373,14 @@ btn.onclick = function()
 		  
 		  
 		function myFunction(item, index) {
+			
 		document.getElementById("showimage").innerHTML += '<img src="' + item + '" onclick="imageinsert()" width="100" height="120" style="margin:3px;">';
 			
 		}
 		  console.log(document.getElementById("showimage").innerHTML);
 		  
-		 }
-		)
-              .catch(function(err) {
-                  window.alert("Error!" + err);
+		 })
+          
               });
 	
 }
