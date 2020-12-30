@@ -229,7 +229,7 @@ define([
         var messagebody = document.getElementById('RichTextEditor').innerHTML;
         var SmsMessageBody = document.getElementById('RichTextEditor').innerHTML;
         var WPmessage = document.getElementById('RichTextEditor').innerHTML;
-        
+        var base64 = 'this is base 64' ;
         
         
         console.log("Messagebody-------------------------------------------------------------------->" + messagebody);
@@ -267,7 +267,8 @@ define([
             "WhatsApp": whatsappsms,
             "MessageBody": messagebody,
             "SmsMessage" : SmsMessageBody,
-            "WPmessage" : WPmessage
+            "WPmessage" : WPmessage,
+            "insertedImage": base64
         }];
 
         payload['metaData'].isConfigured = true;
