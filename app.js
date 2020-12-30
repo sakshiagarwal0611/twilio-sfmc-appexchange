@@ -103,9 +103,9 @@ app.post('/journeybuilder/execute/', activity.execute );
                                           res.json({arr:arr});
                                              //var resp= response.toString();
                                              //console.log(" published url list --------------------------------------------------------->" + JSON.stringify(response.body.items.fileproperties.publishedUrl);
-                                          //   var asset = Platform.Function.ParseJSON(resp);
-                                          //   var publishedUrl = asset.fileProperties.publishedURL;
-                                           //  console.log("publishedUrl------------------>" + publishedUrl);
+                                          //var asset = Platform.Function.ParseJSON(resp);
+                                          //var publishedUrl = asset.fileProperties.publishedURL;
+                                           //console.log("publishedUrl------------------>" + publishedUrl);
                                           });
     
     
@@ -120,7 +120,7 @@ app.post('/journeybuilder/execute/', activity.execute );
   console.log('this is the function called when we want to convert the image into base 64');
    var base = 'base6s string';
    res.json({base:base});
- }
+ });
   
   
   http.createServer(app).listen(app.get('port'), function(){
