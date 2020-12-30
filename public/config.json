@@ -151,7 +151,7 @@
                             "direction": "in"
                         }
                     },
-                    },   
+                     
                                 {
                         "insertedImage": {
                             "dataType": "String",
