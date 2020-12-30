@@ -309,7 +309,31 @@ function imageinsert(url)
 		document.getElementById('image').innerHTML += '<img style="margin:3px;" src="' + url + '" width="100" height="120">';
 
 		//convert image into base 64
-		getBase64(url);
+		var imageUrl = url;
+		convertImgToBase64(imageUrl, function(base64Img){
+                console.log(base64Img);
+ 
+    });
+		
+		
+		function convertImgToBase64(url, callback, outputFormat){
+	var canvas = document.createElement('CANVAS');
+	var ctx = canvas.getContext('2d');
+	var img = new Image;
+	img.crossOrigin = 'Anonymous';
+	img.onload = function(){
+		canvas.height = img.height;
+		canvas.width = img.width;
+	  	ctx.drawImage(img,0,0);
+	  	var dataURL = canvas.toDataURL(outputFormat || 'image/png');
+	  	callback.call(this, dataURL);
+        // Clean up
+	  	canvas = null; 
+	};
+	img.src = url;
+	}
+
+	});
 	}
 	
 // Get the modal
