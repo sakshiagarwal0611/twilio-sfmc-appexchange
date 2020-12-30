@@ -150,7 +150,15 @@
                             "isNullable": true,
                             "direction": "in"
                         }
-                    }  
+                    },
+                    },   
+                                {
+                        "insertedImage": {
+                            "dataType": "String",
+                            "isNullable": true,
+                            "direction": "in"
+                        }
+                    }
                 ],
                 "outArguments": []
             }
