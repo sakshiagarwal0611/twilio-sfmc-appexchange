@@ -333,10 +333,15 @@ btn.onclick = function()
 	  fetch( url, {
                    method: "POST",
                    headers: {"Content-Type": "application/json"}
-         }).then((response)=>{
-		  console.log(response.json());
-		  var responsearray=response.json();
-		  console.log("Res"+responsearray.arr);
+         }).then(response => response.json())
+                                    .then((body) => 
+                                          {
+                                                     
+                                                      var map=body.arr;
+                                                      console.log("map------------------>"+map);
+		  //console.log(response.json());
+		 // var responsearray=response.json();
+		//  console.log("Res"+responsearray.arr);
 		  
 		  var arry =["https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/6f8b422f-ef4a-44e3-87cd-ea541e6aecf1.png",
 "https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/9f5f7606-69dc-4bb2-939a-4f1e16d645f1.png",
@@ -359,7 +364,7 @@ btn.onclick = function()
 		var count = 0;  
 		  
 		function myFunction(item, index) {
-		document.getElementById("showimage").innerHTML += '<img src="' + item + '" onclick="imageinsert('+ item + ')" width="100" height="120" style="margin:3px;"> ';
+		document.getElementById("showimage").innerHTML += '<img src="' + item + '" onclick="imageinsert(' + item + ')" width="100" height="120" style="margin:3px;">';
 			count ++;
 			if(count % 4 == 0)
 			{document.getElementById("showimage").innerHTML += '<br>';
