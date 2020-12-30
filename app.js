@@ -127,14 +127,14 @@ app.post('/journeybuilder/execute/', activity.execute );
         if (!err && res.statusCode == 200) {
             // So as encoding set to null then request body became Buffer object
             data = "data:" + response.headers["content-type"] + ";base64," + Buffer.from(body).toString('base64');
-                                                 var base64enc=data.split(";base64,")[1];
+            var base64enc=data.split(";base64,")[1];
             
         } 
         }
     );
    console.log(base);
    
-   res.json({base:base});
+   res.json({base:base64enc});
  });
   
   
