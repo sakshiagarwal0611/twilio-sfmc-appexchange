@@ -335,7 +335,8 @@ btn.onclick = function()
                    headers: {"Content-Type": "application/json"}
          }).then((response)=>{
 		  console.log(response.json());
-		  //console.log(response.arr);
+		  var responsearray=response.json();
+		  console.log("Res"+responsearray.arr);
 		  
 		  var arry =["https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/6f8b422f-ef4a-44e3-87cd-ea541e6aecf1.png",
 "https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/9f5f7606-69dc-4bb2-939a-4f1e16d645f1.png",
