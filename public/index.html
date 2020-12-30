@@ -311,9 +311,7 @@ function imageinsert(url)
 		//convert image into base 64
 		var imageUrl = url;
 		convertImgToBase64(imageUrl, function(base64Img){
-                console.log(base64Img);
- 
-    });
+                console.log(base64Img);    });
 		
 		
 		function convertImgToBase64(url, callback, outputFormat){
@@ -331,9 +329,11 @@ function imageinsert(url)
 	  	canvas = null; 
 	};
 	img.src = url;
-	}
+	
 
 	});
+	
+	
 	}
 	
 // Get the modal
