@@ -314,7 +314,10 @@ function imageinsert()
 		var requrl = '/base64';
 		fetch( requrl, {
                    method: "POST",
-                   headers: {"Content-Type": "application/json"}
+                   headers: {"Content-Type": "application/json"},
+		   body: {
+                           "url":url,
+                          }
                    })
 		   .then(response => response.json())
                    .then((body) => 
