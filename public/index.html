@@ -238,6 +238,7 @@
 	 <!-- content editable div -->
          <div id="RichTextEditor" class="editor" contenteditable='true'>
 	 </div>
+	<h3>SELECTED IMAGES: </h3>
 <div id="image">
 </div>
 	
@@ -247,11 +248,11 @@
   <!-- Modal content -->
   <div class="modal-content">
     <span class="close" style="float:right;">&times;</span>
-    <h3 style="text-align:center;">SELECT THE IMAGE</h3>
+    <h2 style="text-align:center;">SELECT THE IMAGE</h2>
 	  <br><br>
-   <div>
-	<img src="https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/c42752a3-e464-492e-a6a6-0777b5f32fad.png" onclick="imageinsert()" width="100" height="120">
-	</div>
+   <div id="showimage">
+	<!-- <img src="https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/c42752a3-e464-492e-a6a6-0777b5f32fad.png" onclick="imageinsert()" width="100" height="120"> -->
+  </div>
   </div>
 
 </div>
@@ -306,7 +307,7 @@ function imageinsert()
 	{
 		 console.log(" we are inserting the image now");
 		 var url = "https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/c42752a3-e464-492e-a6a6-0777b5f32fad.png";
-		 document.getElementById('image').innerHTML = document.getElementById('image').innerHTML + '<img style="margin:2px;" src="' + url + '" width="100" height="120">';
+		 document.getElementById('image').innerHTML = document.getElementById('image').innerHTML + '<img style="margin:3px;" src="' + url + '" width="100" height="120">';
 	
 	}
 	
@@ -334,7 +335,25 @@ btn.onclick = function()
                    headers: {"Content-Type": "application/json"}
          }).then((response)=>{
 		  console.log(response.json());
-		  console.log(response.arr);
+		  //console.log(response.arr);
+		  
+		  var arry =["https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/6f8b422f-ef4a-44e3-87cd-ea541e6aecf1.png",
+"https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/9f5f7606-69dc-4bb2-939a-4f1e16d645f1.png",
+"https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/d7d04b7b-c784-4742-b12b-a8826a326d4c.jpg",
+"https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/e8742da9-b854-4d21-8028-7575c4705c1d.jpg",
+"https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/314e02b7-57e6-4018-9bcb-258d02a4b8a2.jpg"
+
+
+];
+		  
+		  arry.forEach(myFunction);
+		  
+		  
+		function myFunction(item, index) {
+		document.getElementById("showimage").innerHTML += '<img src="' + item + '" onclick="imageinsert()" width="100" height="120" style="margin:3px;"> ';
+		}
+		  
+		  
 		 }
 		)
               .catch(function(err) {
