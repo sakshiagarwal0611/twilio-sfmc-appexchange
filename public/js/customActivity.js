@@ -216,18 +216,7 @@ define([
         }
     }
     
-    function insertImage(){
-    console.log(" we are inserting an image here");
-    // To insert images we will have to
-    //  - get images through api callout
-    //  - click on the image we desire to insert
-    //  - get image url and insert it in the contenteditable div tag
-       
-   var url =    'https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/c42752a3-e464-492e-a6a6-0777b5f32fad.png' ;  
-   document.getElementById('images').innerHTML = '<img src="' + url + '" width="100" height="120">'; 
-        document.getElementById('images').innerHTML = '<img src="' + url + '" width="100" height="120">';
-       
-     }
+    
 
     function save() {
 
