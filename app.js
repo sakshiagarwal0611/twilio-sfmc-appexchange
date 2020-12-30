@@ -115,7 +115,12 @@ app.post('/journeybuilder/execute/', activity.execute );
         
   });
 //----------------------------------------authentication and get asset API--------------------------------------------------------------------------------------------------
-
+//----------------------------------------get base 64------------------------------------------------------------------------------------------------------->
+ app.post("/base64", (req, res) => {
+  console.log('this is the function called when we want to convert the image into base 64');
+   var base = 'base6s string';
+   res.json({base:base});
+ }
   
   
   http.createServer(app).listen(app.get('port'), function(){
