@@ -361,7 +361,8 @@ btn.onclick = function()
 		document.getElementById("showimage").innerHTML += '<img src="' + item + '" onclick="imageinsert('+ item + ')" width="100" height="120" style="margin:3px;"> ';
 			count ++;
 			if(count % 4 == 0)
-			{document.getElementById("showimage").innerHTML += '<br>';}
+			{document.getElementById("showimage").innerHTML += '<br>';
+			console.log("---we inserted a <br> tag here---");}
 		}
 		  
 		  
