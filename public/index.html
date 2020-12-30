@@ -305,10 +305,13 @@
 	
 function imageinsert(url)
 	{
-		 console.log(" we are inserting the image now");
-		 
+		 console.log("We are inserting the image now");
 		 document.getElementById('image').innerHTML += '<img style="margin:3px;" src="' + url + '" width="100" height="120">';
-		//convert image into base 64
+
+		 //convert image into base 64
+		
+		
+		
 	}
 	
 // Get the modal
@@ -341,30 +344,11 @@ btn.onclick = function()
                                                       console.log("map------------------>"+map);
 		                                      var arry = map;
 		                                      arry.forEach(myFunction2);
-		  				     function myFunction2(item, index) {
-							 console.log( index + ":" + item + "<br>"); 
-						     }
-		  //console.log(response.json());
-		 // var responsearray=response.json();
-		//  console.log("Res"+responsearray.arr);
-		  
-		 /* var arry =["https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/6f8b422f-ef4a-44e3-87cd-ea541e6aecf1.png",
-"https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/9f5f7606-69dc-4bb2-939a-4f1e16d645f1.png",
-"https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/d7d04b7b-c784-4742-b12b-a8826a326d4c.jpg",
-"https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/e8742da9-b854-4d21-8028-7575c4705c1d.jpg",
-"https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/314e02b7-57e6-4018-9bcb-258d02a4b8a2.jpg",
-			     "https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/9f5f7606-69dc-4bb2-939a-4f1e16d645f1.png",
-"https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/d7d04b7b-c784-4742-b12b-a8826a326d4c.jpg",
-"https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/e8742da9-b854-4d21-8028-7575c4705c1d.jpg",
-"https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/314e02b7-57e6-4018-9bcb-258d02a4b8a2.jpg",
-			     "https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/9f5f7606-69dc-4bb2-939a-4f1e16d645f1.png",
-"https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/d7d04b7b-c784-4742-b12b-a8826a326d4c.jpg",
-"https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/e8742da9-b854-4d21-8028-7575c4705c1d.jpg",
-"https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/314e02b7-57e6-4018-9bcb-258d02a4b8a2.jpg"
-
-
-];*/
-		  
+		  				      function myFunction2(item, index) {
+						      console.log( index + ":" + item + "<br>"); 
+					 }
+		
+	  
 		arry.forEach(myFunction);
 		var count = 0;  
 		  
@@ -372,8 +356,10 @@ btn.onclick = function()
 		document.getElementById("showimage").innerHTML += '<img src="' + item + '" onclick="imageinsert(' + item + ')" width="100" height="120" style="margin:3px;">';
 			count ++;
 			if(count % 4 == 0)
-			{document.getElementById("showimage").innerHTML += '<br>';
-			console.log("---we inserted a <br> tag here---");}
+			{
+			document.getElementById("showimage").innerHTML += '<br>';
+			console.log("---we inserted a <br> tag here---");
+			}
 		}
 		  
 		  
@@ -398,64 +384,9 @@ window.onclick = function(event)
     modal.style.display = "none";
   }
 }
-	
-	
-	
 
-	
-/*	$('#button').click(function() {
-          $.ajax('/', function(list) {
-            $.ajax({
-            type: 'POST',
-            url: '/image',
-            data: $('#myField').text()
-            success: function(result) {
-            console.log('Response:', result);
-            }
-        }
-    }); */
 
-	
-/*function insertImage2(){
-       
- $.ajax({
-  type: 'POST',
-  crossDomain: true,
-  dataType: "json",
-  contentType: "application/json",
-  url: 'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.auth.marketingcloudapis.com/v1/tokenn',
-  headers: {  'Access-Control-Allow-Origin':'*',
-	      'Access-Control-Allow-Headers':'x-requested-with',
-	      'Access-Control-Allow-Methods':'POST, GET, OPTIONS'
-	    //'Access-Control-Request-Headers': 'x-requested-with'
-	   },
-  data: JSON.stringify({
-            "grant_type": "client_credentials",
-	    "client_id": "4nfraga57ld98tn00rmrhbn9",
-	    "client_secret": "qlm3OG67VzLC6nekeeGo1XY2"
-    }),
-  success:function(output) {
-  //  console.log(output.sessionID);
-	  console.log('------we have successfully calles this api from client side--------');
-	  
-    getData(output.sessionID, numberOrigin);
-  },
-  error:function(output) {
-     }
-  });
-}*/
-		/*function setTextToCurrentPos() { 
-                var curPos = getCaretIndex('sampleeditor');	
-			
-                console.log("Cursor position ----------------------------->" + curPos); 
-                let text_area_val = document.getElementById('sampleeditor').innerHTML ;
-			console.log("Value of text_area_val is------------------------->" + text_area_val);
-                let text_to_insert = $("#ps").val(); 
-			console.log("Value of text_to_insert is------------------------->" + text_to_insert);
-			document.getElementById('sampleeditor').innerHTML = text_area_val.slice(0, curPos) + text_to_insert + text_area_val.slice(curPos);
-			console.log("Value inserted is ---------------------------->" + text_area_val.slice(0, curPos) + text_to_insert + text_area_val.slice(curPos));
-               // $("#sampleeditor").val(x.slice(0, curPos) + text_to_insert + x.slice(curPos)); 
-            } */
+		
 </script>	
 </div>
 	
