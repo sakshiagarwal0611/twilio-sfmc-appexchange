@@ -314,12 +314,14 @@ var span = document.getElementsByClassName("close")[0];
 	
 	
 	
-function imageinsert()
+function imageinsert(id)
 	{
+		console.log("id as it is received by the insert image function--->" + id);
 		var url = 'https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/9f5f7606-69dc-4bb2-939a-4f1e16d645f1.png';
 		//console.log("url----->" + url);
+		var url2 = document.getElementById(id).src ;
 		console.log("We are inserting the image now");
-		document.getElementById('image').innerHTML += '<img style="margin:3px;" src="' + url + '" width="100" height="120">';
+		document.getElementById('image').innerHTML += '<img style="margin:3px;" src="' + url2 + '" width="100" height="120">';
 		var requrl = '/base64';
 		fetch( '/base64' , {
                    method: "POST",
@@ -368,8 +370,9 @@ btn.onclick = function()
 		  
 		  
 		function myFunction(item, index) {
-			
-		document.getElementById("showimage").innerHTML += '<img src="' + item + '" onclick="imageinsert()" width="100" height="120" style="margin:3px;">';
+			var id = 'serialNo' + index ; 
+			console.log("this is image id------>" + id);
+		document.getElementById("showimage").innerHTML += '<img id="' +  id + '" src="' + item + '" onclick="imageinsert(' + id + ')" width="100" height="120" style="margin:3px;">';
 		}
 		  console.log(document.getElementById("showimage").innerHTML);
 		  
