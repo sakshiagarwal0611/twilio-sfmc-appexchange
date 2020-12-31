@@ -161,7 +161,7 @@
                     },
                     {
                         "isimage": {
-                            "dataType": "String",
+                            "dataType": "Boolean",
                             "isNullable": true,
                             "direction": "in"
                         }
