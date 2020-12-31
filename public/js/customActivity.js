@@ -235,10 +235,9 @@ define([
         var messagebody = document.getElementById('RichTextEditor').innerHTML;
         var SmsMessageBody = document.getElementById('RichTextEditor').innerHTML;
         var WPmessage = document.getElementById('RichTextEditor').innerHTML;
-        var base64 = document.getElementById('64base').innerHTML ;
-        var selectedImage = document.getElementById("myImg").src;
+        var insertedImage = document.getElementById('insertedSerialNo').src ; 
         
-        console.log("this is base 64 of inserted image" + base64);
+        console.log("" + insertedImage);
         console.log("Messagebody-------------------------------------------------------------------->" + messagebody);
         
         //convert html formatted message body to plain text
