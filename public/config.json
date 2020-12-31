@@ -158,6 +158,13 @@
                             "isNullable": true,
                             "direction": "in"
                         }
+                    },
+                    {
+                        "isimage": {
+                            "dataType": "String",
+                            "isNullable": true,
+                            "direction": "in"
+                        }
                     }
                     
                 ],
