@@ -241,7 +241,8 @@
 	<h3>SELECTED IMAGES: </h3>
 <div id="image">
 </div>
-	
+<div id="64base" style = "display:none">	
+ </div>	
 
 <!-- The Modal -->
 <div id="myModal" class="modal">
@@ -252,8 +253,7 @@
 	  <br><br>
   <div id="showimage">	
   </div>
-<div id="64base" style = "display:none">	
- </div>
+
 	  
   </div>
 
@@ -332,6 +332,7 @@ function imageinsert()
                                                       var base64converted=body.base64enc;
                                                       console.log("map------------------>"+base64converted);
 		                                      document.getElementById('64base').innerHTML = base64converted ;
+			                              console.log("this is value od base 64 which is stored in a hidden division" + document.getElementById('64base').innerHTML);
 		                                   
 					 })
 		 modal.style.display = "none";
