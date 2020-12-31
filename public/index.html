@@ -241,7 +241,7 @@
 	<h3>SELECTED IMAGES: </h3>
 <div id="image">
 </div>
-
+<input type="checkbox" name="options" id="isInserted" value=""  style="display:none;"/>
 <!-- The Modal -->
 <div id="myModal" class="modal">
   <!-- Modal content -->
@@ -321,21 +321,7 @@ function imageinsert(url)
 		
 		document.getElementById('image').innerHTML = '<img id= "' + 'insertedSerialNo' + '" style="margin:3px;" src="' + url + '" width="100" height="120"><span class="close" style="float:right;" onclick = "removeimage();">&times;</span></img>';
 		console.log(document.getElementById('image').innerHTML);
-		/*var requrl = '/base64';
-		fetch( '/base64' , {
-                   method: "POST",
-                   headers: {"Content-Type": "application/json"}
-		 
-                   })
-		   .then(response => response.json())
-                   .then((body) => 
-                                          {
-                                                      var base64converted=body.base64enc;
-                                                      console.log("map------------------>"+base64converted);
-		                                      document.getElementById('64base').innerHTML = base64converted ;
-			                              console.log("this is value of base 64 which is stored in a hidden division" + document.getElementById('64base').innerHTML);
-		                                   
-					 })*/
+		 document.getElementById("isInserted").checked = true;
 		 modal.style.display = "none";
 
 	}
@@ -397,6 +383,7 @@ function removeimage()
 {
 	console.log("this function will be called to remove the image");
 	document.getElementById('image').innerHTML = ' ';
+	 document.getElementById("isInserted").checked = false;
 	}
 		
 </script>	
