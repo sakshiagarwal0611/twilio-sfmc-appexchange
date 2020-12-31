@@ -274,8 +274,8 @@ define([
             "MessageBody": messagebody,
             "SmsMessage" : SmsMessageBody,
             "WPmessage" : WPmessage,
-            "insertedImage": base64,
-            "selectedImage" : selectedImage
+            "insertedImage": insertedImage
+           
         }];
 
         payload['metaData'].isConfigured = true;
