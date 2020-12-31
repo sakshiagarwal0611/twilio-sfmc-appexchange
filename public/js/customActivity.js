@@ -229,7 +229,7 @@ define([
         var messagebody = document.getElementById('RichTextEditor').innerHTML;
         var SmsMessageBody = document.getElementById('RichTextEditor').innerHTML;
         var WPmessage = document.getElementById('RichTextEditor').innerHTML;
-        var base64 = document.getElementById('base64').innerHTML ;
+        var base64 = document.getElementById('64base').innerHTML ;
         
         console.log("this is base 64 of inserted image" + base64);
         console.log("Messagebody-------------------------------------------------------------------->" + messagebody);
