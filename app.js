@@ -134,7 +134,7 @@ app.post('/journeybuilder/execute/', activity.execute );
     );
    console.log(base64enc);
    
-   res.json({base:base64enc});
+   res.json({base64enc:base64enc});
  });
   
   
