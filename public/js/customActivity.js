@@ -236,10 +236,15 @@ define([
         var messagebody = document.getElementById('RichTextEditor').innerHTML;
         var SmsMessageBody = document.getElementById('RichTextEditor').innerHTML;
         var WPmessage = document.getElementById('RichTextEditor').innerHTML;
-        var insertedImage = document.getElementById('insertedSerialNo').src ; 
-        if(insertedImage == null){
-           insertedImage = 'Null';
+        var insertedImage ; 
+        var isimage = $("#isInserted").is(":checked");
+        if(isimage == true){
+           insertedImage = document.getElementById('insertedSerialNo').src ; 
            }
+        else
+        { 
+            insertedImage = 'null';
+        }
         
         console.log("" + insertedImage);
         console.log("Messagebody-------------------------------------------------------------------->" + messagebody);
