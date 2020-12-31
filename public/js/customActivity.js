@@ -101,7 +101,8 @@ define([
                 }
                 if (key === 'insertedImage') {
                     
-                    console.log("Selected image------------------------>" + val);
+                    console.log("insertedImage------------------------>" + val);
+                    document.getElementById('image').innerHTML = '<img id= "' + 'insertedSerialNo' + '" style="margin:3px;" src="' + val + '" width="100" height="120">';
                     //document.getElementById('image').innerHTML += '<img style="margin:3px;" src="' + val + '" width="100" height="120">';
                    
                 }
