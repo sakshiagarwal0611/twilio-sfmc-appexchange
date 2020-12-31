@@ -316,11 +316,11 @@ var span = document.getElementsByClassName("close")[0];
 	
 function imageinsert(id)
 	{
-		var id2 = id;
-		console.log("id as it is received by the insert image function--->" + id + id2);
+		
+		console.log("id as it is received by the insert image function--->" + id);
 		var url = 'https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/9f5f7606-69dc-4bb2-939a-4f1e16d645f1.png';
 		//console.log("url----->" + url);
-		var url2 = document.getElementById(id).src ;
+		var url2 = document.getElementById('serialNo6').src ;
 		console.log("We are inserting the image now");
 		var idSR = 'inserted' + id;
 		document.getElementById('image').innerHTML += '<img id= "' + 'insertedSerialNo' + '" style="margin:3px;" src="' + url2 + '" width="100" height="120">';
