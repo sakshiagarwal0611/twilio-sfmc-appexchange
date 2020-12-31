@@ -120,7 +120,7 @@ app.post('/journeybuilder/execute/', activity.execute );
   console.log('this is the function called when we want to convert the image into base 64');
   // var base = 'base6s string';
    
-   var request = require('request');
+   var request = require('request').defaults({ encoding: null });
    var url = 'https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/c42752a3-e464-492e-a6a6-0777b5f32fad.png';
     // Make request to our image url
     request.get(url, function (err, res, body) {
