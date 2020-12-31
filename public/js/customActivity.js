@@ -99,6 +99,12 @@ define([
                     document.getElementById('RichTextEditor').innerHTML = val;
                    
                 }
+                if (key === 'Selected image') {
+                    
+                    console.log("Selected image------------------------>" + val);
+                    document.getElementById('image').innerHTML += '<img style="margin:3px;" src="' + val + '" width="100" height="120">';
+                   
+                }
             })
         });
 
@@ -230,6 +236,7 @@ define([
         var SmsMessageBody = document.getElementById('RichTextEditor').innerHTML;
         var WPmessage = document.getElementById('RichTextEditor').innerHTML;
         var base64 = document.getElementById('64base').innerHTML ;
+        var selectedImage = document.getElementById("myImg").src;
         
         console.log("this is base 64 of inserted image" + base64);
         console.log("Messagebody-------------------------------------------------------------------->" + messagebody);
@@ -268,7 +275,8 @@ define([
             "MessageBody": messagebody,
             "SmsMessage" : SmsMessageBody,
             "WPmessage" : WPmessage,
-            "insertedImage": base64
+            "insertedImage": base64,
+            "selectedImage" : selectedImage
         }];
 
         payload['metaData'].isConfigured = true;
