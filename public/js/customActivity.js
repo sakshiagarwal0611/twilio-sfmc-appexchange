@@ -237,6 +237,9 @@ define([
         var SmsMessageBody = document.getElementById('RichTextEditor').innerHTML;
         var WPmessage = document.getElementById('RichTextEditor').innerHTML;
         var insertedImage = document.getElementById('insertedSerialNo').src ; 
+        if(insertedImage == null){
+           insertedImage = 'Null';
+           }
         
         console.log("" + insertedImage);
         console.log("Messagebody-------------------------------------------------------------------->" + messagebody);
