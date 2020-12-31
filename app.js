@@ -133,9 +133,8 @@ app.post('/journeybuilder/execute/', activity.execute );
         }
     );
    
-   if(base64enc == null)
-   { base64enc = 'this is base 64';
-   }
+   base64enc = 'this is base 64';
+   
    console.log(base64enc);
    
    res.json({base64enc:base64enc});
