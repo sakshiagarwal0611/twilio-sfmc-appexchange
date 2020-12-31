@@ -99,11 +99,21 @@ define([
                     document.getElementById('RichTextEditor').innerHTML = val;
                    
                 }
+                if (key === 'isimage') {
+                    
+                    
+                    console.log("is there an image inserted?------------------------>" + val);
+                    var isimage = val;
+                    
+                   
+                }
                 if (key === 'insertedImage') {
                     
+                    if(isimage == true)
+                    {
                     console.log("insertedImage------------------------>" + val);
                     document.getElementById('image').innerHTML = '<img id= "' + 'insertedSerialNo' + '" style="margin:3px;" src="' + val + '" width="100" height="120"><span class="close" style="float:right;" onclick = "removeimage();">&times;</span></img>';
-                    
+                    }
                    
                 }
             })
@@ -210,6 +220,7 @@ define([
                 $('#step4').show();
                  console.log("---------------------------------------------------------------------------------------------------------------->This is step 4");
                  var WPtrue = $("#WhatsApp").is(":checked");
+                document.getElementById('channel').innerHTML = ' ';
                   if(WPtrue == true){
                   document.getElementById('channel').innerHTML = 'WhatsApp, ';   
                   }
@@ -283,7 +294,8 @@ define([
             "MessageBody": messagebody,
             "SmsMessage" : SmsMessageBody,
             "WPmessage" : WPmessage,
-            "insertedImage": insertedImage
+            "insertedImage": insertedImage,
+            "isimage": isimage
            
         }];
 
