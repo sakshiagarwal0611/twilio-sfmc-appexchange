@@ -116,11 +116,11 @@ app.post('/journeybuilder/execute/', activity.execute );
   });
 //----------------------------------------authentication and get asset API--------------------------------------------------------------------------------------------------
 //----------------------------------------get base 64------------------------------------------------------------------------------------------------------->
- app.post("/base64", (req, res) => {
+ /*app.post("/base64", (req, res) => {
   console.log('this is the function called when we want to convert the image into base 64');
   // var base = 'base6s string';
    
-   /*var request = require('request').defaults({ encoding: null });
+   var request = require('request').defaults({ encoding: null });
    var url = 'https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/c42752a3-e464-492e-a6a6-0777b5f32fad.png';
     // Make request to our image url
     request.get(url, function (err, res, body) {
@@ -131,14 +131,14 @@ app.post('/journeybuilder/execute/', activity.execute );
             
         } 
         }
-    );*/
+    );
    
    var base64enc = 'this is base 64';
    
    console.log(base64enc);
    
    res.json({base64enc:base64enc});
- });
+ });*/
   
   
   http.createServer(app).listen(app.get('port'), function(){
