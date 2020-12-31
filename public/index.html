@@ -323,8 +323,8 @@ function imageinsert(id)
 		var url2 = document.getElementById(id).src ;
 		console.log("We are inserting the image now");
 		var idSR = 'inserted' + id;
-		document.getElementById('image').innerHTML += '<img id= "' + idSR + '" style="margin:3px;" src="' + url2 + '" width="100" height="120">';
-		var requrl = '/base64';
+		document.getElementById('image').innerHTML += '<img id= "' + 'insertedSerialNo' + '" style="margin:3px;" src="' + url2 + '" width="100" height="120">';
+		/*var requrl = '/base64';
 		fetch( '/base64' , {
                    method: "POST",
                    headers: {"Content-Type": "application/json"}
@@ -338,7 +338,7 @@ function imageinsert(id)
 		                                      document.getElementById('64base').innerHTML = base64converted ;
 			                              console.log("this is value of base 64 which is stored in a hidden division" + document.getElementById('64base').innerHTML);
 		                                   
-					 })
+					 })*/
 		 modal.style.display = "none";
 
 	}
@@ -358,7 +358,7 @@ btn.onclick = function()
 	  fetch( url, {
                    method: "POST",
                    headers: {"Content-Type": "application/json"}
-         }).then(response => response.json())
+                      }).then(response => response.json())
                                     .then((body) => 
                                           {
                                                      
