@@ -158,21 +158,8 @@
                             "isNullable": true,
                             "direction": "in"
                         }
-                    },
-                    {
-                        "ImageURL": {
-                            "dataType": "String",
-                            "isNullable": true,
-                            "direction": "in"
-                        }
-                    },
-                    {
-                        "selectedImage": {
-                            "dataType": "String",
-                            "isNullable": true,
-                            "direction": "in"
-                        }
                     }
+                    
                 ],
                 "outArguments": []
             }
