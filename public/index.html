@@ -333,7 +333,7 @@ btn.onclick = function()
 {
   modal.style.display = "block";
   console.log(" we are fetching an image here");	
-  
+  document.getElementById("showimage").innerHTML = '',
           var url = '/imagesContent';  
 	
 
@@ -356,7 +356,7 @@ btn.onclick = function()
 		  
 		function myFunction(item, index) {
 		var id = 'serialNo' + index ; 
-			console.log("this is image id------>" + id);
+		console.log("this is image id------>" + id);
 		document.getElementById("showimage").innerHTML += '<img id="' +  id + '" src="' + item + '" onclick="imageinsert(\'' + item + '\')" width="100" height="120" style="margin:3px;">';
 		}
 		  console.log(document.getElementById("showimage").innerHTML);
