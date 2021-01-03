@@ -246,6 +246,8 @@ define([
         var SmsMessageBody = document.getElementById('RichTextEditor').innerHTML;
         var WPmessage = document.getElementById('RichTextEditor').innerHTML;
         var insertedImage ; 
+        
+        console.log("Content of division image" + document.getElementById('image').innerHTML);
         var isimage = $("#isInserted").is(":checked");
         if(isimage == true){
            insertedImage = document.getElementById('insertedSerialNo').src ; 
