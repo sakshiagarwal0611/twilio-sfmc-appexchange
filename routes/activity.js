@@ -106,8 +106,8 @@ exports.execute = function(req, res) {
     const messagebody = requestBody.MessageBody;
     const SmsMessage = requestBody.SmsMessage;
     const WPmessage  = requestBody.WPmessage;
-    const ImageURL = requestBody.ImageURL ; 
-
+    const ImageURL = requestBody.insertedImage ; 
+    console.log("imageurl---------------------------------------------------------------------------------->" + ImageURL);
     console.log("Original message body with html formatting--------->" + messagebody);
     console.log("Whatsapp message--------------->" + WPmessage);
     console.log("SMS message--------------->" + SmsMessage);
@@ -122,7 +122,7 @@ exports.execute = function(req, res) {
         console.log(to);
         client.messages
         .create({
-            mediaurl: [ImageURL];
+            mediaurl: ImageURL;
             body: "hello there, this is my first whatsapp message",
             from: 'whatsapp:+14155238886',
             to: 'whatsapp:+91' + to
