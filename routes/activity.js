@@ -104,20 +104,26 @@ exports.execute = function(req, res) {
     const sms =   requestBody.SMS;
     const whatsapp = requestBody.WhatsApp;
     const messagebody = requestBody.MessageBody;
-    const SmsMessage = requestBody.SmsMessage;
-    const WPmessage  = requestBody.WPmessage;
-    const ImageURL = requestBody.insertedImage ; 
-    console.log("imageurl---------------------------------------------------------------------------------->" + ImageURL);
+    const smsMessage = requestBody.SmsMessage;
+    const wPmessage  = requestBody.WPmessage;
+    const imageURL = requestBody.insertedImage ; 
+    
+    
+    
+    
+    
+    
+    console.log("imageurl---------------------------------------------------------------------------------->" + imageURL);
     console.log("Original message body with html formatting--------->" + messagebody);
-    console.log("Whatsapp message--------------->" + WPmessage);
-    console.log("SMS message--------------->" + SmsMessage);
+    console.log("Whatsapp message--------------->" + wPmessage);
+    console.log("SMS message--------------->" + smsMessage);
     
     
     if(whatsapp == true)
     {
         
         console.log("<---------------------------------------------------This message is sent on whatsApp number of the user--------------------------------------------------->");
-        console.log("Whatsapp message----------->" + WPmessage);
+        console.log("Whatsapp message----------->" + wPmessage);
         /* const client = require('twilio')(accountSid, authToken);
         console.log(to);
         client.messages
@@ -140,7 +146,7 @@ exports.execute = function(req, res) {
     console.log(to);
     client.messages
         .create({
-            body: SmsMessage,
+            body: smsMessage,
             statusCallback: "https://encwq9bqo98l04z.m.pipedream.net/",
             from: '+12058914350',
             to: '+91' + to
