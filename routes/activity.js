@@ -100,7 +100,7 @@ exports.execute = function(req, res) {
     const accountSid = requestBody.accountSid;
     const authToken = requestBody.authToken;
     const to = requestBody.to;
-    const from = requestBody.messagingService;
+   // const from = requestBody.messagingService;
     const sms =   requestBody.SMS;
     const whatsapp = requestBody.WhatsApp;
     const messagebody = requestBody.MessageBody;
@@ -236,7 +236,7 @@ exports.execute = function(req, res) {
     }
         
     logData(req);
-    res.send(200, 'Publish');
+    res.send(200, 'Execute');
 };
 
 
