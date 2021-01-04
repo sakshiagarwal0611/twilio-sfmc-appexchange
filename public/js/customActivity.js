@@ -244,8 +244,8 @@ define([
         var sms = $("#SMS").is(":checked");
         var whatsappsms = $("#WhatsApp").is(":checked");   
         var messagebody = document.getElementById('RichTextEditor').innerHTML;
-        var SmsMessageBody = document.getElementById('RichTextEditor').innerHTML;
-        var WPmessage = document.getElementById('RichTextEditor').innerHTML;
+        var smsMessageBody = document.getElementById('RichTextEditor').innerHTML;
+        var wPmessage = document.getElementById('RichTextEditor').innerHTML;
         var insertedImage ; 
         
         console.log("Content of division image" + document.getElementById('image').innerHTML);
@@ -262,25 +262,25 @@ define([
         console.log("Messagebody-------------------------------------------------------------------->" + messagebody);
         
         //convert html formatted message body to plain text
-        var plainText = $('<div>').html(SmsMessageBody).text();
+        var plainText = $('<div>').html(smsMessageBody).text();
         console.log("plain text------------------------->" + plainText);
-        SmsMessageBody = plainText;
-        console.log("SMS Message body-------------------------------------------------------------------->" + SmsMessageBody);
+        smsMessageBody = plainText;
+        console.log("SMS Message body-------------------------------------------------------------------->" + smsMessageBody);
         
         
         //convert html formatted message body to whatsapp formatted text
-        console.log("WhatsApp message------------------->" + WPmessage);
-        WPmessage = WPmessage.replaceAll("<b>", "*");
-        WPmessage = WPmessage.replaceAll("</b>", "*");
-        WPmessage = WPmessage.replaceAll("&nbsp;", " ");
-        WPmessage = WPmessage.replaceAll("<div>", "");
-        WPmessage = WPmessage.replaceAll("</div>", "");
-        WPmessage = WPmessage.replaceAll("<br>", " ");
-        WPmessage = WPmessage.replaceAll("<i>", "_");
-        WPmessage = WPmessage.replaceAll("</i>", "_");
-        WPmessage = WPmessage.replaceAll("<strike>", "~");
-        WPmessage = WPmessage.replaceAll("</strike>", "~");
-        console.log("WhatsApp message------------------->" + WPmessage);
+        console.log("WhatsApp message------------------->" + wPmessage);
+        wPmessage = wPmessage.replaceAll("<b>", "*");
+        wPmessage = wPmessage.replaceAll("</b>", "*");
+        wPmessage = wPmessage.replaceAll("&nbsp;", " ");
+        wPmessage = wPmessage.replaceAll("<div>", "");
+        wPmessage = wPmessage.replaceAll("</div>", "");
+        wPmessage = wPmessage.replaceAll("<br>", " ");
+        wPmessage = wPmessage.replaceAll("<i>", "_");
+        wPmessage = wPmessage.replaceAll("</i>", "_");
+        wPmessage = wPmessage.replaceAll("<strike>", "~");
+        wPmessage = wPmessage.replaceAll("</strike>", "~");
+        console.log("WhatsApp message------------------->" + wPmessage);
         
         
         
@@ -293,8 +293,8 @@ define([
             "SMS": sms,
             "WhatsApp": whatsappsms,
             "MessageBody": messagebody,
-            "SmsMessage" : SmsMessageBody,
-            "WPmessage" : WPmessage,
+            "SmsMessage" : smsMessageBody,
+            "WPmessage" : wPmessage,
             "insertedImage": insertedImage,
             "isimage": isimage
            
