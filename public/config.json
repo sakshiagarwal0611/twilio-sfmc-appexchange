@@ -30,7 +30,7 @@
     "configurationArguments": {
         "applicationExtensionKey": "6d35f77b-e998-4c2b-b847-20650744e365",
         "save": {
-            "url": "https://twilio-sfmc-sakshi.herokuapp.com/journeybuilder/save",
+            "url": "https://758531a00b43520eb492c7189ed5592b.m.pipedream.net/save",
             "verb": "POST",
             "body": "",
             "format": "json",
