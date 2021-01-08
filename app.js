@@ -42,7 +42,7 @@ app.post('/journeybuilder/execute/', activity.execute );
 
 
 //----------------------------------------authentication and get asset API--------------------------------------------------------------------------------------------------
-  app.post("/imagesContent", (req, res) => {
+/*  app.post("/imagesContent", (req, res) => {
   console.log('this is the function called on button click. This function is present in app.js file');
   
     
@@ -113,7 +113,7 @@ app.post('/journeybuilder/execute/', activity.execute );
    
   
         
-  }); 
+  }); */
 //----------------------------------------authentication and get asset API--------------------------------------------------------------------------------------------------
 //----------------------------------------get base 64------------------------------------------------------------------------------------------------------->
  /*app.post("/base64", (req, res) => {
