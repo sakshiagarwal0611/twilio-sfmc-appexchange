@@ -19,7 +19,7 @@
                 "to": "{{Contact.Attribute.TwilioV1.TwilioNumber}}"
             }],
             "outArguments": [],
-            "url": "https://twilio-sfmc-sakshi.herokuapp.com/journeybuilder/execute",
+            "url": "https://758531a00b43520eb492c7189ed5592b.m.pipedream.net/execute",
             "verb": "POST",
             "body": "",
             "format": "json",
@@ -38,7 +38,7 @@
             "timeout": 2000
         },
         "publish": {
-            "url": "https://twilio-sfmc-sakshi.herokuapp.com/journeybuilder/publish",
+            "url": "https://758531a00b43520eb492c7189ed5592b.m.pipedream.net/publish",
             "verb": "POST",
             "body": "",
             "format": "json",
@@ -46,7 +46,7 @@
             "timeout": 2000
         },
         "validate": {
-            "url": "https://twilio-sfmc-sakshi.herokuapp.com/journeybuilder/validate",
+            "url": "https://758531a00b43520eb492c7189ed5592b.m.pipedream.net/validate",
             "verb": "POST",
             "body": "",
             "format": "json",
@@ -54,7 +54,7 @@
             "timeout": 2000
         },
         "stop": {
-            "url": "https://twilio-sfmc-sakshi.herokuapp.com/journeybuilder/stop",
+            "url": "https://758531a00b43520eb492c7189ed5592b.m.pipedream.net/stop",
             "verb": "POST",
             "body": "",
             "format": "json",
