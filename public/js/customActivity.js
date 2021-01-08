@@ -246,19 +246,19 @@ define([
         var messagebody = document.getElementById('RichTextEditor').innerHTML;
         var smsMessageBody = document.getElementById('RichTextEditor').innerHTML;
         var wPmessage = document.getElementById('RichTextEditor').innerHTML;
-        var insertedImage ; 
+       // var insertedImage ; 
         
-        console.log("Content of division image" + document.getElementById('image').innerHTML);
-        var isimage = $("#isInserted").is(":checked");
+        //console.log("Content of division image" + document.getElementById('image').innerHTML);
+       /* var isimage = $("#isInserted").is(":checked");
         if(isimage == true){
            insertedImage = document.getElementById('insertedSerialNo').src ; 
            }
         else
         { 
             insertedImage = 'null';
-        }
+        }*/
         
-        console.log("" + insertedImage);
+       // console.log("" + insertedImage);
         console.log("Messagebody-------------------------------------------------------------------->" + messagebody);
         
         //convert html formatted message body to plain text
@@ -294,9 +294,9 @@ define([
             "WhatsApp": whatsappsms,
             "MessageBody": messagebody,
             "SmsMessage" : smsMessageBody,
-            "WPmessage" : wPmessage,
-            "insertedImage": insertedImage,
-            "isimage": isimage
+            "WPmessage" : wPmessage
+            //"insertedImage": insertedImage,
+           // "isimage": isimage
            
         }];
 
