@@ -294,7 +294,7 @@ define([
             "WhatsApp": whatsappsms,
             "MessageBody": messagebody,
             "SmsMessage" : smsMessageBody,
-            "WPmessage" : wPmessage
+            "WPmessage" : wPmessage,
             "insertedImage": insertedImage,
             "isimage": isimage
            
