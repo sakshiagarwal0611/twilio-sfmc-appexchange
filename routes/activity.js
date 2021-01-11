@@ -108,7 +108,7 @@ exports.execute = function(req, res) {
     const smsMessage = requestBody.SmsMessage;
     const wPmessage  = requestBody.WPmessage;
    // const imageURL = requestBody.insertedImage ; 
-    console.log("RequestBody"+requestBody);
+    console.log("RequestBody"+Json.stringify(requestBody));
     
     
     
