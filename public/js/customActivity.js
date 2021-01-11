@@ -283,7 +283,6 @@ define([
         console.log("WhatsApp message------------------->" + wPmessage);
         
         
-        
 
         payload['arguments'].execute.inArguments = [{
             "accountSid": accountSid,
