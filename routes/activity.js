@@ -109,13 +109,14 @@ exports.execute = function(req, res) {
     const wPmessage  = requestBody.WPmessage;
    // const imageURL = requestBody.insertedImage ; 
     console.log("RequestBody"+JSON.stringify(requestBody));
+    const imageURL = requestBody.insertedImage ;
     
     
     
     
     
     
-    //console.log("imageurl---------------------------------------------------------------------------------->" + imageURL);
+    console.log("imageurl---------------------------------------------------------------------------------->" + imageURL);
     console.log("Original message body with html formatting--------->" + messagebody);
     console.log("Whatsapp message--------------->" + wPmessage);
     console.log("SMS message--------------->" + smsMessage);
@@ -276,7 +277,7 @@ exports.publish = function(req, res) {
     console.log("3");
     console.log("2");
     console.log("1");
-    console.log("Publish Update 2");
+    console.log("Publish Update 3");
     //console.log("Published: "+req.body.inArguments[0]);        
 
     // Data from the req and put it in an array accessible to the main app.
