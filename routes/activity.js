@@ -109,14 +109,14 @@ exports.execute = function(req, res) {
     const wPmessage  = requestBody.WPmessage;
    // const imageURL = requestBody.insertedImage ; 
     console.log("RequestBody"+JSON.stringify(requestBody));
-    const imageURL = requestBody.insertedImage ;
+  //  const imageURL = requestBody.insertedImage ;
     
     
     
     
     
     
-    console.log("imageurl---------------------------------------------------------------------------------->" + imageURL);
+   // console.log("imageurl---------------------------------------------------------------------------------->" + imageURL);
     console.log("Original message body with html formatting--------->" + messagebody);
     console.log("Whatsapp message--------------->" + wPmessage);
     console.log("SMS message--------------->" + smsMessage);
