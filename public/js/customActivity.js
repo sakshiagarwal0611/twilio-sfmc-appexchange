@@ -99,7 +99,7 @@ define([
                     document.getElementById('RichTextEditor').innerHTML = val;
                    
                 }
-                if (key === 'isimage') {
+               /* if (key === 'isimage') {
                     
                     
                     console.log("is there an image inserted?------------------------>" + val);
@@ -114,7 +114,7 @@ define([
                     document.getElementById("isInserted").checked = true;
                 }
                    
-                }
+                }*/
             })
         });
 
@@ -246,7 +246,7 @@ define([
         var messagebody = document.getElementById('RichTextEditor').innerHTML;
         var smsMessageBody = document.getElementById('RichTextEditor').innerHTML;
         var wPmessage = document.getElementById('RichTextEditor').innerHTML;
-        var insertedImage ; 
+      /*  var insertedImage ; 
         
         console.log("Content of division image" + document.getElementById('image').innerHTML);
         var isimage = $("#isInserted").is(":checked");
@@ -258,7 +258,7 @@ define([
             insertedImage = 'null';
         }
         
-        console.log("" + insertedImage);
+        console.log("" + insertedImage);*/
         console.log("Messagebody-------------------------------------------------------------------->" + messagebody);
         
         //convert html formatted message body to plain text
