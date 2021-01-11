@@ -107,11 +107,12 @@ exports.execute = function(req, res) {
     const messagebody = requestBody.MessageBody;
     const smsMessage = requestBody.SmsMessage;
     const wPmessage  = requestBody.WPmessage;
-   // const imageURL = requestBody.insertedImage ; 
+    const imageURL = requestBody.insertedImage ; 
     console.log("RequestBody"+JSON.stringify(requestBody));
   //  const imageURL = requestBody.insertedImage ;
     
-    
+    console.log({{Contact.Attribute.TwilioV1.TwilioNumber}});
+    console.log({{Contact.Attribute.TwilioV1.EmailAddress}});
     
     
     
