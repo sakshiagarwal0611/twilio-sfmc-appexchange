@@ -109,10 +109,11 @@ exports.execute = function(req, res) {
     const wPmessage  = requestBody.WPmessage;
     const imageURL = requestBody.insertedImage ; 
     console.log("RequestBody"+JSON.stringify(requestBody));
-  //  const imageURL = requestBody.insertedImage ;
+    const email = requestBody.email; 
+ 
     
-    console.log({{Contact.Attribute.TwilioV1.TwilioNumber}});
-    console.log({{Contact.Attribute.TwilioV1.EmailAddress}});
+   // console.log({{Contact.Attribute.TwilioV1.TwilioNumber}});
+   // console.log({{Contact.Attribute.TwilioV1.EmailAddress}});
     
     
     
