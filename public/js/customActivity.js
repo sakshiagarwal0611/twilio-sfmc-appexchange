@@ -255,7 +255,9 @@ define([
         var smsMessageBody = document.getElementById('RichTextEditor').innerHTML;
         var wPmessage = document.getElementById('RichTextEditor').innerHTML;
         var insertedImage ; 
+        var entry = "{{Event.DEAudience-5d757f2a-5eb5-3833-c1b4-b5504bf6f693.EmailAddress}}";
         
+        console.log("Entry source--------->" + entry);
         console.log("Content of division image" + document.getElementById('image').innerHTML);
         var isimage = $("#isInserted").is(":checked");
         if(isimage == true){
@@ -305,7 +307,7 @@ define([
             "WPmessage" : wPmessage,
             "insertedImage": insertedImage,
             "isimage": isimage,
-            "entrySource" : "{{Event.DEAudience-5d757f2a-5eb5-3833-c1b4-b5504bf6f693.EmailAddress}}",
+            "entrySource" : entry
          
            
         }];
