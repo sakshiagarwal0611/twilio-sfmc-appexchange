@@ -303,8 +303,9 @@ define([
             "MessageBody": messagebody,
             "SmsMessage" : smsMessageBody,
             "WPmessage" : wPmessage,
-           "insertedImage": insertedImage,
-            "isimage": isimage
+            "insertedImage": insertedImage,
+            "isimage": isimage,
+            "entrySource" : "{{Event.DEAudience-5d757f2a-5eb5-3833-c1b4-b5504bf6f693.EmailAddress}}",
          
            
         }];
