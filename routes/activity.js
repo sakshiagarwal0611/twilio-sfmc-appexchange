@@ -110,14 +110,14 @@ exports.execute = function(req, res) {
     const imageURL = requestBody.insertedImage ; 
     console.log("RequestBody"+JSON.stringify(requestBody));
     const email = requestBody.email; 
- 
+    const entrySource = requestBody.entrySource; 
     
    // console.log({{Contact.Attribute.TwilioV1.TwilioNumber}});
    // console.log({{Contact.Attribute.TwilioV1.EmailAddress}});
     
     
     
-    
+    console.log("Entry source--------->" + entrySource);
    // console.log("imageurl---------------------------------------------------------------------------------->" + imageURL);
     console.log("Original message body with html formatting--------->" + messagebody);
     console.log("Whatsapp message--------------->" + wPmessage);
