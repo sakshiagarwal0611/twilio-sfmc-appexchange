@@ -165,7 +165,7 @@
                     },
                     {
                         "entrySource": {
-                            "dataType": "Boolean",
+                            "dataType": "String",
                             "isNullable": true,
                             "direction": "in"
                         }
