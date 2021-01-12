@@ -17,7 +17,9 @@ define([
     var currentStep = steps[0].key;
 
     $(window).ready(onRender);
-
+    var eventDefinitionKey;
+    
+    
     connection.on('initActivity', initialize);
     connection.on('requestedTokens', onGetTokens);
     connection.on('requestedEndpoints', onGetEndpoints);
@@ -25,12 +27,18 @@ define([
     connection.on('clickedNext', onClickedNext);
     connection.on('clickedBack', onClickedBack);
     connection.on('gotoStep', onGotoStep);
+    
+    connection.on('requestedInteraction', function(settings){
+    eventDefinitionKey = settings.triggers[0].metaData.eventDefinitionKey;
+        console.log( " eventDefinitionKey----->" + eventDefinitionKey);
+});
 
     function onRender() {
         // JB will respond the first time 'ready' is called with 'initActivity'
         connection.trigger('ready');
         connection.trigger('requestTokens');
         connection.trigger('requestEndpoints');
+        connection.trigger('requestInteraction');
     }
 
     function initialize(data) {
@@ -297,6 +305,7 @@ define([
             "WPmessage" : wPmessage,
            "insertedImage": insertedImage,
             "isimage": isimage
+         
            
         }];
 
