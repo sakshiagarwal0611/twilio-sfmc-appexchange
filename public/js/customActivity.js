@@ -47,12 +47,15 @@ define([
             //map[attributeArray[attArray].key] = attArray ;
             
             console.log(attributeArray[attArray]);
-            var key = attArray;
+            var key = attributeArray[attArray].key;
             console.log(key);
             keyArray.push(key);
            
         }
          console.log("Key Array----------->" + keyArray);
+       
+        
+        
         
         console.log(document.getElementById('ps').innerHTML);
         keyArray.forEach(editSelect);
