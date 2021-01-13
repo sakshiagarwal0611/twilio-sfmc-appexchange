@@ -54,6 +54,19 @@ define([
         }
         console.log("Map------>" + map);
        console.log("Key array------->" + keyArray);
+        
+        
+        
+        var arr =[];
+                                          var URLarr = JSON.stringify(data['schema']);
+                                          for(var jsonArr in  URLarr)
+                                          {
+                                           var url =  URLarr[jsonArr].key ; 
+                                            console.log("url of image------------->   " + url);
+                                           arr.push(url);
+                                          }
+                                          
+                                          console.log("url of image------------->   " + arr);
 });
 
     function onRender() {
