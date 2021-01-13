@@ -67,6 +67,10 @@ define([
                                           }
                                           
                                           console.log("url of image------------->   " + arr);
+        
+        
+        
+        console.log(document.getElementById('ps').innerHTML);
 });
 
     function onRender() {
