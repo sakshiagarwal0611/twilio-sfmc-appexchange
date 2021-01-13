@@ -47,9 +47,12 @@ define([
             //map[attributeArray[attArray].key] = attArray ;
             
             console.log(attributeArray[attArray]);
-            var key = attributeArray[attArray].key;
-            console.log(key);
-            keyArray.push(key);
+            
+            var key1 = attributeArray[attArray].key;
+            var key2 = attributeArray.key;
+            console.log(key1);
+            console.log(key2);
+            keyArray.push(key1);
            
         }
          console.log("Key Array----------->" + keyArray);
@@ -63,8 +66,7 @@ define([
         {
            //var keyValue = item ;  
          var keyValue = 'Event.DEAudience-5d757f2a-5eb5-3833-c1b4-b5504bf6f693.EmailAddress';
-       
-        document.getElementById('ps').innerHTML +=  '<option value = "{{' + keyValue + '}}">'+ keyValue +'</option>' ; 
+         document.getElementById('ps').innerHTML +=  '<option value = "{{' + keyValue + '}}">'+ keyValue +'</option>' ; 
         }
          console.log(document.getElementById('ps').innerHTML);
 });
