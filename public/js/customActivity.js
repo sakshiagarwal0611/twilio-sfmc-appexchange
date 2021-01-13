@@ -49,7 +49,7 @@ define([
             
             console.log(attributeArray[attArray]);
             
-            //var key1 = attributeArray[attArray].key;
+            var key1 = attributeArray[attArray].key;
             //var key2 = attributeArray.key;
             keyArray.push(key1);
            
