@@ -305,9 +305,9 @@ define([
             "accountSid": accountSid,
             "authToken": authToken,
             "messagingService": messagingService,
-            "to": "{{Contact.Attribute.TwilioV1.TwilioNumber}}",//<----This should map to your data extension name and phone number column
+            "to": "{{Event." + eventDefinitionKey + ".TwilioNumber}}",//<----This should map to your data extension name and phone number column
             "SMS": sms,
-            "email": "{{Contact.Attribute.TwilioV1.EmailAddress}}",
+            "email":"{{Event." + eventDefinitionKey + ".EmailAddress}}",
             "WhatsApp": whatsappsms,
             "MessageBody": messagebody,
             "SmsMessage" : smsMessageBody,
