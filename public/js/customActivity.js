@@ -65,7 +65,8 @@ define([
         {
            //var keyValue = item ;  
          var keyValue = 'Event.DEAudience-5d757f2a-5eb5-3833-c1b4-b5504bf6f693.EmailAddress';
-         document.getElementById('ps').innerHTML +=  '<option value = "{{' + keyValue + '}}">'+ keyValue +'</option>' ; 
+            var res = keyValue.split(".");
+         document.getElementById('ps').innerHTML +=  '<option value = "{{' + keyValue + '}}">'+ res[2] +'</option>' ; 
         }
          console.log(document.getElementById('ps').innerHTML);
 });
