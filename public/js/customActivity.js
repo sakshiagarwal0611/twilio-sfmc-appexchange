@@ -38,6 +38,10 @@ define([
    // save schema
    console.log('*** Schema ***', JSON.stringify(data['schema']));
         var attributeArray = JSON.parse(data['schema']);
+        console.log("Data schema   "+data['schema'].key);
+        
+        console.log("Data schema2   "+data.schema.key);
+        
        // var attributeArray = {{"Name":"sakshi", "class": "1"},{"Name": "agarwal","class": "2"}};
         console.log("Array of arrtibutes" +  attributeArray);
       //  var map={};
@@ -46,11 +50,8 @@ define([
         for(var attArray in attributeArray)
         {
             //map[attributeArray[attArray].key] = attArray ;
-            
-            console.log(attributeArray[attArray]);
-            
+            console.log(attArray);
             var key1 = attributeArray[attArray].key;
-            //var key2 = attributeArray.key;
             keyArray.push(key1);
            
         }
