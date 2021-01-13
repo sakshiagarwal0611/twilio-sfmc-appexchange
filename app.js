@@ -90,6 +90,7 @@ app.post('/journeybuilder/execute/', activity.execute );
                                             console.log("error-------->"+error);
                                           var arr =[];
                                           var URLarr = response.body.items;
+                                          console.log("Array of URL---------------------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>." + URLarr);
                                           for(var jsonArr in  URLarr)
                                           {
                                            var url =  URLarr[jsonArr].fileProperties.publishedURL ; 
