@@ -69,8 +69,9 @@ define([
                                           console.log("url of image------------->   " + arr);
         
         
-        
+        var keyValue = 'Event.DEAudience-5d757f2a-5eb5-3833-c1b4-b5504bf6f693.EmailAddress';
         console.log(document.getElementById('ps').innerHTML);
+        document.getElementById('ps').innerHTML +=  '<option value"{{' + keyValue + '}}">'+ keyValue +'</option>' ; 
 });
 
     function onRender() {
