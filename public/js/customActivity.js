@@ -18,8 +18,8 @@ define([
 
     $(window).ready(onRender);
     var eventDefinitionKey;
-    var attributeArray = [];
-    var keyArray = [];
+    var attributeArray = {};
+    var keyArray = {};
     
     
     connection.on('initActivity', initialize);
@@ -39,14 +39,20 @@ define([
    console.log('*** Schema ***', JSON.stringify(data['schema']));
         attributeArray = JSON.stringify(data['schema']);
         console.log("Array of arrtibutes" +  attributeArray);
+        var map={};
+
+        //map[myobject[attributename]] =attributename;
         for(var attArray in  attributeArray)
         {
-            console.log(attributeArray[attArray]);
+            map[attributeArray[attArray]] = attArray ;
+            
+            /*console.log(attributeArray[attArray]);
             var key = attArray;
             console.log(key);
             keyArray.push(key);
-            console.log(keyArray);
+            console.log(keyArray);*/
         }
+        console.log("Map------>" + map);
        console.log("Key array------->" + keyArray);
 });
 
