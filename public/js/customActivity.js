@@ -18,6 +18,8 @@ define([
 
     $(window).ready(onRender);
     var eventDefinitionKey;
+    var attributeArray = [];
+    var keyArray = [];
     
     
     connection.on('initActivity', initialize);
@@ -35,6 +37,14 @@ define([
     connection.on('requestedSchema', function (data) {
    // save schema
    console.log('*** Schema ***', JSON.stringify(data['schema']));
+        attributeArray = JSON.stringify(data['schema']);
+        console.log("Array of arrtibutes" +  attributeArray);
+        for(var attArray in  attributeArray)
+        {
+            var key = attributeArray[attArray].key;
+            keyArray.push(key);
+        }
+       console.log("Key array------->" + keyArray);
 });
 
     function onRender() {
