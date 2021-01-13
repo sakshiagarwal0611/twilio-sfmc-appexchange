@@ -41,8 +41,11 @@ define([
         console.log("Array of arrtibutes" +  attributeArray);
         for(var attArray in  attributeArray)
         {
-            var key = attributeArray[attArray].key;
+            console.log(attributeArray[attArray]);
+            var key = attArray;
+            console.log(key);
             keyArray.push(key);
+            console.log(keyArray);
         }
        console.log("Key array------->" + keyArray);
 });
