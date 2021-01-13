@@ -44,34 +44,26 @@ define([
         //map[myobject[attributename]] =attributename;
         for(var attArray in  attributeArray)
         {
-            map[attributeArray[attArray].key] = attArray ;
+            //map[attributeArray[attArray].key] = attArray ;
             
-            /*console.log(attributeArray[attArray]);
+            console.log(attributeArray[attArray]);
             var key = attArray;
             console.log(key);
             keyArray.push(key);
-            console.log(keyArray);*/
+           
         }
-        console.log("Map------>" + map);
-       console.log("Key array------->" + keyArray);
+         console.log("Key Array----------->" + keyArray);
         
-        
-        
-        var arr =[];
-                                          var URLarr = JSON.stringify(data['schema']);
-                                          for(var jsonArr in  URLarr)
-                                          {
-                                           var url =  URLarr[jsonArr].key ; 
-                                            console.log("url of image------------->   " + url);
-                                           arr.push(url);
-                                          }
-                                          
-                                          console.log("url of image------------->   " + arr);
-        
-        
-        var keyValue = 'Event.DEAudience-5d757f2a-5eb5-3833-c1b4-b5504bf6f693.EmailAddress';
         console.log(document.getElementById('ps').innerHTML);
-        document.getElementById('ps').innerHTML +=  '<option value"{{' + keyValue + '}}">'+ keyValue +'</option>' ; 
+        keyArray.forEach(editSelect);
+        function editSelect(item, index)
+        {
+           //var keyValue = item ;  
+         var keyValue = 'Event.DEAudience-5d757f2a-5eb5-3833-c1b4-b5504bf6f693.EmailAddress';
+       
+        document.getElementById('ps').innerHTML +=  '<option value = "{{' + keyValue + '}}">'+ keyValue +'</option>' ; 
+        }
+         console.log(document.getElementById('ps').innerHTML);
 });
 
     function onRender() {
