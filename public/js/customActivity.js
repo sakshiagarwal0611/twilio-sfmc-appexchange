@@ -37,8 +37,8 @@ define([
     connection.on('requestedSchema', function (data) {
    // save schema
    console.log('*** Schema ***', JSON.stringify(data['schema']));
-        //var attributeArray = JSON.stringify(data['schema']);
-        var attributeArray = {{"Name":"sakshi", "class": "1"},{"Name": "agarwal","class": "2"}};
+        var attributeArray = JSON.stringify(data['schema']);
+       // var attributeArray = {{"Name":"sakshi", "class": "1"},{"Name": "agarwal","class": "2"}};
         console.log("Array of arrtibutes" +  attributeArray);
         var map={};
 
