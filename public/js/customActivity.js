@@ -44,7 +44,7 @@ define([
         //map[myobject[attributename]] =attributename;
         for(var attArray in  attributeArray)
         {
-            map[attributeArray[attArray]] = attArray ;
+            map[attributeArray[attArray].key] = attArray ;
             
             /*console.log(attributeArray[attArray]);
             var key = attArray;
