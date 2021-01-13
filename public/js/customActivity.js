@@ -38,16 +38,11 @@ define([
    // save schema
    console.log('*** Schema ***', JSON.stringify(data['schema']));
         var attributeArray = data.schema ;
-        
-        
-       // var attributeArray = {{"Name":"sakshi", "class": "1"},{"Name": "agarwal","class": "2"}};
+         console.log("Data schema2   " + data.schema);
         console.log("Array of arrtibutes" +  attributeArray);
-      //  var map={};
-
-        //map[myobject[attributename]] =attributename;
         for(var attArray in attributeArray)
         {
-            //map[attributeArray[attArray].key] = attArray ;
+            
             console.log(attArray);
             var key1 = attributeArray[attArray].key;
             keyArray.push(key1);
@@ -55,7 +50,7 @@ define([
         }
        // console.log("Data schema   "+data['schema'].key);
         
-        console.log("Data schema2   "+data.schema);
+       
          console.log("Key Array----------->" + keyArray);
        
         
@@ -65,8 +60,8 @@ define([
         keyArray.forEach(editSelect);
         function editSelect(item, index)
         {
-           //var keyValue = item ;  
-         var keyValue = 'Event.DEAudience-5d757f2a-5eb5-3833-c1b4-b5504bf6f693.EmailAddress';
+           var keyValue = item ;  
+         //var keyValue = 'Event.DEAudience-5d757f2a-5eb5-3833-c1b4-b5504bf6f693.EmailAddress';
             var res = keyValue.split(".");
          document.getElementById('ps').innerHTML +=  '<option value = "{{' + keyValue + '}}">'+ res[2] +'</option>' ; 
         }
