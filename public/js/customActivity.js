@@ -251,7 +251,7 @@ define([
                 }else{
                      document.getElementById('myBtn').style.display = "inline";
                     document.getElementById('selected').style.display = "inline";
-                    document.getElementById('image').style.display = "inline";
+                    document.getElementById('image').style.display = "block";
                 }
              
                 
