@@ -246,7 +246,7 @@ define([
                 { 
                     document.getElementById('myBtn').style.display = "none";
                 }else{
-                     document.getElementById('myBtn').style.display = "block";
+                     document.getElementById('myBtn').style.display = "inline";
                 }
              
                 
