@@ -241,6 +241,12 @@ define([
             case 'step3':
                 $('#step3').show();
                 console.log("---------------------------------------------------------------------------------------------------------------->This is step 3");
+                 var wpsms = $("#WhatsApp").is(":checked"); 
+                if(wpsms != true)
+                { 
+                    document.getElementById('myBtn').style.display = "none";
+                }
+                
                connection.trigger('updateButton', {
                      button: 'back',
                      visible: true
