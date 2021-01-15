@@ -245,8 +245,13 @@ define([
                 if(wpsms != true)
                 { 
                     document.getElementById('myBtn').style.display = "none";
+                    document.getElementById('selected').style.display = "none";
+                    document.getElementById(' image').style.display = "none";
+                    
                 }else{
                      document.getElementById('myBtn').style.display = "inline";
+                    document.getElementById('selected').style.display = "inline";
+                    document.getElementById('image').style.display = "inline";
                 }
              
                 
