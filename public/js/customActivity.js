@@ -287,6 +287,8 @@ define([
                   }
                    
                   document.getElementById('Message').innerHTML = document.getElementById('RichTextEditor').innerHTML;
+                  //document.getElementById('imageinserted').innerHTML ; 
+                
                 break;
         }
     }
