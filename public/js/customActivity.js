@@ -241,29 +241,32 @@ define([
             case 'step3':
                 $('#step3').show();
                 console.log("---------------------------------------------------------------------------------------------------------------->This is step 3");
-                 var wpsms = $("#WhatsApp").is(":checked"); 
+                var wpsms = $("#WhatsApp").is(":checked"); 
                 if(wpsms != true)
                 { 
                     document.getElementById('myBtn').style.display = "none";
+                }else{
+                     document.getElementById('myBtn').style.display = "block";
                 }
+             
                 
                connection.trigger('updateButton', {
                      button: 'back',
                      visible: true
                 });
-                if (lastStepEnabled) {
+            /*    if (lastStepEnabled) {
                     connection.trigger('updateButton', {
                         button: 'next',
                         text: 'next',
                         visible: true
                     });
-                } else {
+                } else {*/
                     connection.trigger('updateButton', {
                         button: 'next',
                         text: 'Done',
                         visible: true
                     });
-                }
+                
                 break;
             case 'step4':
                 $('#step4').show();
