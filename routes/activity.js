@@ -131,7 +131,7 @@ exports.execute = function(req, res) {
         console.log("Whatsapp message----------->" + wPmessage);
         
         
-        const client = require('twilio')(accountSid, authToken);
+       /* const client = require('twilio')(accountSid, authToken);
         console.log(to);
         client.messages
         .create({
@@ -220,7 +220,7 @@ exports.execute = function(req, res) {
 });
 //console.log("we have inserted the tracking data in to the DE");
                     
-        } } );
+        } } ); */
         
        
     
@@ -296,16 +296,17 @@ exports.execute = function(req, res) {
    "items":
 [
     {
-       // 'accountSid':accountSid,
-       // 'apiVersion':apiVersion,
-       // 'body':body,
-       // 'from': from,
-          'sid':sid
-      //  'status': status,
-     //   'to': to
-       // 'direction' : direction,
-       // 'errorCode' : errorCode,
-       // 'errorMessage' : errorMessage
+        'sid':sid,
+        'accountSid':accountSid,
+       'apiVersion':apiVersion,
+        'body':body,
+        'from': from,
+         
+       'status': status,
+        'to': to,
+        'direction' : direction,
+       'errorCode' : errorCode,
+        'errorMessage' : errorMessage
 }]
 },
      json: true
