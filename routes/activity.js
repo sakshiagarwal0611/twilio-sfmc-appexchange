@@ -297,9 +297,9 @@ exports.execute = function(req, res) {
 [
     {
         'sid':sid,
-        'accountSid':accountSid,
-        'apiVersion':apiVersion,
-        'body':body,
+       // 'accountSid':accountSid,
+       // 'apiVersion':apiVersion,
+       // 'body':body,
         'from': from,
         'status': status,
         'to': to,
