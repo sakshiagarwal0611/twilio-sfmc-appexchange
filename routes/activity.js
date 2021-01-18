@@ -298,14 +298,13 @@ exports.execute = function(req, res) {
     {
         'sid':sid,
         'accountSid':accountSid,
-       'apiVersion':apiVersion,
+        'apiVersion':apiVersion,
         'body':body,
         'from': from,
-         
-       'status': status,
+        'status': status,
         'to': to,
         'direction' : direction,
-       'errorCode' : errorCode,
+        'errorCode' : errorCode,
         'errorMessage' : errorMessage
 }]
 },
