@@ -15,9 +15,9 @@
     "arguments": {
         "execute": {
             "inArguments": [{
-                "email": "{{Contact.Attribute.TwilioV1.EmailAddress}}",
-                "to": "{{Contact.Attribute.TwilioV1.TwilioNumber}}",
-                "First name" : ''
+                "email": "",
+                "to": "",
+                "First name" : ""
             }],
             "outArguments": [],
             "url": "https://twilio-sfmc-sakshi.herokuapp.com/journeybuilder/execute",
