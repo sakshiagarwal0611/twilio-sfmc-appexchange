@@ -45,11 +45,11 @@ define([
             
             console.log(attArray);
             var key1 = attributeArray[attArray].key;
-            var phoneValue = attributeArray[attArray].type;
+           /* var phoneValue = attributeArray[attArray].type;
             if(phoneValue == 'type')
             {
               phoneArray.push(key1);  
-            }
+            }*/
             keyArray.push(key1);
            
         }
@@ -64,13 +64,13 @@ define([
         console.log(document.getElementById('ps').innerHTML);
         
         keyArray.forEach(editSelect);
-        phoneArray.forEach(editPhone);
+       /* phoneArray.forEach(editPhone);
         function editPhone(item, index)
         {
             var phone = item;
             var res1 = phone.split(".");
             document.getElementById('reciepient').innerHTML +=  '<option value = "{{' + phone + '}}">'+ res1[2] +'</option>' ; 
-        }
+        }*/
         function editSelect(item, index)
         {
            var keyValue = item ;  
