@@ -20,7 +20,7 @@ define([
     var eventDefinitionKey;
    
     var keyArray = [];
-    
+    var phoneArray = [];
     
     connection.on('initActivity', initialize);
     connection.on('requestedTokens', onGetTokens);
@@ -32,19 +32,24 @@ define([
     
     connection.on('requestedInteraction', function(settings){
     eventDefinitionKey = settings.triggers[0].metaData.eventDefinitionKey;
-        console.log( " eventDefinitionKey----->" + eventDefinitionKey);
+    console.log( " eventDefinitionKey----->" + eventDefinitionKey);
 });
     connection.on('requestedSchema', function (data) {
    // save schema
    console.log('*** Schema ***', JSON.stringify(data['schema']));
         var attributeArray = data.schema ;
-         console.log("Data schema2   " + data.schema);
+        console.log("Data schema2   " + data.schema);
         console.log("Array of arrtibutes" +  attributeArray);
         for(var attArray in attributeArray)
         {
             
             console.log(attArray);
             var key1 = attributeArray[attArray].key;
+            var phoneValue = attributeArray[attArray].type;
+            if(phoneValue == 'type')
+            {
+              phoneArray.push(key1);  
+            }
             keyArray.push(key1);
            
         }
@@ -52,16 +57,24 @@ define([
         
        
          console.log("Key Array----------->" + keyArray);
-       
+         console.log("Phone Array----------->" + phoneArray);
         
         
-        
+        console.log(document.getElementById('reciepient').innerHTML);
         console.log(document.getElementById('ps').innerHTML);
+        
         keyArray.forEach(editSelect);
+        phoneArray.forEach(editPhone);
+        function editPhone(item, index)
+        {
+            var phone = item;
+            var res1 = phone.split(".");
+            document.getElementById('reciepient').innerHTML +=  '<option value = "{{' + phone + '}}">'+ res1[2] +'</option>' ; 
+        }
         function editSelect(item, index)
         {
            var keyValue = item ;  
-         //var keyValue = 'Event.DEAudience-5d757f2a-5eb5-3833-c1b4-b5504bf6f693.EmailAddress';
+         
             var res = keyValue.split(".");
          document.getElementById('ps').innerHTML +=  '<option value = "{{' + keyValue + '}}">'+ res[2] +'</option>' ; 
         }
