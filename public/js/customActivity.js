@@ -172,6 +172,11 @@ define([
                 }
                    
                 }
+                if(key === 'to')
+                {
+                    var phone = val.split(".");
+                    document.getElementById("recipient").value = phone ;
+                }
             })
         });
 
