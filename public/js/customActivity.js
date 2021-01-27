@@ -175,7 +175,8 @@ define([
                 if(key === 'to')
                 {
                     var phone = val.split(".");
-                    document.getElementById("recipient").value = phone ;
+                    //document.getElementById("recipient").value = phone ;
+                    document.getElementById("recipient").selectedIndex = "2";
                 }
             })
         });
