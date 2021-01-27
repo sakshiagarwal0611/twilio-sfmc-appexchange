@@ -321,7 +321,7 @@ define([
         var wPmessage = document.getElementById('RichTextEditor').innerHTML;
         var insertedImage ; 
         var entry = "{{Event." + eventDefinitionKey + ".EmailAddress}}";
-        
+        var to = $("#recipient").val();
         
         console.log("Entry source--------->" + eventDefinitionKey);
         console.log("Entry source--------->" + entry);
