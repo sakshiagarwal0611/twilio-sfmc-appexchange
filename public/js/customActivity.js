@@ -60,7 +60,7 @@ define([
          console.log("Phone Array----------->" + phoneArray);
         
         
-        console.log(document.getElementById('reciepient').innerHTML);
+        //console.log(document.getElementById('reciepient').innerHTML);
         console.log(document.getElementById('ps').innerHTML);
         
         keyArray.forEach(editSelect);
