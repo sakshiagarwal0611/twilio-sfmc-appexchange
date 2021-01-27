@@ -46,7 +46,7 @@ define([
             console.log(attArray);
             var key1 = attributeArray[attArray].key;
             var phoneValue = attributeArray[attArray].type;
-            if(phoneValue == 'type')
+            if(phoneValue == 'Phone')
             {
               phoneArray.push(key1);  
             }
