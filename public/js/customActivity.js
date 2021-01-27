@@ -322,6 +322,7 @@ define([
         var insertedImage ; 
         var entry = "{{Event." + eventDefinitionKey + ".EmailAddress}}";
         var to = $("#recipient").val();
+        console.log("selected phone number attribute---->"+ to);
         
         console.log("Entry source--------->" + eventDefinitionKey);
         console.log("Entry source--------->" + entry);
