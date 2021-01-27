@@ -301,6 +301,7 @@ define([
                    
                   document.getElementById('Message').innerHTML = document.getElementById('RichTextEditor').innerHTML;
                   //document.getElementById('imageinserted').innerHTML ; 
+                   document.getElementById('selectedPhone').innerHTML = $("#recipient").val();
                 
                 break;
         }
