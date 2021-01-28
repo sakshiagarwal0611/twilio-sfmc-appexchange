@@ -22,6 +22,7 @@ define([
     var keyArray = [];
     var phoneArray = [];
     var selectedPhone; 
+    var phoneArray2 = [];
     
     connection.on('initActivity', initialize);
     connection.on('requestedTokens', onGetTokens);
@@ -78,9 +79,15 @@ define([
          
             var res = keyValue.split(".");
          document.getElementById('ps').innerHTML +=  '<option value = "{{' + keyValue + '}}">'+ res[2] +'</option>' ; 
+            var keyValue2 = '{{' + keyValue + '}}';
+            phoneArray2.push(keyValue2);
         }
          console.log(document.getElementById('ps').innerHTML);
-        document.getElementById("recipient").value = selectedPhone;
+        //document.getElementById("recipient").value = selectedPhone;
+        if(phoneArray2.includes(selectedPhone) == true)
+        {
+          document.getElementById("recipient").value = selectedPhone;
+        }
         
 });
 
