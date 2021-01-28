@@ -176,7 +176,7 @@ define([
                 {
                     var phone = val.split(".");
                     //document.getElementById("recipient").value = phone ;
-                    document.getElementById("recipient").selectedIndex = "2";
+                    document.getElementById("recipient").selectedIndex = phone[2];
                 }
             })
         });
