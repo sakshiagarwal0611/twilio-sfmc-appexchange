@@ -176,6 +176,7 @@ define([
                 {
                     var phone = val.split(".");
                     //document.getElementById("recipient").value = phone ;
+                    console.log("set value of phone--->   " + phone + phone[2] );
                     document.getElementById("recipient").value = phone[2];
                 }
             })
