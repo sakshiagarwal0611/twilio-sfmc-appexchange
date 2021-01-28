@@ -176,8 +176,10 @@ define([
                 {
                     var phone = val.split(".");
                     //document.getElementById("recipient").value = phone ;
-                    console.log("set value of phone--->   " + phone + phone[2] );
-                    document.getElementById("recipient").value = phone[2];
+                    var ph1 = phone[2];
+                    console.log("set value of phone--->   " + phone[2]);
+                    ph1 = ph1.replaceAll("}", "");
+                    document.getElementById("recipient").value = ph1;
                 }
             })
         });
