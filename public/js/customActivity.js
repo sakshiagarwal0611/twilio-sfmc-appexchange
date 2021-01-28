@@ -178,7 +178,7 @@ define([
                     //document.getElementById("recipient").value = phone ;
                    // var ph1 = phone[2];
                     //console.log("set value of phone--->   " + phone[2]);
-                    ph1 = ph1.replaceAll("}", "");
+                    //ph1 = ph1.replaceAll("}", "");
                     //console.log("set value of phone--->   " + phone[2]);
                     //var phone = val.replaceAll("}", "")
                     document.getElementById("recipient").value = val;
