@@ -179,6 +179,7 @@ define([
                     var ph1 = phone[2];
                     console.log("set value of phone--->   " + phone[2]);
                     ph1 = ph1.replaceAll("}", "");
+                    console.log("set value of phone--->   " + phone[2]);
                     document.getElementById("recipient").value = ph1;
                 }
             })
