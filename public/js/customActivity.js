@@ -181,6 +181,7 @@ define([
                     //ph1 = ph1.replaceAll("}", "");
                     //console.log("set value of phone--->   " + phone[2]);
                     //var phone = val.replaceAll("}", "")
+                    $('#recipient').val(val);
                     document.getElementById("recipient").value = "phone";
                 }
             })
