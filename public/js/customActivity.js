@@ -381,6 +381,8 @@ define([
         wPmessage = wPmessage.replaceAll("</i>", "_");
         wPmessage = wPmessage.replaceAll("<strike>", "~");
         wPmessage = wPmessage.replaceAll("</strike>", "~");
+        wPmessage = wPmessage.replaceAll("<u>", "");
+        wPmessage = wPmessage.replaceAll("</u>", "");
         console.log("WhatsApp message------------------->" + wPmessage);
         
         
