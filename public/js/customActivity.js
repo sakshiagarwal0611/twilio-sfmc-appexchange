@@ -314,15 +314,19 @@ define([
                  var WPtrue = $("#WhatsApp").is(":checked");
                 document.getElementById('channel').innerHTML = ' ';
                   if(WPtrue == true){
-                  document.getElementById('channel').innerHTML = 'WhatsApp, ';   
-                  }
+                  document.getElementById('channel').innerHTML = 'WhatsApp, '; 
+                   if(document.getElementById('imageinserted').innerHTML){
+                    //console.log("insertedImage------------------------>" + val);
+                    document.getElementById('imageinserted').innerHTML ='<img style="margin:3px;" src="' + val + '" width="100" height="120"></img>';
+                       console.log( document.getElementById('imageinserted').innerHTML);
+                  }}
                   var SMStrue = $("#SMS").is(":checked");
                   if(SMStrue == true){
                   document.getElementById('channel').innerHTML = document.getElementById('channel').innerHTML + 'SMS';
                   }
                    
                   document.getElementById('Message').innerHTML = document.getElementById('RichTextEditor').innerHTML;
-                  //document.getElementById('imageinserted').innerHTML ; 
+                  //
                    document.getElementById('selectedPhone').innerHTML = $("#recipient").val();
                 
                 break;
