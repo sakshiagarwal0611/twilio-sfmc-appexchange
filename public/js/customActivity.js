@@ -179,7 +179,10 @@ define([
                     console.log("insertedImage------------------------>" + val);
                     document.getElementById('image').innerHTML = '<img id= "' + 'insertedSerialNo' + '" style="margin:3px;" src="' + val + '" width="100" height="120"><span class="close" style="float:right;" onclick = "removeimage();">&times;</span></img>';
                     document.getElementById("isInserted").checked = true;
+                  if($("#WhatsApp").attr("checked", true);)
+                    {
                         document.getElementById('imageinserted').innerHTML ='<img style="margin:3px;" src="' + val + '" width="100" height="120"></img>';
+                    }
                 }
                    
                 }
