@@ -363,6 +363,7 @@ define([
         console.log("Messagebody-------------------------------------------------------------------->" + messagebody);
         
         //convert html formatted message body to plain text
+        //smsMessageBody = smsMessageBody.replaceAll()
         var plainText = $('<div>').html(smsMessageBody).text();
         console.log("plain text------------------------->" + plainText);
         smsMessageBody = plainText;
@@ -375,7 +376,7 @@ define([
         wPmessage = wPmessage.replaceAll("</b>", "*");
         wPmessage = wPmessage.replaceAll("&nbsp;", " ");
         wPmessage = wPmessage.replaceAll("<div>", "");
-        wPmessage = wPmessage.replaceAll("</div>", "");
+        wPmessage = wPmessage.replaceAll("</div>","");
         wPmessage = wPmessage.replaceAll("<br>", " ");
         wPmessage = wPmessage.replaceAll("<i>", "_");
         wPmessage = wPmessage.replaceAll("</i>", "_");
