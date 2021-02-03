@@ -184,6 +184,7 @@ define([
 		if(whatsappsms == true)
                        
                     {
+			 summaryImage.style.display = "block";
                         document.getElementById('imageinserted').innerHTML ='<img style="margin:3px;" src="' + val + '" width="100" height="120"></img>';
                     }
                 }
