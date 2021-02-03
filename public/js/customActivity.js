@@ -363,7 +363,8 @@ define([
         console.log("Messagebody-------------------------------------------------------------------->" + messagebody);
         
         //convert html formatted message body to plain text
-        //smsMessageBody = smsMessageBody.replaceAll()
+        smsMessageBody = smsMessageBody.replaceAll("&nbsp;", " ");
+         smsMessageBody = smsMessageBody.replaceAll("<br>", " ");
         var plainText = $('<div>').html(smsMessageBody).text();
         console.log("plain text------------------------->" + plainText);
         smsMessageBody = plainText;
