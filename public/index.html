@@ -168,7 +168,7 @@
 	<div class="slds-form-element">
         <div class="slds-form-element__control">
         <div class="slds-checkbox">
-         <input type="checkbox" name="options" id="WhatsApp" value="" />
+         <input type="checkbox" name="options" id="WhatsApp" value="" onclick="SummaryimageDisplay();"/>
           <label class="slds-checkbox__label" for="WhatsApp">
         <span class="slds-checkbox_faux"></span>
         <span class="slds-form-element__label">WhatsApp</span>
@@ -350,6 +350,16 @@ function imageinsert(url)
 		
 		document.getElementById('imageinserted').innerHTML ='<img style="margin:3px;" src="' + url + '" width="100" height="120"></img>';
 
+	}
+	
+function SummaryimageDisplay()
+	{
+		var whatsappsms = $("#WhatsApp").is(":checked");  
+		var url = 'url';
+		if(whatsappsms == true)
+                    {
+                        document.getElementById('imageinserted').innerHTML ='<img style="margin:3px;" src="' + url + '" width="100" height="120"></img>';
+                    }
 	}
 	
 function recipientChange()
