@@ -179,6 +179,7 @@ define([
                     console.log("insertedImage------------------------>" + val);
                     document.getElementById('image').innerHTML = '<img id= "' + 'insertedSerialNo' + '" style="margin:3px;" src="' + val + '" width="100" height="120"><span class="close" style="float:right;" onclick = "removeimage();">&times;</span></img>';
                     document.getElementById("isInserted").checked = true;
+                        document.getElementById('imageinserted').innerHTML ='<img style="margin:3px;" src="' + val + '" width="100" height="120"></img>';
                 }
                    
                 }
@@ -315,11 +316,7 @@ define([
                 document.getElementById('channel').innerHTML = ' ';
                   if(WPtrue == true){
                   document.getElementById('channel').innerHTML = 'WhatsApp, '; 
-                   if(document.getElementById('imageinserted').innerHTML){
-                    //console.log("insertedImage------------------------>" + val);
-                    document.getElementById('imageinserted').innerHTML ='<img style="margin:3px;" src="' + val + '" width="100" height="120"></img>';
-                       console.log( document.getElementById('imageinserted').innerHTML);
-                  }}
+                   }
                   var SMStrue = $("#SMS").is(":checked");
                   if(SMStrue == true){
                   document.getElementById('channel').innerHTML = document.getElementById('channel').innerHTML + 'SMS';
