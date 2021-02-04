@@ -380,7 +380,7 @@ exports.publish = function(req, res) {
     console.log("SMS----->" + sms );
     console.log("WhatsApp------>" + whatsapp );
     
-    If(sms == true)
+    if(sms == true)
     {
          const https = require('https');
         console.log("we are trying to get the authorization token here");
@@ -433,7 +433,7 @@ exports.publish = function(req, res) {
     
         
     }
-    If(whatsapp == true)
+    if(whatsapp == true)
     {
         console.log(" This is where we will create a DE for whatsapp tracking data");
     } 
