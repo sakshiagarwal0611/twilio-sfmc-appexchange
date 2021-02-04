@@ -371,7 +371,7 @@ exports.publish = function(req, res) {
     
     
     
-   /* var requestBody = req.body.inArguments[0];
+   var requestBody = req.body.inArguments[0];
     console.log("RequestBody"+JSON.stringify(requestBody));
     const sms =   requestBody.SMS;
     const whatsapp = requestBody.WhatsApp;
@@ -401,6 +401,8 @@ exports.publish = function(req, res) {
      console.log("Error----->"+error);
      var date_today = new date();
      var DE_name = 'SMS tracking data' + date_today;
+     var EK_name = 'SmsTrackingData' + date_today;
+     //SMS_EK = 'SmsTrackingData' + date_today;
      
      var request = require('request');
          var options = {
@@ -414,55 +416,99 @@ exports.publish = function(req, res) {
         },
 
         body: 
-        '<?xml version="1.0" encoding="UTF-8"?>\r\n    
-        <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r\n            
-        <soapenv:Header>\r\n    
-        <fueloauth>' + access_token + '</fueloauth>\r\n  </soapenv:Header>\r\n   
+        '<?xml version="1.0" encoding="UTF-8"?>   
+        <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">            
+        <soapenv:Header> 
+        <fueloauth>' + access_token + '</fueloauth>  
+        </soapenv:Header>  
 
-        <soapenv:Body>\r\n    
-        <CreateRequest xmlns="http://exacttarget.com/wsdl/partnerAPI">\r\n       
-        <Options/>\r\n        
-        <Objects xsi:type="ns2:DataExtension" xmlns:ns2="http://exacttarget.com/wsdl/partnerAPI">\r\n     
+        <soapenv:Body> 
+        <CreateRequest xmlns="http://exacttarget.com/wsdl/partnerAPI">
+        <Options/>       
+        <Objects xsi:type="ns2:DataExtension" xmlns:ns2="http://exacttarget.com/wsdl/partnerAPI">   
 
-        <CustomerKey>Journey Data View</CustomerKey>\r\n            
-        <Name>Journey Data View FzlTestToday</Name>\r\n            
-        <Description>Mimics the Journey Data View FzlTestToday</Description>\r\n            
-        <IsSendable>false</IsSendable>\r\n            
-        <IsTestable>false</IsTestable>\r\n            
+        <CustomerKey>' + EK_name + '</CustomerKey>      
+        <Name>' + DE_name + '</Name>          
+        <Description>This DE stored the tracking data for SMS</Description>           
+        <IsSendable>true</IsSendable>       
+        <IsTestable>false</IsTestable>           
 
-        <Fields>\r\n   
+        <Fields>
 
-        <Field xsi:type="ns2:DataExtensionField">\r\n                                      
-        <Name>SubscriberKey</Name>\r\n                    
-        <Label>SubscriberKey</Label>\r\n                   
-         <IsRequired>true</IsRequired>\r\n                   
-         <IsPrimaryKey>true</IsPrimaryKey>\r\n                   
-         <FieldType>Text</FieldType>\r\n                    
-        <MaxLength>36</MaxLength>\r\n                
-        </Field>\r\n                
+         <Field xsi:type="ns2:DataExtensionField">                                      
+         <Name>Sid</Name>            
+         <Label>Sid</Label>                   
+         <IsRequired>true</IsRequired>                  
+         <IsPrimaryKey>true</IsPrimaryKey>                   
+         <FieldType>Text</FieldType>                 
+         <MaxLength>50</MaxLength>                
+         </Field>               
 
-        <Field xsi:type="ns2:DataExtensionField">\r\n                                     
-         <Name>FirstName</Name>\r\n                    
-        <Label>FirstName</Label>\r\n                   
-         <IsRequired>false</IsRequired>\r\n                   
-         <IsPrimaryKey>false</IsPrimaryKey>\r\n                    
-        <FieldType>Text</FieldType>\r\n                    
-        <MaxLength>36</MaxLength>\r\n                
-        </Field>\r\n              
+         <Field xsi:type="ns2:DataExtensionField">                                     
+         <Name>From</Name>                    
+         <Label>From</Label>                   
+         <IsRequired>false</IsRequired>                   
+         <IsPrimaryKey>false</IsPrimaryKey>                    
+         <FieldType>Phone</FieldType>                   
+         <MaxLength>36</MaxLength>                
+         </Field>          
 
-
-         <Field xsi:type="ns2:DataExtensionField">\r\n                    
-         <Name>Email</Name>\r\n                   
-         <Label>Email</Label>\r\n                   
-         <IsRequired>false</IsRequired>\r\n                   
-         <IsPrimaryKey>false</IsPrimaryKey>\r\n                   
-         <FieldType>Text</FieldType>\r\n                   
-                    
-        </Field>\r\n               
-        </Fields>\r\n        
-        </Objects>\r\n    
-        </CreateRequest>\r\n
-        </soapenv:Body>\r\n</soapenv:Envelope>'
+         <Field xsi:type="ns2:DataExtensionField">                   
+         <Name>Status</Name>                  
+         <Label>Status</Label>                  
+         <IsRequired>false</IsRequired>                   
+         <IsPrimaryKey>false</IsPrimaryKey>                  
+         <FieldType>Text</FieldType>                   
+         <MaxLength>36</MaxLength>           
+         </Field>
+             
+         <Field xsi:type="ns2:DataExtensionField">                   
+         <Name>To</Name>                  
+         <Label>To</Label>                  
+         <IsRequired>false</IsRequired>                   
+         <IsPrimaryKey>false</IsPrimaryKey>                  
+         <FieldType>Phone</FieldType>                   
+         <MaxLength>36</MaxLength>           
+         </Field>       
+             
+         <Field xsi:type="ns2:DataExtensionField">                   
+         <Name>Direction</Name>                  
+         <Label>Direction</Label>                  
+         <IsRequired>false</IsRequired>                   
+         <IsPrimaryKey>false</IsPrimaryKey>                  
+         <FieldType>Text</FieldType>                   
+         <MaxLength>36</MaxLength>  
+             
+         <Field xsi:type="ns2:DataExtensionField">                   
+         <Name>ErrorMessage</Name>                  
+         <Label>ErrorMessage</Label>                  
+         <IsRequired>false</IsRequired>                   
+         <IsPrimaryKey>false</IsPrimaryKey>                  
+         <FieldType>Text</FieldType>                   
+         <MaxLength>36</MaxLength> 
+             
+         <Field xsi:type="ns2:DataExtensionField">                   
+         <Name>ErrorCode</Name>                  
+         <Label>ErrorCode</Label>                  
+         <IsRequired>false</IsRequired>                   
+         <IsPrimaryKey>false</IsPrimaryKey>                  
+         <FieldType>Text</FieldType>                   
+         <MaxLength>36</MaxLength> 
+         </Field>
+         </Fields>
+        
+          <SendableDataExtensionField>
+               <PartnerKey xsi:nil="true"/>
+               <ObjectID xsi:nil="true"/>
+               <Name>sid</Name>
+            </SendableDataExtensionField>
+            <SendableSubscriberField>
+               <Name>Subscriber Key</Name>
+            </SendableSubscriberField>
+        </Objects>   
+        </CreateRequest>
+        </soapenv:Body>
+        </soapenv:Envelope>'
         };
 
         request(options, function (error, response) {
@@ -479,7 +525,7 @@ exports.publish = function(req, res) {
     If(whatsapp == true)
     {
         console.log(" This is where we will create a DE for whatsapp tracking data");
-    } */
+    } 
     
     
     
