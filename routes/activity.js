@@ -371,9 +371,9 @@ exports.publish = function(req, res) {
     
     
     
-   var requestBody1 = req.body.inArguments[0];
+  /*  var requestBody1 = req.body.inArguments[0];
     console.log("RequestBody"+JSON.stringify(requestBody1));
-   /* const sms =   requestBody1.SMS;
+   const sms =   requestBody1.SMS;
     const whatsapp = requestBody1.WhatsApp;
     
     console.log("SMS----->" + sms );
