@@ -400,7 +400,7 @@ exports.publish = function(req, res) {
      console.log("access_token------>" + access_token);
      console.log("Response------->"+response);
      console.log("Error----->"+error);
-     var date_today = new date();
+    // var date_today = new date();
      //var DE_name = 'SMS tracking data' + date_today;
             var DE_name = 'SMS tracking data' + '1';
      //var EK_name = 'SmsTrackingData' + date_today;
