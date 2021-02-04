@@ -364,8 +364,52 @@ exports.publish = function(req, res) {
     console.log("2");
     console.log("1");
     console.log("Publish Update 3");
-    //console.log("Published: "+req.body.inArguments[0]);        
-
+    //console.log("Published: "+req.body.inArguments[0]);   
+    
+    
+    
+    
+    var requestBody = req.body.inArguments[0];
+    console.log("RequestBody"+JSON.stringify(requestBody));
+    const sms =   requestBody.SMS;
+    const whatsapp = requestBody.WhatsApp;
+    
+    console.log("SMS----->" + sms );
+    console.log("WhatsApp------>" + whatsapp );
+    
+    If(sms == true)
+    {
+         const https = require('https');
+        console.log("we are trying to get the authorization token here");
+        var request = require('request');
+        request.post({
+        headers: {'content-type' : 'application/json'},
+        url:     'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.auth.marketingcloudapis.com/v2/token',
+        body:    {
+                    'client_id': '4nfraga57ld98tn00rmrhbn9',
+                    'client_secret': 'qlm3OG67VzLC6nekeeGo1XY2',
+                    'grant_type': 'client_credentials'
+    },
+        json: true
+}, function(error, response, body){
+     var access_token = body.access_token;
+     console.log("Access------>"+body.access_token);
+     console.log("access_token------>" + access_token);
+     console.log("Response------->"+response);
+     console.log("Error----->"+error);
+   
+     } )
+        
+    
+        
+    }
+    If(whatsapp == true)
+    {
+        console.log(" This is where we will create a DE for whatsapp tracking data");
+    }
+    
+    
+    
     // Data from the req and put it in an array accessible to the main app.
     //console.log( req.body );
     logData(req);
