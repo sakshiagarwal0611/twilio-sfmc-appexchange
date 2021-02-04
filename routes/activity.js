@@ -397,6 +397,77 @@ exports.publish = function(req, res) {
      console.log("access_token------>" + access_token);
      console.log("Response------->"+response);
      console.log("Error----->"+error);
+     var date_today = new date();
+     var DE_name = 'SMS tracking data' + date_today;
+     
+     var request = require('request');
+         var options = {
+         'method': 'POST',
+         'url': 'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.soap.marketingcloudapis.com/Service.asmx',
+         'headers': 
+        {
+            'Content-Type': 'text/xml',
+            'SoapAction': 'Create',
+
+        },
+
+        body: 
+        '<?xml version="1.0" encoding="UTF-8"?>\r\n    
+        <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r\n            
+        <soapenv:Header>\r\n    
+        <fueloauth>' + access_token + '</fueloauth>\r\n  </soapenv:Header>\r\n   
+
+        <soapenv:Body>\r\n    
+        <CreateRequest xmlns="http://exacttarget.com/wsdl/partnerAPI">\r\n       
+        <Options/>\r\n        
+        <Objects xsi:type="ns2:DataExtension" xmlns:ns2="http://exacttarget.com/wsdl/partnerAPI">\r\n     
+
+        <CustomerKey>Journey Data View</CustomerKey>\r\n            
+        <Name>Journey Data View FzlTestToday</Name>\r\n            
+        <Description>Mimics the Journey Data View FzlTestToday</Description>\r\n            
+        <IsSendable>false</IsSendable>\r\n            
+        <IsTestable>false</IsTestable>\r\n            
+
+        <Fields>\r\n   
+
+        <Field xsi:type="ns2:DataExtensionField">\r\n                                      
+        <Name>SubscriberKey</Name>\r\n                    
+        <Label>SubscriberKey</Label>\r\n                   
+         <IsRequired>true</IsRequired>\r\n                   
+         <IsPrimaryKey>true</IsPrimaryKey>\r\n                   
+         <FieldType>Text</FieldType>\r\n                    
+        <MaxLength>36</MaxLength>\r\n                
+        </Field>\r\n                
+
+        <Field xsi:type="ns2:DataExtensionField">\r\n                                     
+         <Name>FirstName</Name>\r\n                    
+        <Label>FirstName</Label>\r\n                   
+         <IsRequired>false</IsRequired>\r\n                   
+         <IsPrimaryKey>false</IsPrimaryKey>\r\n                    
+        <FieldType>Text</FieldType>\r\n                    
+        <MaxLength>36</MaxLength>\r\n                
+        </Field>\r\n              
+
+
+         <Field xsi:type="ns2:DataExtensionField">\r\n                    
+         <Name>Email</Name>\r\n                   
+         <Label>Email</Label>\r\n                   
+         <IsRequired>false</IsRequired>\r\n                   
+         <IsPrimaryKey>false</IsPrimaryKey>\r\n                   
+         <FieldType>Text</FieldType>\r\n                   
+                    
+        </Field>\r\n               
+        </Fields>\r\n        
+        </Objects>\r\n    
+        </CreateRequest>\r\n
+        </soapenv:Body>\r\n</soapenv:Envelope>'
+        };
+
+        request(options, function (error, response) {
+          if (error) throw new Error(error);
+          console.log(response.body);
+        });
+
    
      } )
         
