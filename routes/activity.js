@@ -366,13 +366,13 @@ exports.publish = function(req, res) {
     console.log("2");
     console.log("1");
     console.log("Publish Update 3");
-    //console.log("Published: "+req.body.inArguments[0]);   
-    
+    console.log("Published: "+req.body.inArguments[0]);   
     
     
     
   /*  var requestBody1 = req.body.inArguments[0];
-    console.log("RequestBody"+JSON.stringify(requestBody1));
+        console.log("RequestBody"+JSON.stringify(requestBody1));
+
    const sms =   requestBody1.SMS;
     const whatsapp = requestBody1.WhatsApp;
     
