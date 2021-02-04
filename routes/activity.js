@@ -369,7 +369,7 @@ exports.publish = function(req, res) {
     
     
     
-    var requestBody = req.body.inArguments[0];
+   /* var requestBody = req.body.inArguments[0];
     console.log("RequestBody"+JSON.stringify(requestBody));
     const sms =   requestBody.SMS;
     const whatsapp = requestBody.WhatsApp;
@@ -406,7 +406,7 @@ exports.publish = function(req, res) {
     If(whatsapp == true)
     {
         console.log(" This is where we will create a DE for whatsapp tracking data");
-    }
+    } */
     
     
     
