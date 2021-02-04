@@ -366,16 +366,17 @@ exports.publish = function(req, res) {
     console.log("2");
     console.log("1");
     console.log("Publish Update 3");
-    console.log("Published: "+req.body.inArguments[0]);   
+    //console.log("Published: "+req.body.inArguments[0]);   
     
     
     
-  /*  var requestBody1 = req.body.inArguments[0];
-        console.log("RequestBody"+JSON.stringify(requestBody1));
+   //var requestBody1 = req.body.inArguments[0];
+        //console.log("RequestBody"+JSON.stringify(requestBody1));
 
-   const sms =   requestBody1.SMS;
-    const whatsapp = requestBody1.WhatsApp;
-    
+   //const sms =   requestBody1.SMS;
+    //const whatsapp = requestBody1.WhatsApp;
+    const sms =   true;
+    const whatsapp =   true;
     console.log("SMS----->" + sms );
     console.log("WhatsApp------>" + whatsapp );
     
@@ -435,7 +436,7 @@ exports.publish = function(req, res) {
     If(whatsapp == true)
     {
         console.log(" This is where we will create a DE for whatsapp tracking data");
-    } */
+    } 
     
     
     
