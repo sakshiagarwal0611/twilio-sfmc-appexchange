@@ -371,10 +371,10 @@ exports.publish = function(req, res) {
     
     
     
-   var requestBody = req.body.inArguments[0];
-    console.log("RequestBody"+JSON.stringify(requestBody));
-    const sms =   requestBody.SMS;
-    const whatsapp = requestBody.WhatsApp;
+   var requestBody1 = req.body.inArguments[0];
+    console.log("RequestBody"+JSON.stringify(requestBody1));
+    const sms =   requestBody1.SMS;
+    const whatsapp = requestBody1.WhatsApp;
     
     console.log("SMS----->" + sms );
     console.log("WhatsApp------>" + whatsapp );
