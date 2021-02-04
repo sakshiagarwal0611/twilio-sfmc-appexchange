@@ -435,7 +435,7 @@ exports.publish = function(req, res) {
     If(whatsapp == true)
     {
         console.log(" This is where we will create a DE for whatsapp tracking data");
-    } 
+    } */
     
     
     
