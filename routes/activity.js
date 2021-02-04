@@ -403,8 +403,10 @@ exports.publish = function(req, res) {
     // var date_today = new date();
      //var DE_name = 'SMS tracking data' + date_today;
             var DE_name = 'SMS tracking data' + '1';
+            console.log(DE_name);
      //var EK_name = 'SmsTrackingData' + date_today;
             var EK_name = 'SmsTrackingData' + '1';
+            console.log(EK_name);
      //SMS_EK = 'SmsTrackingData' + date_today;
      
      var request = require('request');
@@ -414,7 +416,7 @@ exports.publish = function(req, res) {
          'headers': 
         {
             'Content-Type': 'text/xml',
-            'SoapAction': 'Create',
+            'SoapAction': 'Create'
 
         },
 
