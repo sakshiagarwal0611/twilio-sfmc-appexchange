@@ -400,12 +400,15 @@ exports.publish = function(req, res) {
      console.log("access_token------>" + access_token);
      console.log("Response------->"+response);
      console.log("Error----->"+error);
-    // var date_today = new date();
+   
+     var currentdate = new Date();
+     var datetime = currentdate.getDay() + "-" + currentdate.getMonth() + 1 + "-" + currentdate.getFullYear() +""+ currentdate.getHours() + "" + currentdate.getMinutes() + "" + currentdate.getSeconds();       
+     
      //var DE_name = 'SMS tracking data' + date_today;
-            var DE_name = 'SMS tracking data' + '2';
+            var DE_name = 'SMS tracking data - ' + datetime;
             console.log(DE_name);
      //var EK_name = 'SmsTrackingData' + date_today;
-            var EK_name = 'SmsTrackingData' + '2';
+            var EK_name = 'SmsTrackingData' + datetime;
             console.log(EK_name);
      //SMS_EK = 'SmsTrackingData' + date_today;
      
