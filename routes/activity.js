@@ -376,6 +376,7 @@ exports.publish = function(req, res) {
     console.log("Request------------->>>><<<<<<<<<<<<---------------" + req + "------------->>>><<<<<<<<<<<<---------------" );
     console.log("" + req.body);
     console.log("" + req.body.inArguments);
+    console.log("RequestBody------------->>>><<<<<<<<<<<<---------------"+JSON.stringify(req.body));
    //var requestBody1 = req.body.inArguments[0];
         //console.log("RequestBody"+JSON.stringify(requestBody1));
 
