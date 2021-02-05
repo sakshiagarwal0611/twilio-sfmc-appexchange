@@ -5,8 +5,8 @@ var util = require('util');
 const Path = require('path');
 const JWT = require(Path.join(__dirname, '..', 'lib', 'jwtDecoder.js'));
 var http = require('https');
-const SMS_EK;
-const Whatsapp_EK;
+
+var whatsapp_Ek;
 
 exports.logExecuteData = [];
 
@@ -112,8 +112,9 @@ exports.execute = function(req, res) {
     const imageURL = requestBody.insertedImage ; 
     console.log("RequestBody"+JSON.stringify(requestBody));
     const email = requestBody.email; 
-    const entrySource = requestBody.entrySource; 
+    const entrySource = requestBody.entrySource;
     
+    var sms_Ek;
    // console.log({{Contact.Attribute.TwilioV1.TwilioNumber}});
    // console.log({{Contact.Attribute.TwilioV1.EmailAddress}});
     
@@ -404,14 +405,14 @@ exports.publish = function(req, res) {
      var currentdate = new Date();
      var datetime = currentdate.getDay() + "-" + currentdate.getMonth() + 1 + "-" + currentdate.getFullYear() +""+ currentdate.getHours() + "" + currentdate.getMinutes() + "" + currentdate.getSeconds();       
      
-     //var DE_name = 'SMS tracking data' + date_today;
+    
             var DE_name = 'SMS tracking data - ' + datetime;
             console.log(DE_name);
-     //var EK_name = 'SmsTrackingData' + date_today;
+     
             var EK_name = 'SmsTrackingData' + datetime;
             console.log(EK_name);
-     //SMS_EK = 'SmsTrackingData' + date_today;
-     
+            sms_Ek = EK_name;
+             
      var request = require('request');
 var options = {
   'method': 'POST',
