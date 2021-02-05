@@ -373,9 +373,9 @@ exports.publish = function(req, res) {
     console.log("1");
     console.log("Publish Update 3");
     //console.log("Published: "+req.body.inArguments[0]);   
-    
-    
-    
+    console.log("Request------------->>>><<<<<<<<<<<<---------------" + req + "------------->>>><<<<<<<<<<<<---------------" );
+    console.log("" + req.body);
+    console.log("" + req.body.inArguments);
    //var requestBody1 = req.body.inArguments[0];
         //console.log("RequestBody"+JSON.stringify(requestBody1));
 
@@ -448,7 +448,7 @@ request(options, function (error, response) {
     
     // Data from the req and put it in an array accessible to the main app.
     //console.log( req.body );
-    console.log("Request------------->>>><<<<<<<<<<<<---------------" + req + "------------->>>><<<<<<<<<<<<---------------" );
+    
     logData(req);
     res.send(200, 'Publish');
 };
