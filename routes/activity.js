@@ -308,12 +308,12 @@ exports.execute = function(req, res) {
        // 'accountSid':accountSid,
        // 'apiVersion':apiVersion,
        // 'body':body,
-        'From': from,
-        'Status': status,
-        'To': to,
-        'Direction' : direction,
-        'ErrorCode' : errorCode,
-        'errorMessage' : errorMessage
+        //'From': from,
+       // 'Status': status,
+       // 'To': to,
+       // 'Direction' : direction,
+       // 'ErrorCode' : errorCode,
+       // 'errorMessage' : errorMessage
 }]
 },
      json: true
