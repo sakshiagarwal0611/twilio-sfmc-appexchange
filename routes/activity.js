@@ -6,7 +6,7 @@ const Path = require('path');
 const JWT = require(Path.join(__dirname, '..', 'lib', 'jwtDecoder.js'));
 var http = require('https');
 
-var whatsapp_Ek;
+
 
 exports.logExecuteData = [];
 
@@ -115,6 +115,11 @@ exports.execute = function(req, res) {
     const entrySource = requestBody.entrySource;
     
     var sms_Ek;
+    var whatsapp_Ek;
+    
+    console.log(sms_Ek);
+    console.log(whatsapp_Ek);
+
    // console.log({{Contact.Attribute.TwilioV1.TwilioNumber}});
    // console.log({{Contact.Attribute.TwilioV1.EmailAddress}});
     
@@ -294,7 +299,7 @@ exports.execute = function(req, res) {
    //var request = require('request');
   request.post({
   headers: {'content-type' : 'application/json','Authorization': 'Bearer ' + access_token},
-  url:     'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.rest.marketingcloudapis.com/data/v1/async/dataextensions/key:36B87A1F-3606-46F2-BDB8-58DF209F1EDF/rows',
+  url:     'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.rest.marketingcloudapis.com/data/v1/async/dataextensions/key:'+ sms_Ek +'/rows',
   body:    {
    "items":
 [
@@ -412,6 +417,8 @@ exports.publish = function(req, res) {
             var EK_name = 'SmsTrackingData' + datetime;
             console.log(EK_name);
             sms_Ek = EK_name;
+            console.log(sms_Ek);
+            
              
      var request = require('request');
 var options = {
@@ -428,17 +435,12 @@ request(options, function (error, response) {
   if (error) throw new Error(error);
   console.log(response.body);
 });
-
-
-   
-     } )
-        
-    
-        
-    }
+})      
+}
     if(whatsapp == true)
     {
         console.log(" This is where we will create a DE for whatsapp tracking data");
+          whatsapp_Ek = 'This is the extrenal key for whatsapp';
         
     } 
     
