@@ -99,7 +99,8 @@ exports.execute = function(req, res) {
     console.log("2");
     console.log("1");
     console.log("Executed: " + req.body.inArguments[0]);
-
+console.log("RequestBody"+JSON.stringify(req.body));
+    console.log("RequestBody"+JSON.stringify(req.body.inArguments));
     var requestBody = req.body.inArguments[0];
 
     const accountSid = requestBody.accountSid;
@@ -378,7 +379,7 @@ exports.publish = function(req, res) {
     console.log("" + req.body.inArguments);
     console.log("RequestBody------------->>>><<<<<<<<<<<<---------------"+JSON.stringify(req.body));
     console.log("RequestBody------------->>>><<<<<<<<<<<<---------------"+JSON.stringify(req.body.inArguments));
-    console.log("RequestBody------------->>>><<<<<<<<<<<<---------------"+JSON.stringify(req.body.inArguments[0]));
+   // console.log("RequestBody------------->>>><<<<<<<<<<<<---------------"+JSON.stringify(req.body.inArguments[0]));
    //var requestBody1 = req.body.inArguments[0];
         //console.log("RequestBody"+JSON.stringify(requestBody1));
 
