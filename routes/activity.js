@@ -304,15 +304,15 @@ exports.execute = function(req, res) {
    "items":
 [
     {
-        'sid':sid,
+        'Sid':sid,
        // 'accountSid':accountSid,
        // 'apiVersion':apiVersion,
        // 'body':body,
-        'from': from,
-        'status': status,
-        'to': to,
-        'direction' : direction,
-        'errorCode' : errorCode,
+        'From': from,
+        'Status': status,
+        'To': to,
+        'Direction' : direction,
+        'ErrorCode' : errorCode,
         'errorMessage' : errorMessage
 }]
 },
