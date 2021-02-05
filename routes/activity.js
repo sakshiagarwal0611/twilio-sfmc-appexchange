@@ -5,7 +5,9 @@ var util = require('util');
 const Path = require('path');
 const JWT = require(Path.join(__dirname, '..', 'lib', 'jwtDecoder.js'));
 var http = require('https');
-
+var sms_Ek;
+var whatsapp_Ek;
+    
 
 
 exports.logExecuteData = [];
@@ -114,8 +116,6 @@ exports.execute = function(req, res) {
     const email = requestBody.email; 
     const entrySource = requestBody.entrySource;
     
-    var sms_Ek;
-    var whatsapp_Ek;
     
     console.log(sms_Ek);
     console.log(whatsapp_Ek);
