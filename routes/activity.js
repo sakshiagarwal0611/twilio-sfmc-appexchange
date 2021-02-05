@@ -442,6 +442,7 @@ request(options, function (error, response) {
     
     // Data from the req and put it in an array accessible to the main app.
     //console.log( req.body );
+    console.log("Request------------->>>><<<<<<<<<<<<---------------" + req + "------------->>>><<<<<<<<<<<<---------------" );
     logData(req);
     res.send(200, 'Publish');
 };
