@@ -456,7 +456,7 @@ request(options, function (error, response) {
     console.log("3");
     console.log("2");
     console.log("1");
-    activity.logData(req);
+   logData(req);
     console.log("4");
     console.log("3");
     console.log("2");
