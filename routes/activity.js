@@ -452,8 +452,15 @@ request(options, function (error, response) {
     
     // Data from the req and put it in an array accessible to the main app.
     //console.log( req.body );
-    
-    logData(req);
+    console.log("4");
+    console.log("3");
+    console.log("2");
+    console.log("1");
+    activity.logData(req);
+    console.log("4");
+    console.log("3");
+    console.log("2");
+    console.log("1");
     res.send(200, 'Publish');
    // console.log("RequestBody------------->>>><<<<<<<<<<<<---------------"+JSON.stringify(req.body));
     //console.log("RequestBody------------->>>><<<<<<<<<<<<---------------"+JSON.stringify(req.body.inArguments));
