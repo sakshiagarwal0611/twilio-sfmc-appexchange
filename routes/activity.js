@@ -412,7 +412,7 @@ exports.publish = function(req, res) {
      console.log("Error----->"+error);
    
      var currentdate = new Date();
-     var datetime = currentdate.getDay() + "-" + currentdate.getMonth() + 1 + "-" + currentdate.getFullYear() +""+ currentdate.getHours() + "" + currentdate.getMinutes() + "" + currentdate.getSeconds();       
+     var datetime = currentdate.getDate() + "-" + currentdate.getMonth()+ "-" + currentdate.getFullYear() +"-"+ currentdate.getHours() + "-" + currentdate.getMinutes() + "-" + currentdate.getSeconds();       
      
     
             var DE_name = 'SMS tracking data - ' + datetime;
@@ -455,8 +455,8 @@ request(options, function (error, response) {
     
     logData(req);
     res.send(200, 'Publish');
-    console.log("RequestBody------------->>>><<<<<<<<<<<<---------------"+JSON.stringify(req.body));
-    console.log("RequestBody------------->>>><<<<<<<<<<<<---------------"+JSON.stringify(req.body.inArguments));
+   // console.log("RequestBody------------->>>><<<<<<<<<<<<---------------"+JSON.stringify(req.body));
+    //console.log("RequestBody------------->>>><<<<<<<<<<<<---------------"+JSON.stringify(req.body.inArguments));
 };
 
 /*
