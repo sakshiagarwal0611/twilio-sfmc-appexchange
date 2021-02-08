@@ -378,7 +378,7 @@ exports.publish = function(req, res) {
     console.log("" + req.body);
     console.log("" + req.body.inArguments);
     console.log("RequestBody------------->>>><<<<<<<<<<<<---------------"+JSON.stringify(req.body));
-    console.log("RequestBody------------->>>><<<<<<<<<<<<---------------"+JSON.stringify(req.body.inArguments));
+    //console.log("RequestBody------------->>>><<<<<<<<<<<<---------------"+JSON.stringify(req.body.inArguments));
    // console.log("RequestBody------------->>>><<<<<<<<<<<<---------------"+JSON.stringify(req.body.inArguments[0]));
    //var requestBody1 = req.body.inArguments[0];
         //console.log("RequestBody"+JSON.stringify(requestBody1));
@@ -455,6 +455,8 @@ request(options, function (error, response) {
     
     logData(req);
     res.send(200, 'Publish');
+    console.log("RequestBody------------->>>><<<<<<<<<<<<---------------"+JSON.stringify(req.body));
+    console.log("RequestBody------------->>>><<<<<<<<<<<<---------------"+JSON.stringify(req.body.inArguments));
 };
 
 /*
