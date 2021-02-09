@@ -379,12 +379,13 @@ exports.publish = function(req, res) {
     console.log("Request------------->>>><<<<<<<<<<<<---------------" + req + "------------->>>><<<<<<<<<<<<---------------" );
     console.log("" + req.body);
     console.log("" + req.body.inArguments);
+     console.log("" + JSON.stringify(req.headers));
+    console.log("" + JSON.stringify(req.trailers));
     
     
     
     
-    
-    function initialize(data) {
+   /* function initialize(data) {
         console.log("Initializing data data: " + JSON.stringify(data));
         if (data) {
             payload = data;
@@ -400,7 +401,7 @@ exports.publish = function(req, res) {
         var inArguments = hasInArguments ? payload['arguments'].execute.inArguments : {};
 
         console.log('Has In arguments: ' + JSON.stringify(inArguments));
-    };
+    };*/
     
     
     
