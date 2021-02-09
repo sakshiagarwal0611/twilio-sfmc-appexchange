@@ -12,37 +12,6 @@ var activity    = require('./routes/activity');
 
 var app = express();
 
-//trying to fetch the config.json data
-
-app.post("/setvalues", (req, res) => {
-function(
-    Postmonger
-) {
-    'use strict';
-
-    var connection = new Postmonger.Session();
-    var payload = {};
- connection.on('initActivity', initialize);
-      
-      function initialize(data) {
-        console.log("Initializing data data: " + JSON.stringify(data));
-        if (data) {
-            payload = data;
-        }
-
-        var hasInArguments = Boolean(
-            payload['arguments'] &&
-            payload['arguments'].execute &&
-            payload['arguments'].execute.inArguments &&
-            payload['arguments'].execute.inArguments.length > 0
-        );
-
-        var inArguments = hasInArguments ? payload['arguments'].execute.inArguments : {};
-
-        console.log('Has In arguments: ' + JSON.stringify(inArguments));
-        
-      }
-    });
 
 // Configure Express
 app.set('port', process.env.PORT || 3000);
@@ -148,6 +117,40 @@ app.post('/journeybuilder/execute/', activity.execute );
   
         
   }); 
+
+
+//trying to fetch the config.json data
+
+app.post("/setvalues", (req, res) => {
+function(
+    Postmonger
+) {
+    'use strict';
+
+    var connection = new Postmonger.Session();
+    var payload = {};
+ connection.on('initActivity', initialize);
+      
+      function initialize(data) {
+        console.log("Initializing data data: " + JSON.stringify(data));
+        if (data) {
+            payload = data;
+        }
+
+        var hasInArguments = Boolean(
+            payload['arguments'] &&
+            payload['arguments'].execute &&
+            payload['arguments'].execute.inArguments &&
+            payload['arguments'].execute.inArguments.length > 0
+        );
+
+        var inArguments = hasInArguments ? payload['arguments'].execute.inArguments : {};
+
+        console.log('Has In arguments: ' + JSON.stringify(inArguments));
+        
+      }
+    });
+
 //----------------------------------------authentication and get asset API--------------------------------------------------------------------------------------------------
 //----------------------------------------get base 64------------------------------------------------------------------------------------------------------->
  /*app.post("/base64", (req, res) => {
