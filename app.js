@@ -13,7 +13,7 @@ var activity    = require('./routes/activity');
 var app = express();
 
 
-var test = 'test';
+//var test = 'test';
 
 
 // Configure Express
@@ -39,7 +39,7 @@ app.post('/logout', routes.logout );
 // Custom Hello World Activity Routes
 app.post('/journeybuilder/save/', activity.save );
 app.post('/journeybuilder/validate/', activity.validate );
-app.post('/journeybuilder/publish/', activity.publish(test));
+app.post('/journeybuilder/publish/', activity.publish);
 app.post('/journeybuilder/execute/', activity.execute );
 
 
