@@ -41,7 +41,7 @@
         "publish": {
             "url": "https://twilio-sfmc-sakshi.herokuapp.com/journeybuilder/publish",
             "verb": "POST",
-            "body": "",
+            "body": "This is the body of publish",
             "format": "json",
             "useJwt": false,
             "timeout": 2000
@@ -49,7 +49,7 @@
         "validate": {
             "url": "https://twilio-sfmc-sakshi.herokuapp.com/journeybuilder/validate",
             "verb": "POST",
-            "body": "",
+            "body": "this is the body of validate",
             "format": "json",
             "useJwt": false,
             "timeout": 2000
@@ -57,7 +57,7 @@
         "stop": {
             "url": "https://twilio-sfmc-sakshi.herokuapp.com/journeybuilder/stop",
             "verb": "POST",
-            "body": "",
+            "body": "This is the body of stop",
             "format": "json",
             "useJwt": false,
             "timeout": 2000
