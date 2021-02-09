@@ -11,7 +11,8 @@ var routes      = require('./routes');
 var activity    = require('./routes/activity');
 
 var app = express();
-
+var sms ;
+var whatsapp;
 
 // Configure Express
 app.set('port', process.env.PORT || 3000);
@@ -122,7 +123,7 @@ app.post('/journeybuilder/execute/', activity.execute );
 //trying to fetch the config.json data
 
 app.post("/setvalues", (req, res) => {
-function(
+/*function(
     Postmonger
 ) {
     'use strict';
@@ -148,7 +149,10 @@ function(
 
         console.log('Has In arguments: ' + JSON.stringify(inArguments));
         
-      }
+      }*/
+  console.log("trying to fetch the  values");
+  console.log("request body---->" + req.body);
+  console.log("request body---->" + JSON.stringify(req.body));
     });
 
 //----------------------------------------authentication and get asset API--------------------------------------------------------------------------------------------------
