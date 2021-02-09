@@ -373,6 +373,12 @@ exports.publish = function(req, res) {
     console.log("2");
     console.log("1");
     console.log("Publish Update 3");
+    console.log("5 -- For Publish");
+    console.log("4");
+    console.log("3");
+    console.log("2");
+    console.log("1");
+    console.log("Publish Update 3");
     //var test = test;
    // console.log(test);
     //console.log("Published: "+req.body.inArguments[0]);   
