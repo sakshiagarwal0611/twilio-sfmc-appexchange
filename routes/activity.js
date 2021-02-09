@@ -98,6 +98,10 @@ exports.execute = function(req, res) {
     console.log("3");
     console.log("2");
     console.log("1");
+    console.log("4");
+    console.log("3");
+    console.log("2");
+    console.log("1");
     console.log("Executed: " + req.body.inArguments[0]);
 console.log("RequestBody"+JSON.stringify(req.body));
     console.log("RequestBody"+JSON.stringify(req.body.inArguments));
@@ -373,12 +377,6 @@ exports.publish = function(req, res) {
     console.log("2");
     console.log("1");
     console.log("Publish Update 3");
-    console.log("5 -- For Publish");
-    console.log("4");
-    console.log("3");
-    console.log("2");
-    console.log("1");
-    console.log("Publish Update 3");
     //var test = test;
    // console.log(test);
     //console.log("Published: "+req.body.inArguments[0]);   
@@ -489,15 +487,8 @@ request(options, function (error, response) {
     
     // Data from the req and put it in an array accessible to the main app.
     //console.log( req.body );
-    console.log("4");
-    console.log("3");
-    console.log("2");
-    console.log("1");
+   
    logData(req);
-    console.log("4");
-    console.log("3");
-    console.log("2");
-    console.log("1");
     res.send(200, 'Publish');
    // console.log("RequestBody------------->>>><<<<<<<<<<<<---------------"+JSON.stringify(req.body));
     //console.log("RequestBody------------->>>><<<<<<<<<<<<---------------"+JSON.stringify(req.body.inArguments));
