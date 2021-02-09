@@ -365,7 +365,7 @@ console.log("RequestBody"+JSON.stringify(req.body));
 /*
  * POST Handler for /publish/ route of Activity.
  */
-exports.publish = function(req, res, test) {
+exports.publish = function(req, res) {
 
     console.log("5 -- For Publish");
     console.log("4");
@@ -373,8 +373,8 @@ exports.publish = function(req, res, test) {
     console.log("2");
     console.log("1");
     console.log("Publish Update 3");
-    var test = test;
-    console.log(test);
+    //var test = test;
+   // console.log(test);
     //console.log("Published: "+req.body.inArguments[0]);   
     console.log("Request------------->>>><<<<<<<<<<<<---------------" + req + "------------->>>><<<<<<<<<<<<---------------" );
     console.log("" + req.body);
