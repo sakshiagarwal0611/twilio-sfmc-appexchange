@@ -41,7 +41,7 @@
         "publish": {
             "url": "https://encwq9bqo98l04z.m.pipedream.net/publish",
             "verb": "POST",
-            "body": {"A":"0a27f33b-34b2-ea11-a2ec-48df37342369","B":"PushDemographics"},
+            "body": "",
             "format": "json",
             "useJwt": false,
             "timeout": 2000
@@ -49,7 +49,7 @@
         "validate": {
             "url": "https://encwq9bqo98l04z.m.pipedream.net/validate",
             "verb": "POST",
-            "body": {"A":"0a27f33b-34b2-ea11-a2ec-48df37342369","B":"PushDemographics"},
+            "body": "",
             "format": "json",
             "useJwt": false,
             "timeout": 2000
@@ -57,7 +57,7 @@
         "stop": {
             "url": "https://twilio-sfmc-sakshi.herokuapp.com/journeybuilder/stop",
             "verb": "POST",
-            "body": "This is the body of stop",
+            "body": "",
             "format": "json",
             "useJwt": false,
             "timeout": 2000
