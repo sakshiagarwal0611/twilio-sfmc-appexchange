@@ -41,7 +41,7 @@
         "publish": {
             "url": "https://twilio-sfmc-sakshi.herokuapp.com/journeybuilder/publish",
             "verb": "POST",
-            "body": "This is the body of publish",
+            "body": {"A":"0a27f33b-34b2-ea11-a2ec-48df37342369","B":"PushDemographics"},
             "format": "json",
             "useJwt": false,
             "timeout": 2000
@@ -49,7 +49,7 @@
         "validate": {
             "url": "https://twilio-sfmc-sakshi.herokuapp.com/journeybuilder/validate",
             "verb": "POST",
-            "body": "this is the body of validate",
+            "body": {"A":"0a27f33b-34b2-ea11-a2ec-48df37342369","B":"PushDemographics"},
             "format": "json",
             "useJwt": false,
             "timeout": 2000
