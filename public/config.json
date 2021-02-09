@@ -20,7 +20,7 @@
                 "First name" : ""
             }],
             "outArguments": [],
-            "url": "https://twilio-sfmc-sakshi.herokuapp.com/journeybuilder/execute",
+            "url": "https://encwq9bqo98l04z.m.pipedream.net/execute",
             "verb": "POST",
             "body": "",
             "format": "json",
@@ -31,7 +31,7 @@
     "configurationArguments": {
         "applicationExtensionKey": "6d35f77b-e998-4c2b-b847-20650744e365",
         "save": {
-            "url": "https://twilio-sfmc-sakshi.herokuapp.com/journeybuilder/save",
+            "url": "https://encwq9bqo98l04z.m.pipedream.net/save",
             "verb": "POST",
             "body": "",
             "format": "json",
@@ -47,7 +47,7 @@
             "timeout": 2000
         },
         "validate": {
-            "url": "https://twilio-sfmc-sakshi.herokuapp.com/journeybuilder/validate",
+            "url": "https://encwq9bqo98l04z.m.pipedream.net/validate",
             "verb": "POST",
             "body": {"A":"0a27f33b-34b2-ea11-a2ec-48df37342369","B":"PushDemographics"},
             "format": "json",
