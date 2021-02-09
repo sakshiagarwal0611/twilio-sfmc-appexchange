@@ -13,6 +13,8 @@ var activity    = require('./routes/activity');
 var app = express();
 
 //trying to fetch the config.json data
+
+app.post("/setvalues", (req, res) => {
 function(
     Postmonger
 ) {
@@ -40,6 +42,7 @@ function(
         console.log('Has In arguments: ' + JSON.stringify(inArguments));
         
       }
+    });
 
 // Configure Express
 app.set('port', process.env.PORT || 3000);
