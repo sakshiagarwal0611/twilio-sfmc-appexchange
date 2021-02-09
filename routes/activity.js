@@ -379,8 +379,8 @@ exports.publish = function(req, res) {
     console.log("Request------------->>>><<<<<<<<<<<<---------------" + req + "------------->>>><<<<<<<<<<<<---------------" );
     console.log("" + req.body);
     console.log("" + req.body.inArguments);
-     console.log("" + JSON.stringify(req.headers));
-    console.log("" + JSON.stringify(req.trailers));
+    // console.log("" + JSON.stringify(req.headers));
+   // console.log("" + JSON.stringify(req.trailers));
     
     
     
