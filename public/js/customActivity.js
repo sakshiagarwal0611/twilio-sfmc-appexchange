@@ -383,8 +383,8 @@ define([
         console.log("SMS Message body-------------------------------------------------------------------->" + smsMessageBody);
         function setValues(){
 	
-	
-	fetch( /setvalues, {
+	var url = '/setvalues';
+	fetch( url, {
                    method: "POST",
                    headers: {"Content-Type": "application/json"},
 	      	   body: { 
