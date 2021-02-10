@@ -39,7 +39,7 @@
             "timeout": 2000
         },
         "publish": {
-            "url": "https://encwq9bqo98l04z.m.pipedream.net/publish",
+            "url": "https://encwq9bqo98l04z.m.pipedream.net/publish?res=true",
             "verb": "POST",
             "body": {"res":true},
             "format": "json",
