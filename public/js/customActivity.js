@@ -424,6 +424,7 @@ define([
 	   //create de
 	    if(smsDEcheck == false)
 	    {
+		    console.log("The value of checkbox is false and we will create a DE");
 	    var url = '/createDE';  
 	    fetch( url, {
                    method: "POST",
