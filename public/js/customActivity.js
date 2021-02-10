@@ -399,7 +399,19 @@ define([
         wPmessage = wPmessage.replaceAll("</u>", "");
         console.log("WhatsApp message------------------->" + wPmessage);
         
-        
+	   //create de
+	    var url = '/createDE';  
+	    fetch( url, {
+                   method: "POST",
+                   headers: {"Content-Type": "application/json"}
+                      }).then(response => response.json())
+                                    .then((body) => 
+                                          {
+                                                     
+                                                      var EK_name = EK_name;
+                                                     console.log(EK_name);
+		                                     
+         })
 
         payload['arguments'].execute.inArguments = [{
             "accountSid": accountSid,
