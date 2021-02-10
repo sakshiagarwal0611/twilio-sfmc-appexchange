@@ -126,64 +126,7 @@ app.post('/journeybuilder/execute/', activity.execute );
   }); 
 
 
-//trying to fetch the config.json data
 
-/*app.post("/setvalues", (req, res) => {
-function(
-    Postmonger
-) {
-    'use strict';
-
-    var connection = new Postmonger.Session();
-    var payload = {};
- connection.on('initActivity', initialize);
-      
-      function initialize(data) {
-        console.log("Initializing data data: " + JSON.stringify(data));
-        if (data) {
-            payload = data;
-        }
-
-        var hasInArguments = Boolean(
-            payload['arguments'] &&
-            payload['arguments'].execute &&
-            payload['arguments'].execute.inArguments &&
-            payload['arguments'].execute.inArguments.length > 0
-        );
-
-        var inArguments = hasInArguments ? payload['arguments'].execute.inArguments : {};
-
-        console.log('Has In arguments: ' + JSON.stringify(inArguments));
-        
-      }*/
-  
-    });
-
-//----------------------------------------authentication and get asset API--------------------------------------------------------------------------------------------------
-//----------------------------------------get base 64------------------------------------------------------------------------------------------------------->
- /*app.post("/base64", (req, res) => {
-  console.log('this is the function called when we want to convert the image into base 64');
-  // var base = 'base6s string';
-   
-   var request = require('request').defaults({ encoding: null });
-   var url = 'https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/c42752a3-e464-492e-a6a6-0777b5f32fad.png';
-    // Make request to our image url
-    request.get(url, function (err, res, body) {
-        if (!err && res.statusCode == 200) {
-            // So as encoding set to null then request body became Buffer object
-            data = "data:" + response.headers["content-type"] + ";base64," + Buffer.from(body).toString('base64');
-            var base64enc=data.split(";base64,")[1];
-            
-        } 
-        }
-    );
-   
-   var base64enc = 'this is base 64';
-   
-   console.log(base64enc);
-   
-   res.json({base64enc:base64enc});
- });*/
   
   
   http.createServer(app).listen(app.get('port'), function(){
