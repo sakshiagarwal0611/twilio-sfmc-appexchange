@@ -356,6 +356,7 @@ define([
         var insertedImage ; 
         var entry = "{{Event." + eventDefinitionKey + ".EmailAddress}}";
         var to = $("#recipient").val();
+	var smsDEcheck = $("#smsDEcheckbox").is(":checked");
         console.log("selected phone number attribute---->"+ to);
         
         console.log("Entry source--------->" + eventDefinitionKey);
@@ -405,7 +406,11 @@ define([
 	    console.log("1");
             console.log("1");
 	    console.log("1");
+	    
+	    
 	   //create de
+	    if(smsDEcheck == false)
+	    {
 	    var url = '/createDE';  
 	    fetch( url, {
                    method: "POST",
@@ -414,11 +419,17 @@ define([
                                     .then((body) => 
                                           {
                                                      
-                                                      var EK_name = EK_name;
-                                                     console.log(EK_name);
+                                                      var EK_name1 = body.EK_name;
+                                                     console.log(EK_name1);
+		     document.getElementById('smsDEname').innerHTML = EK_name1; 
 		                                     
          })
-
+		 $("#smsDEcheckbox").attr("checked", true);  
+		  
+	    }
+	    
+	    smsDEcheck = $("#smsDEcheckbox").is(":checked");
+	    
         payload['arguments'].execute.inArguments = [{
             "accountSid": accountSid,
             "authToken": authToken,
@@ -432,7 +443,8 @@ define([
             "WPmessage" : wPmessage,
             "insertedImage": insertedImage,
             "isimage": isimage,
-            "entrySource" : entry
+            "entrySource" : entry,
+	    "smsDEcheck" : smsDEcheck		
          
            
         }];
