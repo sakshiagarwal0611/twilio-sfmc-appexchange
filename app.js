@@ -128,8 +128,8 @@ app.post('/journeybuilder/execute/', activity.execute );
 
 //trying to fetch the config.json data
 
-app.post("/setvalues", (req, res) => {
-/*function(
+/*app.post("/setvalues", (req, res) => {
+function(
     Postmonger
 ) {
     'use strict';
