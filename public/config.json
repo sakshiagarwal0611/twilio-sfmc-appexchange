@@ -39,7 +39,7 @@
             "timeout": 2000
         },
         "publish": {
-            "url": "https://twilio-sfmc-sakshi.herokuapp.cm/journeybuilder/publish",
+            "url": "https://twilio-sfmc-sakshi.herokuapp.com/journeybuilder/publish",
             "verb": "POST",
             "body": "",
             "format": "json",
