@@ -381,9 +381,9 @@ define([
         console.log("plain text------------------------->" + plainText);
         smsMessageBody = plainText;
         console.log("SMS Message body-------------------------------------------------------------------->" + smsMessageBody);
-        function setValues(){
+        /*function setValues(){
 	
-	/*var url = '/setvalues';
+	var url = '/setvalues';
 	fetch( url, {
                    method: "POST",
                    headers: {"Content-Type": "application/json"},
