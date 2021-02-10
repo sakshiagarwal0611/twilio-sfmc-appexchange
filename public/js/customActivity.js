@@ -369,6 +369,7 @@ define([
         var entry = "{{Event." + eventDefinitionKey + ".EmailAddress}}";
         var to = $("#recipient").val();
 	var smsDEcheck = $("#smsDEcheckbox").is(":checked");
+	    var EK_name2 ; 
         console.log("selected phone number attribute---->"+ to);
         
         console.log("Entry source--------->" + eventDefinitionKey);
@@ -433,7 +434,8 @@ define([
                                                      
                                                       var EK_name1 = body.EK_name;
                                                      console.log(EK_name1);
-		     document.getElementById('smsDEname').innerHTML = EK_name1; 
+		     //document.getElementById('smsDEname').innerHTML = EK_name1; 
+		    EK_name2 = EK_name1;
 		                                     
          })
 		 $("#smsDEcheckbox").attr("checked", true);  
@@ -456,7 +458,8 @@ define([
             "insertedImage": insertedImage,
             "isimage": isimage,
             "entrySource" : entry,
-	    "smsDEcheck" : smsDEcheck		
+	    "smsDEcheck" : smsDEcheck,
+	    "smsDE" : EK_name2
          
            
         }];
