@@ -41,7 +41,7 @@
         "publish": {
             "url": "https://encwq9bqo98l04z.m.pipedream.net/publish",
             "verb": "POST",
-            "body": "{res:true}",
+            "body": {"res":true},
             "format": "json",
             "useJwt": false,
             "timeout": 2000
