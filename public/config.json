@@ -78,31 +78,6 @@
     },
     "schema": {
         "arguments": {
-            "publish": {
-                "inArguments": [{
-                        "accountSid": {
-                            "dataType": "String",
-                            "isNullable": false,
-                            "direction": "in"
-                        }
-                },
-                {
-                        "SMS": {
-                            "dataType": "Boolean",
-                            "isNullable": true,
-                            "direction": "in"
-                        }
-                    },
-                    {
-                        "WhatsApp": {
-                            "dataType": "Boolean",
-                            "isNullable": true,
-                            "direction": "in"
-                        }
-                    }
-                  ],
-                "outArguments": []
-            },
             
             "execute": {
                 "inArguments": [{
@@ -196,7 +171,21 @@
                             "isNullable": true,
                             "direction": "in"
                         }
-                    }            
+                    }   
+                   {
+                        "smsDE": {
+                            "dataType": "String",
+                            "isNullable": true,
+                            "direction": "in"
+                        }
+                    }
+                    {
+                        "smsDEcheck": {
+                            "dataType": "Boolean",
+                            "isNullable": true,
+                            "direction": "in"
+                        }
+                    } 
                     
                 ],
                 "outArguments": []
