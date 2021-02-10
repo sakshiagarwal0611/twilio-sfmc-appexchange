@@ -205,6 +205,18 @@ define([
                     selectedPhone = val; 
                     //document.getElementById("recipient").value = "phone";
                 }
+		 if(key === 'smsDEcheck')
+                {
+		if(val == true)
+                    {
+                     $("#smsDEcheckbox").attr("checked", true);
+                         console.log(" sms de created is checked");   
+                    }else {
+			    $("#smsDEcheckbox").attr("checked", false);
+                         console.log(" sms de created is not checked");  
+		    }	
+		}
+		    
             })
         });
 
