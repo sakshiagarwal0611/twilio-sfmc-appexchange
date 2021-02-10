@@ -377,37 +377,15 @@ exports.publish = function(req, res) {
     console.log("2");
     console.log("1");
     console.log("Publish Update 3");
-    //var test = test;
-   // console.log(test);
-    //console.log("Published: "+req.body.inArguments[0]);   
-    console.log("Request------------->>>><<<<<<<<<<<<---------------" + req + "------------->>>><<<<<<<<<<<<---------------" );
+     
+   /* console.log("Request------------->>>><<<<<<<<<<<<---------------" + req + "------------->>>><<<<<<<<<<<<---------------" );
     console.log("" + req.body);
     console.log("" + req.body.inArguments);
-    // console.log("" + JSON.stringify(req.headers));
-   // console.log("" + JSON.stringify(req.trailers));
-    
-    
-    
-    
-   /* function initialize(data) {
-        console.log("Initializing data data: " + JSON.stringify(data));
-        if (data) {
-            payload = data;
-        }
 
-        var hasInArguments = Boolean(
-            payload['arguments'] &&
-            payload['arguments'].execute &&
-            payload['arguments'].execute.inArguments &&
-            payload['arguments'].execute.inArguments.length > 0
-        );
-
-        var inArguments = hasInArguments ? payload['arguments'].execute.inArguments : {};
-
-        console.log('Has In arguments: ' + JSON.stringify(inArguments));
-    };*/
     
     
+    
+ 
     
     
     
@@ -482,7 +460,7 @@ request(options, function (error, response) {
           whatsapp_Ek = 'This is the extrenal key for whatsapp';
         
     } 
-    
+    */
     
     
     // Data from the req and put it in an array accessible to the main app.
