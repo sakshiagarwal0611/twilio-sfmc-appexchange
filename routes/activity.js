@@ -120,10 +120,10 @@ console.log("RequestBody"+JSON.stringify(req.body));
     console.log("RequestBody"+JSON.stringify(requestBody));
     const email = requestBody.email; 
     const entrySource = requestBody.entrySource;
-    const smsDE = requestBody.smsDE;
+    const sms_Ek = requestBody.smsDE;
     
     
-    console.log(smsDE);
+    console.log(sms_Ek);
     //console.log(whatsapp_Ek);
 
    // console.log({{Contact.Attribute.TwilioV1.TwilioNumber}});
