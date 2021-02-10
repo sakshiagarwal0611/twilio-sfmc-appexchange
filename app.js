@@ -180,7 +180,7 @@ request(options, function (error, response) {
 })      
 
   
-  // res.json(EK_name:EK_name});
+  res.json(EK_name:EK_name});
   
 });
 
