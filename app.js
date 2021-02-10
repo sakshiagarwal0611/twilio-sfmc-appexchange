@@ -127,7 +127,7 @@ app.post('/journeybuilder/execute/', activity.execute );
 
 //----------------------------------------Dynamic DE creation--------------------------------------------------------------------------------------------------
 app.post("/createDE", (req, res) => {
-  console.log('This is the function called to create DE dynamically');
+  console.log("This is the function called to create DE dynamically");
     var currentdate = new Date();
      var datetime = currentdate.getDate() + "-" + currentdate.getMonth()+ "-" + currentdate.getFullYear() +"-"+ currentdate.getHours() + "-" + currentdate.getMinutes() + "-" + currentdate.getSeconds();       
      
