@@ -378,7 +378,11 @@ exports.publish = function(req, res) {
     console.log("2");
     console.log("1");
     console.log("Publish Update 3");
-     
+    
+    
+    const customQuantityValues = require('config.json');
+    console.log(JSON.stringify(customQuantityValues));
+    
    /* console.log("Request------------->>>><<<<<<<<<<<<---------------" + req + "------------->>>><<<<<<<<<<<<---------------" );
     console.log("" + req.body);
     console.log("" + req.body.inArguments);
