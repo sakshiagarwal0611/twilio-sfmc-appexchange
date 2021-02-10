@@ -49,10 +49,10 @@ app.post('/journeybuilder/execute/', activity.execute );
   console.log("trying to fetch the  values");
   //console.log("request body---->" + req.body);
   //console.log("request body---->" + JSON.stringify(req.body));
-  sms = true;
-   whatsapp = true;
-   console.log(sms);
-   console.log(whatsapp);
+  //sms = true;
+   //whatsapp = true;
+   //console.log(sms);
+   //console.log(whatsapp);
     
   const https = require('https');  
   var request = require('request');
