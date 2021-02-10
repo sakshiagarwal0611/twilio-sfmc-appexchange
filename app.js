@@ -11,8 +11,8 @@ var routes      = require('./routes');
 var activity    = require('./routes/activity');
 
 var app = express();
-var sms ;
-var whatsapp;
+//var sms ;
+//var whatsapp;
 
 // Configure Express
 app.set('port', process.env.PORT || 3000);
