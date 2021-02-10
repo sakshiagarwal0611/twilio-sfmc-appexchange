@@ -399,6 +399,12 @@ define([
         wPmessage = wPmessage.replaceAll("</u>", "");
         console.log("WhatsApp message------------------->" + wPmessage);
         
+	    console.log("1");
+            console.log("1");
+	    console.log("1");
+	    console.log("1");
+            console.log("1");
+	    console.log("1");
 	   //create de
 	    var url = '/createDE';  
 	    fetch( url, {
