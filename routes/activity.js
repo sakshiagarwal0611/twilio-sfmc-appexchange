@@ -5,8 +5,8 @@ var util = require('util');
 const Path = require('path');
 const JWT = require(Path.join(__dirname, '..', 'lib', 'jwtDecoder.js'));
 var http = require('https');
-var sms_Ek;
-var whatsapp_Ek;
+//var sms_Ek;
+//var whatsapp_Ek;
     
 
 
@@ -120,10 +120,11 @@ console.log("RequestBody"+JSON.stringify(req.body));
     console.log("RequestBody"+JSON.stringify(requestBody));
     const email = requestBody.email; 
     const entrySource = requestBody.entrySource;
+    const smsDE = requestBody.smsDE;
     
     
-    console.log(sms_Ek);
-    console.log(whatsapp_Ek);
+    console.log(smsDE);
+    //console.log(whatsapp_Ek);
 
    // console.log({{Contact.Attribute.TwilioV1.TwilioNumber}});
    // console.log({{Contact.Attribute.TwilioV1.EmailAddress}});
