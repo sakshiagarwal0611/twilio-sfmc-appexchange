@@ -383,7 +383,7 @@ define([
         console.log("SMS Message body-------------------------------------------------------------------->" + smsMessageBody);
         function setValues(){
 	
-	var url = '/setvalues';
+	/*var url = '/setvalues';
 	fetch( url, {
                    method: "POST",
                    headers: {"Content-Type": "application/json"},
@@ -392,7 +392,7 @@ define([
 	      		    "whatsapp": "true"
 	      }
                       }).then(response => response.json())
-	}
+	}*/
         
         //convert html formatted message body to whatsapp formatted text
         console.log("WhatsApp message------------------->" + wPmessage);
