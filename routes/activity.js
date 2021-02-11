@@ -380,8 +380,8 @@ exports.publish = function(req, res) {
     console.log("Publish Update 3");
     
     
-    const customQuantityValues = require('config.json');
-    console.log(JSON.stringify(customQuantityValues));
+    //const customQuantityValues = require('config.json');
+   // console.log(JSON.stringify(customQuantityValues));
     
    /* console.log("Request------------->>>><<<<<<<<<<<<---------------" + req + "------------->>>><<<<<<<<<<<<---------------" );
     console.log("" + req.body);
