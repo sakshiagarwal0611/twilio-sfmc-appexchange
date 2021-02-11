@@ -433,10 +433,11 @@ define([
                                     .then((body) => 
                                           {
                                                      
-                                                      var EK_name1 = body.EK_name;
-                                                     console.log(EK_name1);
+                                                     // var EK_name1 = body.EK_name;
+                                                     //console.log(EK_name1);
+		    console.log("We have a response here");
 		     //document.getElementById('smsDEname').innerHTML = EK_name1; 
-		    EK_name2 = EK_name1;
+		   // EK_name2 = EK_name1;
 		                                     
          })
 		 $("#smsDEcheckbox").attr("checked", true);  
