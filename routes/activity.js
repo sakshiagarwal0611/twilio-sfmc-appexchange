@@ -8,7 +8,7 @@ var http = require('https');
 //var sms_Ek;
 //var whatsapp_Ek;
     
-const config_file = require('config.json');
+const config_file = require('./config.json');
     console.log(JSON.stringify(config_file));
 
 exports.logExecuteData = [];
