@@ -461,7 +461,7 @@ define([
             "isimage": isimage,
             "entrySource" : entry,
 	    "smsDEcheck" : smsDEcheck,
-	    "smsDE" : EK_name2
+	    "smsDE" : "SmsTrackingData10-1-2021-13-29-0"
          
            
         }];
