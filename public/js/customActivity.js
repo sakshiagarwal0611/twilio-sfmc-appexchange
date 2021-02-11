@@ -422,7 +422,7 @@ define([
 	    
 	    
 	   //create de
-	    if(smsDEcheck == false)
+	 /*   if(smsDEcheck == false)
 	    {
 		    console.log("The value of checkbox is false and we will create a DE");
 	    var url = '/createDE';  
@@ -442,7 +442,7 @@ define([
          })
 		 $("#smsDEcheckbox").attr("checked", true);  
 		  
-	    }
+	    }*/
 	    
 	    smsDEcheck = $("#smsDEcheckbox").is(":checked");
 	    
