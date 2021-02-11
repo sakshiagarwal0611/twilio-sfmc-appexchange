@@ -77,8 +77,7 @@
         }
     },
     "schema": {
-        "arguments": {
-            
+        "arguments": { 
             "execute": {
                 "inArguments": [{
                         "accountSid": {
