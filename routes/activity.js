@@ -8,7 +8,8 @@ var http = require('https');
 //var sms_Ek;
 //var whatsapp_Ek;
     
-
+const config_file = require('config.json');
+    console.log(JSON.stringify(config_file));
 
 exports.logExecuteData = [];
 
@@ -380,8 +381,7 @@ exports.publish = function(req, res) {
     console.log("Publish Update 3");
     
     
-    //const customQuantityValues = require('config.json');
-   // console.log(JSON.stringify(customQuantityValues));
+    
     
    /* console.log("Request------------->>>><<<<<<<<<<<<---------------" + req + "------------->>>><<<<<<<<<<<<---------------" );
     console.log("" + req.body);
