@@ -382,8 +382,10 @@ exports.publish = function(req, res) {
     var config_file = require('/app/public/config.json');
 console.log(JSON.stringify(config_file));
 
-    var config_file2 = require('/app/public/js/customActivity.js');
-console.log(JSON.stringify(config_file2));
+    //var config_file2 = require('/app/public/js/customActivity.js');
+    const publicforjson = require(Path.join(__dirname, '..', 'public', 'js','customActivity.js'));
+
+console.log(JSON.stringify(publicforjson));
    /* console.log("Request------------->>>><<<<<<<<<<<<---------------" + req + "------------->>>><<<<<<<<<<<<---------------" );
     console.log("" + req.body);
     console.log("" + req.body.inArguments);
