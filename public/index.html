@@ -184,8 +184,10 @@
 		    <div class="slds-select_container">
 		      <select class="slds-select" id="template" onchange="templateChange()">
 			      <option hidden selected>None</option>
-			       <option None</option>
-			      //onfocus="this.selectedIndex = -1;"
+			       <option value="Your appointment is coming up on {{1}} at {{2}}">Appointment Reminder</option>
+			      <option value="Your {{1}} order of {{2}} has shipped and should be delivered on {{3}}. Details: {{4}}">Order Confirmation</option>
+			      <option value="Your {{1}} code is {{2}}">Verification Code</option>
+			      <!--onfocus="this.selectedIndex = -1;" -->
 		      </select>
 		    </div>
         </div> 
