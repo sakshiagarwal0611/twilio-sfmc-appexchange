@@ -148,7 +148,7 @@ console.log("RequestBody"+JSON.stringify(req.body));
         console.log(to);
         client.messages
         .create({
-           // mediaurl: ImageURL,
+            mediaurl: imageURL,
              from: 'whatsapp:+14155238886',
             body: "hello there, this is my first whatsapp message",
             to: 'whatsapp:+917790909761'
