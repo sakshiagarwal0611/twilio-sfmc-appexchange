@@ -184,6 +184,20 @@
                             "isNullable": true,
                             "direction": "in"
                         }
+                    },
+                                {
+                        "wpMessageType": {
+                            "dataType": "String",
+                            "isNullable": true,
+                            "direction": "in"
+                        }
+                    },
+                    {
+                        "template": {
+                            "dataType": "String",
+                            "isNullable": true,
+                            "direction": "in"
+                        }
                     } 
                     
                 ],
