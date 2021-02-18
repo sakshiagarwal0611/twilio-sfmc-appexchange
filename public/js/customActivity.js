@@ -369,9 +369,12 @@ define([
         var entry = "{{Event." + eventDefinitionKey + ".EmailAddress}}";
         var to = $("#recipient").val();
 	var smsDEcheck = $("#smsDEcheckbox").is(":checked");
-	    var EK_name2 ; 
-        console.log("selected phone number attribute---->"+ to);
-        
+	var EK_name2 ; 
+	var wpMessageType  = $("#messageType").val(); 
+	var template = $("#template").val();
+       
+	    
+	console.log("selected phone number attribute---->"+ to);
         console.log("Entry source--------->" + eventDefinitionKey);
         console.log("Entry source--------->" + entry);
         console.log("Content of division image" + document.getElementById('image').innerHTML);
@@ -461,7 +464,9 @@ define([
             "isimage": isimage,
             "entrySource" : entry,
 	    "smsDEcheck" : smsDEcheck,
-	    "smsDE" : "SmsTrackingData10-1-2021-13-29-0"
+	    "smsDE" : "SmsTrackingData10-1-2021-13-29-0",
+            "wpMessageType" : wpMessageType,
+	    "template" : template 
          
            
         }];
