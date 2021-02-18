@@ -148,10 +148,10 @@ console.log("RequestBody"+JSON.stringify(req.body));
         console.log(to);
         client.messages
         .create({
-            mediaurl: ImageURL,
+           // mediaurl: ImageURL,
+             from: 'whatsapp:+14155238886',
             body: "hello there, this is my first whatsapp message",
-            from: 'whatsapp:+14155238886',
-            to: 'whatsapp:+917790909761
+            to: 'whatsapp:+917790909761'
         },
         function(err, responseData){
         if(!err) {
@@ -198,11 +198,10 @@ console.log("RequestBody"+JSON.stringify(req.body));
      console.log("access_token------>" + access_token);
      console.log("Response------->"+response);
      console.log("Error----->"+error);
-     
-   //const https = require('https');
     console.log("we are calling out the api to insert row in DE");
-   //var request = require('request');
- /* request.post({
+        
+  
+ request.post({
   headers: {'content-type' : 'application/json','Authorization': 'Bearer ' + access_token},
   url:     'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.rest.marketingcloudapis.com/data/v1/async/dataextensions/key:36B87A1F-3606-46F2-BDB8-58DF209F1EDF/rows',
   body:    {
@@ -233,7 +232,7 @@ console.log("RequestBody"+JSON.stringify(req.body));
 });
 //console.log("we have inserted the tracking data in to the DE");
                     
-        } } ); */
+        } } ); 
         
        
     
