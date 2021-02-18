@@ -148,9 +148,9 @@ console.log("RequestBody"+JSON.stringify(req.body));
         console.log(to);
         client.messages
         .create({
-            mediaUrl: imageURL,
+            mediaUrl: ['https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/efe473e7-b2e6-4857-8529-a4c547f967b9.png'],
              from: 'whatsapp:+14155238886',
-            body: "hello there, this is my first whatsapp message",
+            body: "This is an image attachment",
             to: 'whatsapp:+917790909761'
         },
         function(err, responseData){
