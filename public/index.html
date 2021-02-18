@@ -490,10 +490,7 @@ function removeimage()
 	}
 	
 	
-function templateChange(){
-	     console.log("Template is selected here");
-	
-	}
+
 function MessageTypeChange(){
 	console.log("message type is changing here");
 	var value = $("#messageType").val();
@@ -505,6 +502,12 @@ function MessageTypeChange(){
 	}
 	
 }
+	function templateChange(){
+	     console.log("Template is selected here");
+		var value = $("#template").val();
+	RichTextEditor
+	document.getElementById('RichTextEditor').innerHTML = value;
+	}
 
 		
 </script>	
