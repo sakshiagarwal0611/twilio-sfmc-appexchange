@@ -182,7 +182,7 @@
 	<div class="slds-text-heading_small instruction">Select WhatsApp message type:</div> 
 	<div class="slds-form-element__control">
 		    <div class="slds-select_container">
-		      <select class="slds-select" id="template" onchange="templateChange()">
+		      <select class="slds-select" id="messageType" onchange="MessageTypeChange()">
 			      <option hidden selected>None</option>
 			       <option value="Sessional Message">Sessional Message</option>
 			      <option value="Transactionl Message">Transactional Message</option>
@@ -489,10 +489,22 @@ function removeimage()
 	
 	}
 	
-	function templateChange(){
+	
+function templateChange(){
 	     console.log("Template is selected here");
+	
+	}
+function MessageTypeChange(){
+	console.log("message type is changing here");
+	var value = $("#messageType").val();
+	if(value == "Sessional Message"){
+		$('#template').attr('disabled',true);
+	   }
+	else{
+		$('#template').attr('disabled',false);
 	}
 	
+}
 
 		
 </script>	
