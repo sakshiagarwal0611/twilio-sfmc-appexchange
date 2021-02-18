@@ -379,7 +379,7 @@ define([
 	var wpMessageType  = $("#messageType").val(); 
 	var template = $("#template").val();
        
-	    
+	console.log(wpMessageType + template);    
 	console.log("selected phone number attribute---->"+ to);
         console.log("Entry source--------->" + eventDefinitionKey);
         console.log("Entry source--------->" + entry);
