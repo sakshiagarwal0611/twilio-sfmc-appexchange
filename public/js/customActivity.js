@@ -160,15 +160,13 @@ define([
                     }
 
                 }
-                if (key === 'MessageBody') {
+                if (key === 'MessageBody'){
                     
                     console.log("Message body------------------------>" + val);
                     document.getElementById('RichTextEditor').innerHTML = val;
                    
                 }
                if (key === 'isimage') {
-                    
-                    
                     console.log("is there an image inserted?------------------------>" + val);
                     var isimage = val;
                     
@@ -216,6 +214,14 @@ define([
                          console.log(" sms de created is not checked");  
 		    }	
 		}
+		    if (key === 'wpMessageType') {
+                    console.log("Whatsapp message type------------------------>" + val);
+		      document.getElementById("messageType").value = val;  
+                }
+		    if (key === 'template') {
+                    console.log("Template selected------->" + val);
+		    document.getElementById("template").value = val;
+                }
 		    
             })
         });
