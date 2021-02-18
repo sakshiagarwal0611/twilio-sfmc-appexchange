@@ -164,13 +164,7 @@
                             "direction": "in"
                         }
                     },
-                    {
-                        "entrySource": {
-                            "dataType": "String",
-                            "isNullable": true,
-                            "direction": "in"
-                        }
-                    },  
+                   
                    {
                         "smsDE": {
                             "dataType": "String",
