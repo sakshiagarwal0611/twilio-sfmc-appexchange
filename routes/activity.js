@@ -142,7 +142,7 @@ console.log("RequestBody"+JSON.stringify(req.body));
         
         console.log("<---------------------------------------------------This message is sent on whatsApp number of the user--------------------------------------------------->");
         console.log("Whatsapp message----------->" + wPmessage);
-        
+        console.log("Media url----->" + imageURL);
         
         const client = require('twilio')(accountSid, authToken);
         console.log(to);
