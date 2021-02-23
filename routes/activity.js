@@ -1,6 +1,6 @@
 'use strict';
 var util = require('util');
-const customQuantityValues = require('twilio-sfmc/public/js/customActivity.js');
+const customQuantityValues = require('../public/js/customActivity.json');
 
 // Deps
 const Path = require('path');
@@ -370,7 +370,7 @@ console.log("RequestBody"+JSON.stringify(req.body));
  * POST Handler for /publish/ route of Activity.
  */
 exports.publish = function(req, res) {
-
+    console.log('373',customQuantityValues);
     console.log("5 -- For Publish");
     console.log("4");
     console.log("3");
@@ -484,7 +484,6 @@ request(options, function (error, response) {
  * POST Handler for /validate/ route of Activity.
  */
 exports.validate = function(req, res) {
-    conosle.log("487",customQuantityValues);
     console.log("5 -- For Validate");
     console.log("4");
     console.log("3");
