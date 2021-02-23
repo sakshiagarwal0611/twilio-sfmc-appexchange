@@ -79,7 +79,7 @@ exports.save = function(req, res) {
     console.log("2");
     console.log("1");
     console.log("Save Update");
-    //console.log("Saved: "+req.body.inArguments[0]);
+    console.log("Saved: "+req.body.inArguments[0]);
 
     // Data from the req and put it in an array accessible to the main app.
     console.log(req.body);
@@ -376,7 +376,7 @@ exports.publish = function(req, res) {
     console.log("2");
     console.log("1");
     console.log("Publish Update 3");
-    
+     console.log("Publish: "+req.body.inArguments[0]);
     
    /* var config_file = require('/app/public/config.json');
 console.log(JSON.stringify(config_file));
