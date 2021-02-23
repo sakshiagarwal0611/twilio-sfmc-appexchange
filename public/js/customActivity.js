@@ -7,6 +7,7 @@ define([
 
     var connection = new Postmonger.Session();
     var payload = {};
+    var payload1 = {};
     var lastStepEnabled = false;
     var steps = [ // initialize to the same value as what's set in config.json for consistency
         { "label": "Twilio Authentication", "key": "step1" },
@@ -305,6 +306,7 @@ define([
             case 'step3':
                 $('#step3').show();
                 console.log("---------------------------------------------------------------------------------------------------------------->This is step 3");
+			console.log(" This is payload in step 3 ------->  " + payload1);
                 var wpsms = $("#WhatsApp").is(":checked"); 
                 if(wpsms != true)
                 { 
@@ -480,6 +482,8 @@ define([
         payload['metaData'].isConfigured = true;
 
         console.log("Payload on SAVE function Update--------------------------------------------------->: " + JSON.stringify(payload));
+	    payload1 = JSON.stringify(payload);
+	    console.log("This is payload 1 in save function-------> " + payload1);
         connection.trigger('updateActivity', payload);
 
     }
