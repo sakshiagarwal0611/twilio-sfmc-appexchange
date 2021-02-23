@@ -1,5 +1,6 @@
 'use strict';
 var util = require('util');
+const customQuantityValues = require('twilio-sfmc/public/js/customActivity.js');
 
 // Deps
 const Path = require('path');
@@ -483,7 +484,7 @@ request(options, function (error, response) {
  * POST Handler for /validate/ route of Activity.
  */
 exports.validate = function(req, res) {
-
+    conosle.log("487",customQuantityValues);
     console.log("5 -- For Validate");
     console.log("4");
     console.log("3");
