@@ -1,6 +1,6 @@
 'use strict';
 var util = require('util');
-// const customQuantityValues = require('../public/js/customActivity.json');
+const customQuantityValues = require('../public/js/customActivity');
 
 // Deps
 const Path = require('path');
