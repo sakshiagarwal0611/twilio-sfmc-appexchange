@@ -307,9 +307,9 @@ define([
                 $('#step3').show();
                 console.log("---------------------------------------------------------------------------------------------------------------->This is step 3");
 			console.log(" This is payload in step 3 ------->  " + payload1);
-			console.log(" This is payload1 " + payload1.execute.inArguments );
-			console.log(" This is payload1 " + payload1.execute.inArguments.accountSid );
-			console.log(" This is payload1 " + payload1.execute.inArguments.whatsappsms );
+			//console.log(" This is payload1 " + payload1 );
+			console.log(" This is payload1 " + payload1.accountSid );
+			console.log(" This is payload1 " + payload1.whatsappsms );
 			
                 var wpsms = $("#WhatsApp").is(":checked"); 
                 if(wpsms != true)
