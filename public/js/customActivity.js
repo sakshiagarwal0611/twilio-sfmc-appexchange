@@ -310,6 +310,7 @@ define([
 			//console.log(" This is payload1 " + payload1 );
 			console.log(" This is payload1 " + payload1.accountSid );
 			console.log(" This is payload1 " + payload1.whatsappsms );
+			console.log(JSON.stringify(payload));
 			
                 var wpsms = $("#WhatsApp").is(":checked"); 
                 if(wpsms != true)
