@@ -370,7 +370,7 @@ console.log("RequestBody"+JSON.stringify(req.body));
  * POST Handler for /publish/ route of Activity.
  */
 exports.publish = function(req, res) {
-    console.log('373',customQuantityValues);
+    // console.log('373',customQuantityValues);
     console.log("5 -- For Publish");
     console.log("4");
     console.log("3");
