@@ -375,10 +375,13 @@ var span = document.getElementsByClassName("close")[0];
 			   	    }
 			  }
 		    } else if (document.selection && document.selection.createRange) {
+				if ( window.getSelection().anchorNode.parentNode.id ==  "RichTextEditor")
+				{
 			console.log("I don't know what this is" + document.selection.createRange().text);
 			document.selection.createRange().text = text;
 			console.log("Text-------->" + text);
 		    }
+		}
 		}
 	
 	
