@@ -356,6 +356,8 @@ var span = document.getElementsByClassName("close")[0];
 		    var sel, range;
 		    if (window.getSelection) 
 		    {
+				if ( window.getSelection().anchorNode.parentNode.id ==  "RichTextEditor")
+				{
 			    sel = window.getSelection();
 			    console.log("selection----------------->" + sel); 
 			    console.log("window.getSelection().anchorNode.parentNode.id----->" + window.getSelection().anchorNode.parentNode.id);
@@ -371,7 +373,7 @@ var span = document.getElementsByClassName("close")[0];
 					    range.deleteContents();
 					    range.insertNode( document.createTextNode(text) );
 			   	    }
-			  //}
+			  }
 		    } else if (document.selection && document.selection.createRange) {
 			console.log("I don't know what this is" + document.selection.createRange().text);
 			document.selection.createRange().text = text;
