@@ -356,7 +356,7 @@ var span = document.getElementsByClassName("close")[0];
 		    var sel, range;
 		    if (window.getSelection) 
 		    {
-				if ( window.getSelection().anchorNode.parentNode.id ==  "RichTextEditor" || window.getSelection().anchorNode.id == "RichTextEditor")
+				if ( window.getSelection().anchorNode.parentNode.id ==  "RichTextEditor" && window.getSelection().anchorNode.id == "undefined")
 				{
 			    sel = window.getSelection();
 			    console.log("selection----------------->" + sel); 
@@ -375,7 +375,7 @@ var span = document.getElementsByClassName("close")[0];
 			   	    }
 			  }
 		    } else if (document.selection && document.selection.createRange) {
-				if ( window.getSelection().anchorNode.parentNode.id ==  "RichTextEditor" || window.getSelection().anchorNode.id == "RichTextEditor")
+				if ( window.getSelection().anchorNode.parentNode.id ==  "RichTextEditor" && window.getSelection().anchorNode.id == "undefined")
 				{
 			console.log("I don't know what this is" + document.selection.createRange().text);
 			document.selection.createRange().text = text;
