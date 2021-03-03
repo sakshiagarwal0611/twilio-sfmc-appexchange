@@ -486,9 +486,14 @@ define([
            
         }];
 
-        var redis = new Redis("redis-18234.c1.ap-southeast-1-1.ec2.cloud.redislabs.com:18234");
+        var redis = new Redis("redis-11121.c11.us-east-1-2.ec2.cloud.redislabs.com:11121");
         redis.set(`Custom_Activity_Payload:SMS`, sms);
         redis.disconnect();
+// redis://
+//redis://h:p611705df5041db3a5f956e64e8a7eb942d2ceb1f2366d92c45a194b0b684bac8@ec2-52-55-37-144.compute-1.amazonaws.com:13249
+//redis :// [[username :] password@] host [: port] [/ database][? [timeout=timeout[d|h|m|s|ms|us|ns]] [&_database=database_]]
+
+
 
 
         payload['metaData'].isConfigured = true;
