@@ -484,6 +484,16 @@ define([
            
         }];
 
+
+        client.set('framework', 'AngularJS', function(err, reply) {
+            console.log(" reply received when setting the value" + reply);
+          });
+
+
+        client.get('framework', function(err, reply) {
+            console.log(" reply received when getting the value" + reply);
+        });
+
         payload['metaData'].isConfigured = true;
 
         console.log("Payload on SAVE function Update--------------------------------------------------->: " + JSON.stringify(payload));

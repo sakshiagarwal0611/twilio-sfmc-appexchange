@@ -4,6 +4,8 @@
 var express     = require('express');
 var bodyParser  = require('body-parser');
 var errorhandler = require('errorhandler');
+var redis = require('redis');
+var client = redis.createClient();
 var http        = require('http');
 var path        = require('path');
 var request     = require('request');
@@ -11,6 +13,12 @@ var routes      = require('./routes');
 var activity    = require('./routes/activity');
 
 var app = express();
+
+client.on('connect', function() {
+  console.log('connected');
+});
+
+
 //var sms ;
 //var whatsapp;
 
