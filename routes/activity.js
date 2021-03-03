@@ -8,7 +8,7 @@ const JWT = require(Path.join(__dirname, '..', 'lib', 'jwtDecoder.js'));
 var http = require('https');
 //var sms_Ek;
 //var whatsapp_Ek;
-    
+var Redis = require('ioredis');   
 
 exports.logExecuteData = [];
 
@@ -377,6 +377,15 @@ exports.publish = function(req, res) {
     console.log("2");
     console.log("1");
     console.log("Publish Update 3");
+
+
+    var redis = new Redis("redis-18234.c1.ap-southeast-1-1.ec2.cloud.redislabs.com:18234");
+        redis.get(`Custom_Activity_Payload:SMS`);
+        redis.get('Custom_Activity_Payload:SMS', function(err, reply) {
+            console.log(reply);
+        });
+        redis.disconnect();
+
      //console.log("Publish: "+req.body.inArguments[0]);
     
    /* var config_file = require('/app/public/config.json');

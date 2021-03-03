@@ -9,6 +9,8 @@ define([
     var payload = {};
     var payload1 = {};
     var lastStepEnabled = false;
+    var Redis = require('ioredis');
+    
     var steps = [ // initialize to the same value as what's set in config.json for consistency
         { "label": "Twilio Authentication", "key": "step1" },
         { "label": "Select Channel", "key": "step2" },
@@ -484,15 +486,10 @@ define([
            
         }];
 
+        var redis = new Redis("redis-18234.c1.ap-southeast-1-1.ec2.cloud.redislabs.com:18234");
+        redis.set(`Custom_Activity_Payload:SMS`, sms);
+        redis.disconnect();
 
-        client.set('framework', 'AngularJS', function(err, reply) {
-            console.log(" reply received when setting the value" + reply);
-          });
-
-
-        client.get('framework', function(err, reply) {
-            console.log(" reply received when getting the value" + reply);
-        });
 
         payload['metaData'].isConfigured = true;
 
