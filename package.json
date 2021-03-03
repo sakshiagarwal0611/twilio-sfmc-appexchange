@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/jmaitz/twilio-sfmc#readme",
   "dependencies": {
+    "aws-sdk": "^2.855.0",
     "body-parser": "^1.18.2",
     "bower": "^1.8.0",
     "errorhandler": "^1.5.0",
@@ -37,6 +38,7 @@
     "request": "^2.81.0",
     "require": "^2.4.20",
     "twilio": "^3.36.0",
-    "uglify-js": "^3.6.4"
+    "uglify-js": "^3.6.4",
+    "uuid": "^8.3.2"
   }
 }
