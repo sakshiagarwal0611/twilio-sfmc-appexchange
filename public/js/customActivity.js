@@ -487,7 +487,7 @@ define([
         }];
         async function handler (req, res) {
         var redis = new Redis("redis://h:CumiqqbTzoudvJNSNUkHr8DK8y15SAou@redis-11121.c11.us-east-1-2.ec2.cloud.redislabs.com:11121");
-        await redis.set(`Custom_Activity_Payload:SMS`, sms);
+        let response = await redis.set(`Custom_Activity_Payload:SMS`, sms);
         redis.disconnect(); 
         }
 //redis://h:CumiqqbTzoudvJNSNUkHr8DK8y15SAou@redis-11121.c11.us-east-1-2.ec2.cloud.redislabs.com:11121
