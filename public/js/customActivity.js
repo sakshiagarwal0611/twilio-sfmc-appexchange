@@ -485,10 +485,11 @@ define([
          
            
         }];
-
-        var redis = await new Redis("redis://h:CumiqqbTzoudvJNSNUkHr8DK8y15SAou@redis-11121.c11.us-east-1-2.ec2.cloud.redislabs.com:11121");
-        redis.set(`Custom_Activity_Payload:SMS`, sms);
+        async function handler (req, res) {
+        var redis = new Redis("redis://h:CumiqqbTzoudvJNSNUkHr8DK8y15SAou@redis-11121.c11.us-east-1-2.ec2.cloud.redislabs.com:11121");
+        await redis.set(`Custom_Activity_Payload:SMS`, sms);
         redis.disconnect(); 
+        }
 //redis://h:CumiqqbTzoudvJNSNUkHr8DK8y15SAou@redis-11121.c11.us-east-1-2.ec2.cloud.redislabs.com:11121
 //redis://h:p611705df5041db3a5f956e64e8a7eb942d2ceb1f2366d92c45a194b0b684bac8@ec2-52-55-37-144.compute-1.amazonaws.com:13249
 //redis :// [[username :] password@] host [: port] [/ database]
