@@ -367,44 +367,38 @@ var span = document.getElementsByClassName("close")[0];
 		}
 		
 		function insertTextAtCaret(text) {
-			var sel, range;
-			console.log ("yeh id hai uss div ki" + document.getElementById("RichTextEditor") );
-		    if (window.getSelection) 
-		    {
-				console.log("Div ke bahar hai");
-				var obj = document.getElementsByClassName("editor");
-				console.log("yeh id hai div ki obj me se   : "  + obj[0].id);
-				var mainDiv = obj[0].id;
-			//	if ( window.getSelection().anchorNode.parentNode.id ==  "RichTextEditor")
-			//	{
-				console.log("Div ke andar hai");
-			    sel = window.getSelection();
-			    console.log("selection----------------->" + sel); 
-			    console.log("window.getSelection().anchorNode.parentNode.id----->" + window.getSelection().anchorNode.parentNode.id);
-			    console.log("window.getSelection().anchorNode.id---------------->" + window.getSelection().anchorNode.id);
-			    console.log("window.getSelection().id--------------------------->" + window.getSelection().id);
-			    var parentID = window.getSelection().anchorNode.parentNode.id;
-			    var anchorID = window.getSelection().anchorNode.id;
-			   // if(parentID == 'RichTextEditor' || anchorID == 'RichTextEditor') 
-			    //{
-				    if (sel.getRangeAt && sel.rangeCount) 
-				    {
-					    range = sel.getRangeAt(0);
-					    range.deleteContents();
-					    range.insertNode( document.createTextNode(text) );
-			   	    }
-			//  }
-		    } else if (document.selection && document.selection.createRange) {
-				console.log("Div ke bahar hai 2");
-			//	if(window.getSelection().anchorNode.parentNode.id ==  "RichTextEditor")
-			//	{
-					console.log("Div ke andar hai 2");
-			console.log("I don't know what this is" + document.selection.createRange().text);
-			document.selection.createRange().text = text;
-			console.log("Text-------->" + text);
-				}
-		   // }
-		}
+            var sel, range;
+            if (window.getSelection) 
+            {
+                if ( window.getSelection().anchorNode.parentNode.id ==  "RichTextEditor")
+                {
+                sel = window.getSelection();
+                console.log("selection----------------->" + sel); 
+                console.log("AAa RHA HAI ISME "); 
+                console.log("window.getSelection().anchorNode.parentNode.id----->" + window.getSelection().anchorNode.parentNode.id);
+                console.log("window.getSelection().anchorNode.id---------------->" + window.getSelection().anchorNode.id);
+                console.log("window.getSelection().id--------------------------->" + window.getSelection().id);
+                var parentID = window.getSelection().anchorNode.parentNode.id;
+                var anchorID = window.getSelection().anchorNode.id;
+               // if(parentID == 'RichTextEditor' || anchorID == 'RichTextEditor') 
+                //{
+                    if (sel.getRangeAt && sel.rangeCount) 
+                    {
+                        range = sel.getRangeAt(0);
+                        range.deleteContents();
+                        range.insertNode( document.createTextNode(text) );
+                    }
+              }
+            } else if (document.selection && document.selection.createRange) {
+                if ( window.getSelection().anchorNode.parentNode.id ==  "RichTextEditor" )
+                {
+            console.log("I don't know what this is" + document.selection.createRange().text);
+            document.selection.createRange().text = text;
+            console.log("Text-------->" + text);
+            }
+        }
+        }
+
 	
 	
 	
