@@ -8,7 +8,8 @@
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="/assets/styles/salesforce-lightning-design-system.css" />
+	<link rel="stylesheet" type="text/css" href="/assets/styles/salesforce-lightning-design-system.css" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
     
  
     <script type="text/javascript">
@@ -22,7 +23,8 @@
             ];
 
             require(config, dependencies);
-        })();
+		})();
+			
     </script>
     
     
@@ -134,14 +136,20 @@
 	<div class="slds-text-heading_small instruction">Enter authentication values for twilio.</div>
         <br>
 	<!-- enter twilio authentication details-->
+		<div class="form-group" >  
+			<div id = "error"></div> 
+		</div>
+		<div class="form-group">
+            <div><label for="accountSID">Account SID:<span class="required" style = "color: red">*</span></label></div>
+            <input class="form-control" id="accountSID" type="text" name="accountSID" value="" aria-describedby="required-description" required="true"> 
+		</div>
+
         <div class="form-group">
-            <div><label for="accountSID">Account SID:</label></div>
-            <input class="form-control" id="accountSID" type="text" name="accountSID" value="">
-        </div>
-        <div class="form-group">
-            <div><label for="authToken">Auth Token:</label></div>
-            <input class="form-control" id="authToken" type="text" name="authToken" value="">
-        </div> 
+            <div><label for="authToken">Auth Token:<span class="required" style = "color: red">*</span></label></div>
+            <input class="form-control" id="authToken" type="text" name="authToken" value="" required="true" aria-describedby="required-description"> 
+		</div> 
+
+
 	
 	
 </div>
@@ -151,7 +159,9 @@
   <div class="slds-text-heading_small instruction">Select channels. The user will be sent messages on the channels you are selecting.</div>
   <br><br>
 
-    
+   <div class="slds-form-element">
+		<div id = "checkboxcheck"> </div>
+   </div> 
   <div class="slds-form-element">
   <div class="slds-form-element__control">
     <div class="slds-checkbox">
@@ -169,7 +179,7 @@
 	<div class="slds-form-element">
         <div class="slds-form-element__control">
         <div class="slds-checkbox">
-         <input type="checkbox" name="options" id="WhatsApp" value="" onclick="summaryImageDisplay();"/>
+         <input type="checkbox" name="options" id="WhatsApp" value="" onchange="summaryImageDisplay();"/>
           <label class="slds-checkbox__label" for="WhatsApp">
         <span class="slds-checkbox_faux"></span>
         <span class="slds-form-element__label">WhatsApp</span>
@@ -179,35 +189,38 @@
       </div> 
 	<br>
 	<br>
-	<div class="slds-text-heading_small instruction">Select WhatsApp message type:</div> 
-	<div class="slds-form-element__control">
+<div id = "wholeDiv" >
+	<div id = "WatsappOptionDiv" class="slds-text-heading_small instruction">Select WhatsApp message type:</div> 
+	<div id = "WatsappOptionDivInfo" class="slds-form-element__control">
 		    <div class="slds-select_container">
-		      <select class="slds-select" id="messageType" onchange="MessageTypeChange()">
-			      <option hidden selected>None</option>
-			       <option value="Sessional Message">Sessional Message</option>
-			      <option value="Transactionl Message">Transactional Message</option>
-			      
-			      <!--onfocus="this.selectedIndex = -1;" -->
+		      <select class="slds-select" id="messageType" onchange="MessageTypeChange()">  	  
+			      <option value="Sessional Message">Sessional Message</option>
+			      <option value="Transactional Message">Transactional Message</option>
 		      </select>
 		    </div>
         </div> 
 	<br>
 	<br>
-	<div class="slds-text-heading_small instruction">Select Template for WhatsApp:</div> 
-	<div class="slds-form-element__control">
+	<div id = "WatsappTemplateDiv" class="slds-text-heading_small instruction">Select Template for WhatsApp:</div> 
+	<div id = "WatsappTemplateDivInfo" class="slds-form-element__control">
 		    <div class="slds-select_container">
-		      <select class="slds-select" id="template" onchange="templateChange()" disabled>
+		      <select class="slds-select" id="template" onchange="templateChange()" >
 			      <option hidden selected>None</option>
-			       <option value="Your appointment is coming up on {{1}} at {{2}}">Appointment Reminder</option>
+			      <option value="Your appointment is coming up on {{1}} at {{2}}">Appointment Reminder</option>
 			      <option value="Your {{1}} order of {{2}} has shipped and should be delivered on {{3}}. Details: {{4}}">Order Confirmation</option>
 			      <option value="Your {{1}} code is {{2}}">Verification Code</option>
 			      <!--onfocus="this.selectedIndex = -1;" -->
 		      </select>
 		    </div>
-        </div> 
+		</div> 
+</div>
 	<br>
 	<br>
 	
+	<div class="slds-form-element">
+		<div id = "recipienterror" style = "color: red"> </div>
+   </div> 
+
 	<div class="slds-text-heading_small instruction">Select recipient</div> 
 	<div class="slds-form-element">
 		  
@@ -236,9 +249,10 @@
 	        <a href="javascript:void(0)" onclick="format('underline')"><span class="fa fa-underline fa-fw"></span></a>
 	        <a href="javascript:void(0)" onclick="format('strikeThrough')"><span class="fa fa-strikethrough fa-fw"></span></a>
 	    	<a href="javascript:void(0)" onclick="format('undo')"><span class="fa fa-undo fa-fw"></span></a>
-		<a href="javascript:void(0)" onclick="format('redo')"><span class="fa fa-redo fa-fw"></span></a>
-	        <button id="myBtn" ><span class="fa fa-image fa-fw"></span></button>
-	    
+		    <a href="javascript:void(0)" onclick="format('redo')"><span class="fa fa-redo fa-fw"></span></a>
+			<div>
+				<button id="myBtn" style ="display: none;" ><span class="fa fa-image fa-fw"></span></button>
+			</div>
 	    
 		<!-- <a href="javascript:void(0)" onclick="format('insertunorderedlist')"><span class="fa fa-list fa-fw"></span></a>
 	   	<a href="javascript:void(0)" onclick="format('justifyLeft')"><span class="fa fa-align-left fa-fw"></span></a>
@@ -256,12 +270,12 @@
 	       
 	      
 	    	
-	       <div class="slds-form-element">
+	        <div class="slds-form-element">
 		  
-		  <div class="slds-form-element__control">
+		    <div class="slds-form-element__control">
 		    <div class="slds-select_container">
-		      <select class="slds-select" id="ps" onchange="Test()" onfocus="this.selectedIndex = -1;">
-			<option hidden selected>None</option>
+		    <select class="slds-select" id="ps" onchange="Test()" onfocus="this.selectedIndex = -1;">
+			<option >None</option>
 			<!--<option value="{{Contact.Attribute.TwilioV1.EmailAddress}}" id="ps1">Email</option>
 			<option value="{{Contact.Attribute.TwilioV1.TwilioNumber}}" id="ps2">Phone number</option> -->
 			
@@ -353,14 +367,19 @@ var span = document.getElementsByClassName("close")[0];
 		}
 		
 		function insertTextAtCaret(text) {
-		    var sel, range;
+			var sel, range;
+			console.log ("yeh id hai uss div ki" + document.getElementById("RichTextEditor") );
 		    if (window.getSelection) 
 		    {
-				if ( window.getSelection().anchorNode.parentNode.id ==  "RichTextEditor")
-				{
+				console.log("Div ke bahar hai");
+				var obj = document.getElementsByClassName("editor");
+				console.log("yeh id hai div ki obj me se   : "  + obj[0].id);
+				var mainDiv = obj[0].id;
+			//	if ( window.getSelection().anchorNode.parentNode.id ==  "RichTextEditor")
+			//	{
+				console.log("Div ke andar hai");
 			    sel = window.getSelection();
 			    console.log("selection----------------->" + sel); 
-				console.log("AAa RHA HAI ISME "); 
 			    console.log("window.getSelection().anchorNode.parentNode.id----->" + window.getSelection().anchorNode.parentNode.id);
 			    console.log("window.getSelection().anchorNode.id---------------->" + window.getSelection().anchorNode.id);
 			    console.log("window.getSelection().id--------------------------->" + window.getSelection().id);
@@ -374,15 +393,17 @@ var span = document.getElementsByClassName("close")[0];
 					    range.deleteContents();
 					    range.insertNode( document.createTextNode(text) );
 			   	    }
-			  }
+			//  }
 		    } else if (document.selection && document.selection.createRange) {
-				if ( window.getSelection().anchorNode.parentNode.id ==  "RichTextEditor" )
-				{
+				console.log("Div ke bahar hai 2");
+			//	if(window.getSelection().anchorNode.parentNode.id ==  "RichTextEditor")
+			//	{
+					console.log("Div ke andar hai 2");
 			console.log("I don't know what this is" + document.selection.createRange().text);
 			document.selection.createRange().text = text;
 			console.log("Text-------->" + text);
-		    }
-		}
+				}
+		   // }
 		}
 	
 	
@@ -411,15 +432,27 @@ function summaryImageDisplay()
 		//x.style.display = "block";
 		if(whatsappsms == true)
                     {
+						document.getElementById("wholeDiv").style.display = "block";
+				
+						console.log("watsapp true ke andar aaya");
+				
+						
+
+				
 			    console.log("We are showing the selected image in summary block");
 			x.style.display = "block";
-                        //document.getElementById('imageinserted').innerHTML ='<img style="margin:3px;" src="' + url + '" width="100" height="120"></img>';
+                        
 			       
                     }
-		else{       
-			 console.log("We are hiding the selected image in summary block");
+		else
+		{       
+		
+			document.getElementById("wholeDiv").style.display = "none";
+			console.log("It is coming on else part");
+			
+		
 			x.style.display = "none";
-			//document.getElementById('imageinserted').innerHTML ='';	     
+		
 		}
 	}
 	
@@ -493,29 +526,59 @@ function removeimage()
 	//remove image from summary
 	document.getElementById('imageinserted').innerHTML ='';
 	
-	}
+}
 	
 	
 
 function MessageTypeChange(){
 	console.log("message type is changing here");
 	var value = $("#messageType").val();
-	if(value == "Sessional Message"){
-		$('#template').attr('disabled',true);
+	console.log("#messageType value   : " + value);
+	//if(value == "Transactional Message")
+	if(value == "Sessional Message")
+		{
+			console.log("Transactional message -- . ");
+			$('#template').attr('disabled',true);
+			
+		//	$('#template').attr("editable", true);
+			btn.style.display = 'block' ;
 	   }
-	else{
-		$('#template').attr('disabled',false);
-	}
+	else if(value=='Transactional Message')
+		{
+			console.log("Transaction Message Button");
+			$('#template').attr('disabled',false);		
+		//	$("#myBtn").remove();  	
+		console.log("Style ",btn.style.display);
+			btn.style.display =  'none';
+		console.log("after style  ",btn.style.display);
+		//	var buttondiv = document.getElementById("myBtn").innerHTML ;
+		//	buttondiv.remove();
+
+		}
 	
 }
-	function templateChange(){
-	     console.log("Template is selected here");
+	function templateChange()
+	{
+	    console.log("Template is selected here");
 		var value = $("#template").val();
-	RichTextEditor
-	document.getElementById('RichTextEditor').innerHTML = value;
+		document.getElementById('RichTextEditor').innerHTML = value;
 	}
 
+	function valthis() {
 		
+			$(document).ready(function () {
+				$('#checkBtn').click(function() {
+				  checked = $("input[type=checkbox]:checked").length;
+			
+				  if(!checked) {
+					alert("You must check at least one checkbox.");
+					return false;
+				  }
+			
+				});
+			});
+
+	}
 </script>	
 
 	

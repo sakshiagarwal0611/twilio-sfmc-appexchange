@@ -91,6 +91,36 @@ define([
         {
           document.getElementById("recipient").value = selectedPhone;
         }
+
+        console.log("Message aarha hai customactivity me");
+        var value = $("#messageType").val();
+        console.log("#messageType value   : " + value);
+        //if(value == "Transactional Message")
+        if(value == "Sessional Message")
+            {
+                console.log("Sessional message -- . ");
+                $('#template').attr('disabled',true);
+            //	$('#template').attr("editable", true);
+            document.getElementById("myBtn").style.display  = 'block' ;
+           }
+        else
+            {		
+                console.log("Transactional message -- . ");
+                $('#template').attr('disabled',false);
+            //    $("#myBtn").remove();  
+            document.getElementById("myBtn").style.display =  'none';	
+            
+            }
+        
+        var whatsappsms = $("#WhatsApp").is(":checked");  
+        if(whatsappsms == false)
+        {
+            document.getElementById("wholeDiv").style.display = "none";
+        }
+        else
+        {
+            document.getElementById("wholeDiv").style.display = "block";
+        }
         
 });
 
