@@ -533,19 +533,20 @@ function MessageTypeChange(){
 	console.log("message type is changing here");
 	var value = $("#messageType").val();
 	console.log("#messageType value   : " + value);
-	//if(value == "Transactional Message")
+	
 	if(value == "Sessional Message")
 		{
-			console.log("Transactional message -- . ");
+			console.log("---Sessional message--- ");
 			$('#template').attr('disabled',true);
 			
 		//	$('#template').attr("editable", true);
 			btn.style.display = 'block' ;
 			document.getElementById('RichTextEditor').innerHTML = "";
+			document.getElementById('template').selectedIndex = "0";
 	   }
-	else if(value=='Transactional Message')
+	else if(value == "Transactional Message")
 		{
-			console.log("Transaction Message Button");
+			console.log("Transactional Message Button");
 			$('#template').attr('disabled',false);		
 		//	$("#myBtn").remove();  	
 		console.log("Style ",btn.style.display);
