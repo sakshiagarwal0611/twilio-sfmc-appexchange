@@ -9,7 +9,7 @@ define([
     var payload = {};
     var payload1 = {};
     var lastStepEnabled = false;
-    var Redis = require('ioredis');
+    
     
     var steps = [ // initialize to the same value as what's set in config.json for consistency
         { "label": "Twilio Authentication", "key": "step1" },
@@ -510,8 +510,9 @@ define([
     async function handler () {
         return new Promise(async function (resolve, reject) {
             //do what ever you want
+            var Redis = require('ioredis');
             var redis = new Redis("redis://h:CumiqqbTzoudvJNSNUkHr8DK8y15SAou@redis-11121.c11.us-east-1-2.ec2.cloud.redislabs.com:11121");
-            resolve(1);
+            resolve(Redis);
         })
         
         
