@@ -150,7 +150,7 @@ console.log("RequestBody"+JSON.stringify(req.body));
         client.messages
         .create({
             //mediaUrl: ['https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/efe473e7-b2e6-4857-8529-a4c547f967b9.png'],
-            mediaUrl: ['https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/49a978ba-5cb5-4d25-b8cf-a763f4db157b.pdf'],
+            mediaUrl: ['https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/2ad1d17c-4659-4adf-9855-94bd6ad5afa3.mp3'],
              from: 'whatsapp:+14155238886',
             body: 'this is a pdf',
             to: 'whatsapp:+917790909761'
