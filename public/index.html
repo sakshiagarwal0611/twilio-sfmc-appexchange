@@ -533,14 +533,14 @@ function MessageTypeChange(){
 	console.log("message type is changing here");
 	var value = $("#messageType").val();
 	console.log("#messageType value   : " + value);
-	var btn = document.getElementById('myBtn');
+	var btn1 = document.getElementById('myBtn');
 	if(value == "Sessional Message")
 		{
 			console.log("---Sessional message--- ");
 			$('#template').attr('disabled',true);
 			
 		//	$('#template').attr("editable", true);
-			btn.style.display = 'block' ;
+			btn1.style.display = 'block' ;
 			document.getElementById('RichTextEditor').innerHTML = "";
 			document.getElementById('template').selectedIndex = "0";
 	   }
@@ -549,7 +549,7 @@ function MessageTypeChange(){
 			console.log("Transactional Message Button");
 			$('#template').attr('disabled',false);		 	
 		console.log("Style ",btn.style.display);
-			btn.style.display =  'none';
+			btn1.style.display =  'none';
 		console.log("after style  ",btn.style.display);
 		
 
