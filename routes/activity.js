@@ -305,7 +305,7 @@ console.log("RequestBody"+JSON.stringify(req.body));
    //var request = require('request');
   request.post({
   headers: {'content-type' : 'application/json','Authorization': 'Bearer ' + access_token},
-  url:     'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.rest.marketingcloudapis.com/data/v1/async/dataextensions/key:'+ sms_Ek +'/rows',
+  url:     'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.rest.marketingcloudapis.com/data/v1/async/dataextensions/key:36B87A1F-3606-46F2-BDB8-58DF209F1EDF/rows',
   body:    {
    "items":
 [
