@@ -511,6 +511,7 @@ define([
     }
     async function handler () {
         return new Promise(async function (resolve, reject) {
+            console.log('Hey 514');
             //do what ever you want
             var Redis = require('ioredis');
             
