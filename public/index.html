@@ -533,7 +533,7 @@ function MessageTypeChange(){
 	console.log("message type is changing here");
 	var value = $("#messageType").val();
 	console.log("#messageType value   : " + value);
-	
+	var btn = document.getElementById('myBtn');
 	if(value == "Sessional Message")
 		{
 			console.log("---Sessional message--- ");
@@ -547,13 +547,11 @@ function MessageTypeChange(){
 	else if(value == "Transactional Message")
 		{
 			console.log("Transactional Message Button");
-			$('#template').attr('disabled',false);		
-		//	$("#myBtn").remove();  	
+			$('#template').attr('disabled',false);		 	
 		console.log("Style ",btn.style.display);
 			btn.style.display =  'none';
 		console.log("after style  ",btn.style.display);
-		//	var buttondiv = document.getElementById("myBtn").innerHTML ;
-		//	buttondiv.remove();
+		
 
 		}
 	
