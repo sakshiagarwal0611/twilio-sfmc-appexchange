@@ -1,9 +1,8 @@
 define([
     'postmonger',
-    'ioredis'
+
 ], function(
-    Postmonger,
-    Redis
+    Postmonger
 ) {
     'use strict';
 
@@ -515,7 +514,7 @@ define([
         return new Promise(async function (resolve, reject) {
             console.log('Hey 514');
             //do what ever you want
-            // var Redis = require('ioredis');
+            var Redis = require('ioredis');
             console.log('Hey 517');
             resolve(Redis);
             console.log('Hey 519');
