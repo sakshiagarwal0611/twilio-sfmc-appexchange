@@ -205,7 +205,7 @@
 	<div id = "WatsappTemplateDivInfo" class="slds-form-element__control">
 		    <div class="slds-select_container">
 		      <select class="slds-select" id="template" onchange="templateChange()" >
-			      <option hidden selected>None</option>
+			      
 			      <option value="Your appointment is coming up on {{1}} at {{2}}">Appointment Reminder</option>
 			      <option value="Your {{1}} order of {{2}} has shipped and should be delivered on {{3}}. Details: {{4}}">Order Confirmation</option>
 			      <option value="Your {{1}} code is {{2}}">Verification Code</option>
@@ -239,6 +239,10 @@
 	
 	
 <div id="step3" class="step" class="step noselect">
+	<!--To add the error if message body is null-->
+	<div class="slds-form-element">
+		<div id = "messageBodyNull" style = "color: red"> </div>
+   </div> 
 <div class="slds-text-heading_small instruction noselect" id="heading">Create a message:</div>
 
     <br><br>

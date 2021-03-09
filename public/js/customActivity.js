@@ -329,13 +329,23 @@ define([
             }
             
         }
-        
-        else if (
-            (currentStep.key === 'step3' && steps[3].active === false) ||
-            currentStep.key === 'step4'
-        ) {
+        else if(currentStep.key === 'step3')
+        {
+            var messagebody1 = document.getElementById('RichTextEditor').innerHTML;
+            if(messagebody1 == "")
+            {
+               
+            document.getElementById("messageBodyNull").innerHTML = "Message body is empty.";
+
+            }else{
+                connection.trigger('nextStep');
+            }
+
+        }
+        else if ((currentStep.key === 'step3' && steps[3].active === false) || currentStep.key === 'step4') {
             save();
         }
+
     //    else if ((currentStep.key) === 'step1')
     //    {
     //        console.log( "Account SID KE ANDAR HA" ); 
