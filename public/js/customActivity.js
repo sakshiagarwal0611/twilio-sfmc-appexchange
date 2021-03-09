@@ -9,8 +9,6 @@ define([
     var payload = {};
     var payload1 = {};
     var lastStepEnabled = false;
-    
-    
     var steps = [ // initialize to the same value as what's set in config.json for consistency
         { "label": "Twilio Authentication", "key": "step1" },
         { "label": "Select Channel", "key": "step2" },
@@ -60,7 +58,7 @@ define([
         }
        // console.log("Data schema   "+data['schema'].key);
         
-       
+        
          console.log("Key Array----------->" + keyArray);
          console.log("Phone Array----------->" + phoneArray);
         
@@ -81,7 +79,7 @@ define([
            var keyValue = item ;  
          
             var res = keyValue.split(".");
-         document.getElementById('ps').innerHTML +=  '<option value = "{{' + keyValue + '}}">'+ res[2] +'</option>' ; 
+            document.getElementById('ps').innerHTML +=  '<option value = "{{' + keyValue + '}}">'+ res[2] +'</option>' ; 
             var keyValue2 = '{{' + keyValue + '}}';
             phoneArray2.push(keyValue2);
         }
@@ -92,35 +90,39 @@ define([
           document.getElementById("recipient").value = selectedPhone;
         }
 
-        console.log("Message aarha hai customactivity me");
-        var value = $("#messageType").val();
-        console.log("#messageType value   : " + value);
-        //if(value == "Transactional Message")
-        if(value == "Sessional Message")
-            {
-                console.log("Sessional message -- . ");
-                $('#template').attr('disabled',true);
-            //	$('#template').attr("editable", true);
-            document.getElementById("myBtn").style.display  = 'block' ;
-           }
-        else
-            {		
-                console.log("Transactional message -- . ");
-                $('#template').attr('disabled',false);
-            //    $("#myBtn").remove();  
-            document.getElementById("myBtn").style.display =  'none';	
+        
+            console.log("Message aarha hai customactivity me");
+            var value = $("#messageType").val();
+            console.log("#messageType value   : " + value);
+            //if(value == "Transactional Message")
+            if(value == "Sessional Message")
+                {
+                    console.log("Sessional message -- . ");
+                    $('#template').attr('disabled',true);
+                //	$('#template').attr("editable", true);
+                document.getElementById("myBtn").style.display  = 'block' ;
+               }
+            else
+                {		
+                    console.log("Transactional message -- . ");
+                    $('#template').attr('disabled',false);
+                //    $("#myBtn").remove();  
+                document.getElementById("myBtn").style.display =  'none';	
+                
+                }
             
+            var whatsappsms = $("#WhatsApp").is(":checked");  
+            if(whatsappsms == false)
+            {
+                document.getElementById("wholeDiv").style.display = "none";
+            }
+            else
+            {
+                document.getElementById("wholeDiv").style.display = "block";
             }
         
-        var whatsappsms = $("#WhatsApp").is(":checked");  
-        if(whatsappsms == false)
-        {
-            document.getElementById("wholeDiv").style.display = "none";
-        }
-        else
-        {
-            document.getElementById("wholeDiv").style.display = "block";
-        }
+
+
         
 });
 
@@ -279,12 +281,74 @@ define([
     }
     
     function onClickedNext () {
-        if (
+        var errorSlds = '<div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_error" role="alert"><span class="slds-assistive-text">error</span><span class="slds-icon_container slds-icon-utility-error slds-m-right_x-small" title="Description of icon when needed"><svg class="slds-icon slds-icon_x-small" aria-hidden="true"><use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#error"></use></svg></span><h2>Please fill Account SID and Auth Token </h2> <div class="slds-notify__close"><button class="slds-button slds-button_icon slds-button_icon-small slds-button_icon-inverse" title="Close"><svg class="slds-button__icon" aria-hidden="true"><use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use></svg><span class="slds-assistive-text">Close</span></button></div></div>';
+        var checkboxerrorSlds = '<div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_error" role="alert"><span class="slds-assistive-text">error</span><span class="slds-icon_container slds-icon-utility-error slds-m-right_x-small" title="Description of icon when needed"><svg class="slds-icon slds-icon_x-small" aria-hidden="true"><use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#error"></use></svg></span><h2>Please select atleast one checkbox</h2> <div class="slds-notify__close"><button class="slds-button slds-button_icon slds-button_icon-small slds-button_icon-inverse" title="Close"><svg class="slds-button__icon" aria-hidden="true"><use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use></svg><span class="slds-assistive-text">Close</span></button></div></div>';
+
+        if((currentStep.key) === 'step1')
+        {
+            
+          var accountSid = $('#accountSID').val();
+          var authToken = $('#authToken').val();
+              
+              if(!accountSid || !authToken )
+              { 
+                document.getElementById("error").innerHTML= errorSlds;
+                connection.trigger('prevStep');
+              }
+              else
+              {
+                document.getElementById("error").innerHTML= "";
+                connection.trigger('nextStep');
+              }
+
+        }
+        else if ( currentStep.key === 'step2')
+        {
+            var WatsappCheck = $("#WhatsApp").is(":checked");  
+            var SmsCheck =  $("#SMS").is(":checked");
+            var recipient = $("#recipient").val();
+            console.log("Recipient ---- " + recipient);
+            console.log("sms-----" +SmsCheck);
+            console.log("watsapp------" + WatsappCheck);
+            if(WatsappCheck == false && SmsCheck == false)
+            {
+                document.getElementById("checkboxcheck").innerHTML= checkboxerrorSlds;
+                connection.trigger('ready');
+            }
+            else if(recipient == "None")
+            {
+                document.getElementById("recipienterror").innerHTML= "Recipient field is empty";
+                connection.trigger('ready');
+            }
+
+            else 
+            {
+                document.getElementById("recipienterror").innerHTML= "";
+                document.getElementById("checkboxcheck").innerHTML= "";
+                connection.trigger('nextStep');
+            }
+            
+        }
+        
+        else if (
             (currentStep.key === 'step3' && steps[3].active === false) ||
             currentStep.key === 'step4'
         ) {
             save();
-        } else {
+        }
+    //    else if ((currentStep.key) === 'step1')
+    //    {
+    //        console.log( "Account SID KE ANDAR HA" ); 
+        //    var accountSid = $('#accountSID').val();
+        //    console.log(accountSid);
+        //    if(accountSid == null)
+        //    {
+        //        alert("AccountSid is empty");
+        //    }
+         //   alert ("Step 1 Next clicked") ;
+    //    }
+        else {
+            console.log("else part me aarha h ");
             connection.trigger('nextStep');
         }
     }
@@ -399,7 +463,7 @@ define([
     
     
 
-    async function save() {
+    function save() {
 
         var accountSid = $('#accountSID').val();
         var authToken = $('#authToken').val();
@@ -412,7 +476,8 @@ define([
         var wPmessage = document.getElementById('RichTextEditor').innerHTML;
         var insertedImage ; 
         var entry = "{{Event." + eventDefinitionKey + ".EmailAddress}}";
-        var to = $("#recipient").val();
+       var to = $("#recipient").val();
+        //var to =  "{{Contact.Attribute.TwilioDE.TwilioNumber}}"
 	var smsDEcheck = $("#smsDEcheckbox").is(":checked");
 	var EK_name2 ; 
 	var wpMessageType  = $("#messageType").val(); 
@@ -515,21 +580,6 @@ define([
          
            
         }];
-       
-
-       /* await handler();
-        console.log('Hello');
-        var redis = new Redis("redis://h:CumiqqbTzoudvJNSNUkHr8DK8y15SAou@redis-11121.c11.us-east-1-2.ec2.cloud.redislabs.com:11121");
-        await redis.set(`Custom_Activity_Payload:SMS`, sms);
-        redis.disconnect();*/
-       
-        
-//redis://h:CumiqqbTzoudvJNSNUkHr8DK8y15SAou@redis-11121.c11.us-east-1-2.ec2.cloud.redislabs.com:11121
-//redis://h:p611705df5041db3a5f956e64e8a7eb942d2ceb1f2366d92c45a194b0b684bac8@ec2-52-55-37-144.compute-1.amazonaws.com:13249
-//redis :// [[username :] password@] host [: port] [/ database]
-
-
-
 
         payload['metaData'].isConfigured = true;
 
@@ -539,15 +589,5 @@ define([
         connection.trigger('updateActivity', payload);
 
     }
-    /* async function handler () {
-        return new Promise(async function (resolve, reject) {
-            console.log('Hey 514');
-            //do what ever you want
-            var Redis = require('ioredis');
-            console.log('Hey 517');
-            resolve(Redis);
-            console.log('Hey 519');
-        })
-        }*/
 
 });
