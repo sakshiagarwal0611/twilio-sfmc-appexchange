@@ -333,11 +333,12 @@ define([
         {
             var messagebody1 = document.getElementById('RichTextEditor').innerHTML;
             if(messagebody1 == "")
-            {
-               
+            { 
             document.getElementById("messageBodyNull").innerHTML = "Message body is empty.";
-
-            }else{
+            connection.trigger('ready');
+            }else
+            {
+                document.getElementById("messageBodyNull").innerHTML= "";
                 connection.trigger('nextStep');
             }
 
