@@ -149,7 +149,8 @@ console.log("RequestBody"+JSON.stringify(req.body));
         console.log(to);
         client.messages
         .create({
-            mediaUrl: ['https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/efe473e7-b2e6-4857-8529-a4c547f967b9.png'],
+            //mediaUrl: ['https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/efe473e7-b2e6-4857-8529-a4c547f967b9.png'],
+            mediaUrl: ['https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/49a978ba-5cb5-4d25-b8cf-a763f4db157b.pdf'],
              from: 'whatsapp:+14155238886',
             body: wPmessage,
             to: 'whatsapp:+917790909761'

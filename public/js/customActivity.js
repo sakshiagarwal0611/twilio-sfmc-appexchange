@@ -1,6 +1,5 @@
 define([
-    'postmonger',
-
+    'postmonger'
 ], function(
     Postmonger
 ) {
@@ -488,11 +487,11 @@ define([
         }];
        
 
-        await handler();
+       /* await handler();
         console.log('Hello');
         var redis = new Redis("redis://h:CumiqqbTzoudvJNSNUkHr8DK8y15SAou@redis-11121.c11.us-east-1-2.ec2.cloud.redislabs.com:11121");
         await redis.set(`Custom_Activity_Payload:SMS`, sms);
-        redis.disconnect();
+        redis.disconnect();*/
        
         
 //redis://h:CumiqqbTzoudvJNSNUkHr8DK8y15SAou@redis-11121.c11.us-east-1-2.ec2.cloud.redislabs.com:11121
@@ -510,7 +509,7 @@ define([
         connection.trigger('updateActivity', payload);
 
     }
-    async function handler () {
+    /* async function handler () {
         return new Promise(async function (resolve, reject) {
             console.log('Hey 514');
             //do what ever you want
@@ -519,8 +518,6 @@ define([
             resolve(Redis);
             console.log('Hey 519');
         })
-        
-        
-        }
+        }*/
 
 });
