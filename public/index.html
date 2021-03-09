@@ -250,9 +250,9 @@
 	        <a href="javascript:void(0)" onclick="format('strikeThrough')"><span class="fa fa-strikethrough fa-fw"></span></a>
 	    	<a href="javascript:void(0)" onclick="format('undo')"><span class="fa fa-undo fa-fw"></span></a>
 		    <a href="javascript:void(0)" onclick="format('redo')"><span class="fa fa-redo fa-fw"></span></a>
-			<div>
+			
 				<button id="myBtn" style ="display: none;" ><span class="fa fa-image fa-fw"></span></button>
-			</div>
+			
 	    
 		<!-- <a href="javascript:void(0)" onclick="format('insertunorderedlist')"><span class="fa fa-list fa-fw"></span></a>
 	   	<a href="javascript:void(0)" onclick="format('justifyLeft')"><span class="fa fa-align-left fa-fw"></span></a>
@@ -275,7 +275,7 @@
 		    <div class="slds-form-element__control">
 		    <div class="slds-select_container">
 		    <select class="slds-select" id="ps" onchange="Test()" onfocus="this.selectedIndex = -1;">
-			<option >None</option>
+			<option hidden selected>None</option>
 			<!--<option value="{{Contact.Attribute.TwilioV1.EmailAddress}}" id="ps1">Email</option>
 			<option value="{{Contact.Attribute.TwilioV1.TwilioNumber}}" id="ps2">Phone number</option> -->
 			
@@ -323,7 +323,7 @@
 <div id="selectedPhone"></div> 
 
 		
-		<div class="slds-form-element">
+<!--	<div class="slds-form-element">
   <div class="slds-form-element__control">
     <div class="slds-checkbox">
       <input type="checkbox" name="options" id="smsDEcheckbox" value=""/>
@@ -338,7 +338,7 @@
 <div class="slds-text-heading_small instruction" >SMS tracking Data Extension:</div> 
 <div id="smsDEname">
 	</div>
-</div>
+</div> -->
 </div>
 
 
