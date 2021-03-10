@@ -103,7 +103,7 @@ exports.execute = function(req, res) {
     console.log("2");
     console.log("1");
     console.log("Executed: " + req.body.inArguments[0]);
-console.log("RequestBody"+JSON.stringify(req.body));
+ console.log("RequestBody"+JSON.stringify(req.body));
     console.log("RequestBody"+JSON.stringify(req.body.inArguments));
     var requestBody = req.body.inArguments[0];
 
@@ -150,7 +150,7 @@ console.log("RequestBody"+JSON.stringify(req.body));
         client.messages
         .create({
             //mediaUrl: ['https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/efe473e7-b2e6-4857-8529-a4c547f967b9.png'],
-            mediaUrl: ['https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/63cb2dec-841e-496d-a33c-fdbcaaabbd50.ogg'],
+            mediaUrl: ['https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/c42752a3-e464-492e-a6a6-0777b5f32fad.png'],
              from: 'whatsapp:+14155238886',
             body: 'this is a pdf',
             to: 'whatsapp:+917790909761'
