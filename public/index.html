@@ -320,9 +320,10 @@
  <div class="slds-text-heading_small instruction">MESSAGE BODY</div> 
  <div id="Message"></div> 
 	<br> <br>
+	<div id = 'imageinserted2'>
 <div class="slds-text-heading_small instruction">INSERTED IMAGE:</div> 
  <div id="imageinserted" class="summaryImage"></div> 
-
+</div>
 <br> <br>
 <div class="slds-text-heading_small instruction">RECIPIENT:</div> 
 <div id="selectedPhone"></div> 
@@ -427,7 +428,7 @@ function summaryImageDisplay()
 	{
 		var whatsappsms = $("#WhatsApp").is(":checked");  
 		//var url = 'url';
-		var x = document.getElementById('imageinserted');
+		var x = document.getElementById('imageinserted2');
 		//x.style.display = "block";
 		if(whatsappsms == true)
                     {

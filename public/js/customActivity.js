@@ -217,11 +217,11 @@ define([
 		if(whatsappsms == true)
                        
                     {
-			    var x = document.getElementById('imageinserted') ;
+			    var x = document.getElementById('imageinserted2') ;
 			    x.style.display = "block";
 
 			 //summaryImage.style.display = "block";
-                        document.getElementById('imageinserted').innerHTML ='<img style="margin:3px;" src="' + val + '" width="100" height="120"></img>';
+                        document.getElementById('imageinserted2').innerHTML ='<img style="margin:3px;" src="' + val + '" width="100" height="120"></img>';
                     }
                 }
                    
@@ -426,12 +426,13 @@ define([
                     document.getElementById('myBtn').style.display = "none";
                     document.getElementById('selected').style.display = "none";
                     document.getElementById('image').style.display = "none";
-                    document.getElementById('imageinserted').style.display = "none";
+                    document.getElementById('imageinserted2').style.display = "none";
                     
                 }else{
                      document.getElementById('myBtn').style.display = "inline";
                     document.getElementById('selected').style.display = "inline";
                     document.getElementById('image').style.display = "block";
+                    document.getElementById('imageinserted2').style.display = "block";
                 }
              
                 
