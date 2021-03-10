@@ -150,7 +150,7 @@ exports.execute = function(req, res) {
         client.messages
         .create({
             //mediaUrl: ['https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/efe473e7-b2e6-4857-8529-a4c547f967b9.png'],
-            mediaUrl: ['https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/c42752a3-e464-492e-a6a6-0777b5f32fad.png'],
+            mediaUrl: ['https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/c42752a3-e464-492e-a6a6-0777b5f32fad.png','https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/c42752a3-e464-492e-a6a6-0777b5f32fad.png'],
              from: 'whatsapp:+14155238886',
             body: 'this is a pdf',
             to: 'whatsapp:+917790909761'
@@ -180,6 +180,7 @@ exports.execute = function(req, res) {
         var direction = responseData.direction;
         var errorCode = responseData.errorCode;
         var errorMessage = responseData.errorMessage;
+        var wpMessageType = responseData.wpMessageType;
         
             
         const https = require('https');
