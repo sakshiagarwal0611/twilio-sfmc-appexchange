@@ -420,7 +420,8 @@ define([
 			console.log(JSON.stringify(payload));
 			
                 var wpsms = $("#WhatsApp").is(":checked"); 
-                if(wpsms != true)
+                var value1 = $("#messageType").val();
+                if(wpsms != true || value1 == "Transactional Message")
                 { 
                     document.getElementById('myBtn').style.display = "none";
                     document.getElementById('selected').style.display = "none";
