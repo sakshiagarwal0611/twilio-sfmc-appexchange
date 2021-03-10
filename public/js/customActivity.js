@@ -426,7 +426,8 @@ define([
                     document.getElementById('myBtn').style.display = "none";
                     document.getElementById('selected').style.display = "none";
                     document.getElementById('image').style.display = "none";
-                    
+                    document.getElementById('imageinserted').style.display = "none";
+                    imageinserted
                 }else{
                      document.getElementById('myBtn').style.display = "inline";
                     document.getElementById('selected').style.display = "inline";
