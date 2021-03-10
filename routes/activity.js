@@ -236,17 +236,14 @@ exports.execute = function(req, res) {
         
     }
 else{
-    console.log('-------------------------This is sessional------------'); 
+    console.log('-------------------------This is transactional---------------'); 
 
 }  
     
-    }
-   
-    
-    
+}
     if(sms == true)
     {
-        console.log("<---------------------------------------------------This message is sent as SMS-------------------------------------------------->");
+    console.log("<---------------------------------------------------This message is sent as SMS-------------------------------------------------->");
     const client = require('twilio')(accountSid, authToken);
     console.log(to);
     client.messages
