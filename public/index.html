@@ -29,102 +29,96 @@
     
     
     <style type="text/css">
-        body {
+    body 
+		{
             padding: 20px;
             margin: 0;
-	    background-color: #ffffff;
+	        background-color: #ffffff;
         }
-        .step {
+    .step 
+		{
             display: none;
         }
-        #step1 {
+    #step1 {
             display: block;
         }
-	html {
-		background: #ffffff;
+	html 
+		{
+			background: #ffffff;
 	    }
-        
-        
-        
-        .editor
+    .editor
         {
 			border:solid 1px #ccc;
 			padding: 20px;
 			min-height:200px;
         }
-
-        .sample-toolbar
+    .sample-toolbar
         {
 			border:solid 1px #ddd;
 			background:#f4f4f4;
 			padding: 5px;
 			border-radius:3px;
         }
-
-        .sample-toolbar > span
+    .sample-toolbar > span
         {
 			cursor:pointer;
 		}
-
-        .sample-toolbar > span:hover
+    .sample-toolbar > span:hover
         {
 			text-decoration:underline;
 		}
-	    
-	  .noselect {  
-		  -webkit-touch-callout: none; /* iOS Safari */   
-		  -webkit-user-select: none; /* Safari */    
-		  -khtml-user-select: none; /* Konqueror HTML */   
-		  -moz-user-select: none; /* Old versions of Firefox */   
-		  -ms-user-select: none; /* Internet Explorer/Edge */ 
-		  user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
-	           }
-	    
-	      
-	    
-	    
-	    
-	    
-/* Modal CSS */	    
-	    
-  .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
+	.noselect 
+		{  
+		   -webkit-touch-callout: none; /* iOS Safari */   
+		   -webkit-user-select: none; /* Safari */    
+		   -khtml-user-select: none; /* Konqueror HTML */   
+		   -moz-user-select: none; /* Old versions of Firefox */   
+		   -ms-user-select: none; /* Internet Explorer/Edge */ 
+		    user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+	    }
+/* Modal CSS for the images display */	      
+    .modal 
+		{
+  			display: none; /* Hidden by default */
+			position: fixed; /* Stay in place */
+			z-index: 1; /* Sit on top */
+			padding-top: 100px; /* Location of the box */
+			left: 0;
+			top: 0;
+			width: 100%; /* Full width */
+			height: 100%; /* Full height */
+			overflow: auto; /* Enable scroll if needed */
+			background-color: rgb(0,0,0); /* Fallback color */
+			background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+		}
 
-/* Modal Content */
-.modal-content {
-  background-color: #fefefe;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-}
+/* Modal Content for the image display*/
+	.modal-content 
+		{
+			background-color: #fefefe;
+			margin: auto;
+			padding: 20px;
+			border: 1px solid #888;
+			width: 80%;
+		}
 
 /* The Close Button */
-.close {
-  color: #aaaaaa;
-  float: right;
-  margin-left: 569px;
-  font-size: 28px;
-  font-weight: bold;
-}
+    .close 
+	    {
+			color: #aaaaaa;
+			float: right;
+			margin-left: 569px;
+			font-size: 28px;
+			font-weight: bold;
+		}
 
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-}
+	.close:hover,
+	.close:focus 
+		{
+			color: #000;
+			text-decoration: none;
+			cursor: pointer;
+		}
 	
     </style>
 </head>
@@ -132,37 +126,43 @@
 	
 	
 <body>
+
+<!-- This is step 1-->
 <div id="step1" class="step">
 	<div class="slds-text-heading_small instruction">Enter authentication values for twilio.</div>
-        <br>
+    <br>
 	<!-- enter twilio authentication details-->
-		<div class="form-group" >  
-			<div id = "error"></div> 
-		</div>
-		<div class="form-group">
-            <div><label for="accountSID">Account SID:<span class="required" style = "color: red">*</span></label></div>
-            <input class="form-control" id="accountSID" type="text" name="accountSID" value="" aria-describedby="required-description" required="true"> 
-		</div>
-
-        <div class="form-group">
-            <div><label for="authToken">Auth Token:<span class="required" style = "color: red">*</span></label></div>
-            <input class="form-control" id="authToken" type="text" name="authToken" value="" required="true" aria-describedby="required-description"> 
-		</div> 
-
-
-	
-	
+	<div class="form-group" >  
+	<div id = "error"></div> 
 </div>
+	<!-- enter AccountSID -->
+<div class="form-group">
+    <div><label for="accountSID">Account SID:<span class="required" style = "color: red">*</span></label></div>
+        <input class="form-control" id="accountSID" type="text" name="accountSID" value="" aria-describedby="required-description" required="true"> 
+	</div>
+	<!-- enter Auth Token -->
+    <div class="form-group">
+    <div><label for="authToken">Auth Token:<span class="required" style = "color: red">*</span></label></div>
+        <input class="form-control" id="authToken" type="text" name="authToken" value="" required="true" aria-describedby="required-description"> 
+	</div> 	
+</div>
+<!-- Step 1 ends  -->
 
 
+
+<!-- This is step 2 -->
 <div id="step2" class="step">
-  <div class="slds-text-heading_small instruction">Select channels. The user will be sent messages on the channels you are selecting.</div>
-  <br><br>
 
-   <div class="slds-form-element">
-		<div id = "checkboxcheck"> </div>
-   </div> 
-  <div class="slds-form-element">
+<!-- select checkbox  -->
+<div class="slds-text-heading_small instruction">Select channels. The user will be sent messages on the channels you are selecting.</div>
+<br>
+<!--checkbox error  -->
+<div class="slds-form-element">
+<div id = "checkboxcheck"></div>
+</div> 
+
+<!-- SMS checkbox  -->
+<div class="slds-form-element">
   <div class="slds-form-element__control">
     <div class="slds-checkbox">
       <input type="checkbox" name="options" id="SMS" value=""  />
@@ -171,60 +171,64 @@
         <span class="slds-form-element__label">SMS</span>
       </label>
     </div>
-    </div>
-    </div>
- 
-	
-	
-	<div class="slds-form-element">
-        <div class="slds-form-element__control">
-        <div class="slds-checkbox">
-         <input type="checkbox" name="options" id="WhatsApp" value="" onchange="summaryImageDisplay();"/>
-          <label class="slds-checkbox__label" for="WhatsApp">
+ </div>
+</div>
+ 	
+<!-- WhatsApp checkbox  -->
+<div class="slds-form-element">
+  <div class="slds-form-element__control">
+    <div class="slds-checkbox">
+        <input type="checkbox" name="options" id="WhatsApp" value="" onchange="summaryImageDisplay();"/>
+        <label class="slds-checkbox__label" for="WhatsApp">
         <span class="slds-checkbox_faux"></span>
         <span class="slds-form-element__label">WhatsApp</span>
-      </label>
-      </div>
-      </div>
-      </div> 
-	<br>
-	<br>
+        </label>
+    </div>
+  </div>
+</div> 
+<br><br>
+
+<!-- WhatsApp details -->
 <div id = "wholeDiv" >
+
+	<!-- Message type(Sessional/transactional) selection dropdown  -->
 	<div id = "WatsappOptionDiv" class="slds-text-heading_small instruction">Select WhatsApp message type:</div> 
 	<div id = "WatsappOptionDivInfo" class="slds-form-element__control">
 		    <div class="slds-select_container">
 		      <select class="slds-select" id="messageType" onchange="MessageTypeChange()">  
 				<option hidden selected>None</option>	  
-			      <option value="Sessional Message">Sessional Message</option>
-			      <option value="Transactional Message">Transactional Message</option>
+			    <option value="Sessional Message">Sessional Message</option>
+			    <option value="Transactional Message">Transactional Message</option>
 		      </select>
 		    </div>
         </div> 
-	<br>
-	<br>
+	<br><br>
+
+	<!-- Transactional message template selection dropdown  -->
 	<div id = "WatsappTemplateDiv" class="slds-text-heading_small instruction">Select Template for WhatsApp:</div> 
 	<div id = "WatsappTemplateDivInfo" class="slds-form-element__control">
 		    <div class="slds-select_container">
 		      <select class="slds-select" id="template" onchange="templateChange()" >
 				<option hidden selected>None</option>
-			      <option value="Your appointment is coming up on {{1}} at {{2}}">Appointment Reminder</option>
-			      <option value="Your {{1}} order of {{2}} has shipped and should be delivered on {{3}}. Details: {{4}}">Order Confirmation</option>
-			      <option value="Your {{1}} code is {{2}}">Verification Code</option>
-			      <!--onfocus="this.selectedIndex = -1;" -->
+			    <option value="Your appointment is coming up on {{1}} at {{2}}">Appointment Reminder</option>
+			    <option value="Your {{1}} order of {{2}} has shipped and should be delivered on {{3}}. Details: {{4}}">Order Confirmation</option>
+			    <option value="Your {{1}} code is {{2}}">Verification Code</option>
+			    <!--onfocus="this.selectedIndex = -1;" -->
 		      </select>
 		    </div>
 		</div> 
-</div>
-	<br>
-	<br>
-	
-	<div class="slds-form-element">
-		<div id = "recipienterror" style = "color: red"> </div>
-   </div> 
 
-	<div class="slds-text-heading_small instruction">Select recipient</div> 
-	<div class="slds-form-element">
-		  
+</div>
+<br><br>
+	
+<!-- Message recipient not selected error   -->
+<div class="slds-form-element">
+		<div id = "recipienterror" style = "color: red"> </div>
+</div> 
+
+<!-- Select recipient   -->
+<div class="slds-text-heading_small instruction">Select recipient</div> 
+<div class="slds-form-element">  
 		  <div class="slds-form-element__control">
 		    <div class="slds-select_container">
 		      <select class="slds-select" id="recipient" onchange="recipientChange()">
@@ -236,99 +240,103 @@
 	</div>
 	
 </div>
+<!-- Step 2 ends  -->	
 	
-	
-	
-<div id="step3" class="step" class="step noselect">
-	<!--To add the error if message body is null-->
-	<div class="slds-form-element">
-		<div id = "messageBodyNull" style = "color: red"> </div>
-   </div> 
-<div class="slds-text-heading_small instruction noselect" id="heading">Create a message:</div>
 
-    <br><br>
+
+<!-- Step 3 begins  -->	
+<div id="step3" class="step" class="step noselect">
+
+<!--To add the error if message body is null-->
+<div class="slds-form-element">
+	<div id = "messageBodyNull" style = "color: red"> </div>
+</div> 
+
+<!-- Create a message  -->
+<div class="slds-text-heading_small instruction noselect" id="heading">Create a message:</div>
+<br><br>
+
+<!-- Formatting tools  -->
     <div class="sample-toolbar noselect">
 		<a href="javascript:void(0)" onclick="format('bold')"><span class="fa fa-bold fa-fw"></span></a>
 		<a href="javascript:void(0)" onclick="format('italic')"><span class="fa fa-italic fa-fw"></span></a>
-	        <a href="javascript:void(0)" onclick="format('cut')"><span class="fa fa-cut fa-fw"></span></a>
-	        <a href="javascript:void(0)" onclick="format('underline')"><span class="fa fa-underline fa-fw"></span></a>
-	        <a href="javascript:void(0)" onclick="format('strikeThrough')"><span class="fa fa-strikethrough fa-fw"></span></a>
-	    	<a href="javascript:void(0)" onclick="format('undo')"><span class="fa fa-undo fa-fw"></span></a>
-		    <a href="javascript:void(0)" onclick="format('redo')"><span class="fa fa-redo fa-fw"></span></a>
-			
-				<button id="myBtn" style ="display: none;" ><span class="fa fa-image fa-fw"></span></button>
-			
-	    
-		<!-- <a href="javascript:void(0)" onclick="format('insertunorderedlist')"><span class="fa fa-list fa-fw"></span></a>
-	   	<a href="javascript:void(0)" onclick="format('justifyLeft')"><span class="fa fa-align-left fa-fw"></span></a>
-		<a href="javascript:void(0)" onclick="format('justifyCenter')"><span class="fa fa-align-center fa-fw"></span></a>
-		<a href="javascript:void(0)" onclick="format('justifyRight')"><span class="fa fa-align-right fa-fw"></span></a>
-	    	<a href="javascript:void(0)" onclick="format('indent')"><span class="fa fa-indent fa-fw"></span></a>
-	        <a href="javascript:void(0)" onclick="format('outdent')"><span class="fa fa-outdent fa-fw"></span></a>
-	        <a href="javascript:void(0)" onclick="format('subscript')"><span class="fa fa-subscript fa-fw"></span></a>
-	        <a href="javascript:void(0)" onclick="format('superscript')"><span class="fa fa-superscript fa-fw"></span></a>	
-		<a href="javascript:void(0)" onclick="format('insertUnorderedList')"><span class="fa fa-list-ul fa-fw"></span></a>
-	        <a href="javascript:void(0)" onclick="format('insertOrderedList')"><span class="fa fa-list-ol fa-fw"></span></a>
-	        <a href="javascript:void(0)" onclick="format('insertParagraph')"><span class="fa fa-paragraph fa-fw"></span></a>
-	        <a href="javascript:void(0)" onclick="format('insertHorizontalRule')" title="insert Horizontal Rule">Horizontal Rule</a> -->
-	    	
-	       
-	      
-	    	
-	        <div class="slds-form-element">
-		  
+	    <a href="javascript:void(0)" onclick="format('cut')"><span class="fa fa-cut fa-fw"></span></a>
+	    <a href="javascript:void(0)" onclick="format('underline')"><span class="fa fa-underline fa-fw"></span></a>
+	    <a href="javascript:void(0)" onclick="format('strikeThrough')"><span class="fa fa-strikethrough fa-fw"></span></a>
+	    <a href="javascript:void(0)" onclick="format('undo')"><span class="fa fa-undo fa-fw"></span></a>
+		<a href="javascript:void(0)" onclick="format('redo')"><span class="fa fa-redo fa-fw"></span></a>
+		<button id="myBtn" style ="display: none;" ><span class="fa fa-image fa-fw"></span></button>
+	    <div class="slds-form-element"> <!--personalization string insertion dropdown-->
 		    <div class="slds-form-element__control">
 		    <div class="slds-select_container">
-		    <select class="slds-select" id="ps" onchange="Test()" onfocus="this.selectedIndex = -1;">
+		    <select class="slds-select" id="ps" onchange="insertAttribute()" onfocus="this.selectedIndex = -1;">
 			<option hidden selected>None</option>
 			<!--<option value="{{Contact.Attribute.TwilioV1.EmailAddress}}" id="ps1">Email</option>
 			<option value="{{Contact.Attribute.TwilioV1.TwilioNumber}}" id="ps2">Phone number</option> -->
-			
-		      </select>
+		    </select>
 		    </div>
-		  </div>
+		    </div>
 		</div>       
-               </div>
-	 <!-- content editable div -->
-         <div id="RichTextEditor" class="editor" contenteditable='true'>
-	 </div>
-	<h3 id="selected">SELECTED IMAGE: </h3>
-<div id="image">
-</div>
+    </div>
+
+<!-- content editable div to create a message body  -->
+<div id="RichTextEditor" class="editor" contenteditable='true'></div>
+<br>	
+
+
+<!--  Display the selected image message  -->
+<h3 id="selected">SELECTED IMAGE: </h3>
+<div id="image"></div> <!-- Div to show image after it is selected  -->
+
+<!-- hidden checkbox to see if the image is inserted or not  -->
 <input type="checkbox" name="options" id="isInserted" value=""  style="display:none;"/>
-<!-- The Modal -->
+
+
+<!-- The Modal to display the images after we click on image button. An api called on server side and returs the URL of images-->
 <div id="myModal" class="modal">
-  <!-- Modal content -->
-  <div class="modal-content">
-    <span class="close" style="float:right;">&times;</span>
+
+<!-- Modal content -->
+<div class="modal-content">
+    <span class="close" style="float:right;">&times;</span> <!-- cross button to close the modal  -->
     <h2 style="text-align:center;">SELECT THE IMAGE</h2>
-	  <br><br>
-  <div id="showimage">	
-  </div>
+	<br><br>
 
-	  
-  </div>
-
-</div>
+<!-- Div to show images after API callout  -->
+<div id="showimage"></div> 
 
 </div>
 </div>
-	<div id="step4" class="step">
+</div>
+</div>
+<!-- Step 3 ends  -->
+
+
+<!-- Step 4 starts  -->
+<div id="step4" class="step">
+
+<!-- Display channels on summary page  -->
 <div class="slds-text-heading_small instruction">CHANNEL</div>
 <div id="channel"> </div> 		
-<br> <br>
- <div class="slds-text-heading_small instruction">MESSAGE BODY</div> 
- <div id="Message"></div> 
-	<br> <br>
-	<div id = 'imageinserted2'>
+<br><br>
+
+<!-- Display message body on summary page  -->
+<div class="slds-text-heading_small instruction">MESSAGE BODY</div> 
+<div id="Message"></div> 
+<br><br>
+
+<!-- Display inserted image on summary page  -->
+
 <div class="slds-text-heading_small instruction">INSERTED IMAGE:</div> 
- <div id="imageinserted" class="summaryImage"></div> 
-</div>
-<br> <br>
+<div id="imageinserted" class="summaryImage"></div> 
+<br><br>
+
+
+
+<!-- Display recipients on summary page  -->
 <div class="slds-text-heading_small instruction">RECIPIENT:</div> 
 <div id="selectedPhone"></div> 
 
-		
+<!-- For DE creation  -->		
 <!--	<div class="slds-form-element">
   <div class="slds-form-element__control">
     <div class="slds-checkbox">
@@ -350,7 +358,7 @@
 
 <script>
 	
-	// Get the modal
+// Get the modal
 var modal = document.getElementById("myModal");
 
 // Get the button that opens the modal
@@ -359,25 +367,34 @@ var btn = document.getElementById("myBtn");
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 		
-		function format(command, value) {
-			document.execCommand(command, false, value);
-		}
-		function execVal(command, value) {
-		       document.execCommand(command, false, value);
-		}
-		function Test() {
-			var value = $("#ps").val();
-			insertTextAtCaret(value);
-			console.log('value------------------->' + value);
-		      
-		}
+//Formatting
+function format(command, value) 
+{
+	document.execCommand(command, false, value);
+}
+
+//Formatting
+function execVal(command, value) 
+{
+	document.execCommand(command, false, value);
+}
 		
-		function insertTextAtCaret(text) {
-            var sel, range;
-            if (window.getSelection) 
+// This function calls another function to insert the attribute string into the content editable div
+function insertAttribute() 
+{
+	var value = $("#ps").val();
+	insertTextAtCaret(value);
+	console.log('value------------------->' + value);
+}
+
+//This function os called to insert the attribute value at cursor position
+function insertTextAtCaret(text)
+{
+    var sel, range;
+    if (window.getSelection) 
             {
-                if ( window.getSelection().anchorNode.parentNode.id ==  "RichTextEditor")
-                {
+            if ( window.getSelection().anchorNode.parentNode.id ==  "RichTextEditor")
+            {
                 sel = window.getSelection();
                 console.log("selection----------------->" + sel); 
                 console.log("AAa RHA HAI ISME "); 
@@ -403,11 +420,9 @@ var span = document.getElementsByClassName("close")[0];
             console.log("Text-------->" + text);
             }
         }
-        }
+}
 
-	
-	
-	
+// function to insert image when selected
 function imageinsert(url)
 	{
 		
@@ -428,29 +443,20 @@ function summaryImageDisplay()
 	{
 		var whatsappsms = $("#WhatsApp").is(":checked");  
 		//var url = 'url';
-		var x = document.getElementById('imageinserted2');
+		var x = document.getElementById('imageinserted');
 		//x.style.display = "block";
 		if(whatsappsms == true)
-                    {
-						document.getElementById("wholeDiv").style.display = "block";
-				
-						console.log("watsapp true ke andar aaya");
-				
-						
-
-				
-			    console.log("We are showing the selected image in summary block");
-			x.style.display = "block";
-                        
-			       
-                    }
+        {
+		document.getElementById("wholeDiv").style.display = "block";
+		console.log("watsapp true ke andar aaya");
+		console.log("We are showing the selected image in summary block");
+	    x.style.display = "block";
+        }
 		else
 		{       
 		
 			document.getElementById("wholeDiv").style.display = "none";
 			console.log("It is coming on else part");
-			
-		
 			x.style.display = "none";
 		
 		}
