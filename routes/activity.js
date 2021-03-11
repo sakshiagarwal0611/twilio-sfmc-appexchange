@@ -6,8 +6,10 @@ var util = require('util');
 const Path = require('path');
 const JWT = require(Path.join(__dirname, '..', 'lib', 'jwtDecoder.js'));
 var http = require('https');
-//var sms_Ek;
-//var whatsapp_Ek;
+var sms_Ek;
+var whatsapp_Ek;
+var smsCheck;
+var whatsappCheck;
 //var Redis = require('ioredis');   
 
 exports.logExecuteData = [];
@@ -61,7 +63,6 @@ exports.edit = function(req, res) {
     console.log("3");
     console.log("2");
     console.log("1");
-    //console.log("Edited: "+req.body.inArguments[0]);    
 
     // Data from the req and put it in an array accessible to the main app.
     //console.log( req.body );
@@ -80,8 +81,6 @@ exports.save = function(req, res) {
     console.log("2");
     console.log("1");
     console.log("Save Update");
-    // console.log("Saved: "+req.body.inArguments[0]);
-
     // Data from the req and put it in an array accessible to the main app.
     console.log(req.body);
     logData(req);
@@ -103,7 +102,7 @@ exports.execute = function(req, res) {
     console.log("2");
     console.log("1");
     console.log("Executed: " + req.body.inArguments[0]);
- console.log("RequestBody"+JSON.stringify(req.body));
+    console.log("RequestBody"+JSON.stringify(req.body));
     console.log("RequestBody"+JSON.stringify(req.body.inArguments));
     var requestBody = req.body.inArguments[0];
 
@@ -119,20 +118,18 @@ exports.execute = function(req, res) {
     const imageURL = requestBody.insertedImage ; 
     console.log("RequestBody"+JSON.stringify(requestBody));
     const email = requestBody.email; 
-    const entrySource = requestBody.entrySource;
-    const sms_Ek = requestBody.smsDE;
     const wpMessageType = requestBody.wpMessageType;
     
-    console.log(sms_Ek);
-    //console.log(whatsapp_Ek);
+    console.log(" This is SMS DE--------------------------------------------------->" + sms_Ek);
+    console.log(" This is WhatsApp DE--------------------------------------------------->" + whatsapp_Ek);
 
    // console.log({{Contact.Attribute.TwilioV1.TwilioNumber}});
    // console.log({{Contact.Attribute.TwilioV1.EmailAddress}});
     
     
     
-    console.log("Entry source--------->" + entrySource);
-   // console.log("imageurl---------------------------------------------------------------------------------->" + imageURL);
+  
+    console.log("imageurl---------------------------------------------------------------------------------->" + imageURL);
     console.log("Original message body with html formatting--------->" + messagebody);
     console.log("Whatsapp message--------------->" + wPmessage);
     console.log("SMS message--------------->" + smsMessage);
@@ -146,10 +143,9 @@ exports.execute = function(req, res) {
         console.log(to);
         client.messages
         .create({
-            //mediaUrl: ['https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/efe473e7-b2e6-4857-8529-a4c547f967b9.png'],
             mediaUrl: ['https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/c42752a3-e464-492e-a6a6-0777b5f32fad.png'],
              from: 'whatsapp:+14155238886',
-            body: 'this is a pdf',
+            body: wPmessage,
             to: 'whatsapp:+917790909761'
         },
         function(err, responseData){
@@ -196,7 +192,7 @@ exports.execute = function(req, res) {
      var access_token = body.access_token;
      console.log("Access------>"+body.access_token);
      console.log("access_token------>" + access_token);
-     console.log("Response------->"+response);
+     console.log("Response------->"+ response);
      console.log("Error----->"+error);
     console.log("we are calling out the api to insert row in DE");
         
@@ -237,7 +233,96 @@ exports.execute = function(req, res) {
     }
 else{
     console.log('-------------------------This is transactional---------------'); 
-
+   
+        const client = require('twilio')(accountSid, authToken);
+        console.log(to);
+        client.messages
+        .create({
+             from: 'whatsapp:+14155238886',
+            body: wPmessage,
+            to: 'whatsapp:+917790909761'
+        },
+        function(err, responseData){
+        if(!err) {
+        console.log(responseData);
+        console.log(responseData.accountSid); 
+        console.log(responseData.apiVersion);
+        console.log(responseData.body); 
+        console.log(responseData.from); 
+        console.log(responseData.sid);
+        console.log(responseData.status);
+        console.log(responseData.to);
+        console.log(responseData.direction); 
+        console.log(responseData.errorCode); 
+        console.log(responseData.errorMessage);
+            
+            
+        var accountSid = responseData.accountSid;
+        var apiVersion = responseData.apiVersion;
+        var body = responseData.body;
+        var from = responseData.from;
+        var sid = responseData.sid;
+        var status = responseData.status;
+        var to = responseData.to;
+        var direction = responseData.direction;
+        var errorCode = responseData.errorCode;
+        var errorMessage = responseData.errorMessage;
+        var wpMessageType = responseData.wpMessageType;
+        
+            
+        const https = require('https');
+        console.log("we are trying to get the authorization token here");
+        var request = require('request');
+        request.post({
+        headers: {'content-type' : 'application/json'},
+        url:     'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.auth.marketingcloudapis.com/v2/token',
+        body:    {
+                    'client_id': '4nfraga57ld98tn00rmrhbn9',
+                    'client_secret': 'qlm3OG67VzLC6nekeeGo1XY2',
+                    'grant_type': 'client_credentials'
+    },
+        json: true
+}, function(error, response, body){
+     var access_token = body.access_token;
+     console.log("Access------>"+body.access_token);
+     console.log("access_token------>" + access_token);
+     console.log("Response------->"+ response);
+     console.log("Error----->"+error);
+    console.log("we are calling out the api to insert row in DE");
+        
+  
+ request.post({
+  headers: {'content-type' : 'application/json','Authorization': 'Bearer ' + access_token},
+  url:     'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.rest.marketingcloudapis.com/data/v1/async/dataextensions/key:36B87A1F-3606-46F2-BDB8-58DF209F1EDF/rows',
+  body:    {
+   "items":
+[
+    {
+       // 'accountSid':accountSid,
+       // 'apiVersion':apiVersion,
+       // 'body':body,
+       // 'from': from,
+          'sid':sid
+      //  'status': status,
+     //   'to': to
+       // 'direction' : direction,
+       // 'errorCode' : errorCode,
+       // 'errorMessage' : errorMessage
+}]
+},
+     json: true
+}, function(error, response, body){
+    console.log("requestId---------->"+body.requestId);
+    console.log("body--------->"+body);
+    console.log("response--------->"+response);
+    console.log("error-------->"+error);
+   
+       
+});
+});
+//console.log("we have inserted the tracking data in to the DE");
+                    
+        } } );
 }  
     
 }
@@ -392,34 +477,21 @@ console.log("requestId---------->"+body.requestId);
 console.log("body--------->"+body);
 console.log("body--------->"+JSON.stringify(body));
 console.log("body.activities[0]--------->"+body.activities[0].arguments.execute.inArguments[0].SMS);
-//console.log("body--------->"+body.activities[0].arguments.inArguments[0].WhatsApp);
+console.log("body.activities[0]--------->"+body.activities[0].arguments.execute.inArguments[0].WhatsApp);
 console.log("response--------->"+response);
 console.log("error-------->"+error);  
+smsCheck = body.activities[0].arguments.execute.inArguments[0].SMS;
+whatsappCheck = body.activities[0].arguments.execute.inArguments[0].WhatsApp ;
+console.log("smsCheck--------->"+smsCheck);
+console.log("whatsappCheck-------->"+whatsappCheck);
 });
 });
     
 
 
-   /* var redis =  new Redis("redis://h:CumiqqbTzoudvJNSNUkHr8DK8y15SAou@redis-11121.c11.us-east-1-2.ec2.cloud.redislabs.com:11121");
-        redis.get(`Custom_Activity_Payload:SMS`);
-        redis.get('Custom_Activity_Payload:SMS', function(err, reply) {
-            console.log("Hello",reply);
-            redis.disconnect();
-        }); */
 
-
-
- 
-
-
-  /* //const sms =   requestBody1.SMS;
-    //const whatsapp = requestBody1.WhatsApp;
-    const sms =   true;
-    const whatsapp =   true;
-    console.log("SMS----->" + sms );
-    console.log("WhatsApp------>" + whatsapp );
     
-    if(sms == true)
+    if(smsCheck == true)
     {
          const https = require('https');
         console.log("we are trying to get the authorization token here");
@@ -470,19 +542,19 @@ request(options, function (error, response) {
 });
 })      
 }
-if(whatsapp == true)
+if(whatsappCheck == true)
     {
         console.log(" This is where we will create a DE for whatsapp tracking data");
           whatsapp_Ek = 'This is the extrenal key for whatsapp';
         
     } 
-*/
-   
-   logData(req);
+
+    logData(req);
     res.send(200, 'Publish');
-   // console.log("RequestBody------------->>>><<<<<<<<<<<<---------------"+JSON.stringify(req.body));
-    //console.log("RequestBody------------->>>><<<<<<<<<<<<---------------"+JSON.stringify(req.body.inArguments));
 };
+
+
+
 
 /*
  * POST Handler for /validate/ route of Activity.

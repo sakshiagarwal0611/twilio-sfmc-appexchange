@@ -490,15 +490,13 @@ define([
         var wPmessage = document.getElementById('RichTextEditor').innerHTML;
         var insertedImage ; 
         var entry = "{{Event." + eventDefinitionKey + ".EmailAddress}}";
-       var to = $("#recipient").val();
+        var to = $("#recipient").val();
         //var to =  "{{Contact.Attribute.TwilioDE.TwilioNumber}}"
-	var smsDEcheck = $("#smsDEcheckbox").is(":checked");
-	var EK_name2 ; 
-	var wpMessageType  = $("#messageType").val(); 
-	var template = $("#template").val();
+	    var wpMessageType  = $("#messageType").val(); 
+	    var template = $("#template").val();
        
-	console.log(wpMessageType + template);    
-	console.log("selected phone number attribute---->"+ to);
+	    console.log(wpMessageType + template);    
+	    console.log("selected phone number attribute---->"+ to);
         console.log("Entry source--------->" + eventDefinitionKey);
         console.log("Entry source--------->" + entry);
         console.log("Content of division image" + document.getElementById('image').innerHTML);
@@ -540,38 +538,7 @@ define([
         wPmessage = wPmessage.replaceAll("</u>", "");
         console.log("WhatsApp message------------------->" + wPmessage);
         
-	    console.log("1");
-            console.log("1");
-	    console.log("1");
-	    console.log("1");
-            console.log("1");
-	    console.log("1");
-	    
-	    
-	   //create de
-	 /*   if(smsDEcheck == false)
-	    {
-		    console.log("The value of checkbox is false and we will create a DE");
-	    var url = '/createDE';  
-	    fetch( url, {
-                   method: "POST",
-                   headers: {"Content-Type": "application/json"}
-                      }).then(response => response.json())
-                                    .then((body) => 
-                                          {
-                                                     
-                                                     // var EK_name1 = body.EK_name;
-                                                     //console.log(EK_name1);
-		    console.log("We have a response here");
-		     //document.getElementById('smsDEname').innerHTML = EK_name1; 
-		   // EK_name2 = EK_name1;
-		                                     
-         })
-		 $("#smsDEcheckbox").attr("checked", true);  
-		  
-	    }*/
-	    
-	    smsDEcheck = $("#smsDEcheckbox").is(":checked");
+	
 	    
         payload['arguments'].execute.inArguments = [{
             "accountSid": accountSid,
@@ -597,8 +564,7 @@ define([
         payload['metaData'].isConfigured = true;
 
         console.log("Payload on SAVE function Update--------------------------------------------------->: " + JSON.stringify(payload));
-	    payload1 = JSON.stringify(payload);
-	    console.log("This is payload 1 in save function-------> " + payload1);
+	    
         connection.trigger('updateActivity', payload);
 
     }
