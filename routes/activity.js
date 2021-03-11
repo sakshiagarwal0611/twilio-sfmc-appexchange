@@ -374,14 +374,14 @@ exports.publish = function(req, res)
     json: true
 }, function(error, response, body){
  var access_token = body.access_token;
- console.log("Access------>"+body.access_token);
- console.log("access_token------>" + access_token);
- console.log("Response------->"+response);
- console.log("Error----->"+error);
+ console.log("Access Publish------>"+body.access_token);
+ console.log("access_token Publish------>" + access_token);
+ console.log("Response Publish------->"+response);
+ console.log("Error Publish----->"+error);
  
-//const https = require('https');
-console.log("we are calling out the api to insert row in DE");
-//var request = require('request');
+
+console.log("-----------------we are calling the APi to fetch the journey data-----------------");
+
 request.get({
 headers: {'content-type' : 'application/json','Authorization': 'Bearer ' + access_token},
 url:     'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.rest.marketingcloudapis.com/data/v1/async/dataextensions/key:36B87A1F-3606-46F2-BDB8-58DF209F1EDF/rows',
@@ -390,8 +390,8 @@ json: true
 {
 console.log("requestId---------->"+body.requestId);
 console.log("body--------->"+body);
-console.log("body--------->"+body.activities.arguments.inArguments.SMS);
-console.log("body--------->"+body.activities.arguments.inArguments.WhatsApp);
+console.log("body--------->"+body.activities[0].arguments.inArguments[0].SMS);
+console.log("body--------->"+body.activities[0].arguments.inArguments[0].WhatsApp);
 console.log("response--------->"+response);
 console.log("error-------->"+error);  
 });
