@@ -553,8 +553,6 @@ define([
             "WPmessage" : wPmessage,
             "insertedImage": insertedImage,
             "isimage": isimage,
-	        "smsDEcheck" : smsDEcheck,
-	        "smsDE" : "SmsTrackingData10-1-2021-13-29-0",
             "wpMessageType" : wpMessageType,
 	        "template" : template 
          
