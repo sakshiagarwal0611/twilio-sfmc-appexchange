@@ -525,7 +525,7 @@ console.log("whatsappCheck-------->"+whatsappCheck);
             var EK_name = 'SmsTrackingData' + datetime;
             sms_Ek = EK_name;
 
-            console.log(EK_name);
+            console.log("yeh ek name hai---> " + EK_name);
             
              
      var request = require('request');
