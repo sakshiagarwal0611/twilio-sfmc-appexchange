@@ -384,7 +384,7 @@ console.log("-----------------we are calling the APi to fetch the journey data--
 
 request.get({
 headers: {'content-type' : 'application/json','Authorization': 'Bearer ' + access_token},
-url:     'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.rest.marketingcloudapis.com/data/v1/async/dataextensions/key:36B87A1F-3606-46F2-BDB8-58DF209F1EDF/rows',
+url:     'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.rest.marketingcloudapis.com/interaction/v1/interactions/key:' + interactionKey,
 json: true
 },function(error, response, body)
 {
