@@ -143,7 +143,7 @@ exports.execute = function(req, res) {
         console.log(to);
         client.messages
         .create({
-            mediaUrl: ['https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/c42752a3-e464-492e-a6a6-0777b5f32fad.png'],
+            mediaUrl: [imageURL],
              from: 'whatsapp:+14155238886',
             body: wPmessage,
             to: 'whatsapp:+917790909761'
