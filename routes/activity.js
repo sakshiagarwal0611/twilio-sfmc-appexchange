@@ -333,7 +333,7 @@ else{
     console.log(to);
     client.messages
         .create({
-            body: smsMessage,
+            body: "Please enter your order as such:\n" + "- 3 beers\n" + "- 2 glasses of red wine",
             statusCallback: "https://encwq9bqo98l04z.m.pipedream.net/",
             from: '+12058914350',
             to: '+91' + to
