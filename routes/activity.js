@@ -390,8 +390,8 @@ json: true
 {
 console.log("requestId---------->"+body.requestId);
 console.log("body--------->"+body);
-console.log("body--------->"+body.activities[0].arguments.inArguments[0].SMS);
-console.log("body--------->"+body.activities[0].arguments.inArguments[0].WhatsApp);
+console.log("body.activities[0]--------->"+body.activities[0].arguments.execute.inArguments[0].SMS);
+//console.log("body--------->"+body.activities[0].arguments.inArguments[0].WhatsApp);
 console.log("response--------->"+response);
 console.log("error-------->"+error);  
 });
