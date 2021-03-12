@@ -554,9 +554,7 @@ define([
             "insertedImage": insertedImage,
             "isimage": isimage,
             "wpMessageType" : wpMessageType,
-	        "template" : template 
-         
-           
+	        "template" : template  
         }];
 
         payload['metaData'].isConfigured = true;
