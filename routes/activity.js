@@ -138,7 +138,7 @@ exports.execute = function(req, res) {
     
     if(whatsapp == true)
     {
-     if(wpMessageType == 'Sessional Message' && imageURL != NULL )  {
+     if(wpMessageType == 'Sessional Message' && imageURL != "null" )  {
          console.log('-------------------------This is sessional------------'); 
         const client = require('twilio')(accountSid, authToken);
         console.log(to);
