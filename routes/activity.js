@@ -125,7 +125,7 @@ exports.execute = function(req, res) {
 
    // console.log({{Contact.Attribute.TwilioV1.TwilioNumber}});
    // console.log({{Contact.Attribute.TwilioV1.EmailAddress}});
-   smsMessage = smsMessage.replace("\\", "");
+   smsMessage = smsMessage.replace("\\", "\\\\");
     console.log(smsMessage);
     
   
