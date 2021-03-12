@@ -455,8 +455,7 @@ function recipientChange()
 // When the user clicks the button, open the modal 
 btn.onclick = function() 
 {
-  modal.style.display = "block";
-  console.log(" we are fetching an image here");	
+  modal.style.display = "block";	
   document.getElementById("showimage").innerHTML = '';
           var url = '/imagesContent';  
 	
@@ -470,20 +469,18 @@ btn.onclick = function()
                                           {
                                                      
                                                       var map=body.arr;
-                                                      console.log("map------------------>"+map);
+                                                      //console.log("map------------------>"+map);
 		                                      var arry = map;
 		                                     
 		
 	  
-		arry.forEach(myFunction);
-		  
-		  
+		arry.forEach(myFunction);  
 		function myFunction(item, index) {
 		var id = 'serialNo' + index ; 
-		console.log("this is image id------>" + id);
+		//console.log("this is image id------>" + id);
 		document.getElementById("showimage").innerHTML += '<img id="' +  id + '" src="' + item + '" onclick="imageinsert(\'' + item + '\')" width="100" height="120" style="margin:3px;">';
 		}
-		  console.log(document.getElementById("showimage").innerHTML);
+		 // console.log(document.getElementById("showimage").innerHTML);
 		  
 		 })
 
@@ -522,13 +519,13 @@ function MessageTypeChange(){
 	var btn1 = document.getElementById('myBtn');
 	if(value == "Sessional Message")
 		{
-			console.log("---Sessional message--- ");
-			$('#template').attr('disabled',true);
+		console.log("---Sessional message--- ");
+		$('#template').attr('disabled',true);
 			
 		//	$('#template').attr("editable", true);
-			btn1.style.display = 'block' ;
-			document.getElementById('RichTextEditor').innerHTML = "";
-			document.getElementById('template').selectedIndex = "0";
+		btn1.style.display = 'block' ;
+		document.getElementById('RichTextEditor').innerHTML = "";
+		document.getElementById('template').selectedIndex = "0";
 	   }
 	else if(value == "Transactional Message")
 		{
