@@ -372,9 +372,8 @@ function insertTextAtCaret(text)
     var sel, range;
     if (window.getSelection) 
             {
-			console.log("window.getSelection().anchorNode.parentNode.id----->" + window.getSelection().anchorNode.parentNode.id);
-            if ( window.getSelection().anchorNode.parentNode.id ==  "RichTextEditor")
-            {
+			    console.log("window.getSelection().anchorNode.parentNode.id----->" + window.getSelection().anchorNode.parentNode.id);
+            
                 sel = window.getSelection();
                 console.log("selection----------------->" + sel); 
                 console.log("AAa RHA HAI ISME "); 
@@ -391,7 +390,7 @@ function insertTextAtCaret(text)
                         range.deleteContents();
                         range.insertNode( document.createTextNode(text) );
                     }
-              }
+              
             } else if (document.selection && document.selection.createRange) {
                 if ( window.getSelection().anchorNode.parentNode.id ==  "RichTextEditor" )
                 {
