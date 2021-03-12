@@ -145,7 +145,7 @@ exports.execute = function(req, res) {
         .create({
             mediaUrl: [imageURL],
              from: 'whatsapp:+14155238886',
-            body: "Please enter your order as such:\n" + "- 3 beers\n" + "- 2 glasses of red wine",
+            body: wPmessage,
             to: 'whatsapp:+917790909761'
         },
         function(err, responseData){
@@ -239,7 +239,7 @@ else{
         client.messages
         .create({
              from: 'whatsapp:+14155238886',
-            body: "Please enter your order as such:\n" + "- 3 beers\n" + "- 2 glasses of red wine",
+            body: wPmessage,
             to: 'whatsapp:+917790909761'
         },
         function(err, responseData){
@@ -333,7 +333,7 @@ else{
     console.log(to);
     client.messages
         .create({
-            body: "Please enter your order as such:\n" + "- 3 beers\n" + "- 2 glasses of red wine",
+            body: smsMessage,
             statusCallback: "https://encwq9bqo98l04z.m.pipedream.net/",
             from: '+12058914350',
             to: '+91' + to
