@@ -145,7 +145,7 @@ exports.execute = function(req, res) {
         .create({
             mediaUrl: [imageURL],
              from: 'whatsapp:+14155238886',
-            body: wPmessage,
+            body: "Please enter your order as such:\n" + "- 3 beers\n" + "- 2 glasses of red wine",
             to: 'whatsapp:+917790909761'
         },
         function(err, responseData){
@@ -239,7 +239,7 @@ else{
         client.messages
         .create({
              from: 'whatsapp:+14155238886',
-            body: wPmessage,
+            body: "Please enter your order as such:\n" + "- 3 beers\n" + "- 2 glasses of red wine",
             to: 'whatsapp:+917790909761'
         },
         function(err, responseData){
