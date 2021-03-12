@@ -125,9 +125,9 @@ exports.execute = function(req, res) {
 
    // console.log({{Contact.Attribute.TwilioV1.TwilioNumber}});
    // console.log({{Contact.Attribute.TwilioV1.EmailAddress}});
-   console.log(" SMS before removing back slash" +smsMessage);
+   console.log("SMS before removing back slash" +smsMessage);
    smsMessage = smsMessage.replace("\\", "\\\\");
-    console.log(" SMS after removing back slash" + smsMessage);
+    console.log("SMS after removing back slash" + smsMessage);
     
   
     console.log("imageurl---------------------------------------------------------------------------------->" + imageURL);
