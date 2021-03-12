@@ -113,8 +113,8 @@ exports.execute = function(req, res) {
     const sms =   requestBody.SMS;
     const whatsapp = requestBody.WhatsApp;
     const messagebody = requestBody.MessageBody;
-    const smsMessage = requestBody.SmsMessage;
-    const wPmessage  = requestBody.WPmessage;
+    var smsMessage = requestBody.SmsMessage;
+    var wPmessage  = requestBody.WPmessage;
     const imageURL = requestBody.insertedImage ; 
     console.log("RequestBody"+JSON.stringify(requestBody));
     const email = requestBody.email; 
