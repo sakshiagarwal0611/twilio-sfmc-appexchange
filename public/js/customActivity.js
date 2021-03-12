@@ -412,12 +412,9 @@ define([
                 break;
             case 'step3':
                 $('#step3').show();
-                console.log("---------------------------------------------------------------------------------------------------------------->This is step 3");
-			console.log(" This is payload in step 3 ------->  " + payload1);
-			//console.log(" This is payload1 " + payload1 );
-			console.log(" This is payload1 " + payload1.accountSid );
-			console.log(" This is payload1 " + payload1.whatsappsms );
-			console.log(JSON.stringify(payload));
+                console.log("------------------------------------------------------------------------------------>This is step 3");
+		
+		
 			
                 var wpsms = $("#WhatsApp").is(":checked"); 
                 var value1 = $("#messageType").val();

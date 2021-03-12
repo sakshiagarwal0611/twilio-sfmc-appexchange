@@ -372,6 +372,7 @@ function insertTextAtCaret(text)
     var sel, range;
     if (window.getSelection) 
             {
+			console.log("window.getSelection().anchorNode.parentNode.id----->" + window.getSelection().anchorNode.parentNode.id);
             if ( window.getSelection().anchorNode.parentNode.id ==  "RichTextEditor")
             {
                 sel = window.getSelection();
