@@ -108,7 +108,7 @@ exports.execute = function(req, res) {
 
     const accountSid = requestBody.accountSid;
     const authToken = requestBody.authToken;
-    const to = requestBody.to;
+    const toNum = requestBody.to;
    // const from = requestBody.messagingService;
     const sms =   requestBody.SMS;
     const whatsapp = requestBody.WhatsApp;
@@ -147,7 +147,7 @@ exports.execute = function(req, res) {
             mediaUrl: [imageURL],
              from: 'whatsapp:+14155238886',
             body: wPmessage,
-            to: 'whatsapp:+917790909761'
+            to: 'whatsapp:+91' + toNum
         },
         function(err, responseData){
         if(!err) {
@@ -241,7 +241,7 @@ else{
         .create({
              from: 'whatsapp:+14155238886',
             body: wPmessage,
-            to: 'whatsapp:+917790909761'
+            to: 'whatsapp:+91' + toNum
         },
         function(err, responseData){
         if(!err) {
@@ -337,7 +337,7 @@ else{
             body: smsMessage,
             statusCallback: "https://encwq9bqo98l04z.m.pipedream.net/",
             from: '+12058914350',
-            to: '+91' + to
+            to: '+91' + toNum
         },
           function(err, responseData){
         if(!err) {
