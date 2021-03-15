@@ -534,7 +534,7 @@ define([
         wPmessage = wPmessage.replaceAll("<u>", "");
         wPmessage = wPmessage.replaceAll("</u>", "");
         console.log("WhatsApp message------------------->" + wPmessage);
-        
+        wPmessage = "sakshi" + "agarwal";
 	
 	    
         payload['arguments'].execute.inArguments = [{

@@ -414,9 +414,7 @@ if(sms == true)
     console.log("requestId---------->"+body.requestId);
     console.log("body--------->"+body);
     console.log("response--------->"+response);
-    console.log("error-------->"+error);
-   
-       
+    console.log("error-------->"+error);      
 });
 });
 } } );
