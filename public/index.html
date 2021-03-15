@@ -361,9 +361,9 @@ function execVal(command, value)
 // This function calls another function to insert the attribute string into the content editable div
 function insertAttribute() 
 {
-	var value = $("#ps").val();
-	insertTextAtCaret(value);
+	var value = $("#ps").val(); //retrieve the value you want to insert
 	console.log('value------------------->' + value);
+	insertTextAtCaret(value);   //Pass the value to the insert text function	
 }
 
 //This function os called to insert the attribute value at cursor position
@@ -372,12 +372,10 @@ function insertTextAtCaret(text)
     var sel, range;
     if (window.getSelection) 
             {
-			    console.log("window.getSelection().anchorNode.parentNode.id----->" + window.getSelection().anchorNode.parentNode.id);
-            
+			    
                 sel = window.getSelection();
-                console.log("selection----------------->" + sel); 
-                console.log("AAa RHA HAI ISME "); 
-                console.log("window.getSelection().anchorNode.parentNode.id----->" + window.getSelection().anchorNode.parentNode.id);
+				console.log("selection----------------->" + sel); 
+				console.log("window.getSelection().anchorNode.parentNode.id----->" + window.getSelection().anchorNode.parentNode.id);
                 console.log("window.getSelection().anchorNode.id---------------->" + window.getSelection().anchorNode.id);
                 console.log("window.getSelection().id--------------------------->" + window.getSelection().id);
                 var parentID = window.getSelection().anchorNode.parentNode.id;
@@ -391,63 +389,64 @@ function insertTextAtCaret(text)
                         range.insertNode( document.createTextNode(text) );
                     }
               
-            } else if (document.selection && document.selection.createRange) {
+            } else if (document.selection && document.selection.createRange) 
+			{
                 if ( window.getSelection().anchorNode.parentNode.id ==  "RichTextEditor" )
                 {
-            console.log("I don't know what this is" + document.selection.createRange().text);
-            document.selection.createRange().text = text;
-            console.log("Text-------->" + text);
-            }
+					console.log("I don't know what this is" + document.selection.createRange().text);
+					document.selection.createRange().text = text;
+					console.log("Text-------->" + text);
+            	}
         }
 }
 
 // function to insert image when selected
 function imageinsert(url)
 	{
-		
 		console.log("url as it is received by the insert image function--->" + url);
-	
 		console.log("We are inserting the image now");
-		
+		//replace the html of image section on step 3
 		document.getElementById('image').innerHTML = '<img id= "' + 'insertedSerialNo' + '" style="margin:3px;" src="' + url + '" width="100" height="120"><span class="close" style="float:right;" onclick = "removeimage();">&times;</span></img>';
 		console.log(document.getElementById('image').innerHTML);
-		 document.getElementById("isInserted").checked = true;
-		 modal.style.display = "none";
-		
+		//Set the checkbox value to true as image is inserted
+		document.getElementById("isInserted").checked = true;
+		//Close the modal as we have inserted the image now
+		modal.style.display = "none";
+		//replace the html with image in the summary page
 		document.getElementById('imageinserted').innerHTML ='<img style="margin:3px;" src="' + url + '" width="100" height="120"></img>';
 
 	}
 	
 function summaryImageDisplay()
 	{
-		var whatsappsms = $("#WhatsApp").is(":checked");  
-		//var url = 'url';
-		var x = document.getElementById('imageinserted');
-		//x.style.display = "block";
+		//This function is called when the checkbox value of WhatsApp is changed.
+		//We will hide/show the image on summary page based on this value
+		var whatsappsms = $("#WhatsApp").is(":checked");  // get the WP checkbox value
+		var x = document.getElementById('imageinserted'); //get the checkbox id
+
+		// Show/hide whatsapp related dropdowns based on checkbox value
 		if(whatsappsms == true)
         {
-		document.getElementById("wholeDiv").style.display = "block";
-		console.log("watsapp true ke andar aaya");
-		console.log("We are showing the selected image in summary block");
-	    x.style.display = "block";
+			//Show
+			document.getElementById("wholeDiv").style.display = "block";
+			console.log("We are showing the selected image in summary block");
+			x.style.display = "block";
         }
 		else
-		{       
-		
+		{      
+			//hide 
 			document.getElementById("wholeDiv").style.display = "none";
 			console.log("It is coming on else part");
 			x.style.display = "none";
-		
 		}
 	}
-	
+
+// This function selects the recipient from dropdown	
 function recipientChange()
 	{
 		console.log("We are selecting the reciepient here.");
-		var value = $("#recipient").val();
-		console.log("Selected phone number" + value);
-		
-		
+		var value = $("#recipient").val(); //Get and store the selected phone number value
+		console.log("Selected phone number" + value); 
 	}
 	
 
@@ -455,32 +454,25 @@ function recipientChange()
 // When the user clicks the button, open the modal 
 btn.onclick = function() 
 {
-  modal.style.display = "block";	
-  document.getElementById("showimage").innerHTML = '';
-          var url = '/imagesContent';  
-	
-
-		
-	  fetch( url, {
+  	modal.style.display = "block";	
+  	document.getElementById("showimage").innerHTML = '';
+  	var url = '/imagesContent';  	
+	fetch( url, {
                    method: "POST",
                    headers: {"Content-Type": "application/json"}
-                      }).then(response => response.json())
-                                    .then((body) => 
-                                          {
-                                                     
-                                                      var map=body.arr;
-                                                      //console.log("map------------------>"+map);
-		                                      var arry = map;
-		                                     
-		
-	  
-		arry.forEach(myFunction);  
-		function myFunction(item, index) {
-		var id = 'serialNo' + index ; 
-		//console.log("this is image id------>" + id);
-		document.getElementById("showimage").innerHTML += '<img id="' +  id + '" src="' + item + '" onclick="imageinsert(\'' + item + '\')" width="100" height="120" style="margin:3px;">';
-		}
-		 // console.log(document.getElementById("showimage").innerHTML);
+                }).then(response => response.json())
+                .then((body) => 
+                {
+                	var map=body.arr;
+                    //console.log("map------------------>"+map);
+		            var arry = map;
+					arry.forEach(myFunction);  
+					function myFunction(item, index) {
+					var id = 'serialNo' + index ; 
+					//console.log("this is image id------>" + id);
+					document.getElementById("showimage").innerHTML += '<img id="' +  id + '" src="' + item + '" onclick="imageinsert(\'' + item + '\')" width="100" height="120" style="margin:3px;">';
+				}
+		        // console.log(document.getElementById("showimage").innerHTML);
 		  
 		 })
 
@@ -500,18 +492,19 @@ window.onclick = function(event)
   }
 }
 
+//Remove the image when we click on cross button in step 3. Also remove it from summary page
 function removeimage()
 {
 	console.log("this function will be called to remove the image");
-	document.getElementById('image').innerHTML = ' ';
-	 document.getElementById("isInserted").checked = false;
+	document.getElementById('image').innerHTML = ' '; 
+	document.getElementById("isInserted").checked = false;
 	//remove image from summary
 	document.getElementById('imageinserted').innerHTML ='';
 	
 }
 	
 	
-
+// actions to perform when the message type is changing
 function MessageTypeChange(){
 	console.log("message type is changing here");
 	var value = $("#messageType").val();
@@ -521,52 +514,45 @@ function MessageTypeChange(){
 		{
 		console.log("---Sessional message--- ");
 		$('#template').attr('disabled',true);
-			
-		//	$('#template').attr("editable", true);
 		btn1.style.display = 'block' ;
 		document.getElementById('RichTextEditor').innerHTML = "";
 		document.getElementById('template').selectedIndex = "0";
 	   }
 	else if(value == "Transactional Message")
 		{
-			console.log("Transactional Message Button");
-			$('#template').attr('disabled',false);		 	
+		console.log("Transactional Message Button");
+		$('#template').attr('disabled',false);		 	
 		console.log("Style ",btn.style.display);
-			btn1.style.display =  'none';
+		btn1.style.display =  'none';
 		console.log("after style  ",btn.style.display);
-		
-
 		}
 	
 }
-	function templateChange()
+
+//Actions to perform when the template type is changing
+function templateChange()
 	{
 	    console.log("Template is selected here");
 		var value = $("#template").val();
 		document.getElementById('RichTextEditor').innerHTML = value;
 	}
 
-	function valthis() {
-		
-			$(document).ready(function () {
-				$('#checkBtn').click(function() {
-				  checked = $("input[type=checkbox]:checked").length;
-			
-				  if(!checked) {
-					alert("You must check at least one checkbox.");
-					return false;
-				  }
-			
-				});
-			});
-
+//I've no idea
+function valthis() 
+{
+	$(document).ready(function () {
+	$('#checkBtn').click(function() {
+	checked = $("input[type=checkbox]:checked").length;
+	if(!checked) 
+	{
+	alert("You must check at least one checkbox.");
+	return false;
 	}
-</script>	
+	});
+	});
 
-	
-	
+}
 
-	
-	
+</script>		
 </body>
 </html>

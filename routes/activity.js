@@ -1,6 +1,5 @@
 'use strict';
 var util = require('util');
-//const customQuantityValues = require('../public/js/customActivity');
 
 // Deps
 const Path = require('path');
@@ -9,13 +8,14 @@ var http = require('https');
 var sms_Ek;
 var whatsapp_Ek;
 var smsCheck;
-var whatsappCheck;
-//var Redis = require('ioredis');   
+var whatsappCheck;  
 
 exports.logExecuteData = [];
 
-function logData(req) {
-    exports.logExecuteData.push({
+function logData(req) 
+{
+    exports.logExecuteData.push
+    ({
         body: req.body,
         headers: req.headers,
         trailers: req.trailers,
@@ -53,22 +53,27 @@ function logData(req) {
     console.log("originalUrl: " + req.originalUrl);
 }
 
+
+
+
+
 /*
  * POST Handler for / route of Activity (this is the edit route).
  */
 exports.edit = function(req, res) {
-
     console.log("5 -- For Edit");
     console.log("4");
     console.log("3");
     console.log("2");
     console.log("1");
 
-    // Data from the req and put it in an array accessible to the main app.
-    //console.log( req.body );
     logData(req);
     res.send(200, 'Edit');
 };
+
+
+
+
 
 /*
  * POST Handler for /save/ route of Activity.
@@ -80,12 +85,14 @@ exports.save = function(req, res) {
     console.log("3");
     console.log("2");
     console.log("1");
-    console.log("Save Update");
-    // Data from the req and put it in an array accessible to the main app.
-    console.log(req.body);
     logData(req);
     res.send(200, 'Save');
 };
+
+
+
+
+
 
 /*
  * POST Handler for /execute/ route of Activity.
@@ -97,38 +104,33 @@ exports.execute = function(req, res) {
     console.log("3");
     console.log("2");
     console.log("1");
-    console.log("4");
-    console.log("3");
-    console.log("2");
-    console.log("1");
-    console.log("Executed: " + req.body.inArguments[0]);
-    console.log("RequestBody"+JSON.stringify(req.body));
-    console.log("RequestBody"+JSON.stringify(req.body.inArguments));
+    //console.log("Executed: " + req.body.inArguments[0]);
+    //console.log("RequestBody"+JSON.stringify(req.body));
+    //console.log("RequestBody"+JSON.stringify(req.body.inArguments));
     var requestBody = req.body.inArguments[0];
+    console.log("RequestBody"+JSON.stringify(requestBody));
+
 
     const accountSid = requestBody.accountSid;
     const authToken = requestBody.authToken;
     const toNum = requestBody.to;
-   // const from = requestBody.messagingService;
+    // const from = requestBody.messagingService;
     const sms =   requestBody.SMS;
     const whatsapp = requestBody.WhatsApp;
     const messagebody = requestBody.MessageBody;
     var smsMessage = requestBody.SmsMessage;
     var wPmessage  = requestBody.WPmessage;
     const imageURL = requestBody.insertedImage ; 
-    console.log("RequestBody"+JSON.stringify(requestBody));
     const email = requestBody.email; 
     const wpMessageType = requestBody.wpMessageType;
     
     console.log(" This is SMS DE--------------------------------------------------->" + sms_Ek);
     console.log(" This is WhatsApp DE--------------------------------------------------->" + whatsapp_Ek);
 
-   // console.log({{Contact.Attribute.TwilioV1.TwilioNumber}});
-   // console.log({{Contact.Attribute.TwilioV1.EmailAddress}});
-   console.log("SMS before removing back slash" +smsMessage);
-   smsMessage = smsMessage.replace("\\", "\\\\");
+    //SMS message newline handling
+    console.log("SMS before removing back slash" +smsMessage);
+    smsMessage = smsMessage.replace("\\", "\\\\");
     console.log("SMS after removing back slash" + smsMessage);
-    
   
     console.log("imageurl---------------------------------------------------------------------------------->" + imageURL);
     console.log("Original message body with html formatting--------->" + messagebody);
@@ -136,16 +138,19 @@ exports.execute = function(req, res) {
     console.log("SMS message--------------->" + smsMessage);
     
     
+    //If whatsApp is true then send message
     if(whatsapp == true)
     {
-     if(wpMessageType == 'Sessional Message' && imageURL != "null" )  {
-         console.log('-------------------------This is sessional------------'); 
+    // Send sessional message with image
+    if(wpMessageType == 'Sessional Message' && imageURL != "null")  
+    {
+        console.log('-------------------------This is sessional------------'); 
         const client = require('twilio')(accountSid, authToken);
-        console.log(to);
+        console.log(toNum);
         client.messages
         .create({
             mediaUrl: [imageURL],
-             from: 'whatsapp:+14155238886',
+            from: 'whatsapp:+14155238886',
             body: wPmessage,
             to: 'whatsapp:+91' + toNum
         },
@@ -189,16 +194,16 @@ exports.execute = function(req, res) {
                     'grant_type': 'client_credentials'
     },
         json: true
-}, function(error, response, body){
-     var access_token = body.access_token;
-     console.log("Access------>"+body.access_token);
-     console.log("access_token------>" + access_token);
-     console.log("Response------->"+ response);
-     console.log("Error----->"+error);
-    console.log("we are calling out the api to insert row in DE");
+}, function(error, response, body)
+{
+    var access_token = body.access_token;
+    console.log("access_token------>" + access_token);
+    console.log("Response------->"+ response);
+    console.log("Error----->"+error);
+    console.log("we are calling out the api to insert row in DE for whatsapp");
         
   
- request.post({
+  request.post({
   headers: {'content-type' : 'application/json','Authorization': 'Bearer ' + access_token},
   url:     'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.rest.marketingcloudapis.com/data/v1/async/dataextensions/key:'+ whatsapp_Ek +'/rows',
   body:    {
@@ -209,11 +214,11 @@ exports.execute = function(req, res) {
        // 'apiVersion':apiVersion,
        // 'body':body,
         'from': from,
-          'sid':sid,
-       'status': status,
+        'sid':sid,
+        'status': status,
         'to': to,
         'direction' : direction,
-       'errorCode' : errorCode,
+        'errorCode' : errorCode,
         'errorMessage' : errorMessage
 }]
 },
@@ -222,24 +227,22 @@ exports.execute = function(req, res) {
     console.log("requestId---------->"+body.requestId);
     console.log("body--------->"+body);
     console.log("response--------->"+response);
-    console.log("error-------->"+error);
-   
-       
+    console.log("error-------->"+error);    
 });
 });
-//console.log("we have inserted the tracking data in to the DE");
                     
         } } ); 
         
     }
 else{
+    //send transactionl message or sessional message without image
     console.log('-------------------------This is transactional---------------'); 
    
         const client = require('twilio')(accountSid, authToken);
-        console.log(to);
+        console.log(toNum);
         client.messages
         .create({
-             from: 'whatsapp:+14155238886',
+            from: 'whatsapp:+14155238886',
             body: wPmessage,
             to: 'whatsapp:+91' + toNum
         },
@@ -303,31 +306,28 @@ else{
        // 'apiVersion':apiVersion,
        // 'body':body,
        'from': from,
-          'sid':sid,
+       'sid':sid,
        'status': status,
        'to': to,
        'direction' : direction,
        'errorCode' : errorCode,
-        'errorMessage' : errorMessage
+       'errorMessage' : errorMessage
 }]
 },
-     json: true
+    json: true
 }, function(error, response, body){
     console.log("requestId---------->"+body.requestId);
     console.log("body--------->"+body);
     console.log("response--------->"+response);
-    console.log("error-------->"+error);
-   
-       
+    console.log("error-------->"+error);     
 });
 });
-//console.log("we have inserted the tracking data in to the DE");
-                    
-        } } );
-}  
-    
+}});
+}   
 }
-    if(sms == true)
+    
+//Send SMS
+if(sms == true)
     {
     console.log("<---------------------------------------------------This message is sent as SMS-------------------------------------------------->");
     const client = require('twilio')(accountSid, authToken);
@@ -417,15 +417,14 @@ else{
        
 });
 });
-//console.log("we have inserted the tracking data in to the DE");
-                    
-        } } );
+} } );
+}
         
-    }
-        
-    logData(req);
-    res.send(200, 'Execute');
+logData(req);
+res.send(200, 'Execute');
 };
+
+
 
 
 
@@ -443,12 +442,13 @@ exports.publish = function(req, res)
     console.log("Publish Update 3");
     console.log("Publish: "+ req.body.interactionKey);
     var interactionKey = req.body.interactionKey;
-
-
     var currentdate = new Date();
     var datetime = currentdate.getDate() + "-" + currentdate.getMonth()+ "-" + currentdate.getFullYear() +"-"+ currentdate.getHours() + "-" + currentdate.getMinutes() + "-" + currentdate.getSeconds();      
+    console.log("The date time of DE creation is--->" + datetime);
 
-    //API call to get the authorization token and retrieve the journey data using interaction key
+
+
+//API call to get the authorization token and retrieve the journey data using interaction key
     const https = require('https');
     console.log("we are trying to get the authorization token here");
     var request = require('request');
@@ -459,46 +459,42 @@ exports.publish = function(req, res)
                 'client_id': '4nfraga57ld98tn00rmrhbn9',
                 'client_secret': 'qlm3OG67VzLC6nekeeGo1XY2',
                 'grant_type': 'client_credentials'
-},
+        },
     json: true
-}, function(error, response, body){
- var access_token = body.access_token;
- console.log("Access Publish------>"+body.access_token);
- console.log("access_token Publish------>" + access_token);
- console.log("Response Publish------->"+response);
- console.log("Error Publish----->"+error);
- 
+    }, function(error, response, body){
+    var access_token = body.access_token;
+    console.log("access_token Publish------>" + access_token);
+    console.log("Response Publish------->"+response);
+    console.log("Error Publish----->"+error);
+    console.log("-----------------we are calling the APi to fetch the journey data-----------------");
 
-console.log("-----------------we are calling the APi to fetch the journey data-----------------");
-
-request.get({
-headers: {'content-type' : 'application/json','Authorization': 'Bearer ' + access_token},
-url:     'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.rest.marketingcloudapis.com/interaction/v1/interactions/key:' + interactionKey,
-json: true
-},function(error, response, body)
-{
-console.log("requestId---------->"+body.requestId);
-console.log("body--------->"+body);
-console.log("body--------->"+JSON.stringify(body));
-console.log("body.activities[0]--------->"+body.activities[0].arguments.execute.inArguments[0].SMS);
-console.log("body.activities[0]--------->"+body.activities[0].arguments.execute.inArguments[0].WhatsApp);
-console.log("response--------->"+response);
-console.log("error-------->"+error);  
-smsCheck = body.activities[0].arguments.execute.inArguments[0].SMS;
-whatsappCheck = body.activities[0].arguments.execute.inArguments[0].WhatsApp ;
-console.log("smsCheck--------->"+smsCheck);
-console.log("whatsappCheck-------->"+whatsappCheck);
+    request.get({
+    headers: {'content-type' : 'application/json','Authorization': 'Bearer ' + access_token},
+    url:     'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.rest.marketingcloudapis.com/interaction/v1/interactions/key:' + interactionKey,
+    json: true
+    },function(error, response, body)
+    {
+    console.log("requestId---------->"+body.requestId);
+    //console.log("body--------->"+body);
+    //console.log("body--------->"+JSON.stringify(body));
+    //console.log("body.activities[0]--------->"+body.activities[0].arguments.execute.inArguments[0].SMS);
+    //console.log("body.activities[0]--------->"+body.activities[0].arguments.execute.inArguments[0].WhatsApp);
+    console.log("response--------->"+response);
+    console.log("error-------->"+error);  
+    smsCheck = body.activities[0].arguments.execute.inArguments[0].SMS;
+    whatsappCheck = body.activities[0].arguments.execute.inArguments[0].WhatsApp ;
+    console.log("smsCheck--------->"+smsCheck);
+    console.log("whatsappCheck-------->"+whatsappCheck);
 });
 });
     
 
 
-//
-    
+//API to create a DE for SMS if checkbox value is true
     if(smsCheck == true)
     {
-         const https = require('https');
-        console.log("we are trying to get the authorization token here");
+        const https = require('https');
+        console.log("we are trying to get the authorization token here for SMS");
         var request = require('request');
         request.post({
         headers: {'content-type' : 'application/json'},
@@ -509,35 +505,29 @@ console.log("whatsappCheck-------->"+whatsappCheck);
                     'grant_type': 'client_credentials'
     },
         json: true
-}, function(error, response, body){
-     var access_token = body.access_token;
-     console.log("Access------>"+body.access_token);
-     console.log("access_token------>" + access_token);
-     console.log("Response------->"+response);
-     console.log("Error----->"+error);
-   
-     var currentdate = new Date();
-     var datetime = currentdate.getDate() + "-" + currentdate.getMonth()+ "-" + currentdate.getFullYear() +"-"+ currentdate.getHours() + "-" + currentdate.getMinutes() + "-" + currentdate.getSeconds();       
-     
+    }, function(error, response, body)
+    {
+        var access_token = body.access_token;
+        console.log("Access------>"+body.access_token);
+        console.log("access_token------>" + access_token);
+        console.log("Response------->"+response);
+        console.log("Error----->"+error);
     
             var DE_name = 'SMS tracking data - ' + datetime;
-            console.log(DE_name);
+            console.log("DE_name" +DE_name);
      
             var EK_name = 'SmsTrackingData' + datetime;
             sms_Ek = EK_name;
 
-            console.log("yeh ek name hai---> " + EK_name);
+            console.log("EK_name" +  EK_name);
             
              
-     var request = require('request');
-var options = {
-  'method': 'POST',
-  'url': 'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.soap.marketingcloudapis.com/Service.asmx',
-  'headers': {
-    'Content-Type': 'text/xml',
-    'SoapAction': 'Create'
-  },
-  body: '<?xml version="1.0" encoding="UTF-8"?>\r\n<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">          \r\n<soapenv:Header>  <fueloauth>' + access_token + '</fueloauth> </soapenv:Header>   \r\n\r\n<soapenv:Body>    \r\n<CreateRequest xmlns="http://exacttarget.com/wsdl/partnerAPI">      \r\n<Options/>\r\n<Objects xsi:type="ns2:DataExtension" xmlns:ns2="http://exacttarget.com/wsdl/partnerAPI">     \r\n      \r\n<CustomerKey>' + EK_name + '</CustomerKey>            \r\n<Name>' + DE_name + '</Name>            \r\n<Description>Stores the SMS tracking data.</Description><IsSendable>true</IsSendable>         \r\n<IsTestable>false</IsTestable>         \r\n\r\n<Fields>\r\n<Field xsi:type="ns2:DataExtensionField">                  \r\n<CustomerKey>Sid</CustomerKey>                   \r\n<Name>Sid</Name>                 \r\n<Label>Sid</Label>                  \r\n <IsRequired>true</IsRequired>                  \r\n <IsPrimaryKey>true</IsPrimaryKey>                   \r\n <FieldType>Text</FieldType>                  \r\n<MaxLength>200</MaxLength>               \r\n</Field>             \r\n\r\n<Field xsi:type="ns2:DataExtensionField">                    <CustomerKey>From</CustomerKey>                \r\n <Name>From</Name>               \r\n<Label>From</Label>                 \r\n <IsRequired>false</IsRequired>                  \r\n <IsPrimaryKey>false</IsPrimaryKey>                   \r\n<FieldType>Text</FieldType>                  \r\n<MaxLength>100</MaxLength>              \r\n</Field>             \r\n\r\n\r\n <Field xsi:type="ns2:DataExtensionField">                   <CustomerKey>Status</CustomerKey>                    <Name>Status</Name>                 \r\n <Label>Status</Label>                   \r\n <IsRequired>false</IsRequired>                   \r\n <IsPrimaryKey>false</IsPrimaryKey>                   \r\n <FieldType>Text</FieldType>                   \r\n <MaxLength>400</MaxLength>                \r\n</Field> \r\n\r\n<Field xsi:type="ns2:DataExtensionField">                   <CustomerKey>To</CustomerKey>                    <Name>to</Name>                 \r\n <Label>to</Label>                   \r\n <IsRequired>false</IsRequired>                   \r\n <IsPrimaryKey>false</IsPrimaryKey>                   \r\n <FieldType>Text</FieldType>                   \r\n <MaxLength>400</MaxLength>                \r\n</Field>  \r\n\r\n<Field xsi:type="ns2:DataExtensionField">                   <CustomerKey>Direction</CustomerKey>                    <Name>Direction</Name>                 \r\n <Label>Direction</Label>                   \r\n <IsRequired>false</IsRequired>                   \r\n <IsPrimaryKey>false</IsPrimaryKey>                   \r\n <FieldType>Text</FieldType>                   \r\n <MaxLength>400</MaxLength>                \r\n</Field> \r\n\r\n<Field xsi:type="ns2:DataExtensionField">                   <CustomerKey>ErrorCode</CustomerKey>                    <Name>ErrorCode</Name>                 \r\n <Label>ErrorCode</Label>                   \r\n <IsRequired>false</IsRequired>                   \r\n <IsPrimaryKey>false</IsPrimaryKey>                   \r\n <FieldType>Text</FieldType>                   \r\n <MaxLength>400</MaxLength>                \r\n</Field> \r\n\r\n<Field xsi:type="ns2:DataExtensionField">                   <CustomerKey>errorMessage</CustomerKey>                    <Name>errorMessage</Name>                 \r\n <Label>errorMessage</Label>                   \r\n <IsRequired>false</IsRequired>                   \r\n <IsPrimaryKey>false</IsPrimaryKey>                   \r\n <FieldType>Text</FieldType>                   \r\n <MaxLength>400</MaxLength>                \r\n</Field> \r\n         \r\n</Fields>\r\n<SendableDataExtensionField>\r\n               \r\n               <Name>Sid</Name>\r\n            </SendableDataExtensionField>\r\n            <SendableSubscriberField>\r\n               <Name>Subscriber Key</Name>\r\n            </SendableSubscriberField>     \r\n</Objects>\r\n</CreateRequest>\r\n</soapenv:Body></soapenv:Envelope>\r\n'
+    var request = require('request');
+    var options = {
+    'method': 'POST',
+    'url': 'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.soap.marketingcloudapis.com/Service.asmx',
+    'headers': { 'Content-Type': 'text/xml','SoapAction': 'Create'},
+    body: '<?xml version="1.0" encoding="UTF-8"?>\r\n<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">          \r\n<soapenv:Header>  <fueloauth>' + access_token + '</fueloauth> </soapenv:Header>   \r\n\r\n<soapenv:Body>    \r\n<CreateRequest xmlns="http://exacttarget.com/wsdl/partnerAPI">      \r\n<Options/>\r\n<Objects xsi:type="ns2:DataExtension" xmlns:ns2="http://exacttarget.com/wsdl/partnerAPI">     \r\n      \r\n<CustomerKey>' + EK_name + '</CustomerKey>            \r\n<Name>' + DE_name + '</Name>            \r\n<Description>Stores the SMS tracking data.</Description><IsSendable>true</IsSendable>         \r\n<IsTestable>false</IsTestable>         \r\n\r\n<Fields>\r\n<Field xsi:type="ns2:DataExtensionField">                  \r\n<CustomerKey>Sid</CustomerKey>                   \r\n<Name>Sid</Name>                 \r\n<Label>Sid</Label>                  \r\n <IsRequired>true</IsRequired>                  \r\n <IsPrimaryKey>true</IsPrimaryKey>                   \r\n <FieldType>Text</FieldType>                  \r\n<MaxLength>200</MaxLength>               \r\n</Field>             \r\n\r\n<Field xsi:type="ns2:DataExtensionField">                    <CustomerKey>From</CustomerKey>                \r\n <Name>From</Name>               \r\n<Label>From</Label>                 \r\n <IsRequired>false</IsRequired>                  \r\n <IsPrimaryKey>false</IsPrimaryKey>                   \r\n<FieldType>Text</FieldType>                  \r\n<MaxLength>100</MaxLength>              \r\n</Field>             \r\n\r\n\r\n <Field xsi:type="ns2:DataExtensionField">                   <CustomerKey>Status</CustomerKey>                    <Name>Status</Name>                 \r\n <Label>Status</Label>                   \r\n <IsRequired>false</IsRequired>                   \r\n <IsPrimaryKey>false</IsPrimaryKey>                   \r\n <FieldType>Text</FieldType>                   \r\n <MaxLength>400</MaxLength>                \r\n</Field> \r\n\r\n<Field xsi:type="ns2:DataExtensionField">                   <CustomerKey>To</CustomerKey>                    <Name>to</Name>                 \r\n <Label>to</Label>                   \r\n <IsRequired>false</IsRequired>                   \r\n <IsPrimaryKey>false</IsPrimaryKey>                   \r\n <FieldType>Text</FieldType>                   \r\n <MaxLength>400</MaxLength>                \r\n</Field>  \r\n\r\n<Field xsi:type="ns2:DataExtensionField">                   <CustomerKey>Direction</CustomerKey>                    <Name>Direction</Name>                 \r\n <Label>Direction</Label>                   \r\n <IsRequired>false</IsRequired>                   \r\n <IsPrimaryKey>false</IsPrimaryKey>                   \r\n <FieldType>Text</FieldType>                   \r\n <MaxLength>400</MaxLength>                \r\n</Field> \r\n\r\n<Field xsi:type="ns2:DataExtensionField">                   <CustomerKey>ErrorCode</CustomerKey>                    <Name>ErrorCode</Name>                 \r\n <Label>ErrorCode</Label>                   \r\n <IsRequired>false</IsRequired>                   \r\n <IsPrimaryKey>false</IsPrimaryKey>                   \r\n <FieldType>Text</FieldType>                   \r\n <MaxLength>400</MaxLength>                \r\n</Field> \r\n\r\n<Field xsi:type="ns2:DataExtensionField">                   <CustomerKey>errorMessage</CustomerKey>                    <Name>errorMessage</Name>                 \r\n <Label>errorMessage</Label>                   \r\n <IsRequired>false</IsRequired>                   \r\n <IsPrimaryKey>false</IsPrimaryKey>                   \r\n <FieldType>Text</FieldType>                   \r\n <MaxLength>400</MaxLength>                \r\n</Field> \r\n         \r\n</Fields>\r\n<SendableDataExtensionField>\r\n               \r\n               <Name>Sid</Name>\r\n            </SendableDataExtensionField>\r\n            <SendableSubscriberField>\r\n               <Name>Subscriber Key</Name>\r\n            </SendableSubscriberField>     \r\n</Objects>\r\n</CreateRequest>\r\n</soapenv:Body></soapenv:Envelope>\r\n'
 
 };
 request(options, function (error, response) {
@@ -546,15 +536,18 @@ request(options, function (error, response) {
 });
 })      
 }
+
+
+//API to create a DE for WhatsApp if checkbox value is true
 if(whatsappCheck == true)
 {
     const https = require('https');
-   console.log("we are trying to get the authorization token here");
-   var request = require('request');
-   request.post({
-   headers: {'content-type' : 'application/json'},
-   url:     'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.auth.marketingcloudapis.com/v2/token',
-   body:    {
+    console.log("we are trying to get the authorization token here for Whatsapp");
+    var request = require('request');
+    request.post({
+    headers: {'content-type' : 'application/json'},
+    url:     'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.auth.marketingcloudapis.com/v2/token',
+    body:    {
                'client_id': '4nfraga57ld98tn00rmrhbn9',
                'client_secret': 'qlm3OG67VzLC6nekeeGo1XY2',
                'grant_type': 'client_credentials'
@@ -567,15 +560,13 @@ console.log("access_token------>" + access_token);
 console.log("Response------->"+response);
 console.log("Error----->"+error);
 
- 
 
-
-       var DE_name2 = 'WhatsApp tracking data - ' + datetime;
-       console.log(DE_name2);
+        var DE_name2 = 'WhatsApp tracking data - ' + datetime;
+       console.log("DE_name2" + DE_name2);
 
        var EK_name2 = 'WhatsAppTrackingData' + datetime;
        whatsapp_Ek = EK_name2;
-       console.log(EK_name2);
+       console.log("EK_name2" + EK_name2);
        
         
         var request = require('request');
@@ -594,11 +585,17 @@ console.log("Error----->"+error);
         console.log(response.body);
         });
         })      
-        }
+}
+
+
 
     logData(req);
     res.send(200, 'Publish');
 };
+
+
+
+
 
 
 
@@ -612,10 +609,6 @@ exports.validate = function(req, res) {
     console.log("3");
     console.log("2");
     console.log("1");
-    //console.log("Validated: "+req.body.inArguments[0]);       
-
-    // Data from the req and put it in an array accessible to the main app.
-    //console.log( req.body );
     logData(req);
     res.send(200, 'Validate');
 };
