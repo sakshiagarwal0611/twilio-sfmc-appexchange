@@ -138,10 +138,10 @@ exports.execute = function(req, res) {
     console.log("SMS message--------------->" + smsMessage);
     
     
-    //If whatsApp is true then send message
+//If whatsApp is true then send message
     if(whatsapp == true)
     {
-    // Send sessional message with image
+// Send sessional message with image
     if(wpMessageType == 'Sessional Message' && imageURL != "null")  
     {
         console.log('-------------------------This is sessional------------'); 
@@ -234,9 +234,10 @@ exports.execute = function(req, res) {
         } } ); 
         
     }
-else{
-    //send transactionl message or sessional message without image
-    console.log('-------------------------This is transactional---------------'); 
+    else{
+
+//send transactionl message or sessional message without image
+        console.log('-------------------------This is transactional---------------'); 
    
         const client = require('twilio')(accountSid, authToken);
         console.log(toNum);
@@ -518,7 +519,6 @@ exports.publish = function(req, res)
      
             var EK_name = 'SmsTrackingData' + datetime;
             sms_Ek = EK_name;
-
             console.log("EK_name" +  EK_name);
             
              
