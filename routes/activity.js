@@ -113,7 +113,7 @@ exports.execute = function(req, res) {
 
     const accountSid = requestBody.accountSid;
     const authToken = requestBody.authToken;
-    const toNum = requestBody.to;
+    const to = requestBody.to;
     // const from = requestBody.messagingService;
     const sms =   requestBody.SMS;
     const whatsapp = requestBody.WhatsApp;
@@ -442,7 +442,7 @@ exports.publish = function(req, res)
     console.log("Publish: "+ req.body.interactionKey);
     var interactionKey = req.body.interactionKey;
 
-    
+
     var currentdate = new Date();
     console.log("Current date-----" + currentdate);
     var datetime = currentdate.getDate() + "-" + currentdate.getMonth()+ "-" + currentdate.getFullYear() +"-"+ currentdate.getHours() + "-" + currentdate.getMinutes() + "-" + currentdate.getSeconds();      
