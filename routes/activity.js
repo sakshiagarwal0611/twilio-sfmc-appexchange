@@ -333,6 +333,7 @@ if(sms == true)
     console.log("<---------------------------------------------------This message is sent as SMS-------------------------------------------------->");
     const client = require('twilio')(accountSid, authToken);
     //console.log(to);
+    console.log("Here");
     client.messages
         .create({
             body: smsMessage,
@@ -353,7 +354,7 @@ if(sms == true)
         console.log(responseData.direction); 
         console.log(responseData.errorCode); 
         console.log(responseData.errorMessage);
-            
+        console.log("Here");    
             
         var accountSid = responseData.accountSid;
         var apiVersion = responseData.apiVersion;
@@ -387,7 +388,7 @@ if(sms == true)
      console.log("Error----->"+error);
      
    //const https = require('https');
-    console.log("we are calling out the api to insert row in DE");
+    console.log("we are calling out the api to insert row in DE for sms");
    //var request = require('request');
   request.post({
   headers: {'content-type' : 'application/json','Authorization': 'Bearer ' + access_token},
