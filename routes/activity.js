@@ -332,7 +332,7 @@ if(sms == true)
     {
     console.log("<---------------------------------------------------This message is sent as SMS-------------------------------------------------->");
     const client = require('twilio')(accountSid, authToken);
-    console.log(to);
+    //console.log(to);
     client.messages
         .create({
             body: smsMessage,
