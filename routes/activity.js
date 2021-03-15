@@ -146,13 +146,13 @@ exports.execute = function(req, res) {
     {
         console.log('-------------------------This is sessional------------'); 
         const client = require('twilio')(accountSid, authToken);
-        console.log(toNum);
+        
         client.messages
         .create({
             mediaUrl: [imageURL],
             from: 'whatsapp:+14155238886',
             body: wPmessage,
-            to: 'whatsapp:+91' + toNum
+            to: 'whatsapp:+91' + to
         },
         function(err, responseData){
         if(!err) {
@@ -240,12 +240,11 @@ exports.execute = function(req, res) {
         console.log('-------------------------This is transactional---------------'); 
    
         const client = require('twilio')(accountSid, authToken);
-        console.log(toNum);
         client.messages
         .create({
             from: 'whatsapp:+14155238886',
             body: wPmessage,
-            to: 'whatsapp:+91' + toNum
+            to: 'whatsapp:+91' + to
         },
         function(err, responseData){
         if(!err) {
@@ -332,7 +331,7 @@ if(sms == true)
     {
     console.log("<---------------------------------------------------This message is sent as SMS-------------------------------------------------->");
     const client = require('twilio')(accountSid, authToken);
-    //console.log(to);
+    
     console.log("Here");
     client.messages
         .create({
@@ -442,7 +441,10 @@ exports.publish = function(req, res)
     console.log("Publish Update 3");
     console.log("Publish: "+ req.body.interactionKey);
     var interactionKey = req.body.interactionKey;
+
+    
     var currentdate = new Date();
+    console.log("Current date-----" + currentdate);
     var datetime = currentdate.getDate() + "-" + currentdate.getMonth()+ "-" + currentdate.getFullYear() +"-"+ currentdate.getHours() + "-" + currentdate.getMinutes() + "-" + currentdate.getSeconds();      
     console.log("The date time of DE creation is--->" + datetime);
 

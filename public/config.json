@@ -164,22 +164,8 @@
                             "direction": "in"
                         }
                     },
-                   
-                   {
-                        "smsDE": {
-                            "dataType": "String",
-                            "isNullable": true,
-                            "direction": "in"
-                        }
-                    },
+                
                     {
-                        "smsDEcheck": {
-                            "dataType": "Boolean",
-                            "isNullable": true,
-                            "direction": "in"
-                        }
-                    },
-                                {
                         "wpMessageType": {
                             "dataType": "String",
                             "isNullable": true,
