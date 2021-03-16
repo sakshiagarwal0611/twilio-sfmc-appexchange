@@ -547,8 +547,8 @@ if(whatsappCheck == true)
 {
 
     var DeWhatsapp = await WpDEcreation(whatsappCheck);
-    /*console.log(" Output2 DeWhatsapp------->" + DeWhatsapp);
-    const https = require('https');
+    console.log(" Output2 DeWhatsapp------->" + DeWhatsapp);
+    /*const https = require('https');
     console.log("we are trying to get the authorization token here for Whatsapp");
     var request = require('request');
     request.post({
