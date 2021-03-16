@@ -131,7 +131,7 @@ exports.execute = function(req, res) {
     //console.log("SMS before removing back slash" +smsMessage);
     //wPmessage = wPmessage.replace("'", "\"");
     //console.log("SMS after removing back slash" + smsMessage);
-    var str = "sakshi'+'agarwal";
+    var str = "'sakshi'+'agarwal'";
     
 //If whatsApp is true then send message
     if(whatsapp == true)
