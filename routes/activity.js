@@ -131,16 +131,7 @@ exports.execute = function(req, res) {
     //console.log("SMS before removing back slash" +smsMessage);
     //wPmessage = wPmessage.replace("'", "\"");
     //console.log("SMS after removing back slash" + smsMessage);
-    messagebody = messagebody.replaceAll("&nbsp;", " ");
-    messagebody = messagebody.replaceAll("<br>",'');
-    messagebody = messagebody.replaceAll("<div>",'');
-    console.log("SMS after removing back slash----->" + messagebody);
-  
-    console.log("imageurl---------------------------------------------------------------------------------->" + imageURL);
-    console.log("Original message body with html formatting--------->" + messagebody);
-    console.log("Whatsapp message--------------->" + wPmessage);
-    console.log("SMS message--------------->" + smsMessage);
-    
+    var str = "sakshi'+'agarwal";
     
 //If whatsApp is true then send message
     if(whatsapp == true)
@@ -155,7 +146,7 @@ exports.execute = function(req, res) {
         .create({
             mediaUrl: [imageURL],
             from: 'whatsapp:+14155238886',
-            body: wPmessage,
+            body: str,
             to: 'whatsapp:+917790909761'
         },
         function(err, responseData){
@@ -247,7 +238,7 @@ exports.execute = function(req, res) {
         client.messages
         .create({
             from: 'whatsapp:+14155238886',
-            body: wPmessage,
+            body: str,
             to: 'whatsapp:+917790909761'
         },
         function(err, responseData){
