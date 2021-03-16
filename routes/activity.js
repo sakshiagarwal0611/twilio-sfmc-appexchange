@@ -129,7 +129,7 @@ exports.execute = function(req, res) {
 
     //SMS message newline handling
     console.log("SMS before removing back slash" +smsMessage);
-    //smsMessage = smsMessage.replace("\\", "\\\\");
+    wPmessage = wPmessage.replace("'", "\"");
     console.log("SMS after removing back slash" + smsMessage);
   
     console.log("imageurl---------------------------------------------------------------------------------->" + imageURL);
