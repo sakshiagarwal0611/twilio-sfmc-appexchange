@@ -333,6 +333,8 @@ if(sms == true)
     const client = require('twilio')(accountSid, authToken);
     
     console.log("Here");
+    console.log(to);
+    console.log(smsMessage);
     client.messages
         .create({
             body: smsMessage,
