@@ -128,9 +128,13 @@ exports.execute = function(req, res) {
     console.log(" This is WhatsApp DE--------------------------------------------------->" + whatsapp_Ek);
 
     //SMS message newline handling
-    console.log("SMS before removing back slash" +smsMessage);
-    wPmessage = wPmessage.replace("'", "\"");
-    console.log("SMS after removing back slash" + smsMessage);
+    //console.log("SMS before removing back slash" +smsMessage);
+    //wPmessage = wPmessage.replace("'", "\"");
+    //console.log("SMS after removing back slash" + smsMessage);
+    messagebody = messagebody.replaceAll("&nbsp;", " ");
+    messagebody = messagebody.replaceAll("<br>",'');
+    messagebody = messagebody.replaceAll("<div>",'');
+    console.log("SMS after removing back slash----->" + messagebody);
   
     console.log("imageurl---------------------------------------------------------------------------------->" + imageURL);
     console.log("Original message body with html formatting--------->" + messagebody);
@@ -328,7 +332,7 @@ exports.execute = function(req, res) {
     
 //Send SMS
 if(sms == true)
-    {
+{
     console.log("<---------------------------------------------------This message is sent as SMS-------------------------------------------------->");
     const client = require('twilio')(accountSid, authToken);
     
