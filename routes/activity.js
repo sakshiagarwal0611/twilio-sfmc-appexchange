@@ -131,7 +131,7 @@ exports.execute = function(req, res) {
     //console.log("SMS before removing back slash" +smsMessage);
     //wPmessage = wPmessage.replace("'", "\"");
     //console.log("SMS after removing back slash" + smsMessage);
-    var str = "'sakshi'+'agarwal'";
+  
     
 //If whatsApp is true then send message
     if(whatsapp == true)
@@ -139,14 +139,13 @@ exports.execute = function(req, res) {
 // Send sessional message with image
     if(wpMessageType == 'Sessional Message' && imageURL != "null")  
     {
-        console.log('-------------------------This is sessional------------'); 
+        console.log('-------------------------This is sessional---------------------'); 
         const client = require('twilio')(accountSid, authToken);
-        
         client.messages
         .create({
             mediaUrl: [imageURL],
             from: 'whatsapp:+14155238886',
-            body: str,
+            body: wPmessage,
             to: 'whatsapp:+917790909761'
         },
         function(err, responseData){
@@ -238,7 +237,7 @@ exports.execute = function(req, res) {
         client.messages
         .create({
             from:'whatsapp:+14155238886',
-            body: str,
+            body: wPmessage,
             to: 'whatsapp:+917790909761'
         },
         function(err, responseData){
@@ -326,18 +325,13 @@ if(sms == true)
 {
     console.log("<---------------------------------------------------This message is sent as SMS-------------------------------------------------->");
     const client = require('twilio')(accountSid, authToken);
-    
-    console.log("Here");
-    console.log(to);
-    console.log(smsMessage);
-    client.messages
+        client.messages
         .create({
-            body: smsMessage,
-            statusCallback: "https://encwq9bqo98l04z.m.pipedream.net/",
             from: '+12058914350',
-            to: '+91' + to 
+            body: wPmessage,
+            to: '+917790909761'
         },
-          function(err, responseData){
+        function(err, responseData){
         if(!err) {
         console.log(responseData);
         console.log(responseData.accountSid); 
@@ -350,7 +344,7 @@ if(sms == true)
         console.log(responseData.direction); 
         console.log(responseData.errorCode); 
         console.log(responseData.errorMessage);
-        console.log("Here");    
+            
             
         var accountSid = responseData.accountSid;
         var apiVersion = responseData.apiVersion;
@@ -362,10 +356,11 @@ if(sms == true)
         var direction = responseData.direction;
         var errorCode = responseData.errorCode;
         var errorMessage = responseData.errorMessage;
+        var wpMessageType = responseData.wpMessageType;
         
             
         const https = require('https');
-        console.log("we are trying to get the authorization token here for SMS");
+        console.log("we are trying to get the authorization token here for SMS sessional");
         var request = require('request');
         request.post({
         headers: {'content-type' : 'application/json'},
@@ -376,32 +371,31 @@ if(sms == true)
                     'grant_type': 'client_credentials'
     },
         json: true
-}, function(error, response, body){
-     var access_token = body.access_token;
-     console.log("Access------>"+body.access_token);
-     console.log("access_token------>" + access_token);
-     console.log("Response------->"+response);
-     console.log("Error----->"+error);
-     
-   //const https = require('https');
-    console.log("we are calling out the api to insert row in DE for sms");
-   //var request = require('request');
+}, function(error, response, body)
+{
+    var access_token = body.access_token;
+    console.log("access_token------>" + access_token);
+    console.log("Response------->"+ response);
+    console.log("Error----->"+error);
+    console.log("we are calling out the api to insert row in DE for SMS");
+        
+  
   request.post({
   headers: {'content-type' : 'application/json','Authorization': 'Bearer ' + access_token},
-  url:     'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.rest.marketingcloudapis.com/data/v1/async/dataextensions/key:' + sms_Ek +'/rows',
+  url:     'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.rest.marketingcloudapis.com/data/v1/async/dataextensions/key:'+ whatsapp_Ek +'/rows',
   body:    {
    "items":
 [
     {
-        'Sid':sid,
        // 'accountSid':accountSid,
        // 'apiVersion':apiVersion,
        // 'body':body,
-        'From': from,
-        'Status': status,
-        'To': to,
-        'Direction' : direction,
-        'ErrorCode' : errorCode,
+        'from': from,
+        'sid':sid,
+        'status': status,
+        'to': to,
+        'direction' : direction,
+        'errorCode' : errorCode,
         'errorMessage' : errorMessage
 }]
 },
@@ -410,10 +404,11 @@ if(sms == true)
     console.log("requestId---------->"+body.requestId);
     console.log("body--------->"+body);
     console.log("response--------->"+response);
-    console.log("error-------->"+error);      
+    console.log("error-------->"+error);    
 });
 });
-} } );
+                    
+        } } ); 
 }
         
 logData(req);
