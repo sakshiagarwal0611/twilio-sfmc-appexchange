@@ -129,7 +129,7 @@ exports.execute = function(req, res) {
 
     //SMS message newline handling
     console.log("SMS before removing back slash" +smsMessage);
-    smsMessage = smsMessage.replace("\\", "\\\\");
+    //smsMessage = smsMessage.replace("\\", "\\\\");
     console.log("SMS after removing back slash" + smsMessage);
   
     console.log("imageurl---------------------------------------------------------------------------------->" + imageURL);
@@ -370,7 +370,7 @@ if(sms == true)
         
             
         const https = require('https');
-        console.log("we are trying to get the authorization token here");
+        console.log("we are trying to get the authorization token here for SMS");
         var request = require('request');
         request.post({
         headers: {'content-type' : 'application/json'},
