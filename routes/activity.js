@@ -183,7 +183,7 @@ exports.execute = function(req, res) {
         
             
         const https = require('https');
-        console.log("we are trying to get the authorization token here");
+        console.log("we are trying to get the authorization token here for whatsapp sessional");
         var request = require('request');
         request.post({
         headers: {'content-type' : 'application/json'},
@@ -275,7 +275,7 @@ exports.execute = function(req, res) {
         
             
         const https = require('https');
-        console.log("we are trying to get the authorization token here");
+        console.log("we are trying to get the authorization token here for whatsapp transactional");
         var request = require('request');
         request.post({
         headers: {'content-type' : 'application/json'},
