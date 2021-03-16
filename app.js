@@ -35,13 +35,7 @@ app.post('/logout', routes.logout );
 // Custom Hello World Activity Routes
 app.post('/journeybuilder/save/', activity.save );
 app.post('/journeybuilder/validate/', activity.validate );
-var temp = 0;
-while(temp == 0)
-{
-  app.post('/journeybuilder/publish/', activity.publish );
-  temp=temp+1;
-}
-
+app.post('/journeybuilder/publish/', activity.publish );
 app.post('/journeybuilder/execute/', activity.execute );
 
 
