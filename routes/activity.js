@@ -425,7 +425,7 @@ res.send(200, 'Execute');
 /*
  * POST Handler for /publish/ route of Activity.
  */
-exports.publish = function(req, res) 
+exports.publish = await function(req, res) 
 {
     console.log("5 -- For Publish");
     console.log("4");
@@ -443,7 +443,7 @@ exports.publish = function(req, res)
     console.log("The date time of DE creation is--->" + datetime);
 
 
-    var journeyResponse = journeydataApi(interactionKey);
+    var journeyResponse = await journeydataApi(interactionKey);
     var smsCheck = journeyResponse.smsCheck;
     var whatsappCheck = journeyResponse.whatsappCheck;
     console.log(smsCheck);
@@ -495,7 +495,7 @@ exports.publish = function(req, res)
     if(smsCheck == true)
     {
         
-        var Desms = smsDEcreation(smsCheck);
+        var Desms = await smsDEcreation(smsCheck);
         console.log(" Output------->" + Desms);
 
         /*const https = require('https');
@@ -546,7 +546,7 @@ request(options, function (error, response) {
 if(whatsappCheck == true)
 {
 
-    var DeWhatsapp = WpDEcreation(whatsappCheck);
+    var DeWhatsapp = await WpDEcreation(whatsappCheck);
     console.log(" Output2 DeWhatsapp------->" + DeWhatsapp);
     /*const https = require('https');
     console.log("we are trying to get the authorization token here for Whatsapp");
