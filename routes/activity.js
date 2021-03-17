@@ -146,7 +146,7 @@ exports.execute = function(req, res) {
             mediaUrl: [imageURL],
             from: 'whatsapp:+14155238886',
             //body: wPmessage,
-            body: "this is line 1" + "This is line 2",
+            body: 'this is line 1' + 'This is line 2',
             to: 'whatsapp:+917790909761'
         },
         function(err, responseData){
@@ -239,7 +239,7 @@ exports.execute = function(req, res) {
         .create({
             from:'whatsapp:+14155238886',
             //body: wPmessage,
-            body: "this is line 1" + "This is line 2",
+            body: 'this is line 1' + 'This is line 2',
             to: 'whatsapp:+917790909761'
         },
         function(err, responseData){
@@ -331,7 +331,7 @@ if(sms == true)
         .create({
             from: '+12058914350',
             //body: wPmessage,
-            body: "this is line 1" + "This is line 2",
+            body: 'this is line 1' + 'This is line 2',
             to: '+918114464775'
         },
         function(err, responseData){
