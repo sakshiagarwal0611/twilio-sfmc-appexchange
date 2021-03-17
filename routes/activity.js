@@ -425,7 +425,7 @@ res.send(200, 'Execute');
 /*
  * POST Handler for /publish/ route of Activity.
  */
-exports.publish = async function(req, res) 
+exports.publish = function(req, res) 
 {
     console.log("5 -- For Publish");
     console.log("4");
@@ -443,14 +443,14 @@ exports.publish = async function(req, res)
     console.log("The date time of DE creation is--->" + datetime);
 
 
-    var journeyResponse =  await journeydataApi(interactionKey);
+    /*var journeyResponse =  await journeydataApi(interactionKey);
     var smsCheck = journeyResponse.smsCheck;
     var whatsappCheck = journeyResponse.whatsappCheck;
     console.log(smsCheck);
-    console.log(whatsappCheck);
+    console.log(whatsappCheck);*/
 
 //API call to get the authorization token and retrieve the journey data using interaction key
-   /* const https = require('https');
+   const https = require('https');
     console.log("we are trying to get the authorization token here");
     var request = require('request');
     request.post({
@@ -487,7 +487,7 @@ exports.publish = async function(req, res)
     console.log("smsCheck--------->"+smsCheck);
     console.log("whatsappCheck-------->"+whatsappCheck);
 });
-}); */
+}); 
     
 
 
@@ -495,10 +495,10 @@ exports.publish = async function(req, res)
     if(smsCheck == true)
     {
         
-        var Desms =  await smsDEcreation(smsCheck);
-        console.log(" Output------->" + Desms);
+       /* var Desms =  await smsDEcreation(smsCheck);
+        console.log(" Output------->" + Desms); */
 
-        /*const https = require('https');
+        const https = require('https');
         console.log("we are trying to get the authorization token here for SMS");
         var request = require('request');
         request.post({
@@ -538,7 +538,7 @@ request(options, function (error, response) {
   if (error) throw new Error(error);
   console.log(response.body);
 }); 
-})  */    
+})  
 }
 
 
@@ -546,9 +546,9 @@ request(options, function (error, response) {
 if(whatsappCheck == true)
 {
 
-    var DeWhatsapp = await WpDEcreation(whatsappCheck);
-    console.log(" Output2 DeWhatsapp------->" + DeWhatsapp);
-    /*const https = require('https');
+    /*var DeWhatsapp = await WpDEcreation(whatsappCheck);
+    console.log(" Output2 DeWhatsapp------->" + DeWhatsapp);*/
+    const https = require('https');
     console.log("we are trying to get the authorization token here for Whatsapp");
     var request = require('request');
     request.post({
@@ -591,7 +591,7 @@ console.log("Error----->"+error);
         if (error) throw new Error(error);
         console.log(response.body);
         });
-        })  */    
+        })  
 }
 
 
@@ -620,7 +620,7 @@ exports.validate = function(req, res) {
     res.send(200, 'Validate');
 };
 
-async function journeydataApi(interactionKey)
+/*async function journeydataApi(interactionKey)
 {
     return new Promise(async function (resolve, reject) {
         //do what ever you want
@@ -766,4 +766,4 @@ async function WpDEcreation()
             });
             })      
     })
-};
+};*/
