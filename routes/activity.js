@@ -428,7 +428,7 @@ res.send(200, 'Execute');
 /*
  * POST Handler for /publish/ route of Activity.
  */
-exports.publish = function(req, res) 
+exports.publish = async function(req, res) 
 {
     console.log("5 -- For Publish");
     console.log("4");
