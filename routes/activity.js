@@ -422,7 +422,7 @@ logData(req);
 res.send(200, 'Execute');
 };
 
-
+var checkCondition=1;
 
 
 /*
@@ -430,6 +430,8 @@ res.send(200, 'Execute');
  */
 exports.publish = function(req, res) 
 {
+    if(checkCondition==1)
+    {
     console.log("5 -- For Publish");
     console.log("4");
     console.log("3");
@@ -601,6 +603,8 @@ console.log("Error----->"+error);
 
     logData(req);
     res.send(200, 'Publish');
+    checkCondition = checkCondition+1;
+}
 };
 
 
