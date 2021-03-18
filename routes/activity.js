@@ -773,7 +773,7 @@ function WpDEcreation()
     })
 };*/
 
-const marketingCloudCallout = async () => {
+/*const marketingCloudCallout = async () => {
     try {
         const tokenResponse = await axios.post('https://mc6vgk-sxj9p08pqwxqz9hw9-4my.auth.marketingcloudapis.com/v2/token?Content-Type=application/json', {
             "grant_type" : "client_credentials",
@@ -795,5 +795,5 @@ const marketingCloudCallout = async () => {
     } catch (error) {
         return error;
     }
-}
+}*/
 
