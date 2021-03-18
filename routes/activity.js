@@ -423,8 +423,6 @@ res.send(200, 'Execute');
 
 
 
-
-
 /*
  * POST Handler for /publish/ route of Activity.
  */
