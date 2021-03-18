@@ -511,8 +511,8 @@ define([
         
         //convert html formatted message body to plain text
          smsMessageBody = smsMessageBody.replaceAll("&nbsp;", " ");
-         smsMessageBody = smsMessageBody.replaceAll("<br>",'');
-         smsMessageBody = smsMessageBody.replaceAll("<div>",'');
+         smsMessageBody = smsMessageBody.replaceAll("<br>",'\n');
+         smsMessageBody = smsMessageBody.replaceAll("<div>",'\n');
         var plainText = $('<div>').html(smsMessageBody).text();
         console.log("plain text------------------------->" + plainText);
         smsMessageBody = plainText;
@@ -531,9 +531,9 @@ define([
         wPmessage = wPmessage.replaceAll("<u>", "");
         wPmessage = wPmessage.replaceAll("</u>", "");
 
-        wPmessage = wPmessage.replaceAll("<div>", '');
+        wPmessage = wPmessage.replaceAll("<div>", '\n');
         wPmessage = wPmessage.replaceAll("</div>",'');
-        wPmessage = wPmessage.replaceAll("<br>",'');
+        wPmessage = wPmessage.replaceAll("<br>",'\n');
         console.log("WhatsApp message------------------->" + wPmessage);
       
 	

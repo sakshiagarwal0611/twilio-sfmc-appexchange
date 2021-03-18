@@ -145,8 +145,8 @@ exports.execute = function(req, res) {
         .create({
             mediaUrl: [imageURL],
             from: 'whatsapp:+14155238886',
-            //body: wPmessage,
-            body: "Please enter your order as such:\n" + "- 3 beers\n - 2 glasses of red wine",
+            body: wPmessage,
+            //body: "Please enter your order as such:\n" + "- 3 beers\n - 2 glasses of red wine",
             to: 'whatsapp:+917790909761'
         },
         function(err, responseData){
@@ -238,8 +238,8 @@ exports.execute = function(req, res) {
         client.messages
         .create({
             from:'whatsapp:+14155238886',
-            //body: wPmessage,
-            body: "Please enter your order as such:\n" + "- 3 beers\n - 2 glasses of red wine",
+            body: wPmessage,
+            //body: "Please enter your order as such:\n" + "- 3 beers\n - 2 glasses of red wine",
             to: 'whatsapp:+917790909761'
         },
         function(err, responseData){
@@ -330,8 +330,8 @@ if(sms == true)
         client.messages
         .create({
             from: '+12058914350',
-            //body: wPmessage,
-            body: "Please enter your order as such:\n" + "- 3 beers\n - 2 glasses of red wine",
+            body: wPmessage,
+            //body: "Please enter your order as such:\n" + "- 3 beers\n - 2 glasses of red wine",
             to: '+918114464775'
         },
         function(err, responseData){
