@@ -40,5 +40,8 @@
     "twilio": "^3.36.0",
     "uglify-js": "^3.6.4",
     "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.13.10"
   }
 }
