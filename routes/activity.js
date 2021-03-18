@@ -5,6 +5,8 @@ var util = require('util');
 const Path = require('path');
 const JWT = require(Path.join(__dirname, '..', 'lib', 'jwtDecoder.js'));
 var http = require('https');
+const axios = require('axios');
+
 var sms_Ek;
 var whatsapp_Ek;
 var smsCheck;
@@ -450,45 +452,46 @@ exports.publish = function(req, res)
     console.log(smsCheck);
     console.log(whatsappCheck);*/
 
-//API call to get the authorization token and retrieve the journey data using interaction key
-   const https = require('https');
-    console.log("we are trying to get the authorization token here");
-    var request = require('request');
-    request.post({
-    headers: {'content-type' : 'application/json'},
-    url:     'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.auth.marketingcloudapis.com/v2/token',
-    body:    {
-                'client_id': '4nfraga57ld98tn00rmrhbn9',
-                'client_secret': 'qlm3OG67VzLC6nekeeGo1XY2',
-                'grant_type': 'client_credentials'
-        },
-    json: true
-    }, function(error, response, body){
-    var access_token = body.access_token;
-    console.log("access_token Publish------>" + access_token);
-    console.log("Response Publish------->"+response);
-    console.log("Error Publish----->"+error);
-    console.log("-----------------we are calling the APi to fetch the journey data-----------------");
+    //API call to get the authorization token and retrieve the journey data using interaction key
+    let response = marketingCloudCallout();
 
-    request.get({
-    headers: {'content-type' : 'application/json','Authorization': 'Bearer ' + access_token},
-    url:     'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.rest.marketingcloudapis.com/interaction/v1/interactions/key:' + interactionKey,
-    json: true
-    },function(error, response, body)
-    {
-    console.log("requestId---------->"+body.requestId);
-    //console.log("body--------->"+body);
-    //console.log("body--------->"+JSON.stringify(body));
-    //console.log("body.activities[0]--------->"+body.activities[0].arguments.execute.inArguments[0].SMS);
-    //console.log("body.activities[0]--------->"+body.activities[0].arguments.execute.inArguments[0].WhatsApp);
-    console.log("response--------->"+response);
-    console.log("error-------->"+error);  
-    smsCheck = body.activities[0].arguments.execute.inArguments[0].SMS;
-    whatsappCheck = body.activities[0].arguments.execute.inArguments[0].WhatsApp ;
-    console.log("smsCheck--------->"+smsCheck);
-    console.log("whatsappCheck-------->"+whatsappCheck);
-});
-}); 
+//    const https = require('https');
+//     console.log("we are trying to get the authorization token here");
+//     var request = require('request');
+//     request.post({
+//     headers: {'content-type' : 'application/json'},
+//     url:     'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.auth.marketingcloudapis.com/v2/token',
+//     body:    {
+//                 'client_id': '4nfraga57ld98tn00rmrhbn9',
+//                 'client_secret': 'qlm3OG67VzLC6nekeeGo1XY2',
+//                 'grant_type': 'client_credentials'
+//         },
+//     json: true
+//     }, function(error, response, body){
+//         var access_token = body.access_token;
+//         console.log("access_token Publish------>" + access_token);
+//         console.log("Response Publish------->"+response);
+//         console.log("Error Publish----->"+error);
+//         console.log("-----------------we are calling the APi to fetch the journey data-----------------");
+
+//         request.get({
+//         headers: {'content-type' : 'application/json','Authorization': 'Bearer ' + access_token},
+//         url:     'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.rest.marketingcloudapis.com/interaction/v1/interactions/key:' + interactionKey,
+//         json: true
+//         },function(error, response, body){
+//             console.log("requestId---------->"+body.requestId);
+//             //console.log("body--------->"+body);
+//             //console.log("body--------->"+JSON.stringify(body));
+//             //console.log("body.activities[0]--------->"+body.activities[0].arguments.execute.inArguments[0].SMS);
+//             //console.log("body.activities[0]--------->"+body.activities[0].arguments.execute.inArguments[0].WhatsApp);
+//             console.log("response--------->"+response);
+//             console.log("error-------->"+error);  
+//             smsCheck = body.activities[0].arguments.execute.inArguments[0].SMS;
+//             whatsappCheck = body.activities[0].arguments.execute.inArguments[0].WhatsApp ;
+//             console.log("smsCheck--------->"+smsCheck);
+//             console.log("whatsappCheck-------->"+whatsappCheck);
+//         });
+//     }); 
     
 
 
@@ -503,21 +506,20 @@ exports.publish = function(req, res)
         console.log("we are trying to get the authorization token here for SMS");
         var request = require('request');
         request.post({
-        headers: {'content-type' : 'application/json'},
-        url:     'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.auth.marketingcloudapis.com/v2/token',
-        body:    {
-                    'client_id': '4nfraga57ld98tn00rmrhbn9',
-                    'client_secret': 'qlm3OG67VzLC6nekeeGo1XY2',
-                    'grant_type': 'client_credentials'
-    },
-        json: true
-    }, function(error, response, body)
-    {
-        var access_token = body.access_token;
-        console.log("Access------>"+body.access_token);
-        console.log("access_token------>" + access_token);
-        console.log("Response------->"+response);
-        console.log("Error----->"+error);
+            headers: {'content-type' : 'application/json'},
+            url:     'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.auth.marketingcloudapis.com/v2/token',
+            body:    {
+                        'client_id': '4nfraga57ld98tn00rmrhbn9',
+                        'client_secret': 'qlm3OG67VzLC6nekeeGo1XY2',
+                        'grant_type': 'client_credentials'
+            },
+            json: true
+        }, function(error, response, body){
+            var access_token = body.access_token;
+            console.log("Access------>"+body.access_token);
+            console.log("access_token------>" + access_token);
+            console.log("Response------->"+response);
+            console.log("Error----->"+error);
     
             var DE_name = 'SMS tracking data - ' + datetime;
             console.log("DE_name" +DE_name);
@@ -527,20 +529,20 @@ exports.publish = function(req, res)
             console.log("EK_name" +  EK_name);
             
              
-    var request = require('request');
-    var options = 
-    {
-    'method': 'POST',
-    'url': 'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.soap.marketingcloudapis.com/Service.asmx',
-    'headers': { 'Content-Type': 'text/xml','SoapAction': 'Create'},
-    body: '<?xml version="1.0" encoding="UTF-8"?>\r\n<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">          \r\n<soapenv:Header>  <fueloauth>' + access_token + '</fueloauth> </soapenv:Header>   \r\n\r\n<soapenv:Body>    \r\n<CreateRequest xmlns="http://exacttarget.com/wsdl/partnerAPI">      \r\n<Options/>\r\n<Objects xsi:type="ns2:DataExtension" xmlns:ns2="http://exacttarget.com/wsdl/partnerAPI">     \r\n      \r\n<CustomerKey>' + EK_name + '</CustomerKey>            \r\n<Name>' + DE_name + '</Name>            \r\n<Description>Stores the SMS tracking data.</Description><IsSendable>true</IsSendable>         \r\n<IsTestable>false</IsTestable>         \r\n\r\n<Fields>\r\n<Field xsi:type="ns2:DataExtensionField">                  \r\n<CustomerKey>Sid</CustomerKey>                   \r\n<Name>Sid</Name>                 \r\n<Label>Sid</Label>                  \r\n <IsRequired>true</IsRequired>                  \r\n <IsPrimaryKey>true</IsPrimaryKey>                   \r\n <FieldType>Text</FieldType>                  \r\n<MaxLength>200</MaxLength>               \r\n</Field>             \r\n\r\n<Field xsi:type="ns2:DataExtensionField">                    <CustomerKey>From</CustomerKey>                \r\n <Name>From</Name>               \r\n<Label>From</Label>                 \r\n <IsRequired>false</IsRequired>                  \r\n <IsPrimaryKey>false</IsPrimaryKey>                   \r\n<FieldType>Text</FieldType>                  \r\n<MaxLength>100</MaxLength>              \r\n</Field>             \r\n\r\n\r\n <Field xsi:type="ns2:DataExtensionField">                   <CustomerKey>Status</CustomerKey>                    <Name>Status</Name>                 \r\n <Label>Status</Label>                   \r\n <IsRequired>false</IsRequired>                   \r\n <IsPrimaryKey>false</IsPrimaryKey>                   \r\n <FieldType>Text</FieldType>                   \r\n <MaxLength>400</MaxLength>                \r\n</Field> \r\n\r\n<Field xsi:type="ns2:DataExtensionField">                   <CustomerKey>To</CustomerKey>                    <Name>to</Name>                 \r\n <Label>to</Label>                   \r\n <IsRequired>false</IsRequired>                   \r\n <IsPrimaryKey>false</IsPrimaryKey>                   \r\n <FieldType>Text</FieldType>                   \r\n <MaxLength>400</MaxLength>                \r\n</Field>  \r\n\r\n<Field xsi:type="ns2:DataExtensionField">                   <CustomerKey>Direction</CustomerKey>                    <Name>Direction</Name>                 \r\n <Label>Direction</Label>                   \r\n <IsRequired>false</IsRequired>                   \r\n <IsPrimaryKey>false</IsPrimaryKey>                   \r\n <FieldType>Text</FieldType>                   \r\n <MaxLength>400</MaxLength>                \r\n</Field> \r\n\r\n<Field xsi:type="ns2:DataExtensionField">                   <CustomerKey>ErrorCode</CustomerKey>                    <Name>ErrorCode</Name>                 \r\n <Label>ErrorCode</Label>                   \r\n <IsRequired>false</IsRequired>                   \r\n <IsPrimaryKey>false</IsPrimaryKey>                   \r\n <FieldType>Text</FieldType>                   \r\n <MaxLength>400</MaxLength>                \r\n</Field> \r\n\r\n<Field xsi:type="ns2:DataExtensionField">                   <CustomerKey>errorMessage</CustomerKey>                    <Name>errorMessage</Name>                 \r\n <Label>errorMessage</Label>                   \r\n <IsRequired>false</IsRequired>                   \r\n <IsPrimaryKey>false</IsPrimaryKey>                   \r\n <FieldType>Text</FieldType>                   \r\n <MaxLength>400</MaxLength>                \r\n</Field> \r\n         \r\n</Fields>\r\n<SendableDataExtensionField>\r\n               \r\n               <Name>Sid</Name>\r\n            </SendableDataExtensionField>\r\n            <SendableSubscriberField>\r\n               <Name>Subscriber Key</Name>\r\n            </SendableSubscriberField>     \r\n</Objects>\r\n</CreateRequest>\r\n</soapenv:Body></soapenv:Envelope>\r\n'
-    };
-request(options, function (error, response) {
-  if (error) throw new Error(error);
-  console.log(response.body);
-}); 
-}) 
-}
+            var request = require('request');
+            var options = 
+            {
+            'method': 'POST',
+            'url': 'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.soap.marketingcloudapis.com/Service.asmx',
+            'headers': { 'Content-Type': 'text/xml','SoapAction': 'Create'},
+            body: '<?xml version="1.0" encoding="UTF-8"?>\r\n<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">          \r\n<soapenv:Header>  <fueloauth>' + access_token + '</fueloauth> </soapenv:Header>   \r\n\r\n<soapenv:Body>    \r\n<CreateRequest xmlns="http://exacttarget.com/wsdl/partnerAPI">      \r\n<Options/>\r\n<Objects xsi:type="ns2:DataExtension" xmlns:ns2="http://exacttarget.com/wsdl/partnerAPI">     \r\n      \r\n<CustomerKey>' + EK_name + '</CustomerKey>            \r\n<Name>' + DE_name + '</Name>            \r\n<Description>Stores the SMS tracking data.</Description><IsSendable>true</IsSendable>         \r\n<IsTestable>false</IsTestable>         \r\n\r\n<Fields>\r\n<Field xsi:type="ns2:DataExtensionField">                  \r\n<CustomerKey>Sid</CustomerKey>                   \r\n<Name>Sid</Name>                 \r\n<Label>Sid</Label>                  \r\n <IsRequired>true</IsRequired>                  \r\n <IsPrimaryKey>true</IsPrimaryKey>                   \r\n <FieldType>Text</FieldType>                  \r\n<MaxLength>200</MaxLength>               \r\n</Field>             \r\n\r\n<Field xsi:type="ns2:DataExtensionField">                    <CustomerKey>From</CustomerKey>                \r\n <Name>From</Name>               \r\n<Label>From</Label>                 \r\n <IsRequired>false</IsRequired>                  \r\n <IsPrimaryKey>false</IsPrimaryKey>                   \r\n<FieldType>Text</FieldType>                  \r\n<MaxLength>100</MaxLength>              \r\n</Field>             \r\n\r\n\r\n <Field xsi:type="ns2:DataExtensionField">                   <CustomerKey>Status</CustomerKey>                    <Name>Status</Name>                 \r\n <Label>Status</Label>                   \r\n <IsRequired>false</IsRequired>                   \r\n <IsPrimaryKey>false</IsPrimaryKey>                   \r\n <FieldType>Text</FieldType>                   \r\n <MaxLength>400</MaxLength>                \r\n</Field> \r\n\r\n<Field xsi:type="ns2:DataExtensionField">                   <CustomerKey>To</CustomerKey>                    <Name>to</Name>                 \r\n <Label>to</Label>                   \r\n <IsRequired>false</IsRequired>                   \r\n <IsPrimaryKey>false</IsPrimaryKey>                   \r\n <FieldType>Text</FieldType>                   \r\n <MaxLength>400</MaxLength>                \r\n</Field>  \r\n\r\n<Field xsi:type="ns2:DataExtensionField">                   <CustomerKey>Direction</CustomerKey>                    <Name>Direction</Name>                 \r\n <Label>Direction</Label>                   \r\n <IsRequired>false</IsRequired>                   \r\n <IsPrimaryKey>false</IsPrimaryKey>                   \r\n <FieldType>Text</FieldType>                   \r\n <MaxLength>400</MaxLength>                \r\n</Field> \r\n\r\n<Field xsi:type="ns2:DataExtensionField">                   <CustomerKey>ErrorCode</CustomerKey>                    <Name>ErrorCode</Name>                 \r\n <Label>ErrorCode</Label>                   \r\n <IsRequired>false</IsRequired>                   \r\n <IsPrimaryKey>false</IsPrimaryKey>                   \r\n <FieldType>Text</FieldType>                   \r\n <MaxLength>400</MaxLength>                \r\n</Field> \r\n\r\n<Field xsi:type="ns2:DataExtensionField">                   <CustomerKey>errorMessage</CustomerKey>                    <Name>errorMessage</Name>                 \r\n <Label>errorMessage</Label>                   \r\n <IsRequired>false</IsRequired>                   \r\n <IsPrimaryKey>false</IsPrimaryKey>                   \r\n <FieldType>Text</FieldType>                   \r\n <MaxLength>400</MaxLength>                \r\n</Field> \r\n         \r\n</Fields>\r\n<SendableDataExtensionField>\r\n               \r\n               <Name>Sid</Name>\r\n            </SendableDataExtensionField>\r\n            <SendableSubscriberField>\r\n               <Name>Subscriber Key</Name>\r\n            </SendableSubscriberField>     \r\n</Objects>\r\n</CreateRequest>\r\n</soapenv:Body></soapenv:Envelope>\r\n'
+            };
+            request(options, function (error, response) {
+                if (error) throw new Error(error);
+                console.log(response.body);
+            }); 
+        }) 
+    }
 
 
 //API to create a DE for WhatsApp if checkbox value is true
@@ -768,3 +770,28 @@ function WpDEcreation()
             })      
     })
 };*/
+
+const marketingCloudCallout = async () => {
+    try {
+        const tokenResponse = await axios.post('https://mc6vgk-sxj9p08pqwxqz9hw9-4my.auth.marketingcloudapis.com/v2/token?Content-Type=application/json', {
+            "grant_type" : "client_credentials",
+            "client_id" : "4nfraga57ld98tn00rmrhbn9",
+            "client_secret" : "qlm3OG67VzLC6nekeeGo1XY2"
+        });
+        console.log('tokenResponse:',tokenResponse);
+        access_token = tokenResponse.body.access_token;
+        let config = {
+            headers: {
+                'Authorization': 'Bearer ' + access_token,
+                'Content-Type': 'application/json'
+            }
+        };
+        console.log('config: ',config);
+        var response = await axios.get('https://mcvm2tq6mhhdt-mf62ghyvq04vt4.rest.marketingcloudapis.com/messaging/v1/messageDefinitionSends/key:17909/send', config);
+        console.log('response:',response);
+        return response;
+    } catch (error) {
+        return error;
+    }
+}
+
