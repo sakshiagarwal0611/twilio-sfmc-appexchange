@@ -397,6 +397,7 @@ function insertTextAtCaret()
 	let x= $('#RichTextEditor').val();
 	console.log("value of x ----> " + x)
 	$('#RichTextEditor').val(x.slice(0,curPos)+"value"+x.slice(curPos));
+	
 	/*
     var sel, range;
 	console.log( ' window.getSelection'  + window.getSelection);
