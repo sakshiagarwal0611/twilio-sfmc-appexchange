@@ -11,7 +11,7 @@ var sms_Ek;
 var whatsapp_Ek;
 var smsCheck;
 var whatsappCheck; 
-var checkCondition = true; 
+//var checkCondition = true; 
 
 exports.logExecuteData = [];
 
@@ -434,7 +434,8 @@ exports.publish = function(req, res)
 //     console.log("checkCondition1" + checkCondition); 
 //    if(checkCondition == true)
 //    {
-    console.log("checkCondition2" + checkCondition);
+
+    //console.log("checkCondition2" + checkCondition);
     console.log("5 -- For Publish");
     console.log("4");
     console.log("3");
