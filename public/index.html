@@ -269,7 +269,7 @@
 	    <div class="slds-form-element"> <!--personalization string insertion dropdown-->
 		    <div class="slds-form-element__control">
 		    <div class="slds-select_container">
-				// onfocus="this.selectedIndex = -1;"
+				
 		    <select class="slds-select" id="ps" onclick="insertAttribute()" >
 			<option hidden selected>None</option>
 			<!--<option value="{{Contact.Attribute.TwilioV1.EmailAddress}}" id="ps1">Email</option>
@@ -386,7 +386,7 @@ function insertTextAtCaret(text)
 				console.log("yeh hai parent Id" + parentID) ;
 				console.log("yeh hai anchor Id" + anchorID) ;
 
-                if(parentID == 'RichTextEditor' || parentID == '' || anchorID == 'RichTextEditor') 
+                if(parentID == 'RichTextEditor' || anchorID == 'RichTextEditor') 
                 {
                     if (sel.getRangeAt && sel.rangeCount) 
                     {
