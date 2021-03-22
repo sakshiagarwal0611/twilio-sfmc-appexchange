@@ -288,7 +288,7 @@
     </div>
 
 <!-- content editable div to create a message body  -->
-<div id="RichTextEditor" class="editor" contenteditable='true'></div>
+<div id="RichTextEditor" class="editor" contenteditable='true' onclick="insertTextAtCaret()"></div>
 <br>	
 
 
@@ -375,14 +375,22 @@ function insertAttribute()
 }
 
 //This function os called to insert the attribute value at cursor position
-function insertTextAtCaret(text)
+//function insertTextAtCaret(text)
+function insertTextAtCaret()
 {
+
+//	if($("#ps").val())
+//	{
+//		var value = $("#ps").val(); 
+//	}
+	
+    
 	console.log("insertTextAtCaret ke andar aagya haii... ")
 	var curPos =  document.getElementById("RichTextEditor").selectionStart; 
 	console.log("cursorPosition ---- > " + curPos); 
 	let x= $('#RichTextEditor').val();
 	console.log("value of x ----> " + x)
-	$('#RichTextEditor').val(x.slice(0,curPos)+text+x.slice(curPos));
+	$('#RichTextEditor').val(x.slice(0,curPos)+"value"+x.slice(curPos));
 	/*
     var sel, range;
 	console.log( ' window.getSelection'  + window.getSelection);
