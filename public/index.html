@@ -373,13 +373,15 @@ function execVal(command, value)
 // This function calls another function to insert the attribute string into the content editable div
 function insertAttribute() 
 {
-	var value = $("#ps").val(); //retrieve the value you want to insert
-	console.log('value------------------->' + value);
-	insertTextAtCaret(value);   //Pass the value to the insert text function	
+	
+//	var value = $("#ps").val(); //retrieve the value you want to insert
+//	console.log('value------------------->' + value);
+	insertTextAtCaret();   //Pass the value to the insert text function	
 }
 
 //This function os called to insert the attribute value at cursor position
 //function insertTextAtCaret(text)
+
 function insertTextAtCaret()
 {
 
