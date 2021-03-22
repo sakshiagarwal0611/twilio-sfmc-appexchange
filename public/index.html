@@ -386,7 +386,7 @@ function insertTextAtCaret(text)
 				console.log("yeh hai parent Id" + parentID) ;
 				console.log("yeh hai anchor Id" + anchorID) ;
 
-                if(parentID == 'RichTextEditor' || anchorID == 'RichTextEditor') 
+                if(parentID == 'RichTextEditor' || parentID == '' || anchorID == 'RichTextEditor') 
                 {
                     if (sel.getRangeAt && sel.rangeCount) 
                     {
