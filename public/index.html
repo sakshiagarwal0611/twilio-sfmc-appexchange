@@ -370,7 +370,7 @@ function insertAttribute()
 //This function os called to insert the attribute value at cursor position
 function insertTextAtCaret(text)
 {
-	document.getElementById("RichTextEditor").selectionStart; 
+	var curPos =  document.getElementById("RichTextEditor").selectionStart; 
 	let x= $('#RichTextEditor').val();
 	$('#text1').val(x.slice(0,curPos)+text+x.slice(curPos));
 	/*
