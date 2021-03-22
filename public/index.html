@@ -370,11 +370,15 @@ function insertAttribute()
 //This function os called to insert the attribute value at cursor position
 function insertTextAtCaret(text)
 {
+	document.getElementById("RichTextEditor").selectionStart; 
+	let x= $('#RichTextEditor').val();
+	$('#text1').val(x.slice(0,curPos)+text+x.slice(curPos));
+	/*
     var sel, range;
 	console.log( ' window.getSelection'  + window.getSelection);
     if (window.getSelection) 
             {
-                sel = window.getSelection();
+                 sel = window.getSelection();
 			//	var conceptName = $('#aioConceptName').find(":selected").val();
 				console.log("selection----------------->" + sel); 
 				console.log("window.getSelection().anchorNode.parentNode.id----->" + window.getSelection().anchorNode.parentNode.id);
@@ -409,6 +413,7 @@ function insertTextAtCaret(text)
 					console.log("Text-------->" + text);
             	}
         }
+		*/
 }
 
 // function to insert image when selected
