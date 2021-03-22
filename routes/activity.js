@@ -546,6 +546,7 @@ exports.publish = function(req, res)
             request(options, function (error, response) {
                 if (error) throw new Error(error);
                 console.log(response.body);
+                console.log("Error in api request" + error);
             }); 
         }) 
     }
