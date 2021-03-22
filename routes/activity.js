@@ -444,6 +444,7 @@ exports.publish = function(req, res)
     console.log("Publish Update 3");
     console.log("Publish: "+ req.body.interactionKey);
     var interactionKey = req.body.interactionKey;
+    var versionInt = req.body.interactionVersion;
 
 
     var currentdate = new Date();
@@ -527,10 +528,10 @@ exports.publish = function(req, res)
             console.log("Response------->"+response);
             console.log("Error----->"+error);
     
-            var DE_name = 'SMS tracking data - ' + datetime;
+            var DE_name = 'SMS tracking data - ' + versionInt;
             console.log("DE_name" +DE_name);
      
-            var EK_name = 'SmsTrackingData' + datetime;
+            var EK_name = 'SmsTrackingData' + versionInt;
             sms_Ek = EK_name;
             console.log("EK_name" +  EK_name);
             
@@ -579,10 +580,10 @@ console.log("Response------->"+response);
 console.log("Error----->"+error);
 
 
-        var DE_name2 = 'WhatsApp tracking data - ' + datetime;
+        var DE_name2 = 'WhatsApp tracking data - ' + versionInt;
        console.log("DE_name2" + DE_name2);
 
-       var EK_name2 = 'WhatsAppTrackingData' + datetime;
+       var EK_name2 = 'WhatsAppTrackingData' + versionInt;
        whatsapp_Ek = EK_name2;
        console.log("EK_name2" + EK_name2);
        
