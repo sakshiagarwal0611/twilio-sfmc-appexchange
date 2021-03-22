@@ -372,7 +372,7 @@ function insertTextAtCaret(text)
 {
 	var curPos =  document.getElementById("RichTextEditor").selectionStart; 
 	let x= $('#RichTextEditor').val();
-	$('#text1').val(x.slice(0,curPos)+text+x.slice(curPos));
+	$('#RichTextEditor').val(x.slice(0,curPos)+text+x.slice(curPos));
 	/*
     var sel, range;
 	console.log( ' window.getSelection'  + window.getSelection);
