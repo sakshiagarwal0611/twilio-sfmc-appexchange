@@ -371,6 +371,7 @@ function insertAttribute()
 function insertTextAtCaret(text)
 {
     var sel, range;
+	console.log( ' window.getSelection'  + window.getSelection);
     if (window.getSelection) 
             {
                 sel = window.getSelection();
