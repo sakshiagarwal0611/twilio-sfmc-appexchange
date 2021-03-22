@@ -379,16 +379,21 @@ function insertTextAtCaret(text)
                 console.log("window.getSelection().id--------------------------->" + window.getSelection().id);
                 var parentID = window.getSelection().anchorNode.parentNode.id;
                 var anchorID = window.getSelection().anchorNode.id;
-               // if(parentID == 'RichTextEditor' || anchorID == 'RichTextEditor') 
-                //{
+				
+				console.log("yeh hai parent Id" + parentID) ;
+				console.log("yeh hai anchor Id" + anchorID) ;
+
+                if(parentID == 'RichTextEditor' || anchorID == 'RichTextEditor') 
+                {
                     if (sel.getRangeAt && sel.rangeCount) 
                     {
                         range = sel.getRangeAt(0);
                         range.deleteContents();
                         range.insertNode( document.createTextNode(text) );
                     }
+				}
               
-            } else if (document.selection && document.selection.createRange) 
+			 } else if (document.selection && document.selection.createRange) 
 			{
                 if ( window.getSelection().anchorNode.parentNode.id ==  "RichTextEditor" )
                 {
