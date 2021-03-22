@@ -431,8 +431,10 @@ res.send(200, 'Execute');
  */
 exports.publish = function(req, res) 
 {
+    console.log("checkCondition1" + checkCondition); 
    if(checkCondition == true)
    {
+    console.log("checkCondition2" + checkCondition);
     console.log("5 -- For Publish");
     console.log("4");
     console.log("3");
@@ -601,9 +603,10 @@ console.log("Error----->"+error);
 }
    
 checkCondition = false;
+console.log("checkCondition3" + checkCondition);
 }
 
-
+console.log("checkCondition4" + checkCondition);
 
     logData(req);
     res.send(200, 'Publish');
