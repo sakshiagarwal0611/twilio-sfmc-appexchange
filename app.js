@@ -38,7 +38,7 @@ console.log("Save function is executed successfully");
 app.post('/journeybuilder/validate/', activity.validate );
 console.log("Validate function is executed successfully");
 //app.post('/journeybuilder/publish/', activity.publish );
-//console.log("Publish function is executed successfully");
+console.log("Publish function is executed successfully");
 app.post('/journeybuilder/execute/', activity.execute );
 console.log("Execute function is executed successfully");
 
