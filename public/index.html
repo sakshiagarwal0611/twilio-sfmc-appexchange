@@ -375,7 +375,8 @@ function insertTextAtCaret(text)
     if (window.getSelection) 
             {
                 sel = window.getSelection();
-			//	var conceptName = $('#aioConceptName').find(":selected").val();
+				var conceptName = $('#ps').find(":selected").val();
+				console.loh ( "conceptName selected --- > "  + conceptName );
 				console.log("selection----------------->" + sel); 
 				console.log("window.getSelection().anchorNode.parentNode.id----->" + window.getSelection().anchorNode.parentNode.parentNode.id);
 				console.log("window.getSelection().anchorNode.parentNode----->" + window.getSelection().anchorNode.parentNode.parentNode);
