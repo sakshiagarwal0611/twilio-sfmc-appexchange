@@ -277,7 +277,7 @@
 		    <div class="slds-form-element__control">
 		    <div class="slds-select_container">
 				
-		    <select class="slds-select" id="ps" onclick="insertTextAtCaret()" >
+		    <select class="slds-select" id="ps" onclick="insertAttribute()" >
 			<option hidden selected>None</option>
 			<!--<option value="{{Contact.Attribute.TwilioV1.EmailAddress}}" id="ps1">Email</option>
 			<option value="{{Contact.Attribute.TwilioV1.TwilioNumber}}" id="ps2">Phone number</option> -->
@@ -288,12 +288,12 @@
     </div>
 
 <!-- content editable div to create a message body  -->
-<!-- <div id="RichTextEditor" class="editor" contenteditable='true' onclick="insertTextAtCaret()"></div>  -->
-<textarea rows="4" 
+<div id="RichTextEditor" class="editor" contenteditable='true'></div>  
+<!-- <textarea rows="4" 
 id="RichTextEditor" 
 cols="50"> 
-</textarea> 
-<br>	
+</textarea>  <br>-->
+	
 
 
 <!--  Display the selected image message  -->
@@ -370,19 +370,19 @@ function execVal(command, value)
 	document.execCommand(command, false, value);
 }
 		
-// This function calls another function to insert the attribute string into the content editable div
-//function insertAttribute() 
-//{
+//This function calls another function to insert the attribute string into the content editable div
+function insertAttribute() 
+{
 	
-//	var value = $("#ps").val(); //retrieve the value you want to insert
-//	console.log('value------------------->' + value);
-	//insertTextAtCaret();   //Pass the value to the insert text function	
-//}
+	var value = $("#ps").val(); //retrieve the value you want to insert
+	console.log('value------------------->' + value);
+	insertTextAtCaret(value);   //Pass the value to the insert text function	
+}
 
 //This function os called to insert the attribute value at cursor position
-//function insertTextAtCaret(text)
+function insertTextAtCaret(text)
 
-function insertTextAtCaret()
+//function insertTextAtCaret()
 {
 
 //	if($("#ps").val())
@@ -391,14 +391,14 @@ function insertTextAtCaret()
 //	}
 	
     
-	console.log("insertTextAtCaret ke andar aagya haii... ")
+	/*console.log("insertTextAtCaret ke andar aagya haii... ")
 	var curPos =  document.getElementById("RichTextEditor").selectionStart; 
 	console.log("cursorPosition ---- > " + curPos); 
 	let x= $('#RichTextEditor').val();
 	console.log("value of x ----> " + x)
-	$('#RichTextEditor').val(x.slice(0,curPos)+"value"+x.slice(curPos));
+	$('#RichTextEditor').val(x.slice(0,curPos)+"value"+x.slice(curPos));*/
 
-	/*
+	
     var sel, range;
 	console.log( ' window.getSelection'  + window.getSelection);
     if (window.getSelection) 
@@ -438,7 +438,7 @@ function insertTextAtCaret()
 					console.log("Text-------->" + text);
             	}
         }
-		*/
+		
 }
 
 // function to insert image when selected
