@@ -33,18 +33,14 @@ app.post('/login', routes.login );
 app.post('/logout', routes.logout );
 
 // Custom Hello World Activity Routes
-app.post('/journeybuilder/publish/', activity.publish );
-console.log("Save function is executed successfully");
 
+console.log("Save function is executed successfully");
 app.post('/journeybuilder/save/', activity.save );
 console.log("Save function is executed successfully");
-
 app.post('/journeybuilder/validate/', activity.validate );
-
-
+app.post('/journeybuilder/publish/', activity.publish );
 console.log("Publish function is executed successfully");
 app.post('/journeybuilder/execute/', activity.execute );
-
 console.log("Execute function is executed successfully");
 
 
