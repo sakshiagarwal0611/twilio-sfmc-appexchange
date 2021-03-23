@@ -282,7 +282,7 @@ exports.execute = function(req, res) {
     //console.log("RequestBody"+JSON.stringify(req.body.inArguments));
     var requestBody = req.body.inArguments[0];
     console.log("RequestBody"+JSON.stringify(requestBody));
-
+    console.log("interaction key" + req.body.interactionKey);
 
     const accountSid = requestBody.accountSid;
     const authToken = requestBody.authToken;
