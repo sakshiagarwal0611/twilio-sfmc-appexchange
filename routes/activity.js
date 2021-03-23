@@ -91,8 +91,8 @@ exports.save = function(req, res) {
 
 
 // This creates DEs
-    //console.log("Publish: "+ req.body.interactionKey);
-    //var interactionKey = req.body.interactionKey;
+    console.log("Publish: "+ req.body.interactionKey);
+    var interactionKey = req.body.interactionKey;
     var versionInt = req.body.interactionVersion;
 
 
