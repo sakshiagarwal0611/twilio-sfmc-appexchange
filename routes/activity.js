@@ -283,7 +283,8 @@ exports.execute = function(req, res) {
     var requestBody = req.body.inArguments[0];
     console.log("RequestBody"+JSON.stringify(requestBody));
     console.log("interaction key" + JSON.stringify(req.body.activityObjectID));
-    var acitvityID = req.body.activityObjectID;
+    var activityID = req.body.activityObjectID;
+    console.log("activityID" + activityID);
 
     const accountSid = requestBody.accountSid;
     const authToken = requestBody.authToken;
@@ -390,7 +391,7 @@ exports.execute = function(req, res) {
         'errorCode' : errorCode,
         'errorMessage' : errorMessage,
         'Channel': 'WhatsApp',
-        'ActivityID': acitvityID
+        'ActivityID': activityID
 }]
 },
      json: true
@@ -485,7 +486,7 @@ exports.execute = function(req, res) {
        'errorCode' : errorCode,
        'errorMessage' : errorMessage,
        'Channel': 'WhatsApp',
-       'ActivityID': acitvityID
+       'ActivityID': activityID
 }]
 },
     json: true
@@ -579,7 +580,7 @@ if(sms == true)
         'errorCode' : errorCode,
         'errorMessage' : errorMessage,
         'Channel': 'SMS',
-        'ActivityID': acitvityID
+        'ActivityID': activityID
 }]
 },
      json: true
