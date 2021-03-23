@@ -389,7 +389,8 @@ exports.execute = function(req, res) {
         'direction' : direction,
         'errorCode' : errorCode,
         'errorMessage' : errorMessage,
-        'Channel': 'WhatsApp'
+        'Channel': 'WhatsApp',
+        'ActivityID': acitvityID
 }]
 },
      json: true
@@ -483,7 +484,8 @@ exports.execute = function(req, res) {
        'direction' : direction,
        'errorCode' : errorCode,
        'errorMessage' : errorMessage,
-       'Channel': 'WhatsApp'
+       'Channel': 'WhatsApp',
+       'ActivityID': acitvityID
 }]
 },
     json: true
@@ -576,7 +578,8 @@ if(sms == true)
         'direction' : direction,
         'errorCode' : errorCode,
         'errorMessage' : errorMessage,
-        'Channel': 'SMS'
+        'Channel': 'SMS',
+        'ActivityID': acitvityID
 }]
 },
      json: true
