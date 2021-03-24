@@ -523,7 +523,7 @@ if(sms == true)
             from: '+12058914350',
             body: wPmessage,
             //body: "Please enter your order as such:\n" + "- 3 beers\n - 2 glasses of red wine",
-            to: '+16464940308'
+            to: '6464940308'
         },
         function(err, responseData){
         if(!err) {
