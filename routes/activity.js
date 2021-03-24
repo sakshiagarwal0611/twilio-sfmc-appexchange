@@ -578,7 +578,7 @@ if(sms == true)
         'direction' : direction,
         'errorCode' : errorCode,
         'errorMessage' : errorMessage,
-        'Channel': 'WhatsApp',
+        'Channel': 'SMS',
         'ActivityID': activityID,
         'ActivityName': ActivityName,
         'numMedia':numMedia,
