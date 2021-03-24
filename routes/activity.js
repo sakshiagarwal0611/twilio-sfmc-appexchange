@@ -152,8 +152,8 @@ exports.save = function(req, res) {
 
 
 //API to create a DE for SMS if checkbox value is true
-    if(smsCheck == true)
-    {
+    // if(smsCheck == true)
+    // {
         
       /*  var Desms =  smsDEcreation(smsCheck);
         console.log(" Output------->" + Desms); */
@@ -200,60 +200,60 @@ exports.save = function(req, res) {
                 console.log("Error in api request" + error);
             }); 
         }) 
-    }
+    // }
 
 
 //API to create a DE for WhatsApp if checkbox value is true
-if(whatsappCheck == true)
-{
+// if(whatsappCheck == true)
+// {
 
-    /*var DeWhatsapp = WpDEcreation(whatsappCheck);
-    console.log(" Output2 DeWhatsapp------->" + DeWhatsapp);*/
-    const https = require('https');
-    console.log("we are trying to get the authorization token here for Whatsapp");
-    var request = require('request');
-    request.post({
-    headers: {'content-type' : 'application/json'},
-    url:     'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.auth.marketingcloudapis.com/v2/token',
-    body:    {
-               'client_id': '4nfraga57ld98tn00rmrhbn9',
-               'client_secret': 'qlm3OG67VzLC6nekeeGo1XY2',
-               'grant_type': 'client_credentials'
-},
-   json: true
-}, function(error, response, body){
-var access_token = body.access_token;
-console.log("Access------>"+body.access_token);
-console.log("access_token------>" + access_token);
-console.log("Response------->"+response);
-console.log("Error----->"+error);
+//     /*var DeWhatsapp = WpDEcreation(whatsappCheck);
+//     console.log(" Output2 DeWhatsapp------->" + DeWhatsapp);*/
+//     const https = require('https');
+//     console.log("we are trying to get the authorization token here for Whatsapp");
+//     var request = require('request');
+//     request.post({
+//     headers: {'content-type' : 'application/json'},
+//     url:     'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.auth.marketingcloudapis.com/v2/token',
+//     body:    {
+//                'client_id': '4nfraga57ld98tn00rmrhbn9',
+//                'client_secret': 'qlm3OG67VzLC6nekeeGo1XY2',
+//                'grant_type': 'client_credentials'
+// },
+//    json: true
+// }, function(error, response, body){
+// var access_token = body.access_token;
+// console.log("Access------>"+body.access_token);
+// console.log("access_token------>" + access_token);
+// console.log("Response------->"+response);
+// console.log("Error----->"+error);
 
 
-        var DE_name2 = 'WhatsApp tracking data - ' + versionInt;
-       console.log("DE_name2" + DE_name2);
+//         var DE_name2 = 'WhatsApp tracking data - ' + versionInt;
+//        console.log("DE_name2" + DE_name2);
 
-       var EK_name2 = 'WhatsAppTrackingData' + versionInt;
-       whatsapp_Ek = EK_name2;
-       console.log("EK_name2" + EK_name2);
+//        var EK_name2 = 'WhatsAppTrackingData' + versionInt;
+//        whatsapp_Ek = EK_name2;
+//        console.log("EK_name2" + EK_name2);
        
         
-        var request = require('request');
-        var options = {
-        'method': 'POST',
-        'url': 'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.soap.marketingcloudapis.com/Service.asmx',
-        'headers': {
-        'Content-Type': 'text/xml',
-        'SoapAction': 'Create'
-        },
-        body: '<?xml version="1.0" encoding="UTF-8"?>\r\n<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">          \r\n<soapenv:Header>  <fueloauth>' + access_token + '</fueloauth> </soapenv:Header>   \r\n\r\n<soapenv:Body>    \r\n<CreateRequest xmlns="http://exacttarget.com/wsdl/partnerAPI">      \r\n<Options/>\r\n<Objects xsi:type="ns2:DataExtension" xmlns:ns2="http://exacttarget.com/wsdl/partnerAPI">     \r\n      \r\n<CustomerKey>' + EK_name2 + '</CustomerKey>            \r\n<Name>' + DE_name2 + '</Name>\r\n<Description>Stores the WhatsApp tracking data.</Description><IsSendable>true</IsSendable>         \r\n<IsTestable>false</IsTestable>         \r\n\r\n<Fields>\r\n<Field xsi:type="ns2:DataExtensionField">                  \r\n<CustomerKey>Sid</CustomerKey>                   \r\n<Name>Sid</Name>                 \r\n<Label>Sid</Label>                  \r\n <IsRequired>true</IsRequired>                  \r\n <IsPrimaryKey>true</IsPrimaryKey>                   \r\n <FieldType>Text</FieldType>                  \r\n<MaxLength>200</MaxLength>               \r\n</Field>             \r\n\r\n<Field xsi:type="ns2:DataExtensionField">                    <CustomerKey>From</CustomerKey>                \r\n <Name>From</Name>               \r\n<Label>From</Label>                 \r\n <IsRequired>false</IsRequired>                  \r\n <IsPrimaryKey>false</IsPrimaryKey>                   \r\n<FieldType>Text</FieldType>                  \r\n<MaxLength>100</MaxLength>              \r\n</Field>             \r\n\r\n\r\n <Field xsi:type="ns2:DataExtensionField">                   <CustomerKey>Status</CustomerKey>                    <Name>Status</Name>                 \r\n <Label>Status</Label>                   \r\n <IsRequired>false</IsRequired>                   \r\n <IsPrimaryKey>false</IsPrimaryKey>                   \r\n <FieldType>Text</FieldType>                   \r\n <MaxLength>400</MaxLength>                \r\n</Field> \r\n\r\n<Field xsi:type="ns2:DataExtensionField">                   <CustomerKey>To</CustomerKey>                    <Name>to</Name>                 \r\n <Label>to</Label>                   \r\n <IsRequired>false</IsRequired>                   \r\n <IsPrimaryKey>false</IsPrimaryKey>                   \r\n <FieldType>Text</FieldType>                   \r\n <MaxLength>400</MaxLength>                \r\n</Field>  \r\n\r\n<Field xsi:type="ns2:DataExtensionField">                   <CustomerKey>Direction</CustomerKey>                    <Name>Direction</Name>                 \r\n <Label>Direction</Label>                   \r\n <IsRequired>false</IsRequired>                   \r\n <IsPrimaryKey>false</IsPrimaryKey>                   \r\n <FieldType>Text</FieldType>                   \r\n <MaxLength>400</MaxLength>                \r\n</Field> \r\n\r\n<Field xsi:type="ns2:DataExtensionField">                   <CustomerKey>ErrorCode</CustomerKey>                    <Name>ErrorCode</Name>                 \r\n <Label>ErrorCode</Label>                   \r\n <IsRequired>false</IsRequired>                   \r\n <IsPrimaryKey>false</IsPrimaryKey>                   \r\n <FieldType>Text</FieldType>                   \r\n <MaxLength>400</MaxLength>                \r\n</Field> \r\n\r\n<Field xsi:type="ns2:DataExtensionField">                   <CustomerKey>errorMessage</CustomerKey>                    <Name>errorMessage</Name>                 \r\n <Label>errorMessage</Label>                   \r\n <IsRequired>false</IsRequired>                   \r\n <IsPrimaryKey>false</IsPrimaryKey>\r\n <FieldType>Text</FieldType>\r\n <MaxLength>400</MaxLength> \r\n</Field>  <Field xsi:type="ns2:DataExtensionField">                   <CustomerKey>Channel</CustomerKey>                    <Name>Channel</Name>                 \r\n <Label>Channel</Label>                   \r\n <IsRequired>false</IsRequired>                   \r\n <IsPrimaryKey>false</IsPrimaryKey>                   \r\n <FieldType>Text</FieldType>                   \r\n <MaxLength>400</MaxLength>                \r\n</Field> \r\n<Field xsi:type="ns2:DataExtensionField">                   <CustomerKey>ActivityID</CustomerKey>                    <Name>ActivityID</Name>                 \r\n <Label>ActivityID</Label>                   \r\n <IsRequired>false</IsRequired>                   \r\n <IsPrimaryKey>false</IsPrimaryKey>                   \r\n <FieldType>Text</FieldType>                   \r\n <MaxLength>400</MaxLength>                \r\n</Field> <Field xsi:type="ns2:DataExtensionField">                   <CustomerKey>ActivityName</CustomerKey>                    <Name>ActivityName</Name>                 \r\n <Label>ActivityName</Label>                   \r\n <IsRequired>false</IsRequired>                   \r\n <IsPrimaryKey>false</IsPrimaryKey>                   \r\n <FieldType>Text</FieldType>                   \r\n <MaxLength>400</MaxLength>                \r\n</Field> \r\n</Fields>\r\n<SendableDataExtensionField>\r\n  \r\n <Name>Sid</Name>\r\n            </SendableDataExtensionField>\r\n <SendableSubscriberField>\r\n <Name>Subscriber Key</Name>\r\n </SendableSubscriberField> \r\n</Objects>\r\n</CreateRequest>\r\n</soapenv:Body></soapenv:Envelope>\r\n'
+//         var request = require('request');
+//         var options = {
+//         'method': 'POST',
+//         'url': 'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.soap.marketingcloudapis.com/Service.asmx',
+//         'headers': {
+//         'Content-Type': 'text/xml',
+//         'SoapAction': 'Create'
+//         },
+//         body: '<?xml version="1.0" encoding="UTF-8"?>\r\n<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">          \r\n<soapenv:Header>  <fueloauth>' + access_token + '</fueloauth> </soapenv:Header>   \r\n\r\n<soapenv:Body>    \r\n<CreateRequest xmlns="http://exacttarget.com/wsdl/partnerAPI">      \r\n<Options/>\r\n<Objects xsi:type="ns2:DataExtension" xmlns:ns2="http://exacttarget.com/wsdl/partnerAPI">     \r\n      \r\n<CustomerKey>' + EK_name2 + '</CustomerKey>            \r\n<Name>' + DE_name2 + '</Name>\r\n<Description>Stores the WhatsApp tracking data.</Description><IsSendable>true</IsSendable>         \r\n<IsTestable>false</IsTestable>         \r\n\r\n<Fields>\r\n<Field xsi:type="ns2:DataExtensionField">                  \r\n<CustomerKey>Sid</CustomerKey>                   \r\n<Name>Sid</Name>                 \r\n<Label>Sid</Label>                  \r\n <IsRequired>true</IsRequired>                  \r\n <IsPrimaryKey>true</IsPrimaryKey>                   \r\n <FieldType>Text</FieldType>                  \r\n<MaxLength>200</MaxLength>               \r\n</Field>             \r\n\r\n<Field xsi:type="ns2:DataExtensionField">                    <CustomerKey>From</CustomerKey>                \r\n <Name>From</Name>               \r\n<Label>From</Label>                 \r\n <IsRequired>false</IsRequired>                  \r\n <IsPrimaryKey>false</IsPrimaryKey>                   \r\n<FieldType>Text</FieldType>                  \r\n<MaxLength>100</MaxLength>              \r\n</Field>             \r\n\r\n\r\n <Field xsi:type="ns2:DataExtensionField">                   <CustomerKey>Status</CustomerKey>                    <Name>Status</Name>                 \r\n <Label>Status</Label>                   \r\n <IsRequired>false</IsRequired>                   \r\n <IsPrimaryKey>false</IsPrimaryKey>                   \r\n <FieldType>Text</FieldType>                   \r\n <MaxLength>400</MaxLength>                \r\n</Field> \r\n\r\n<Field xsi:type="ns2:DataExtensionField">                   <CustomerKey>To</CustomerKey>                    <Name>to</Name>                 \r\n <Label>to</Label>                   \r\n <IsRequired>false</IsRequired>                   \r\n <IsPrimaryKey>false</IsPrimaryKey>                   \r\n <FieldType>Text</FieldType>                   \r\n <MaxLength>400</MaxLength>                \r\n</Field>  \r\n\r\n<Field xsi:type="ns2:DataExtensionField">                   <CustomerKey>Direction</CustomerKey>                    <Name>Direction</Name>                 \r\n <Label>Direction</Label>                   \r\n <IsRequired>false</IsRequired>                   \r\n <IsPrimaryKey>false</IsPrimaryKey>                   \r\n <FieldType>Text</FieldType>                   \r\n <MaxLength>400</MaxLength>                \r\n</Field> \r\n\r\n<Field xsi:type="ns2:DataExtensionField">                   <CustomerKey>ErrorCode</CustomerKey>                    <Name>ErrorCode</Name>                 \r\n <Label>ErrorCode</Label>                   \r\n <IsRequired>false</IsRequired>                   \r\n <IsPrimaryKey>false</IsPrimaryKey>                   \r\n <FieldType>Text</FieldType>                   \r\n <MaxLength>400</MaxLength>                \r\n</Field> \r\n\r\n<Field xsi:type="ns2:DataExtensionField">                   <CustomerKey>errorMessage</CustomerKey>                    <Name>errorMessage</Name>                 \r\n <Label>errorMessage</Label>                   \r\n <IsRequired>false</IsRequired>                   \r\n <IsPrimaryKey>false</IsPrimaryKey>\r\n <FieldType>Text</FieldType>\r\n <MaxLength>400</MaxLength> \r\n</Field>  <Field xsi:type="ns2:DataExtensionField">                   <CustomerKey>Channel</CustomerKey>                    <Name>Channel</Name>                 \r\n <Label>Channel</Label>                   \r\n <IsRequired>false</IsRequired>                   \r\n <IsPrimaryKey>false</IsPrimaryKey>                   \r\n <FieldType>Text</FieldType>                   \r\n <MaxLength>400</MaxLength>                \r\n</Field> \r\n<Field xsi:type="ns2:DataExtensionField">                   <CustomerKey>ActivityID</CustomerKey>                    <Name>ActivityID</Name>                 \r\n <Label>ActivityID</Label>                   \r\n <IsRequired>false</IsRequired>                   \r\n <IsPrimaryKey>false</IsPrimaryKey>                   \r\n <FieldType>Text</FieldType>                   \r\n <MaxLength>400</MaxLength>                \r\n</Field> <Field xsi:type="ns2:DataExtensionField">                   <CustomerKey>ActivityName</CustomerKey>                    <Name>ActivityName</Name>                 \r\n <Label>ActivityName</Label>                   \r\n <IsRequired>false</IsRequired>                   \r\n <IsPrimaryKey>false</IsPrimaryKey>                   \r\n <FieldType>Text</FieldType>                   \r\n <MaxLength>400</MaxLength>                \r\n</Field> \r\n</Fields>\r\n<SendableDataExtensionField>\r\n  \r\n <Name>Sid</Name>\r\n            </SendableDataExtensionField>\r\n <SendableSubscriberField>\r\n <Name>Subscriber Key</Name>\r\n </SendableSubscriberField> \r\n</Objects>\r\n</CreateRequest>\r\n</soapenv:Body></soapenv:Envelope>\r\n'
 
-        };
-        request(options, function (error, response) {
-        if (error) throw new Error(error);
-        console.log(response.body);
-        });
-        })  
-}  
+//         };
+//         request(options, function (error, response) {
+//         if (error) throw new Error(error);
+//         console.log(response.body);
+//         });
+//         })  
+// }  
    
 // This creates DEs
 
@@ -377,7 +377,7 @@ exports.execute = function(req, res) {
   
   request.post({
   headers: {'content-type' : 'application/json','Authorization': 'Bearer ' + access_token},
-  url:     'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.rest.marketingcloudapis.com/data/v1/async/dataextensions/key:'+ whatsapp_Ek +'/rows',
+  url:     'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.rest.marketingcloudapis.com/data/v1/async/dataextensions/key:'+ sms_Ek +'/rows',
   body:    {
    "items":
 [
@@ -473,7 +473,7 @@ exports.execute = function(req, res) {
   
  request.post({
   headers: {'content-type' : 'application/json','Authorization': 'Bearer ' + access_token},
-  url:     'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.rest.marketingcloudapis.com/data/v1/async/dataextensions/key:' + whatsapp_Ek +'/rows',
+  url:     'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.rest.marketingcloudapis.com/data/v1/async/dataextensions/key:' + sms_Ek +'/rows',
   body:    {
    "items":
 [
