@@ -12,6 +12,8 @@ var whatsapp_Ek;
 var smsCheck;
 var whatsappCheck; 
 var journeyName;
+var DE_name;
+var EK_name;
 //var checkCondition = true; 
 
 exports.logExecuteData = [];
@@ -135,10 +137,6 @@ exports.save = function(req, res) {
         json: true
         },function(error, response, body){
             console.log("requestId---------->"+body.requestId);
-            //console.log("body--------->"+body);
-            //console.log("body--------->"+JSON.stringify(body));
-            //console.log("body.activities[0]--------->"+body.activities[0].arguments.execute.inArguments[0].SMS);
-            //console.log("body.activities[0]--------->"+body.activities[0].arguments.execute.inArguments[0].WhatsApp);
             console.log("response--------->"+response);
             console.log("error-------->"+error);  
             smsCheck = body.activities[0].arguments.execute.inArguments[0].SMS;
@@ -147,6 +145,12 @@ exports.save = function(req, res) {
             console.log("whatsappCheck-------->"+whatsappCheck);
             journeyName = body.name;
             console.log("This is journey name------>" + journeyName);
+            DE_name = journeyName + '-Tracking data-' +versionInt;
+            console.log("DE_name" +DE_name);
+     
+            EK_name = journeyName + 'TrackingData' + versionInt;
+            sms_Ek = EK_name;
+            console.log("EK_name" +  EK_name);
         });
     }); 
     
@@ -173,12 +177,13 @@ exports.save = function(req, res) {
             console.log("Response------->"+response);
             console.log("Error----->"+error);
     
-            var DE_name = journeyName + '-Tracking data-' +versionInt;
-            console.log("DE_name" +DE_name);
+            // var DE_name = journeyName + '-Tracking data-' +versionInt;
+             console.log("DE_name" +DE_name);
      
-            var EK_name = journeyName + 'TrackingData' + versionInt;
-            sms_Ek = EK_name;
-            console.log("EK_name" +  EK_name);
+            // var EK_name = journeyName + 'TrackingData' + versionInt;
+            // sms_Ek = EK_name;
+             console.log("EK_name" +  EK_name);
+             console.log("journeyName" +  journeyName);
             
              
             var request = require('request');
