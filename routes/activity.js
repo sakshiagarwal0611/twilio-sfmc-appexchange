@@ -332,7 +332,7 @@ exports.execute = function(req, res) {
             
         var accountSid = responseData.accountSid;
         var apiVersion = responseData.apiVersion;
-        var messageBody = responseData.body;
+        var messageBodytracking = responseData.body;
         var from = responseData.from;
         var sid = responseData.sid;
         var status = responseData.status;
@@ -378,7 +378,7 @@ exports.execute = function(req, res) {
     {
        // 'accountSid':accountSid,
        // 'apiVersion':apiVersion,
-        'body':messageBody,
+       
         'from': from,
         'sid':sid,
         'status': status,
@@ -393,7 +393,8 @@ exports.execute = function(req, res) {
         'messagingServiceSid':messagingServiceSid,
         'numSegments':numSegments,
         'price':price,
-        'priceUnit': priceUnit
+        'priceUnit': priceUnit,
+        'body':messageBodytracking,
 }]
 },
      json: true
