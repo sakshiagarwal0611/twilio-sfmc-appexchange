@@ -90,8 +90,6 @@ exports.save = function(req, res) {
     console.log("2");
     console.log("1");
 
-
-// This creates DEs
     console.log("Publish: "+ req.body.interactionKey);
     var interactionKey = req.body.interactionKey;
     var versionInt = req.body.interactionVersion;
@@ -144,7 +142,7 @@ exports.save = function(req, res) {
             console.log("response--------->"+response);
             console.log("error-------->"+error);  
             smsCheck = body.activities[0].arguments.execute.inArguments[0].SMS;
-            whatsappCheck = body.activities[0].arguments.execute.inArguments[0].WhatsApp ;
+            whatsappCheck = body.activities[0].arguments.execute.inArguments[0].WhatsApp;
             console.log("smsCheck--------->"+smsCheck);
             console.log("whatsappCheck-------->"+whatsappCheck);
             journeyName = body.name;
@@ -155,13 +153,8 @@ exports.save = function(req, res) {
 
 
 //API to create a DE for SMS if checkbox value is true
-    if(journeyName != null)
-    {
-        
-      /*  var Desms =  smsDEcreation(smsCheck);
-        console.log(" Output------->" + Desms); */
 
-        const https = require('https');
+        //const https = require('https');
         console.log("we are trying to get the authorization token here for SMS");
         var request = require('request');
         request.post({
@@ -205,7 +198,7 @@ body: '<?xml version="1.0" encoding="UTF-8"?>\r\n<soapenv:Envelope xmlns:soapenv
                 console.log("Error in api request" + error);
             }); 
         }) 
-     }
+     
 
 
 //API to create a DE for WhatsApp if checkbox value is true
