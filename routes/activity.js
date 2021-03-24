@@ -151,15 +151,10 @@ exports.save = function(req, res) {
             EK_name = journeyName + 'TrackingData' + versionInt;
             sms_Ek = EK_name;
             console.log("EK_name" +  EK_name);
-        });
-    }); 
-    
 
 
-//API to create a DE for SMS if checkbox value is true
-
-        //const https = require('https');
-        console.log("we are trying to get the authorization token here for SMS");
+            const https = require('https');
+            console.log("we are trying to get the authorization token here for SMS");
         var request = require('request');
         request.post({
             headers: {'content-type' : 'application/json'},
@@ -203,6 +198,15 @@ body: '<?xml version="1.0" encoding="UTF-8"?>\r\n<soapenv:Envelope xmlns:soapenv
                 console.log("Error in api request" + error);
             }); 
         }) 
+        });
+    }); 
+    
+
+
+//API to create a DE for SMS if checkbox value is true
+
+        //const https = require('https');
+        
      
 
 
