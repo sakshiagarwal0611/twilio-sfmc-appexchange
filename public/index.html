@@ -83,6 +83,10 @@
 		   -ms-user-select: none; /* Internet Explorer/Edge */ 
 		    user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
 	    }
+	#limit
+		{
+			display:none;
+		}
 /* Modal CSS for the images display */	      
     .modal 
 		{
@@ -293,7 +297,7 @@
 <div id="RichTextEditor" class="editor" contenteditable='true'></div>  
 <div class="slds-text-heading_small instruction noselect" id="heading">Message Length</div>
 <p id='char-count'></p>
-<p id="limit" hidden>Messages with length more than 160 are sent as segments and are charged extra</p>
+<p id="limit">Messages with length more than 160 are sent as segments and are charged extra.</p>
 <!-- <textarea rows="4" 
 id="RichTextEditor" 
 cols="50"> 
