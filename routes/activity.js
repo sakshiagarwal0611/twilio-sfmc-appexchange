@@ -430,7 +430,7 @@ exports.execute = function(req, res) {
             
         var accountSid = responseData.accountSid;
         var apiVersion = responseData.apiVersion;
-        var body = responseData.body;
+        var messageBodytracking = responseData.body;
         var from = responseData.from;
         var sid = responseData.sid;
         var status = responseData.status;
@@ -438,6 +438,13 @@ exports.execute = function(req, res) {
         var direction = responseData.direction;
         var errorCode = responseData.errorCode;
         var errorMessage = responseData.errorMessage;
+        var numMedia = responseData.numMedia;
+        var messagingServiceSid= responseData.messagingServiceSid;
+        var numSegments = responseData.numSegments;
+        var price = responseData.price;
+        var priceUnit = responseData.priceUnit;
+        var dateCreated = responseData.dateCreated;
+        var dateUpdated= responseData. dateUpdated;
     
         
             
@@ -469,19 +476,24 @@ exports.execute = function(req, res) {
    "items":
 [
     {
-       // 'accountSid':accountSid,
-       // 'apiVersion':apiVersion,
-       // 'body':body,
-       'from': from,
-       'sid':sid,
-       'status': status,
-       'to': to,
-       'direction' : direction,
-       'errorCode' : errorCode,
-       'errorMessage' : errorMessage,
-       'Channel': 'WhatsApp',
-       'ActivityID': activityID,
-       'ActivityName': ActivityName
+        'from': from,
+        'sid':sid,
+        'status': status,
+        'to': to,
+        'direction' : direction,
+        'errorCode' : errorCode,
+        'errorMessage' : errorMessage,
+        'Channel': 'WhatsApp',
+        'ActivityID': activityID,
+        'ActivityName': ActivityName,
+        'numMedia':numMedia,
+        'messagingServiceSid':messagingServiceSid,
+        'numSegments':numSegments,
+        'price':price,
+        'priceUnit': priceUnit,
+        'body':messageBodytracking,
+        'dateCreated': dateCreated,
+        'dateUpdated':dateUpdated
 }]
 },
     json: true
@@ -511,21 +523,10 @@ if(sms == true)
         function(err, responseData){
         if(!err) {
         console.log(responseData);
-        console.log(responseData.accountSid); 
-        console.log(responseData.apiVersion);
-        console.log(responseData.body); 
-        console.log(responseData.from); 
-        console.log(responseData.sid);
-        console.log(responseData.status);
-        console.log(responseData.to);
-        console.log(responseData.direction); 
-        console.log(responseData.errorCode); 
-        console.log(responseData.errorMessage);
-            
-            
+    
         var accountSid = responseData.accountSid;
         var apiVersion = responseData.apiVersion;
-        var body = responseData.body;
+        var messageBodytracking = responseData.body;
         var from = responseData.from;
         var sid = responseData.sid;
         var status = responseData.status;
@@ -533,6 +534,13 @@ if(sms == true)
         var direction = responseData.direction;
         var errorCode = responseData.errorCode;
         var errorMessage = responseData.errorMessage;
+        var numMedia = responseData.numMedia;
+        var messagingServiceSid= responseData.messagingServiceSid;
+        var numSegments = responseData.numSegments;
+        var price = responseData.price;
+        var priceUnit = responseData.priceUnit;
+        var dateCreated = responseData.dateCreated;
+        var dateUpdated= responseData. dateUpdated;
         
             
         const https = require('https');
@@ -563,9 +571,6 @@ if(sms == true)
    "items":
 [
     {
-       // 'accountSid':accountSid,
-       // 'apiVersion':apiVersion,
-       // 'body':body,
         'from': from,
         'sid':sid,
         'status': status,
@@ -573,9 +578,17 @@ if(sms == true)
         'direction' : direction,
         'errorCode' : errorCode,
         'errorMessage' : errorMessage,
-        'Channel': 'SMS',
+        'Channel': 'WhatsApp',
         'ActivityID': activityID,
-        'ActivityName': ActivityName
+        'ActivityName': ActivityName,
+        'numMedia':numMedia,
+        'messagingServiceSid':messagingServiceSid,
+        'numSegments':numSegments,
+        'price':price,
+        'priceUnit': priceUnit,
+        'body':messageBodytracking,
+        'dateCreated': dateCreated,
+        'dateUpdated':dateUpdated
 }]
 },
      json: true
