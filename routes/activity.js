@@ -94,7 +94,7 @@ exports.save = function(req, res) {
     console.log("Publish: "+ req.body.interactionKey);
     var interactionKey = req.body.interactionKey;
     var versionInt = req.body.interactionVersion;
-
+    var name = req.body.name;
 
     var currentdate = new Date();
     console.log("Current date-----" + currentdate);
@@ -177,10 +177,10 @@ exports.save = function(req, res) {
             console.log("Response------->"+response);
             console.log("Error----->"+error);
     
-            var DE_name = 'SMS tracking data - ' + versionInt;
+            var DE_name = 'Tracking data - ' + name +versionInt;
             console.log("DE_name" +DE_name);
      
-            var EK_name = 'SmsTrackingData' + versionInt;
+            var EK_name = 'TrackingData' + name + versionInt;
             sms_Ek = EK_name;
             console.log("EK_name" +  EK_name);
             
