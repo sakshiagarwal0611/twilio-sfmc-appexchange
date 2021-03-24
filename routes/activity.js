@@ -11,6 +11,7 @@ var sms_Ek;
 var whatsapp_Ek;
 var smsCheck;
 var whatsappCheck; 
+var journeyName;
 //var checkCondition = true; 
 
 exports.logExecuteData = [];
@@ -94,8 +95,7 @@ exports.save = function(req, res) {
     console.log("Publish: "+ req.body.interactionKey);
     var interactionKey = req.body.interactionKey;
     var versionInt = req.body.interactionVersion;
-    var name1 = req.body.name;
-    console.log(name1);
+
 
     var currentdate = new Date();
     console.log("Current date-----" + currentdate);
@@ -112,43 +112,44 @@ exports.save = function(req, res) {
     //API call to get the authorization token and retrieve the journey data using interaction key
     //let response = marketingCloudCallout();
 
-//    const https = require('https');
-//     console.log("we are trying to get the authorization token here");
-//     var request = require('request');
-//     request.post({
-//     headers: {'content-type' : 'application/json'},
-//     url:     'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.auth.marketingcloudapis.com/v2/token',
-//     body:    {
-//                 'client_id': '4nfraga57ld98tn00rmrhbn9',
-//                 'client_secret': 'qlm3OG67VzLC6nekeeGo1XY2',
-//                 'grant_type': 'client_credentials'
-//         },
-//     json: true
-//     }, function(error, response, body){
-//         var access_token = body.access_token;
-//         console.log("access_token Publish------>" + access_token);
-//         console.log("Response Publish------->"+response);
-//         console.log("Error Publish----->"+error);
-//         console.log("-----------------we are calling the APi to fetch the journey data-----------------");
+   const https = require('https');
+    console.log("we are trying to get the authorization token here");
+    var request = require('request');
+    request.post({
+    headers: {'content-type' : 'application/json'},
+    url:     'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.auth.marketingcloudapis.com/v2/token',
+    body:    {
+                'client_id': '4nfraga57ld98tn00rmrhbn9',
+                'client_secret': 'qlm3OG67VzLC6nekeeGo1XY2',
+                'grant_type': 'client_credentials'
+        },
+    json: true
+    }, function(error, response, body){
+        var access_token = body.access_token;
+        console.log("access_token Publish------>" + access_token);
+        console.log("Response Publish------->"+response);
+        console.log("Error Publish----->"+error);
+        console.log("-----------------we are calling the APi to fetch the journey data-----------------");
 
-//         request.get({
-//         headers: {'content-type' : 'application/json','Authorization': 'Bearer ' + access_token},
-//         url:     'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.rest.marketingcloudapis.com/interaction/v1/interactions/key:' + interactionKey,
-//         json: true
-//         },function(error, response, body){
-//             console.log("requestId---------->"+body.requestId);
-//             //console.log("body--------->"+body);
-//             //console.log("body--------->"+JSON.stringify(body));
-//             //console.log("body.activities[0]--------->"+body.activities[0].arguments.execute.inArguments[0].SMS);
-//             //console.log("body.activities[0]--------->"+body.activities[0].arguments.execute.inArguments[0].WhatsApp);
-//             console.log("response--------->"+response);
-//             console.log("error-------->"+error);  
-//             smsCheck = body.activities[0].arguments.execute.inArguments[0].SMS;
-//             whatsappCheck = body.activities[0].arguments.execute.inArguments[0].WhatsApp ;
-//             console.log("smsCheck--------->"+smsCheck);
-//             console.log("whatsappCheck-------->"+whatsappCheck);
-//         });
-//     }); 
+        request.get({
+        headers: {'content-type' : 'application/json','Authorization': 'Bearer ' + access_token},
+        url:     'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.rest.marketingcloudapis.com/interaction/v1/interactions/key:' + interactionKey,
+        json: true
+        },function(error, response, body){
+            console.log("requestId---------->"+body.requestId);
+            //console.log("body--------->"+body);
+            //console.log("body--------->"+JSON.stringify(body));
+            //console.log("body.activities[0]--------->"+body.activities[0].arguments.execute.inArguments[0].SMS);
+            //console.log("body.activities[0]--------->"+body.activities[0].arguments.execute.inArguments[0].WhatsApp);
+            console.log("response--------->"+response);
+            console.log("error-------->"+error);  
+            smsCheck = body.activities[0].arguments.execute.inArguments[0].SMS;
+            whatsappCheck = body.activities[0].arguments.execute.inArguments[0].WhatsApp ;
+            console.log("smsCheck--------->"+smsCheck);
+            console.log("whatsappCheck-------->"+whatsappCheck);
+            journeyName = body.name;
+        });
+    }); 
     
 
 
@@ -178,10 +179,10 @@ exports.save = function(req, res) {
             console.log("Response------->"+response);
             console.log("Error----->"+error);
     
-            var DE_name =name1 +  'Tracking data - ' +versionInt;
+            var DE_name = journeyName + '-Tracking data-' +versionInt;
             console.log("DE_name" +DE_name);
      
-            var EK_name =name1 + 'TrackingData' + versionInt;
+            var EK_name = journeyName + 'TrackingData' + versionInt;
             sms_Ek = EK_name;
             console.log("EK_name" +  EK_name);
             
