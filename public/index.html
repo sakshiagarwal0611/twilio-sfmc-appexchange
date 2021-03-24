@@ -83,7 +83,7 @@
 		   -ms-user-select: none; /* Internet Explorer/Edge */ 
 		    user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
 	    }
-	#limit
+	#limit,#limitWhatsapp
 		{
 			display:none;
 		}
@@ -297,7 +297,8 @@
 <div id="RichTextEditor" class="editor" contenteditable='true'></div>  
 <div class="slds-text-heading_small instruction noselect" id="heading">Message Length</div>
 <p id='char-count'></p>
-<p id="limit">Messages with length more than 160 are sent as segments and are charged extra.</p>
+<p id="limitsms">SMS Messages with length more than 160 are sent as segments and are charged extra.</p>
+<p id="limitWhatsapp">WhatsApp Messages with length more than 1600 are sent as segments and are charged extra.</p>
 <!-- <textarea rows="4" 
 id="RichTextEditor" 
 cols="50"> 
@@ -366,10 +367,19 @@ $('#char-count').text(maxCharacters);
 $('#RichTextEditor').bind('keyup keydown', function() {
   var count = $('#char-count');
   var characters = $(this).text().length;
-  if (characters > 160) {
-	document.getElementById("limit").style.display = "block";
-   }else{
-   document.getElementById("limit").style.display = "none";
+  if (characters > 160 && characters<1600){
+	document.getElementById("limitsms").style.display = "block";
+	document.getElementById("limitWhatsapp").style.display = "none";
+   }
+   elseif(characters > 1600)
+   {
+   document.getElementById("limitsms").style.display = "block";
+   document.getElementById("limitWhatsapp").style.display = "block";
+   }
+   else
+   {
+	document.getElementById("limitsms").style.display = "none";
+	document.getElementById("limitWhatsapp").style.display = "none";
    }
   count.text(characters);
 });
