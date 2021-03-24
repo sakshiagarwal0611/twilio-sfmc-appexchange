@@ -279,9 +279,8 @@ exports.execute = function(req, res) {
     console.log("3");
     console.log("2");
     console.log("1");
-    //console.log("Executed: " + req.body.inArguments[0]);
-    //console.log("RequestBody"+JSON.stringify(req.body));
-    //console.log("RequestBody"+JSON.stringify(req.body.inArguments));
+ 
+
     var requestBody = req.body.inArguments[0];
     console.log("RequestBody"+JSON.stringify(requestBody));
     console.log("interaction key" + JSON.stringify(req.body));
@@ -289,6 +288,7 @@ exports.execute = function(req, res) {
     console.log("activityID" + activityID);
     console.log("ActivityName------>" + req.body.keyValue);
     var ActivityName = req.body.keyValue;
+
 
     const accountSid = requestBody.accountSid;
     const authToken = requestBody.authToken;
@@ -306,10 +306,8 @@ exports.execute = function(req, res) {
     console.log(" This is SMS DE--------------------------------------------------->" + sms_Ek);
     console.log(" This is WhatsApp DE--------------------------------------------------->" + whatsapp_Ek);
 
-    //SMS message newline handling
-    //console.log("SMS before removing back slash" +smsMessage);
-    //wPmessage = wPmessage.replace("'", "\"");
-    //console.log("SMS after removing back slash" + smsMessage);
+   
+
   
     
 //If whatsApp is true then send message
@@ -325,22 +323,11 @@ exports.execute = function(req, res) {
             mediaUrl: [imageURL],
             from: 'whatsapp:+14155238886',
             body: wPmessage,
-            //body: "Please enter your order as such:\n" + "- 3 beers\n - 2 glasses of red wine",
             to: 'whatsapp:+917790909761'
         },
         function(err, responseData){
         if(!err) {
         console.log(responseData);
-        console.log(responseData.accountSid); 
-        console.log(responseData.apiVersion);
-        console.log(responseData.body); 
-        console.log(responseData.from); 
-        console.log(responseData.sid);
-        console.log(responseData.status);
-        console.log(responseData.to);
-        console.log(responseData.direction); 
-        console.log(responseData.errorCode); 
-        console.log(responseData.errorMessage);
             
             
         var accountSid = responseData.accountSid;
@@ -353,7 +340,12 @@ exports.execute = function(req, res) {
         var direction = responseData.direction;
         var errorCode = responseData.errorCode;
         var errorMessage = responseData.errorMessage;
-        var wpMessageType = responseData.wpMessageType;
+        var numMedia = responseData.numMedia;
+        var messagingServiceSid= responseData.messagingServiceSid;
+        var numSegments = responseData.numSegments;
+        var price = responseData.price;
+        var priceUnit = responseData.priceUnit;
+        //var  = responseData.;
         
             
         const https = require('https');
@@ -386,7 +378,7 @@ exports.execute = function(req, res) {
     {
        // 'accountSid':accountSid,
        // 'apiVersion':apiVersion,
-       // 'body':body,
+        'body':body,
         'from': from,
         'sid':sid,
         'status': status,
@@ -396,7 +388,12 @@ exports.execute = function(req, res) {
         'errorMessage' : errorMessage,
         'Channel': 'WhatsApp',
         'ActivityID': activityID,
-        'ActivityName': ActivityName
+        'ActivityName': ActivityName,
+        'numMedia':numMedia,
+        'messagingServiceSid':messagingServiceSid,
+        'numSegments':numSegments,
+        'price':price,
+        'priceUnit': priceUnit
 }]
 },
      json: true
@@ -421,23 +418,11 @@ exports.execute = function(req, res) {
         .create({
             from:'whatsapp:+14155238886',
             body: wPmessage,
-            //body: "Please enter your order as such:\n" + "- 3 beers\n - 2 glasses of red wine",
             to: 'whatsapp:+917790909761'
         },
         function(err, responseData){
         if(!err) {
         console.log(responseData);
-        console.log(responseData.accountSid); 
-        console.log(responseData.apiVersion);
-        console.log(responseData.body); 
-        console.log(responseData.from); 
-        console.log(responseData.sid);
-        console.log(responseData.status);
-        console.log(responseData.to);
-        console.log(responseData.direction); 
-        console.log(responseData.errorCode); 
-        console.log(responseData.errorMessage);
-            
             
         var accountSid = responseData.accountSid;
         var apiVersion = responseData.apiVersion;
