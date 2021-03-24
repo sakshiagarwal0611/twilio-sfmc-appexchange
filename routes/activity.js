@@ -378,7 +378,7 @@ exports.execute = function(req, res) {
     {
        // 'accountSid':accountSid,
        // 'apiVersion':apiVersion,
-        'body':body,
+       // 'body':body,
         'from': from,
         'sid':sid,
         'status': status,
