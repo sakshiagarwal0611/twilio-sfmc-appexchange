@@ -291,7 +291,9 @@
 <!-- content editable div to create a message body  -->
 
 <div id="RichTextEditor" class="editor" contenteditable='true'></div>  
+<div class="slds-text-heading_small instruction noselect" id="heading">Message Length</div>
 <p id='char-count'></p>
+<p id="limit" hidden>Messages with length more than 160 are sent as segments and are charged extra</p>
 <!-- <textarea rows="4" 
 id="RichTextEditor" 
 cols="50"> 
@@ -360,11 +362,11 @@ $('#char-count').text(maxCharacters);
 $('#RichTextEditor').bind('keyup keydown', function() {
   var count = $('#char-count');
   var characters = $(this).text().length;
-  if (characters > (maxCharacters - 11)) {
-    count.addClass('over');
-  } else {
-    count.removeClass('over');
-  }
+  if (characters > 160) {
+	document.getElementById("limit").style.display = "block";
+   }else{
+   document.getElementById("limit").style.display = "none";
+   }
   count.text(characters);
 });
 	
