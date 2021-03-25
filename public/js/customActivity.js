@@ -491,7 +491,9 @@ define([
         //var to =  "{{Contact.Attribute.TwilioDE.TwilioNumber}}"
 	    var wpMessageType  = $("#messageType").val(); 
 	    var template = $("#template").val();
-       
+        var charCount = document.getElementById("#char-count");
+
+        console.log("charCount------>" + charCount);
 	    console.log(wpMessageType + template);    
 	    console.log("selected phone number attribute---->"+ to);
         console.log("Entry source--------->" + eventDefinitionKey);
@@ -552,7 +554,8 @@ define([
             "insertedImage": insertedImage,
             "isimage": isimage,
             "wpMessageType" : wpMessageType,
-	        "template" : template  
+	        "template" : template,
+            "charCount":charCount  
         }];
 
         payload['metaData'].isConfigured = true;

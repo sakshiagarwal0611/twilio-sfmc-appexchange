@@ -178,6 +178,13 @@
                             "isNullable": true,
                             "direction": "in"
                         }
+                    },
+                    {
+                        "charCount": {
+                            "dataType": "Number",
+                            "isNullable": true,
+                            "direction": "in"
+                        }
                     } 
                     
                 ],
