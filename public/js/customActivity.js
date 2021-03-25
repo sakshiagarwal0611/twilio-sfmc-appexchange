@@ -510,7 +510,7 @@ define([
         //var to =  "{{Contact.Attribute.TwilioDE.TwilioNumber}}"
 	    var wpMessageType  = $("#messageType").val(); 
 	    var template = $("#template").val();
-        var charCount = $('#char-count').text;
+        var charCount = document.getElementById("char-count").textContent;
 
         console.log("charCount------>" + charCount);
 	    console.log(wpMessageType + template);    
