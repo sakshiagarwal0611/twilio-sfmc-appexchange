@@ -259,6 +259,7 @@
 <div id="step3" class="step" class="step noselect">
 
 <!--To add the error if message body is null-->
+<div id='beforeContenteditableDiv'>
 <div class="slds-form-element">
 	<div id = "messageBodyNull" style = "color: red"> </div>
 </div> 
@@ -283,7 +284,7 @@
 		    <div class="slds-select_container">
 				
 		    <select class="slds-select" id="ps" onchange="insertAttribute()" >
-			<option hidden selected>None</option>
+			<option value="none" id="none" selected>None</option>
 			<!--<option value="{{Contact.Attribute.TwilioV1.EmailAddress}}" id="ps1">Email</option>
 			<option value="{{Contact.Attribute.TwilioV1.TwilioNumber}}" id="ps2">Phone number</option> -->
 		    </select>
@@ -291,11 +292,11 @@
 		    </div>
 		</div>       
     </div>
-
+</div>
 <!-- content editable div to create a message body  -->
 
 <div id="RichTextEditor" class="editor" contenteditable='true'></div> 
-<div id = 'displayimagecount'> 
+<div id = 'afterContenteditableDiv'> 
 <div class="slds-text-heading_small instruction noselect" id="heading">Message Length</div>
 <p id='char-count'></p>
 <p id="limitsms">SMS Messages with length more than 160 are sent as segments and are charged extra.</p>
@@ -439,44 +440,43 @@ function insertTextAtCaret(text)
 	console.log( ' window.getSelection'  + window.getSelection);
     if (window.getSelection) 
             {
-                 sel = window.getSelection();	
-				console.log("selection----------------->" + sel); 
-				console.log("window.getSelection().anchorNode.parentNode.id----->" + window.getSelection().anchorNode.parentNode.id);
-				console.log("window.getSelection().anchorNode.parentNode----->" + window.getSelection().anchorNode.parentNode.parentNode);
-							
+                var x = document.getElementById("ps").value;
+                if(x!='none')
+                  {
+                sel = window.getSelection();
+            
+                console.log("selection----------------->" + sel); 
+                console.log("window.getSelection().anchorNode.parentNode.id----->" + window.getSelection().anchorNode.parentNode.id);
+                console.log("window.getSelection().anchorNode.parentNode.parentNode.id ----->" + window.getSelection().anchorNode.parentNode.parentNode.id);
                 console.log("window.getSelection().anchorNode.id---------------->" + window.getSelection().anchorNode.id);
                 console.log("window.getSelection().id--------------------------->" + window.getSelection().id);
                 var parentID = window.getSelection().anchorNode.parentNode.id;
                 var anchorID = window.getSelection().anchorNode.id;
-				var superparentID = window.getSelection().anchorNode.parentNode.parentNode.id ; 
-				
-				//console.log("yeh hai parent Id" + parentID) ;
-				//console.log("yeh hai anchor Id" + anchorID) ;
-
-               // if(parentID == 'RichTextEditor' || anchorID == 'RichTextEditor') 
-               // {
-				if(parentID == 'RichTextEditor' || anchorID == 'RichTextEditor' || superparentID == 'RichTextEditor') 
+                var superparentID = window.getSelection().anchorNode.parentNode.parentNode.id ; 
+                //console.log("yeh hai parent Id" + parentID) ;
+                //console.log("yeh hai anchor Id" + anchorID) ;
+                if(parentID == 'RichTextEditor' || anchorID == 'RichTextEditor' || superparentID == 'RichTextEditor') 
                 {
                     if (sel.getRangeAt && sel.rangeCount) 
                     {
                         range = sel.getRangeAt(0);
-
-						console.log("yeh range ahi --- >  " + range);
+                        console.log("yeh range ahi --- >  " + range);
                         range.deleteContents();
                         range.insertNode( document.createTextNode(text) );
                     }
-				}
-              
-			 } else if (document.selection && document.selection.createRange) 
-			{
+                }
+              else if (document.selection && document.selection.createRange) 
+            {
                 if ( window.getSelection().anchorNode.parentNode.id ==  "RichTextEditor" )
                 {
-					console.log("I don't know what this is" + document.selection.createRange().text);
-					document.selection.createRange().text = text;
-					console.log("Text-------->" + text);
-            	}
+                    console.log("I don't know what this is" + document.selection.createRange().text);
+                    document.selection.createRange().text = text;
+                    console.log("Text-------->" + text);
+                }
         }
-		
+        document.getElementById('none').selected=true;
+    }
+    }
 }
 
 // function to insert image when selected
