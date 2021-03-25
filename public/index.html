@@ -87,6 +87,17 @@
 		{
 			display:none;
 		}
+
+	.box{
+			display: none;
+			width: 100%;
+		}
+		
+	#RichTextEditor:hover + .box,.box:hover{
+			display: block;
+			position: relative;
+			z-index: 100;
+		}
 /* Modal CSS for the images display */	      
     .modal 
 		{
@@ -295,7 +306,12 @@
 </div>
 <!-- content editable div to create a message body  -->
 
-<div id="RichTextEditor" class="editor" contenteditable='true'></div> 
+<div id="RichTextEditor" class="editor" contenteditable='true'></div>
+<div class="box">
+	<iframe src="https://en.wikipedia.org/" width = "500px" height = "500px">
+	</iframe>
+ </div> 
+
 <div id = 'afterContenteditableDiv'> 
 <div class="slds-text-heading_small instruction noselect" id="heading">Message Length</div>
 <p id='char-count'></p>
