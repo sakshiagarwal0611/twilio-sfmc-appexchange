@@ -258,7 +258,7 @@ define([
                     console.log("Template selected------->" + val);
 		            document.getElementById("template").value = val;
                 }
-                if(key === 'template'){
+                if(key === 'charCount'){
                     console.log("character count------------>" + val);
                     if (val > 160 && val<1600){
                         document.getElementById("limitsms").style.display = "block";
