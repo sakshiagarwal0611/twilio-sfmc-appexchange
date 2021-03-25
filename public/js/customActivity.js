@@ -201,7 +201,7 @@ define([
                     document.getElementById('RichTextEditor').innerHTML = val;
                    
                 }
-               if (key === 'isimage') {
+                if (key === 'isimage') {
                     console.log("is there an image inserted?------------------------>" + val);
                     var isimage = val;
                     
@@ -213,15 +213,15 @@ define([
                     document.getElementById('image').innerHTML = '<img id= "' + 'insertedSerialNo' + '" style="margin:3px;" src="' + val + '" width="100" height="120"><span class="close" style="float:right;" onclick = "removeimage();">&times;</span></img>';
                     document.getElementById("isInserted").checked = true;
                   var whatsappsms = $("#WhatsApp").is(":checked");  
-		//var url = 'url';
-		if(whatsappsms == true)
+		        //var url = 'url';
+		        if(whatsappsms == true)
                        
                     {
 			    var x = document.getElementById('imageinserted') ;
 			    x.style.display = "block";
 
-			 //summaryImage.style.display = "block";
-                        document.getElementById('imageinserted').innerHTML ='<img style="margin:3px;" src="' + val + '" width="100" height="120"></img>';
+			    //summaryImage.style.display = "block";
+                           document.getElementById('imageinserted').innerHTML ='<img style="margin:3px;" src="' + val + '" width="100" height="120"></img>';
                     }
                 }
                    
@@ -238,24 +238,43 @@ define([
                     selectedPhone = val; 
                     //document.getElementById("recipient").value = "phone";
                 }
-		 if(key === 'smsDEcheck')
+		        if(key === 'smsDEcheck')
                 {
-		if(val == true)
+		            if(val == true)
                     {
                      $("#smsDEcheckbox").attr("checked", true);
                          console.log(" sms de created is checked");   
                     }else {
-			    $("#smsDEcheckbox").attr("checked", false);
+			        $("#smsDEcheckbox").attr("checked", false);
                          console.log(" sms de created is not checked");  
-		    }	
-		}
-		    if (key === 'wpMessageType') {
+		            }	
+		            }
+		        if (key === 'wpMessageType') 
+                {
                     console.log("Whatsapp message type------------------------>" + val);
-		      document.getElementById("messageType").value = val;  
+		            document.getElementById("messageType").value = val;  
                 }
-		    if (key === 'template') {
+		        if (key === 'template') {
                     console.log("Template selected------->" + val);
-		    document.getElementById("template").value = val;
+		            document.getElementById("template").value = val;
+                }
+                if(key === 'template'){
+                    console.log("character count------------>" + val);
+                    if (val > 160 && val<1600){
+                        document.getElementById("limitsms").style.display = "block";
+                        document.getElementById("limitWhatsapp").style.display = "none";
+                       }
+                       else if(val > 1600)
+                       {
+                       document.getElementById("limitsms").style.display = "block";
+                       document.getElementById("limitWhatsapp").style.display = "block";
+                       }
+                       else
+                       {
+                        document.getElementById("limitsms").style.display = "none";
+                        document.getElementById("limitWhatsapp").style.display = "none";
+                       }
+
                 }
 		    
             })
@@ -491,7 +510,7 @@ define([
         //var to =  "{{Contact.Attribute.TwilioDE.TwilioNumber}}"
 	    var wpMessageType  = $("#messageType").val(); 
 	    var template = $("#template").val();
-        var charCount = document.getElementById('char-count').innerHTML;
+        var charCount = $('#char-count').text;
 
         console.log("charCount------>" + charCount);
 	    console.log(wpMessageType + template);    
