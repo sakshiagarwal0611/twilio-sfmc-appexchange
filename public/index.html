@@ -88,16 +88,7 @@
 			display:none;
 		}
 
-	.box{
-			display: none;
-			width: 100%;
-		}
-		
-	a:hover + .box,.box:hover{
-			display: block;
-			position: relative;
-			z-index: 100;
-		}
+	
 /* Modal CSS for the images display */	      
     .modal 
 		{
@@ -307,12 +298,6 @@
 <!-- content editable div to create a message body  -->
 
 <div id="RichTextEditor" class="editor" contenteditable='true'></div>
-Live previews for <a href="https://en.wikipedia.org/">Wikipedia</a>
-<div class="box">
-	<!-- <iframe src="https://en.wikipedia.org/" width = "500px" height = "500px">
-	</iframe> -->
-	<img src="https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/042c6fb7-d48f-419f-9767-0ee26c169c12.jpg"></img>
- </div> 
 
 <div id = 'afterContenteditableDiv'> 
 <div class="slds-text-heading_small instruction noselect" id="heading">Message Length</div>
@@ -356,24 +341,31 @@ cols="50">
 <!-- Step 4 starts  -->
 <div id="step4" class="step">
 
-<!-- Display channels on summary page  -->
-<div class="slds-text-heading_small instruction">CHANNEL</div>
+<!-- Display channels on summary page 
+ <div class="slds-text-heading_small instruction">CHANNEL</div>
 <div id="channel"> </div> 		
 <br><br>
 
-<!-- Display message body on summary page  -->
+ Display message body on summary page  
 <div class="slds-text-heading_small instruction">MESSAGE BODY</div> 
 <div id="Message"></div> 
 <br><br>
 
-<!-- Display inserted image on summary page  -->
+ Display inserted image on summary page  
 <div class="slds-text-heading_small instruction">INSERTED IMAGE:</div> 
 <div id="imageinserted" class="summaryImage"></div> 
 <br><br>
 
-<!-- Display recipients on summary page  -->
+ Display recipients on summary page 
 <div class="slds-text-heading_small instruction">RECIPIENT:</div> 
-<div id="selectedPhone"></div> 
+<div id="selectedPhone"></div>  -->
+
+<table>
+	<tr>
+		<td><img src="https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/042c6fb7-d48f-419f-9767-0ee26c169c12.jpg"><div id="smsPreview"></div></img></td>
+		<td><img src="https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/042c6fb7-d48f-419f-9767-0ee26c169c12.jpg"><div id="whatsappPreview"></div></img></td>
+	</tr>
+</table>
 </div>
 
 
