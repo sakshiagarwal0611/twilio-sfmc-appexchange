@@ -294,7 +294,8 @@
 
 <!-- content editable div to create a message body  -->
 
-<div id="RichTextEditor" class="editor" contenteditable='true'></div>  
+<div id="RichTextEditor" class="editor" contenteditable='true'></div> 
+<div id = 'displayimagecount'> 
 <div class="slds-text-heading_small instruction noselect" id="heading">Message Length</div>
 <p id='char-count'></p>
 <p id="limitsms">SMS Messages with length more than 160 are sent as segments and are charged extra.</p>
@@ -312,7 +313,7 @@ cols="50">
 
 <!-- hidden checkbox to see if the image is inserted or not  -->
 <input type="checkbox" name="options" id="isInserted" value=""  style="display:none;"/>
-
+</div>
 
 <!-- The Modal to display the images after we click on image button. An api called on server side and returs the URL of images-->
 <div id="myModal" class="modal">
@@ -325,10 +326,10 @@ cols="50">
 
 <!-- Div to show images after API callout  -->
 <div id="showimage"></div> 
+</div>
+</div>
 
-</div>
-</div>
-</div>
+
 </div>
 <!-- Step 3 ends  -->
 
@@ -438,8 +439,7 @@ function insertTextAtCaret(text)
 	console.log( ' window.getSelection'  + window.getSelection);
     if (window.getSelection) 
             {
-                 sel = window.getSelection();
-			//	var conceptName = $('#aioConceptName').find(":selected").val();
+                 sel = window.getSelection();	
 				console.log("selection----------------->" + sel); 
 				console.log("window.getSelection().anchorNode.parentNode.id----->" + window.getSelection().anchorNode.parentNode.id);
 				console.log("window.getSelection().anchorNode.parentNode----->" + window.getSelection().anchorNode.parentNode.parentNode);
@@ -454,6 +454,8 @@ function insertTextAtCaret(text)
 
                // if(parentID == 'RichTextEditor' || anchorID == 'RichTextEditor') 
                // {
+				if(parentID == 'RichTextEditor' || anchorID == 'RichTextEditor' || superparentID == 'RichTextEditor') 
+                {
                     if (sel.getRangeAt && sel.rangeCount) 
                     {
                         range = sel.getRangeAt(0);
@@ -462,7 +464,7 @@ function insertTextAtCaret(text)
                         range.deleteContents();
                         range.insertNode( document.createTextNode(text) );
                     }
-				//}
+				}
               
 			 } else if (document.selection && document.selection.createRange) 
 			{
