@@ -281,8 +281,8 @@
 		<a href="javascript:void(0)" onclick="format('bold')"><span class="fa fa-bold fa-fw"></span></a>
 		<a href="javascript:void(0)" onclick="format('italic')"><span class="fa fa-italic fa-fw"></span></a>
 	    <a href="javascript:void(0)" onclick="format('cut')"><span class="fa fa-cut fa-fw"></span></a>
-	    <a href="javascript:void(0)" onclick="format('underline')"><span class="fa fa-underline fa-fw"></span></a>
-	    <a href="javascript:void(0)" onclick="format('strikeThrough')"><span class="fa fa-strikethrough fa-fw"></span></a>
+		<a href="javascript:void(0)" onclick="format('strikeThrough')"><span class="fa fa-strikethrough fa-fw"></span></a>
+	    <!-- <a href="javascript:void(0)" onclick="format('underline')"><span class="fa fa-underline fa-fw"></span></a> -->
 	    <a href="javascript:void(0)" onclick="format('undo')"><span class="fa fa-undo fa-fw"></span></a>
 		<a href="javascript:void(0)" onclick="format('redo')"><span class="fa fa-redo fa-fw"></span></a>
 		<button id="myBtn" style ="display: none;" ><span class="fa fa-image fa-fw"></span></button>
@@ -291,7 +291,7 @@
 		    <div class="slds-select_container">
 				
 		    <select class="slds-select" id="ps" onchange="insertAttribute()" >
-			<option value="none" id="none" selected>None</option>
+			<option value="none" id="none" selected>Select Attribute</option>
 			<!--<option value="{{Contact.Attribute.TwilioV1.EmailAddress}}" id="ps1">Email</option>
 			<option value="{{Contact.Attribute.TwilioV1.TwilioNumber}}" id="ps2">Phone number</option> -->
 		    </select>
@@ -367,8 +367,8 @@ cols="50">
 
 <table class ="previewTable">
 	<tr>
-		<td style="text-align: center;"><img src="https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/4f6a6f81-1e08-4f4b-8973-685fdd9196fd.jpg"><div id="smsPreview" style="background-color:rgb(243, 168, 180);width: 45%;margin-left: 16%; padding-bottom: 10px;border-radius:10px; padding-left: 10px;padding-right: 3px;padding-top: 9px;">hello this is sms message</div></td>
-		<td style="text-align: center;"><img src="https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/4f6a6f81-1e08-4f4b-8973-685fdd9196fd.jpg"><div id="whatsappPreview"  style="background-color:rgb(217, 243, 168); width: 45%;margin-left: 16%; padding: 4px;padding-bottom: 10px;border-radius:10px; padding-left: 10px;padding-right: 3px;padding-top: 9px;">hello this is whatsapp message</div></td>
+		<td style="text-align: center;"><img src="https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/4f6a6f81-1e08-4f4b-8973-685fdd9196fd.jpg"><div id="smsPreview" style="background-color:rgb(243, 168, 180);width: 45%;margin-left: 16%; padding-bottom: 10px;border-radius:10px; padding-left: 10px;padding-right: 3px;padding-top: 9px;text-align: left;"></div></td>
+		<td style="text-align: center;"><img src="https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/4f6a6f81-1e08-4f4b-8973-685fdd9196fd.jpg"><div id="imageinserted" class="summaryImage"></div><div id="whatsappPreview"  style="background-color:rgb(217, 243, 168); width: 45%;margin-left: 16%;padding-bottom: 10px;border-radius:10px; padding-left: 10px;padding-right: 3px;padding-top: 9px;text-align: left;"></div></td>
 	</tr>
 </table>
 </div>

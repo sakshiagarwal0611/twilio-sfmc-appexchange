@@ -352,6 +352,16 @@ define([
         else if(currentStep.key === 'step3')
         {
             var messagebody1 = document.getElementById('RichTextEditor').innerHTML;
+            var smsMsg = messagebody1;
+            smsMsg = smsMsg.replaceAll("<b>", "");
+            smsMsg = smsMsg.replaceAll("</b>", "");
+            
+            smsMsg = smsMsg.replaceAll("<i>", "");
+            smsMsg = smsMsg.replaceAll("</i>", "");
+            smsMsg = smsMsg.replaceAll("<strike>", "");
+            smsMsg = smsMsg.replaceAll("</strike>", "");
+            smsMsg = smsMsg.replaceAll("<u>", "");
+            smsMsg = smsMsg.replaceAll("</u>", "");
             if(messagebody1 == "")
             { 
             document.getElementById("messageBodyNull").innerHTML = "Message body is empty.";
@@ -359,7 +369,7 @@ define([
             }else
             {
                 document.getElementById("messageBodyNull").innerHTML= "";
-                document.getElementById("smsPreview").innerHTML = document.getElementById('RichTextEditor').innerHTML;
+                document.getElementById("smsPreview").innerHTML = smsMsg;
                 document.getElementById("whatsappPreview").innerHTML = document.getElementById('RichTextEditor').innerHTML;
                 connection.trigger('nextStep');
             }
@@ -367,10 +377,6 @@ define([
         }
         else if (currentStep.key === 'step4') 
         {
-            //(currentStep.key === 'step3' && steps[3].active === false) ||
-            //document.getElementById("smsPreview").innerHTML = document.getElementById('RichTextEditor').innerHTML;
-            //document.getElementById("whatsappPreview").innerHTML = document.getElementById('RichTextEditor').innerHTML;
-
             save();
         }
         
