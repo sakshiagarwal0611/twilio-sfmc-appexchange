@@ -454,9 +454,9 @@ define([
                 var sms = $("#SMS").is(":checked");
                 var value1 = $("#messageType").val();
                 if(sms == true){
-                    document.getElementById('wpCol').style.display = "block";
+                    document.getElementById('smscol').style.display = "block";
                 }else{
-                    document.getElementById('wpCol').style.display = "none";
+                    document.getElementById('smscol').style.display = "none";
                 }
                 if(wpsms != true || value1 == "Transactional Message")
                 { 
@@ -464,14 +464,14 @@ define([
                     document.getElementById('selected').style.display = "none";
                     document.getElementById('image').style.display = "none";
                     document.getElementById('imageinserted').style.display = "none";
-                    document.getElementById('smscol').style.display = "none";
+                    document.getElementById('wpCol').style.display = "none";
                     
                 }else{
                      document.getElementById('myBtn').style.display = "inline";
                     document.getElementById('selected').style.display = "inline";
                     document.getElementById('image').style.display = "block";
                     document.getElementById('imageinserted').style.display = "block";
-                    document.getElementById('smscol').style.display = "block";
+                    document.getElementById('wpCol').style.display = "block";
                 }
              
                 
