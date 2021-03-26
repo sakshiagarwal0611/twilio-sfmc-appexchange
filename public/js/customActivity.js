@@ -453,27 +453,27 @@ define([
 		
 			
                 var wpsms = $("#WhatsApp").is(":checked"); 
-                var sms = $("#SMS").is(":checked");
+                //var sms = $("#SMS").is(":checked");
                 var value1 = $("#messageType").val();
-                if(sms == true){
-                    document.getElementById('smscol').style.display = "block";
-                }else{
-                    document.getElementById('smscol').style.display = "none";
-                }
+                // if(sms == true){
+                //     document.getElementById('smscol').style.display = "block";
+                // }else{
+                //     document.getElementById('smscol').style.display = "none";
+                // }
                 if(wpsms != true || value1 == "Transactional Message")
                 { 
                     document.getElementById('myBtn').style.display = "none";
                     document.getElementById('selected').style.display = "none";
                     document.getElementById('image').style.display = "none";
                     document.getElementById('imageinserted').style.display = "none";
-                    document.getElementById('wpCol').style.display = "none";
+                    //document.getElementById('wpCol').style.display = "none";
                     
                 }else{
                      document.getElementById('myBtn').style.display = "inline";
                     document.getElementById('selected').style.display = "inline";
                     document.getElementById('image').style.display = "block";
                     document.getElementById('imageinserted').style.display = "block";
-                    document.getElementById('wpCol').style.display = "block";
+                    //document.getElementById('wpCol').style.display = "block";
                 }
              
                 
@@ -502,10 +502,16 @@ define([
                 document.getElementById('channel').innerHTML = ' ';
                   if(WPtrue == true){
                   document.getElementById('channel').innerHTML = 'WhatsApp, '; 
+                  document.getElementById('wpCol').style.display = "block";
+                   }else{
+                    document.getElementById('wpCol').style.display = "none";
                    }
                   var SMStrue = $("#SMS").is(":checked");
                   if(SMStrue == true){
                   document.getElementById('channel').innerHTML = document.getElementById('channel').innerHTML + 'SMS';
+                  document.getElementById('smscol').style.display = "block";
+                  }else{
+                    document.getElementById('smscol').style.display = "none";
                   }
                    
                   document.getElementById('Message').innerHTML = document.getElementById('RichTextEditor').innerHTML;
