@@ -359,6 +359,8 @@ define([
             }else
             {
                 document.getElementById("messageBodyNull").innerHTML= "";
+                document.getElementById("smsPreview").innerHTML = document.getElementById('RichTextEditor').innerHTML;
+                document.getElementById("whatsappPreview").innerHTML = document.getElementById('RichTextEditor').innerHTML;
                 connection.trigger('nextStep');
             }
 
