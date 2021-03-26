@@ -263,11 +263,13 @@ define([
                     console.log("character count------------>" + val);
                     document.getElementById("char-count").textContent = val;
                     if (val > 160 && val<1600){
+                        document.getElementById("limitVal").style.display = "block";
                         document.getElementById("limitsms").style.display = "block";
                         document.getElementById("limitWhatsapp").style.display = "none";
                        }
                        else if(val > 1600)
                        {
+                        document.getElementById("limitVal").style.display = "block";
                        document.getElementById("limitsms").style.display = "block";
                        document.getElementById("limitWhatsapp").style.display = "block";
                        }
