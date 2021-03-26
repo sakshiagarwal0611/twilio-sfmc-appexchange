@@ -364,8 +364,12 @@ define([
 
         }
         else if ((currentStep.key === 'step3' && steps[3].active === false) || currentStep.key === 'step4') {
+            document.getElementById("smsPreview").innerHTML = document.getElementById('RichTextEditor').innerHTML;
+            document.getElementById("whatsappPreview").innerHTML = document.getElementById('RichTextEditor').innerHTML;
+
             save();
         }
+        
 
     //    else if ((currentStep.key) === 'step1')
     //    {
