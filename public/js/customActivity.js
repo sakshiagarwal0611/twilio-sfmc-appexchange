@@ -354,16 +354,7 @@ define([
         else if(currentStep.key === 'step3')
         {
             var messagebody1 = document.getElementById('RichTextEditor').innerHTML;
-            var smsMsg = messagebody1;
-            smsMsg = smsMsg.replaceAll("<b>", "");
-            smsMsg = smsMsg.replaceAll("</b>", "");
             
-            smsMsg = smsMsg.replaceAll("<i>", "");
-            smsMsg = smsMsg.replaceAll("</i>", "");
-            smsMsg = smsMsg.replaceAll("<strike>", "");
-            smsMsg = smsMsg.replaceAll("</strike>", "");
-            smsMsg = smsMsg.replaceAll("<u>", "");
-            smsMsg = smsMsg.replaceAll("</u>", "");
             if(messagebody1 == "")
             { 
             document.getElementById("messageBodyNull").innerHTML = messageBodyerrorSlds;
@@ -371,8 +362,8 @@ define([
             }else
             {
                 document.getElementById("messageBodyNull").innerHTML= "";
-                document.getElementById("smsPreview").innerHTML = smsMsg;
-                document.getElementById("whatsappPreview").innerHTML = document.getElementById('RichTextEditor').innerHTML;
+                
+                
                 connection.trigger('nextStep');
             }
 
@@ -497,24 +488,39 @@ define([
                 break;
             case 'step4':
                 $('#step4').show();
-                 console.log("---------------------------------------------------------------------------------------------------------------->This is step 4");
+                 console.log("------------------------------------------------------------->This is step 4");
                  var WPtrue = $("#WhatsApp").is(":checked");
                 document.getElementById('channel').innerHTML = ' ';
                   if(WPtrue == true){
                   document.getElementById('channel').innerHTML = 'WhatsApp, '; 
                   document.getElementById('wpCol').style.display = "block";
+                  document.getElementById("whatsappPreview").innerHTML = document.getElementById('RichTextEditor').innerHTML;
                    }else{
                     document.getElementById('wpCol').style.display = "none";
                    }
-                  var SMStrue = $("#SMS").is(":checked");
+
+
+
+                   var smsMsg = document.getElementById('RichTextEditor').innerHTML;
+                    smsMsg = smsMsg.replaceAll("<b>", "");
+                    smsMsg = smsMsg.replaceAll("</b>", "");
+                    smsMsg = smsMsg.replaceAll("<i>", "");
+                    smsMsg = smsMsg.replaceAll("</i>", "");
+                    smsMsg = smsMsg.replaceAll("<strike>", "");
+                    smsMsg = smsMsg.replaceAll("</strike>", "");
+                    smsMsg = smsMsg.replaceAll("<u>", "");
+                    smsMsg = smsMsg.replaceAll("</u>", "");
+
+                    var SMStrue = $("#SMS").is(":checked");
                   if(SMStrue == true){
                   document.getElementById('channel').innerHTML = document.getElementById('channel').innerHTML + 'SMS';
                   document.getElementById('smscol').style.display = "block";
+                  document.getElementById("smsPreview").innerHTML = smsMsg;
                   }else{
                     document.getElementById('smscol').style.display = "none";
                   }
                    
-                  document.getElementById('Message').innerHTML = document.getElementById('RichTextEditor').innerHTML;
+                  //document.getElementById('Message').innerHTML = document.getElementById('RichTextEditor').innerHTML;
                   //
                    document.getElementById('selectedPhone').innerHTML = $("#recipient").val();
                 
