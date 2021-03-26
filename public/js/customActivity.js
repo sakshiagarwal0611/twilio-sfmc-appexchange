@@ -273,6 +273,7 @@ define([
                        }
                        else
                        {
+                        document.getElementById("limitVal").style.display = "none";
                         document.getElementById("limitsms").style.display = "none";
                         document.getElementById("limitWhatsapp").style.display = "none";
                        }
