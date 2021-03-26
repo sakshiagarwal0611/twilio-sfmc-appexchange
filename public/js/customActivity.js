@@ -18,8 +18,9 @@ define([
     var currentStep = steps[0].key;
 
     $(window).ready(onRender);
+
+
     var eventDefinitionKey;
-   
     var keyArray = [];
     var phoneArray = [];
     var selectedPhone; 
@@ -39,7 +40,7 @@ define([
 });
     connection.on('requestedSchema', function (data) {
    // save schema
-   console.log('*** Schema ***', JSON.stringify(data['schema']));
+        console.log('*** Schema ***', JSON.stringify(data['schema']));
         var attributeArray = data.schema ;
         console.log("Data schema2   " + data.schema);
         console.log("Array of arrtibutes" +  attributeArray);
@@ -472,13 +473,7 @@ define([
                      button: 'back',
                      visible: true
                 });
-            /*    if (lastStepEnabled) {
-                    connection.trigger('updateButton', {
-                        button: 'next',
-                        text: 'next',
-                        visible: true
-                    });
-                } else {*/
+          
                     connection.trigger('updateButton', {
                         button: 'next',
                         text: 'Done',
@@ -488,11 +483,13 @@ define([
                 break;
             case 'step4':
                 $('#step4').show();
-                 console.log("------------------------------------------------------------->This is step 4");
-                 var WPtrue = $("#WhatsApp").is(":checked");
-                document.getElementById('channel').innerHTML = ' ';
+                console.log("------------------------------------------------------------->This is step 4");
+
+
+                var WPtrue = $("#WhatsApp").is(":checked");
+                //document.getElementById('channel').innerHTML = ' ';
                   if(WPtrue == true){
-                  document.getElementById('channel').innerHTML = 'WhatsApp, '; 
+                  //document.getElementById('channel').innerHTML = 'WhatsApp, '; 
                   document.getElementById('wpCol').style.display = "block";
                   document.getElementById("whatsappPreview").innerHTML = document.getElementById('RichTextEditor').innerHTML;
                    }else{
@@ -511,9 +508,11 @@ define([
                     smsMsg = smsMsg.replaceAll("<u>", "");
                     smsMsg = smsMsg.replaceAll("</u>", "");
 
+
+
                     var SMStrue = $("#SMS").is(":checked");
                   if(SMStrue == true){
-                  document.getElementById('channel').innerHTML = document.getElementById('channel').innerHTML + 'SMS';
+                  //document.getElementById('channel').innerHTML = document.getElementById('channel').innerHTML + 'SMS';
                   document.getElementById('smscol').style.display = "block";
                   document.getElementById("smsPreview").innerHTML = smsMsg;
                   }else{
@@ -521,8 +520,8 @@ define([
                   }
                    
                   //document.getElementById('Message').innerHTML = document.getElementById('RichTextEditor').innerHTML;
-                  //
-                   document.getElementById('selectedPhone').innerHTML = $("#recipient").val();
+                  
+                   //document.getElementById('selectedPhone').innerHTML = $("#recipient").val();
                 
                 break;
         }
