@@ -490,7 +490,7 @@ define([
                 //document.getElementById('channel').innerHTML = ' ';
                   if(WPtrue == true){
                   //document.getElementById('channel').innerHTML = 'WhatsApp, '; 
-                  document.getElementById('wpCol').style.display = "block";
+                  document.getElementById('wpCol').style.display = "inline-block";
                   document.getElementById("whatsappPreview").innerHTML = document.getElementById('RichTextEditor').innerHTML;
                    }else{
                     document.getElementById('wpCol').style.display = "none";
@@ -513,7 +513,7 @@ define([
                     var SMStrue = $("#SMS").is(":checked");
                   if(SMStrue == true){
                   //document.getElementById('channel').innerHTML = document.getElementById('channel').innerHTML + 'SMS';
-                  document.getElementById('smscol').style.display = "block";
+                  document.getElementById('smscol').style.display = "inline-block";
                   document.getElementById("smsPreview").innerHTML = smsMsg;
                   }else{
                     document.getElementById('smscol').style.display = "none";
