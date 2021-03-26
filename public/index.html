@@ -276,7 +276,7 @@
 <!-- Create a message  -->
 <div class="slds-text-heading_small instruction noselect" id="heading">Create a message:</div>
 <div id = "messageBodyNull"> </div>
-<div style="background-color: #fdea3d8a;padding: 8px;margin-top: 10px;border-radius: 6px;">
+<div style="background-color: #fdea3d8a;padding: 8px;margin-top: 10px;border-radius: 6px;" id="limitVal">
 <p id="limitsms">SMS Messages with length more than 160 are sent as segments and are charged extra.</p>
 <p id="limitWhatsapp">WhatsApp Messages with length more than 1600 are sent as segments and are charged extra.</p>
 </div>
@@ -401,6 +401,8 @@ $('#RichTextEditor').bind('keyup keydown', function() {
    }
    else
    {
+	limitVal
+	document.getElementById("limitVal").style.display = "none";
 	document.getElementById("limitsms").style.display = "none";
 	document.getElementById("limitWhatsapp").style.display = "none";
    }
