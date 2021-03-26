@@ -366,8 +366,8 @@ define([
         else if (currentStep.key === 'step4') 
         {
             //(currentStep.key === 'step3' && steps[3].active === false) ||
-            document.getElementById("smsPreview").innerHTML = document.getElementById('RichTextEditor').innerHTML;
-            document.getElementById("whatsappPreview").innerHTML = document.getElementById('RichTextEditor').innerHTML;
+            //document.getElementById("smsPreview").innerHTML = document.getElementById('RichTextEditor').innerHTML;
+            //document.getElementById("whatsappPreview").innerHTML = document.getElementById('RichTextEditor').innerHTML;
 
             save();
         }
@@ -385,7 +385,7 @@ define([
          //   alert ("Step 1 Next clicked") ;
     //    }
         else {
-            console.log("else part me aarha h ");
+            
             connection.trigger('nextStep');
         }
     }
