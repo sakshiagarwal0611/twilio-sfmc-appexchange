@@ -358,15 +358,16 @@ define([
         else if(currentStep.key === 'step3')
         {
             var messagebody1 = document.getElementById('RichTextEditor').innerHTML;
-            
+            console.log("Checking if message body is null or not"+ messagebody1);
             if(messagebody1 == "")
             { 
+                console.log("Null");
             document.getElementById("messageBodyNull").innerHTML = messageBodyerrorSlds;
-            connection.trigger('ready');
+            connection.trigger('prevStep');
             }else
             {
                 document.getElementById("messageBodyNull").innerHTML= "";
-                
+                console.log("Not null");
                 
                 connection.trigger('nextStep');
             }
