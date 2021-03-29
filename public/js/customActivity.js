@@ -363,7 +363,7 @@ define([
             { 
                 console.log("Null");
             document.getElementById("messageBodyNull").innerHTML = messageBodyerrorSlds;
-            connection.trigger('prevStep');
+            connection.trigger('ready');
             }else
             {
                 document.getElementById("messageBodyNull").innerHTML= "";
