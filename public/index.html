@@ -312,13 +312,8 @@
 <div id="RichTextEditor" class="editor" contenteditable='true'></div>
 
 <div id = 'afterContenteditableDiv'> 
-<div class="slds-text-heading_small instruction noselect" id="heading">Message Length</div>
-<p id='char-count'></p>
+<div class="slds-text-heading_small instruction noselect" id="heading">Message Length: <p id='char-count'></p></div>
 
-<!-- <textarea rows="4" 
-id="RichTextEditor" 
-cols="50"> 
-</textarea>  <br>-->
 	
 
 
@@ -380,6 +375,11 @@ cols="50">
 </div>
 
 
+
+
+
+
+
 <script>
 
 //Code for character count
@@ -410,7 +410,9 @@ $('#RichTextEditor').bind('keyup keydown', function() {
    }
   count.text(characters);
 });
-	
+
+
+
 // Get the modal
 var modal = document.getElementById("myModal");
 
@@ -443,24 +445,7 @@ function insertAttribute()
 
 //This function os called to insert the attribute value at cursor position
 function insertTextAtCaret(text)
-
-//function insertTextAtCaret()
-{
-
-//	if($("#ps").val())
-//	{
-//		var value = $("#ps").val(); 
-//	}
-	
-    
-	/*console.log("insertTextAtCaret ke andar aagya haii... ")
-	var curPos =  document.getElementById("RichTextEditor").selectionStart; 
-	console.log("cursorPosition ---- > " + curPos); 
-	let x= $('#RichTextEditor').val();
-	console.log("value of x ----> " + x)
-	$('#RichTextEditor').val(x.slice(0,curPos)+"value"+x.slice(curPos));*/
-
-	
+{	
     var sel, range;
 	console.log( ' window.getSelection'  + window.getSelection);
     if (window.getSelection) 
@@ -603,8 +588,7 @@ function removeimage()
 	document.getElementById('image').innerHTML = ' '; 
 	document.getElementById("isInserted").checked = false;
 	//remove image from summary
-	document.getElementById('imageinserted').innerHTML ='';
-	
+	document.getElementById('imageinserted').innerHTML ='';	
 }
 	
 	
