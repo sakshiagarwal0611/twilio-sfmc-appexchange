@@ -146,7 +146,7 @@ $('#RichTextEditor').bind('keyup keydown', function() {
   console.log(noSpacesString);
   console.log(noSpacesString.length);
 }
-characters = noSpacesString.length;
+    characters = noSpacesString.length;
   if (characters > 160 && characters<1600){
 	document.getElementById("limitVal").style.display = "block";
 	document.getElementById("limitsms").style.display = "block";
