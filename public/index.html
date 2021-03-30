@@ -393,7 +393,7 @@ $('#RichTextEditor').bind('keyup keydown', function() {
   console.log($(this).text());
   console.log($(this).text().length);
   var text = $(this).text();
-  var noSpacesString= myString.replace(/ /g,'');
+  var noSpacesString= text.replace(/ /g,'');
   console.log(noSpacesString);
   console.log(noSpacesString.length);
   if (characters > 160 && characters<1600){
