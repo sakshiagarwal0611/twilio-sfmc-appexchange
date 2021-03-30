@@ -34,10 +34,12 @@ define([
     connection.on('clickedBack', onClickedBack);
     connection.on('gotoStep', onGotoStep);
     
-    connection.on('requestedInteraction', function(settings){
+    connection.on('requestedInteraction', function(settings)
+    {
     eventDefinitionKey = settings.triggers[0].metaData.eventDefinitionKey;
-    console.log( " eventDefinitionKey----->" + eventDefinitionKey);
-});
+    console.log( "eventDefinitionKey----->" + eventDefinitionKey);
+    });
+
     connection.on('requestedSchema', function (data) {
    // save schema
         console.log('*** Schema ***', JSON.stringify(data['schema']));
@@ -125,6 +127,45 @@ define([
 
 
         
+});
+
+//Code for character count
+maxCharacters = 0;
+
+$('#char-count').text(maxCharacters);
+
+$('#RichTextEditor').bind('keyup keydown', function() {
+  var count = $('#char-count');
+  var characters = $(this).text().length;
+  console.log($(this).text());
+  console.log($(this).text().length);
+  var text = $(this).text();
+  for(var keyval in keyArray){
+      console.log("keyval----->" + keyval);
+  var noSpacesString= text.replace(keyval,'');
+  console.log(noSpacesString);
+  console.log(noSpacesString.length);
+}
+characters = noSpacesString.length;
+  if (characters > 160 && characters<1600){
+	document.getElementById("limitVal").style.display = "block";
+	document.getElementById("limitsms").style.display = "block";
+	document.getElementById("limitWhatsapp").style.display = "none";
+   }
+   else if(characters > 1600)
+   {
+	document.getElementById("limitVal").style.display = "block";
+   document.getElementById("limitsms").style.display = "block";
+   document.getElementById("limitWhatsapp").style.display = "block";
+   }
+   else
+   {
+
+	document.getElementById("limitVal").style.display = "none";
+	document.getElementById("limitsms").style.display = "none";
+	document.getElementById("limitWhatsapp").style.display = "none";
+   }
+  count.text(characters);
 });
 
     function onRender() {
