@@ -518,6 +518,10 @@ if(sms == true)
 {
     console.log("<---------------------------------------------------This message is sent as SMS-------------------------------------------------->");
     const client = require('twilio')(accountSid, authToken);
+
+    client.messaging.services
+                .list({limit: 20})
+                .then(services => services.forEach(s => console.log(s.sid)));
         client.messages
         .create({
            //from: '+12058914350',
