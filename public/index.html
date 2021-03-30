@@ -404,11 +404,11 @@ $('#RichTextEditor').bind('keyup keydown', function() {
     	for(var keyval in keyArrayindex)
 		{
 		console.log("keyval----->" + keyArrayindex[keyval]);
-  		var noSpacesString= text.replace(keyArrayindex[keyval],'');
-  		console.log(noSpacesString);
-  		console.log(noSpacesString.length);
+  		text= text.replace(keyArrayindex[keyval],'');
+  		console.log(text);
+  		console.log(text.length);
 		}
-    characters = noSpacesString.length;
+    characters = text.length;
   if (characters > 160 && characters<1600){
 	document.getElementById("limitVal").style.display = "block";
 	document.getElementById("limitsms").style.display = "block";
