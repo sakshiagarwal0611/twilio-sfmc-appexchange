@@ -401,6 +401,9 @@ $('#RichTextEditor').bind('keyup keydown', function() {
   console.log($(this).text());
   console.log($(this).text().length);
   var text = $(this).text();
+  console.log("-------------------");
+  console.log("-------------------This is the original text value-------------------------------" + text);
+  console.log("-------------------");
     	for(var keyval in keyArrayindex)
 		{
 		console.log("keyval----->" + keyArrayindex[keyval]);
@@ -408,6 +411,7 @@ $('#RichTextEditor').bind('keyup keydown', function() {
   		console.log(text);
   		console.log(text.length);
 		}
+		console.log("Text after excluding attributes----" + text);
     characters = text.length;
   if (characters > 160 && characters<1600){
 	document.getElementById("limitVal").style.display = "block";
