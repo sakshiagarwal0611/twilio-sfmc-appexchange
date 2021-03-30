@@ -393,7 +393,7 @@ $('#RichTextEditor').bind('keyup keydown', function() {
   console.log($(this).text());
   console.log($(this).text().length);
   var text = $(this).text();
-  var noSpacesString= text.replace(/ /g,'');
+  var noSpacesString= text.replace('{{Event.DEAudience-f4a9581b-8276-4d86-1d9a-0b03069e9d0f.Email}}','');
   console.log(noSpacesString);
   console.log(noSpacesString.length);
   if (characters > 160 && characters<1600){
