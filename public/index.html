@@ -388,7 +388,7 @@ $('#char-count').text('0');
 function setKeyVal(keyArray){
 	console.log("function called to set value");
 		for(var keyval in keyArray){
-			var test1 = '{{' + keyval +'}}';
+			var test1 = '{{' + keyArray[keyval] +'}}';
 			keyArrayindex.push(test1);
 		}
 	//keyArrayindex = keyArray;
