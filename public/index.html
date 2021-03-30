@@ -386,7 +386,11 @@
 var keyArrayindex = [];
 $('#char-count').text('0');
 function setKeyVal(keyArray){
-	keyArrayindex = keyArray
+	console.log("function called to set value");
+
+	keyArrayindex = keyArray;
+	console.log("value set---" + keyArrayindex);
+
 }
 $('#RichTextEditor').bind('keyup keydown', function() {
   var count = $('#char-count');

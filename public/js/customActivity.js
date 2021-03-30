@@ -71,7 +71,10 @@ define([
         
         keyArray.forEach(editSelect);
         phoneArray.forEach(editPhone);
+        console.log('calling function to set value');
         setKeyVal(keyArray);
+        console.log('done');
+
         function editPhone(item, index)
         {
             var phone = item;
