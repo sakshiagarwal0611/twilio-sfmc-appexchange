@@ -529,7 +529,7 @@ define([
                    
                   //document.getElementById('Message').innerHTML = document.getElementById('RichTextEditor').innerHTML;
                   
-                   //document.getElementById('selectedPhone').innerHTML = $("#recipient").val();
+                   document.getElementById('selectedPhone').innerHTML = $("#recipient").val();
                 
                 break;
         }
