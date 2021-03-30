@@ -151,6 +151,7 @@
 
 <!-- This is step 1-->
 <div id="step1" class="step">
+	
 	<div class="slds-text-heading_small instruction">Enter authentication values for twilio.</div>
     <br>
 	<!-- enter twilio authentication details-->
@@ -159,12 +160,12 @@
 </div>
 	<!-- enter AccountSID -->
 <div class="form-group">
-    <div><label for="accountSID">Account SID:<span class="required" style = "color: red">*</span></label></div>
+    <div><label class="slds-text-heading_small instruction" for="accountSID">Account SID:<span class="required" style = "color: red">*</span></label></div>
         <input class="form-control" id="accountSID" type="text" name="accountSID" value="" aria-describedby="required-description" required="true"> 
 	</div>
 	<!-- enter Auth Token -->
     <div class="form-group">
-    <div><label for="authToken">Auth Token:<span class="required" style = "color: red">*</span></label></div>
+    <div><label class="slds-text-heading_small instruction" for="authToken">Auth Token:<span class="required" style = "color: red">*</span></label></div>
         <input class="form-control" id="authToken" type="text" name="authToken" value="" required="true" aria-describedby="required-description"> 
 	</div> 	
 </div>
@@ -298,7 +299,7 @@
 		    <div class="slds-select_container">
 				
 		    <select class="slds-select" id="ps" onchange="insertAttribute()" >
-			<option value="none" id="none" selected>Select Attribute</option>
+			<option value="none" style="font-weight: 650;" id="none" selected>Select Attribute</option>
 			<!--<option value="{{Contact.Attribute.TwilioV1.EmailAddress}}" id="ps1">Email</option>
 			<option value="{{Contact.Attribute.TwilioV1.TwilioNumber}}" id="ps2">Phone number</option> -->
 		    </select>
