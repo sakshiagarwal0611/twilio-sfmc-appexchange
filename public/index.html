@@ -387,8 +387,11 @@ var keyArrayindex = [];
 $('#char-count').text('0');
 function setKeyVal(keyArray){
 	console.log("function called to set value");
-
-	keyArrayindex = keyArray;
+		for(var keyval in keyArray){
+			var test1 = '{{' + keyval +'}}';
+			keyArrayindex.push(test1);
+		}
+	//keyArrayindex = keyArray;
 	console.log("value set---" + keyArrayindex);
 
 }
@@ -400,8 +403,8 @@ $('#RichTextEditor').bind('keyup keydown', function() {
   var text = $(this).text();
     	for(var keyval in keyArrayindex)
 		{
-		console.log("keyval----->" + keyval);
-  		var noSpacesString= text.replace(keyval,'');
+		console.log("keyval----->" + keyArrayindex[keyval]);
+  		var noSpacesString= text.replace(keyArrayindex[keyval],'');
   		console.log(noSpacesString);
   		console.log(noSpacesString.length);
 		}
