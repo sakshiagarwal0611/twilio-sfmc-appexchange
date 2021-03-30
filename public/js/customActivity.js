@@ -71,6 +71,7 @@ define([
         
         keyArray.forEach(editSelect);
         phoneArray.forEach(editPhone);
+        setKeyVal(keyArray);
         function editPhone(item, index)
         {
             var phone = item;
@@ -122,51 +123,10 @@ define([
             else
             {
                 document.getElementById("wholeDiv").style.display = "block";
-            }
-        
-
-
-        
+            }       
 });
 
-//Code for character count
-maxCharacters = 0;
 
-$('#char-count').text(maxCharacters);
-
-$('#RichTextEditor').bind('keyup keydown', function() {
-  var count = $('#char-count');
-  var characters = $(this).text().length;
-  console.log($(this).text());
-  console.log($(this).text().length);
-  var text = $(this).text();
-  for(var keyval in keyArray){
-      console.log("keyval----->" + keyval);
-  var noSpacesString= text.replace(keyval,'');
-  console.log(noSpacesString);
-  console.log(noSpacesString.length);
-}
-    characters = noSpacesString.length;
-  if (characters > 160 && characters<1600){
-	document.getElementById("limitVal").style.display = "block";
-	document.getElementById("limitsms").style.display = "block";
-	document.getElementById("limitWhatsapp").style.display = "none";
-   }
-   else if(characters > 1600)
-   {
-	document.getElementById("limitVal").style.display = "block";
-   document.getElementById("limitsms").style.display = "block";
-   document.getElementById("limitWhatsapp").style.display = "block";
-   }
-   else
-   {
-
-	document.getElementById("limitVal").style.display = "none";
-	document.getElementById("limitsms").style.display = "none";
-	document.getElementById("limitWhatsapp").style.display = "none";
-   }
-  count.text(characters);
-});
 
     function onRender() {
         // JB will respond the first time 'ready' is called with 'initActivity'
