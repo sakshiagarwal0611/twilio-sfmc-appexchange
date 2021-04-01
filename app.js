@@ -74,9 +74,19 @@ console.log("Execute function is executed successfully");
         body:{
               "query":
                                                                                 {
+                                                                                  "leftOperand":
+                                                                                      {
                                                                                       "property":"assetType.displayName",
                                                                                       "simpleOperator":"equal",
                                                                                       "value": 'image'
+                                                                                    },
+                                                                                    "logicalOperator":"OR",
+                                                                                    "rightOperand":
+                                                                                    {
+                                                                                        "property":"assetType.displayName",
+                                                                                        "simpleOperator":"equal",
+                                                                                        "value":"document"
+                                                                                    }
                                                                                 },
                                                                    "fields": [
                                                                    "name",
