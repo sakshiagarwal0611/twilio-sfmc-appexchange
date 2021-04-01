@@ -102,15 +102,15 @@ console.log("Execute function is executed successfully");
                                           console.log("error-------->"+error);
                                           var arr =[];
                                           var URLarr = response.body.items;
-                                          //console.log("Array of URL---------------------------->>>>>>>>>>>>>>>>>" + URLarr);
-                                          //console.log("Array of URL---------------------------->>>>>>>>>>>>>>>" + URLarr.fileProperties);
+                                          console.log("Array of URL---------------------------->>>>>>>>>>>>>>>>>" + URLarr);
+                                          console.log("Array of URL---------------------------->>>>>>>>>>>>>>>" + URLarr.fileProperties);
                                           for(var jsonArr in  URLarr)
                                           {
                                           var url =  URLarr[jsonArr].fileProperties.publishedURL ; 
-                                          //console.log("url of image------------->   " + url);
+                                          console.log("url of image------------->   " + url);
                                           arr.push(url);
                                           }
-                                          //console.log("url of image------------->   " + arr);
+                                          console.log("url of image------------->   " + arr);
                                                                                   
                                           res.json({arr:arr});
                                           //var resp= response.toString();
