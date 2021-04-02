@@ -101,17 +101,23 @@ console.log("Execute function is executed successfully");
                                           //console.log("response--------->"+response);
                                           console.log("error-------->"+error);
                                           var arr =[];
+                                          var map=new Map();  
+ 
+ 
                                           var URLarr = response.body.items;
                                           console.log("Array of URL---------------------------->>>>>>>>>>>>>>>>>" + URLarr);
                                           console.log("Stringify array of response----->" + JSON.stringify(URLarr));
                                           console.log("Array of URL---------------------------->>>>>>>>>>>>>>>" + URLarr.fileProperties);
                                           for(var jsonArr in  URLarr)
                                           {
-                                          var url =  URLarr[jsonArr].fileProperties.publishedURL ; 
+                                          var url =  URLarr[jsonArr].fileProperties.publishedURL;
+                                          var fileType =  URLarr[jsonArr].assetType.displayName;
                                           console.log("url of image------------->   " + url);
                                           arr.push(url);
+                                          map.set(url,fileType); 
                                           }
                                           console.log("url of image------------->   " + arr);
+                                          console.log("map with values" + map);
                                                                                   
                                           res.json({arr:arr});
                                           //var resp= response.toString();
