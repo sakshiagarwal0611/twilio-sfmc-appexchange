@@ -62,8 +62,8 @@ define([
        // console.log("Data schema   "+data['schema'].key);
         
         
-         console.log("Key Array----------->" + keyArray);
-         console.log("Phone Array----------->" + phoneArray);
+        console.log("Key Array----------->" + keyArray);
+        console.log("Phone Array----------->" + phoneArray);
         
         
         console.log(document.getElementById('recipient').innerHTML);
@@ -81,6 +81,7 @@ define([
             var res1 = phone.split(".");
             document.getElementById('recipient').innerHTML +=  '<option value = "{{' + phone + '}}">'+ res1[2] +'</option>' ; 
         }
+
         function editSelect(item, index)
         {
            var keyValue = item ;  
@@ -283,17 +284,18 @@ define([
                         document.getElementById("limitsms").style.display = "none";
                         document.getElementById("limitWhatsapp").style.display = "none";
                        }
-
                 }
 		    
             })
         });
 
-        connection.trigger('updateButton', {
+    connection.trigger('updateButton', {
             button: 'next',
             text: 'next',
             visible: true
         });
+
+    
 
     }
 

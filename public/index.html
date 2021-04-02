@@ -204,6 +204,11 @@
         <input class="form-control" id="authToken" type="text" name="authToken" value="" required="true" aria-describedby="required-description"> 
 	</div> 	
 
+	<button onclick="fetchMSID()"></button>
+	<div id="msIdList">
+
+	</div>
+
 	<!-- select Messeging service -->
 	<div class="slds-text-heading_small instruction">Select Messaging service:</div> 
 	<div class="slds-form-element__control">
@@ -705,11 +710,20 @@ function templateChange()
 
 
 // messagingServiceChange
-function messagingServiceChange()	
+function fetchMSID()	
 	{
 		console.log("This function is called to set the messaging service id");
 
-	}
+		fetch('/MessagingID', {
+            method: "POST",
+            headers: {"Content-Type": "application/json"}
+         }).then(response => response.json())
+         .then((body) => 
+         {
+             console.log("We have received the response for MSIDs");
+			})
+
+	};
 
 //I've no idea
 function valthis() 

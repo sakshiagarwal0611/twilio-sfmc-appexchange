@@ -129,6 +129,22 @@ console.log("Execute function is executed successfully");
                                           });
   });       
   }); 
+
+
+
+
+
+
+  app.post("/messagingID", (req, res) => {
+
+    console.log('Retrieve Messaging service ID');
+
+    const client = require('twilio')(accountSid, authToken);
+    client.messaging.services
+                .list({limit: 20})
+                .then(services => services.forEach(s => console.log(s.sid)));
+        
+  });
  
   
 http.createServer(app).listen(app.get('port'), function(){
