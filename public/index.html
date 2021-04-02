@@ -634,7 +634,9 @@ btn.onclick = function()
                 .then((body) => 
                 {
                 	var map=body.map;
-                    //console.log("map------------------>"+map);
+                    console.log("map keys------------------>"+ map.keys());
+					console.log("map values------------------>"+ map.values());
+
 		            var arry = map;
 					arry.forEach(myFunction);  
 					function myFunction(item, index) {
