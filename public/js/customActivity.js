@@ -98,7 +98,7 @@ define([
         }
 
         
-            console.log("Message aarha hai customactivity me");
+      
             var value = $("#messageType").val();
             console.log("#messageType value   : " + value);
             //if(value == "Transactional Message")

@@ -203,6 +203,19 @@
     <div><label class="slds-text-heading_small instruction" for="authToken">Auth Token:<span class="required" style = "color: red">*</span></label></div>
         <input class="form-control" id="authToken" type="text" name="authToken" value="" required="true" aria-describedby="required-description"> 
 	</div> 	
+
+	<!-- select Messeging service -->
+	<div class="slds-text-heading_small instruction">Select Messaging service:</div> 
+	<div class="slds-form-element__control">
+		    <div class="slds-select_container">
+		      <select class="slds-select" id="messageType" onchange="messagingServiceChange()">  
+				<option hidden selected>None</option>	  
+			    <option value="Sessional Message">Sessional Message</option>
+			    
+		      </select>
+		    </div>
+        </div> 
+	<br><br>
 </div>
 <!-- Step 1 ends  -->
 
@@ -614,7 +627,7 @@ btn.onclick = function()
                 }).then(response => response.json())
                 .then((body) => 
                 {
-                	var map=body.arr;
+                	var map=body.map;
                     //console.log("map------------------>"+map);
 		            var arry = map;
 					arry.forEach(myFunction);  
@@ -687,6 +700,15 @@ function templateChange()
 		var len = value.length;
 		document.getElementById('RichTextEditor').innerHTML = value;
 		document.getElementById('char-count').textContent = len;
+	}
+
+
+
+// messagingServiceChange
+function messagingServiceChange()	
+	{
+		console.log("This function is called to set the messaging service id");
+
 	}
 
 //I've no idea
