@@ -107,7 +107,7 @@ console.log("Execute function is executed successfully");
                                           var URLarr = response.body.items;
                                           console.log("Array of URL---------------------------->>>>>>>>>>>>>>>>>" + URLarr);
                                           console.log("Stringify array of response----->" + JSON.stringify(URLarr));
-                                          console.log("Array of URL---------------------------->>>>>>>>>>>>>>>" + URLarr.fileProperties);
+                                          //console.log("Array of URL---------------------------->>>>>>>>>>>>>>>" + URLarr.fileProperties);
                                           for(var jsonArr in  URLarr)
                                           {
                                           var url =  URLarr[jsonArr].fileProperties.publishedURL;
@@ -117,7 +117,7 @@ console.log("Execute function is executed successfully");
                                           map.set(url,fileType); 
                                           }
                                           console.log("url of image------------->   " + arr);
-                                          console.log("map with values" + map);
+                                          console.log("map with values" + JSON.stringify(map));
                                                                                   
                                           res.json({arr:arr});
                                           //var resp= response.toString();
