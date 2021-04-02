@@ -118,7 +118,8 @@ console.log("Execute function is executed successfully");
                                           }
                                           console.log("url of image------------->   " + arr);
                                           console.log("map with values" + map.get('https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/49a978ba-5cb5-4d25-b8cf-a763f4db157b.pdf'));
-                                                                                  
+                                          console.log(map.keys());
+                                          console.log(map.values());                                       
                                           res.json({arr:arr});
                                           //var resp= response.toString();
                                           //console.log(" published url list --------------------------------------------------------->" + JSON.stringify(response.body.items.fileproperties.publishedUrl);
