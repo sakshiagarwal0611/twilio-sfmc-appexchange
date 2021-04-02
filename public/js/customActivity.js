@@ -530,8 +530,13 @@ define([
                   }
                    
                   //document.getElementById('Message').innerHTML = document.getElementById('RichTextEditor').innerHTML;
+                  var recipient = $("#recipient").val();
+                  recipient = recipient.replaceAll("{{", "");
+                  recipient = recipient.replaceAll("}}", "");
+                  var recipient2 = recipient.split(".");
                   
-                   document.getElementById('selectedPhone').innerHTML = $("#recipient").val();
+                   document.getElementById('selectedPhone').innerHTML = recipient2[2];
+                   console.log("recipient2[2]" + recipient2[2]);
                 
                 break;
         }
