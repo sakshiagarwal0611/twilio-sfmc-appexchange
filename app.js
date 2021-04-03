@@ -135,20 +135,20 @@ console.log("Execute function is executed successfully");
 
 
 
-  app.post("/messagingID", (req, res) => {
+//   app.post("/messagingID", (req, res) => {
 
-    console.log('Retrieve Messaging service ID');
+//     console.log('Retrieve Messaging service ID');
 
-    const client = require('twilio')('AC5c725b3abe2ddbeab8d8d468deb42427','7e39e81aba9d360d9df815b72463b499');
-    client.messaging.services
-                .list({limit: 20})
-                .then(services => services.forEach(s => console.log(s.sid)));
+//     const client = require('twilio')('test','test');
+//     client.messaging.services
+//                 .list({limit: 20})
+//                 .then(services => services.forEach(s => console.log(s.sid)));
         
-  });
+//   });
  
   
-http.createServer(app).listen(app.get('port'), function(){
-console.log('Express server listening on port ' + app.get('port'));
-});
+// http.createServer(app).listen(app.get('port'), function(){
+// console.log('Express server listening on port ' + app.get('port'));
+// });
 
 
