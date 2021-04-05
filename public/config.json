@@ -188,7 +188,7 @@
                     },
                     {
                         "MSID": {
-                            "dataType": "Number",
+                            "dataType": "String",
                             "isNullable": true,
                             "direction": "in"
                         }
