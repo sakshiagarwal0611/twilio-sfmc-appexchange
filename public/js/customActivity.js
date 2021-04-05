@@ -7,8 +7,6 @@ define([
 
     var connection = new Postmonger.Session();
     var payload = {};
-    var payload1 = {};
-    var lastStepEnabled = false;
     var steps = [ // initialize to the same value as what's set in config.json for consistency
         { "label": "Twilio Authentication", "key": "step1" },
         { "label": "Select Channel", "key": "step2" },
@@ -59,12 +57,10 @@ define([
             keyArray.push(key1);
            
         }
-       // console.log("Data schema   "+data['schema'].key);
         
         
         console.log("Key Array----------->" + keyArray);
         console.log("Phone Array----------->" + phoneArray);
-        
         
         console.log(document.getElementById('recipient').innerHTML);
         console.log(document.getElementById('ps').innerHTML);
@@ -558,7 +554,6 @@ define([
         var insertedImage ; 
         var entry = "{{Event." + eventDefinitionKey + ".EmailAddress}}";
         var to = $("#recipient").val();
-        //var to =  "{{Contact.Attribute.TwilioDE.TwilioNumber}}"
 	    var wpMessageType  = $("#messageType").val(); 
 	    var template = $("#template").val();
         var charCount = document.getElementById("char-count").textContent;
@@ -602,7 +597,6 @@ define([
         wPmessage = wPmessage.replaceAll("</strike>", "~");
         wPmessage = wPmessage.replaceAll("<u>", "");
         wPmessage = wPmessage.replaceAll("</u>", "");
-
         wPmessage = wPmessage.replaceAll("<div>", '\n');
         wPmessage = wPmessage.replaceAll("</div>",'');
         wPmessage = wPmessage.replaceAll("<br>",'\n');

@@ -404,21 +404,7 @@
 <!-- Display channels on summary page 
  <div class="slds-text-heading_small instruction">CHANNEL</div>
 <div id="channel"> </div> 		
-<br><br>
-
- Display message body on summary page  
-<div class="slds-text-heading_small instruction">MESSAGE BODY</div> 
-<div id="Message"></div> 
-<br><br>
-
- Display inserted image on summary page  
-<div class="slds-text-heading_small instruction">INSERTED IMAGE:</div> 
-<div id="imageinserted" class="summaryImage"></div> 
-<br><br>
-
- Display recipients on summary page 
-<div class="slds-text-heading_small instruction">RECIPIENT:</div> 
-<div id="selectedPhone"></div>  -->
+<br><br> -->
 
 <table class ="previewTable" style="width:100%">
 	<tr>
@@ -426,8 +412,6 @@
 		<td id="wpCol" style="text-align: center;padding-top: 13%;width:50%; height:509px;background-repeat: no-repeat; background-image:url('images/phone.jpg');background-size: 90% 103%;"><div id="selectedPhone" style="    background-color: #03a9f4;width: 64%;margin-left: 51px;padding: 17px;border-radius: 6px;margin-bottom: 27px;margin-top: -71px;font-size: 19px;color: white;font-weight: bold;"></div><div style="background-color:rgb(243, 243, 243);width:50%;border-radius: 7px;margin-left: 16%;    overflow-y: auto;max-height: 92%;overflow-x: hidden;"><div id="imageinserted" class="summaryImage" style="margin: 5px;width:100%"></div><div id="whatsappPreview"  style=" width: 100%;margin-left:1%;padding-bottom: 10px;border-radius:10px; padding-left: 10px;padding-right: 3px;padding-top: 9px;text-align: left;"></div></div></td>
 	</tr>
 </table>
-<!-- Display recipients on summary page  -->
-<!-- <div class="slds-text-heading_small instruction">RECIPIENT: </div>  -->
 
 
 </div>
@@ -443,6 +427,8 @@
 //Code for character count
 var keyArrayindex = [];
 $('#char-count').text('0');
+
+//Function to set values for
 function setKeyVal(keyArray){
 	console.log("function called to set value");
 		for(var keyval in keyArray){
@@ -465,7 +451,7 @@ $('#RichTextEditor').bind('keyup keydown', function() {
     	for(var keyval in keyArrayindex)
 		{
 		console.log("keyval----->" + keyArrayindex[keyval]);
-  		text= text.replace(keyArrayindex[keyval],'');
+  		text= text.replaceAll(keyArrayindex[keyval],'');
   		console.log(text);
   		console.log(text.length);
 		}
@@ -570,7 +556,7 @@ function insertTextAtCaret(text)
     }
 }
 
-// function to insert image when selected
+//Function to insert image when selected
 function imageinsert(url)
 	{
 		console.log("url as it is received by the insert image function--->" + url);
@@ -727,22 +713,6 @@ function templateChange()
 			})
 
 	};*/
-
-//I've no idea
-function valthis() 
-{
-	$(document).ready(function () {
-	$('#checkBtn').click(function() {
-	checked = $("input[type=checkbox]:checked").length;
-	if(!checked) 
-	{
-	alert("You must check at least one checkbox.");
-	return false;
-	}
-	});
-	});
-
-}
 
 </script>		
 </body>
