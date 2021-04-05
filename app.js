@@ -150,7 +150,7 @@ console.log("Execute function is executed successfully");
     //             .list({limit: 20})
     //             .then(services => services.forEach(s => console.log(s.sid))
     // );
-   // res.json({services:services});
+    // res.json({services:services});
         
   });
  
