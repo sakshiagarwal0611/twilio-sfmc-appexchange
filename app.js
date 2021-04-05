@@ -100,7 +100,7 @@ console.log("Execute function is executed successfully");
                                           //console.log("response--------->"+response);
                                           console.log("error-------->"+error);
                                           var arr =[];
-                                          var map=new Map();  
+                                          var urlmap=new Map();  
  
  
                                           var URLarr = response.body.items;
@@ -116,10 +116,10 @@ console.log("Execute function is executed successfully");
                                           map.set(url,fileType); 
                                           }
                                           console.log("url of image------------->   " + arr);
-                                          console.log("map with values" + map.get('https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/49a978ba-5cb5-4d25-b8cf-a763f4db157b.pdf'));
-                                          console.log(map.keys());
-                                          console.log(map.values());                                       
-                                          res.json({map:map});
+                                          console.log("map with values" + urlmap.get('https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/49a978ba-5cb5-4d25-b8cf-a763f4db157b.pdf'));
+                                          console.log(urlmap.keys());
+                                          console.log(urlmap.values());                                       
+                                          res.json({urlmap:urlmap});
                                           //var resp= response.toString();
                                           //console.log(" published url list --------------------------------------------------------->" + JSON.stringify(response.body.items.fileproperties.publishedUrl);
                                           //var asset = Platform.Function.ParseJSON(resp);

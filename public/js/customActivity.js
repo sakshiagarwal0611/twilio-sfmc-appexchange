@@ -463,6 +463,7 @@ define([
                 
                 break;
             case 'step4':
+                $('#step4').show();
                 console.log("------------------------------------------------------------->This is step 4");
 
 
