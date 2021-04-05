@@ -709,18 +709,16 @@ function templateChange()
 function messagingServiceChange()
 {
 	var ms=	document.getElementById("messageservice").value;
-	
 	var mstext = document.getElementById("messageservice");
 	var text = mstext.options[mstext.selectedIndex].text;
 	console.log(ms);
 	console.log(text);
 	document.getElementById("Msid").innerHTML = ms;
-	document.getElementById("MSname").innerHTML = mstext;
-
+	document.getElementById("MSname").innerHTML = text;
 }
 
 // messagingServiceChange
-/*function fetchMSID()	
+function fetchMSID()	
 	{
 		console.log("This function is called to set the messaging service id");
 
@@ -732,8 +730,7 @@ function messagingServiceChange()
          {
              console.log("We have received the response for MSIDs");
 			})
-
-	};*/
+	};
 
 </script>		
 </body>
