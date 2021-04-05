@@ -506,8 +506,9 @@ define([
                   recipient = recipient.replaceAll("}}", "");
                   var recipient2 = recipient.split(".");
                   
-                   document.getElementById('selectedPhone').innerHTML = recipient2[2];
-                   console.log("recipient2[2]" + recipient2[2]);
+                   document.getElementById('selectedPhonesms').innerHTML = recipient2[2];
+                   document.getElementById('selectedPhonewp').innerHTML = recipient2[2];
+                   console.log("recipient2[2]--->" + recipient2[2]);
                 
                 break;
         }
