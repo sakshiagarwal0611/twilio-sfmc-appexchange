@@ -185,8 +185,14 @@
                             "isNullable": true,
                             "direction": "in"
                         }
-                    } 
-                    
+                    },
+                    {
+                        "MSID": {
+                            "dataType": "Number",
+                            "isNullable": true,
+                            "direction": "in"
+                        }
+                    }
                 ],
                 "outArguments": []
             }

@@ -307,6 +307,7 @@ exports.execute = function(req, res) {
     const imageURL = requestBody.insertedImage ; 
     const email = requestBody.email; 
     const wpMessageType = requestBody.wpMessageType;
+    const MSID = requestBody.MSID;
     
     console.log(" This is SMS DE--------------------------------------------------->" + sms_Ek);
     console.log(" This is WhatsApp DE--------------------------------------------------->" + whatsapp_Ek);
