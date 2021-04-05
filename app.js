@@ -145,11 +145,11 @@ console.log("Execute function is executed successfully");
     var authToken = qdata.authToken;
 
 
-    const client = require('twilio')(accountsid,authToken);
-    client.messaging.services
-                .list({limit: 20})
-                .then(services => services.forEach(s => console.log(s.sid))
-    );
+    // const client = require('twilio')(accountsid,authToken);
+    // client.messaging.services
+    //             .list({limit: 20})
+    //             .then(services => services.forEach(s => console.log(s.sid))
+    // );
    // res.json({services:services});
         
   });
