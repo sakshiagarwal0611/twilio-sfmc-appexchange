@@ -411,14 +411,9 @@ define([
                  connection.trigger('updateButton', {
                   button: 'next',
                      text: 'next',
-                  visible: true
-                    //enabled: Boolean(getMessage())
-                });
-               /* connection.trigger('updateButton', {
-                    button: 'back',
-                    visible: false
-                });*/
+                  visible: true  });
                 break;
+
             case 'step2':
                 $('#step2').show();
                 console.log("---------------------------------------------------------------------------------------------------------------->This is step 2");
@@ -435,31 +430,23 @@ define([
             case 'step3':
                 $('#step3').show();
                 console.log("------------------------------------------------------------------------------------>This is step 3");
-		
-		
-			
+
                 var wpsms = $("#WhatsApp").is(":checked"); 
-                //var sms = $("#SMS").is(":checked");
                 var value1 = $("#messageType").val();
-                // if(sms == true){
-                //     document.getElementById('smscol').style.display = "block";
-                // }else{
-                //     document.getElementById('smscol').style.display = "none";
-                // }
+                
                 if(wpsms != true || value1 == "Transactional Message")
                 { 
                     document.getElementById('myBtn').style.display = "none";
                     document.getElementById('selected').style.display = "none";
                     document.getElementById('image').style.display = "none";
                     document.getElementById('imageinserted').style.display = "none";
-                    //document.getElementById('wpCol').style.display = "none";
                     
-                }else{
+                }else
+                {
                      document.getElementById('myBtn').style.display = "inline";
                     document.getElementById('selected').style.display = "inline";
                     document.getElementById('image').style.display = "block";
                     document.getElementById('imageinserted').style.display = "block";
-                    //document.getElementById('wpCol').style.display = "block";
                 }
              
                 
@@ -476,12 +463,11 @@ define([
                 
                 break;
             case 'step4':
-                $('#step4').show();
                 console.log("------------------------------------------------------------->This is step 4");
 
 
                 var WPtrue = $("#WhatsApp").is(":checked");
-                //document.getElementById('channel').innerHTML = ' ';
+               
                   if(WPtrue == true){
                   //document.getElementById('channel').innerHTML = 'WhatsApp, '; 
                   document.getElementById('wpCol').style.display = "inline-block";
