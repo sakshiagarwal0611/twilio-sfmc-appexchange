@@ -721,14 +721,21 @@ function messagingServiceChange()
 function fetchMSID()	
 	{
 		console.log("This function is called to set the messaging service id");
-
+		var id = $('#accountSID').val();
+		var token = $('#authToken').val();
 		fetch('/MessagingID', {
             method: "POST",
-            headers: {"Content-Type": "application/json"}
+            headers: {"Content-Type": "application/json"},
+			body:{"accountsid":id, "authToken": token}
          }).then(response => response.json())
          .then((body) => 
          {
+			 //var services = body.services;
+			 
+			 var name = "sakshi";
+			 var sid = "sakshiid";
              console.log("We have received the response for MSIDs");
+			 document.getElementById('messageservice').innerHTML +=  '<option value = "' + name + '}}">'+ sid +'</option>' ; 
 			})
 	};
 

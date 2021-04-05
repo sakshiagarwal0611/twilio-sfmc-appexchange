@@ -257,9 +257,16 @@ define([
                     console.log("Whatsapp message type------------------------>" + val);
 		            document.getElementById("messageType").value = val;  
                 }
-		        if (key === 'template') {
+		        if (key === 'template'){
                     console.log("Template selected------->" + val);
 		            document.getElementById("template").value = val;
+                }
+                if(key === 'MSID'){
+                    document.getElementById("Msid").innerHTML = val;
+
+                }
+                if(key === 'MsName'){
+                    document.getElementById("MSname").innerHTML = val;
                 }
                 if(key === 'charCount'){
                     console.log("character count------------>" + val);
@@ -532,6 +539,8 @@ define([
 	    var wpMessageType  = $("#messageType").val(); 
 	    var template = $("#template").val();
         var charCount = document.getElementById("char-count").textContent;
+        var msid = document.getElementById("Msid").textContent;
+        var MsName = document.getElementById("MSname").textContent;
 
         console.log("charCount------>" + charCount);
 	    console.log(wpMessageType + template);    
@@ -594,7 +603,9 @@ define([
             "isimage": isimage,
             "wpMessageType" : wpMessageType,
 	        "template" : template,
-            "charCount":charCount  
+            "charCount":charCount,
+            "MSID": msid,
+            "MsName": MsName
         }];
 
         payload['metaData'].isConfigured = true;
