@@ -46,7 +46,6 @@ define([
         console.log("Array of arrtibutes" +  attributeArray);
         for(var attArray in attributeArray)
         {
-            
             console.log(attArray);
             var key1 = attributeArray[attArray].key;
             var phoneValue = attributeArray[attArray].type;
@@ -128,7 +127,8 @@ define([
 
 
 
-    function onRender() {
+    function onRender() 
+    {
         // JB will respond the first time 'ready' is called with 'initActivity'
         connection.trigger('ready');
         connection.trigger('requestTokens');
@@ -137,7 +137,8 @@ define([
         connection.trigger('requestSchema');
     }
 
-    function initialize(data) {
+    function initialize(data) 
+    {
         console.log("Initializing data data: " + JSON.stringify(data));
         if (data) {
             payload = data;
@@ -379,19 +380,6 @@ define([
         {
             save();
         }
-        
-
-    //    else if ((currentStep.key) === 'step1')
-    //    {
-    //        console.log( "Account SID KE ANDAR HA" ); 
-        //    var accountSid = $('#accountSID').val();
-        //    console.log(accountSid);
-        //    if(accountSid == null)
-        //    {
-        //        alert("AccountSid is empty");
-        //    }
-         //   alert ("Step 1 Next clicked") ;
-    //    }
         else {
             
             connection.trigger('nextStep');
@@ -539,9 +527,8 @@ define([
     }
     
     
-
+//This function is called when we click on done to save the activity configuration
     function save() {
-
         var accountSid = $('#accountSID').val();
         var authToken = $('#authToken').val();
         var messagingService = $('#messagingService').val();
