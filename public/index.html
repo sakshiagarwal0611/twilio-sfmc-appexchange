@@ -709,9 +709,11 @@ function templateChange()
 function messagingServiceChange()
 {
 	var ms=	document.getElementById("messageservice").value;
-	var mstext = document.getElementById("messageservice").text;
+	
+	var mstext = document.getElementById("messageservice");
+	var text = mstext.options[mstext.selectedIndex].text;
 	console.log(ms);
-	console.log(mstext);
+	console.log(text);
 	document.getElementById("Msid").innerHTML = ms;
 	document.getElementById("MSname").innerHTML = mstext;
 
