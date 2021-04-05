@@ -205,22 +205,25 @@
 	</div> 	
 
 	<button onclick="fetchMSID()" style="border: none;padding: 10px;margin-left: 282px;margin-top: 8px;border-radius: 8px;background-color: #d2f4f4;">GET MESSAGING SERVICES</button>
-	<div id="msIdList">	</div>
-
+	
+<br><br>
 
 
 	<!-- select Messeging service -->
-	<!-- <div class="slds-text-heading_small instruction">Select Messaging service:</div> 
+	<div class="slds-text-heading_small instruction">Select Messaging service:</div> 
 	<div class="slds-form-element__control">
 		    <div class="slds-select_container">
-		      <select class="slds-select" id="messageType" onchange="messagingServiceChange()">  
+		      <select class="slds-select" id="messageservice" onchange="messagingServiceChange()">  
 				<option hidden selected>None</option>	  
-			    <option value="Sessional Message">Sessional Message</option>
+			    <option value="Sessionalval">Sessional</option>
+				<option value="Sessional Message val">Sessional Message</option>
+				<option value="Message val">Message</option>
 			    
 		      </select>
 		    </div>
         </div> 
-	<br><br> -->
+	<br><br> 
+	<div id="msIdList" style="border:solid;"><span id="MSname"></span><span id="Msid"></span>	</div>
 </div>
 <!-- Step 1 ends  -->
 
@@ -696,7 +699,12 @@ function templateChange()
 		document.getElementById('char-count').textContent = len;
 	}
 
+// function called when messaging service is selected
+	function messagingServiceChange(){
+	var ms=	document.getElementById("messageservice").value;
+	console.log(ms);
 
+}
 
 // messagingServiceChange
 /*function fetchMSID()	
