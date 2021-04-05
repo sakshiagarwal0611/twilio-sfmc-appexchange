@@ -223,9 +223,9 @@
 		    </div>
         </div> 
 	<br><br> 
-	<div id="msIdList" style="border:solid;"><span id="MSname"></span><span id="Msid"></span>	</div>
+	<div id="msIdList" style="border:solid;">Name:<span id="MSname">    </span>MSID:<span id="Msid"></span>	</div>
 </div>
-<!-- Step 1 ends  -->
+<!-- Step 1 ends  --> 
 
 
 
@@ -703,6 +703,7 @@ function templateChange()
 	function messagingServiceChange(){
 	var ms=	document.getElementById("messageservice").value;
 	console.log(ms);
+	document.getElementById("Msid").innerHTML = ms;
 
 }
 
