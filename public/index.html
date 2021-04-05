@@ -706,10 +706,14 @@ function templateChange()
 	}
 
 // function called when messaging service is selected
-	function messagingServiceChange(){
+function messagingServiceChange()
+{
 	var ms=	document.getElementById("messageservice").value;
+	var mstext = document.getElementById("messageservice").text;
 	console.log(ms);
+	console.log(mstext);
 	document.getElementById("Msid").innerHTML = ms;
+	document.getElementById("MSname").innerHTML = mstext;
 
 }
 
