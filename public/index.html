@@ -754,13 +754,13 @@ function fetchMSID()
 		var url2 ='/messagingID';
 		fetch(url2, {
             method: "POST",
-            headers: {"Content-Type": "application/x-www-form-urlencoded"},
-			body:{"accountsid":id, "authToken": token}
+            headers: {"Content-Type": "application/x-www-form-urlencoded"}
          }).then(response => response.json())
          .then((body) => 
          {
 			 //var services = body.services;
-
+			 //,
+			 //body:{"accountsid":id, "authToken": token}
 			 var name = "sakshi";
 			 var sid = "sakshiid";
              console.log("We have received the response for MSIDs");
