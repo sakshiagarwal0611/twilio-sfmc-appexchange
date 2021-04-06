@@ -382,7 +382,7 @@
 <!-- <h3 id="selected">SELECTED IMAGE: </h3> -->
 <br>
 <div class="slds-text-heading_small instruction noselect" id="selected">SELECTED IMAGE: </div>
-<div id="image"></div> <!-- Div to show image after it is selected  -->
+<div  id="image"></div> <!-- Div to show image after it is selected  -->
 
 <!-- hidden checkbox to see if the image is inserted or not  -->
 <input type="checkbox" name="options" id="isInserted" value=""  style="display:none;"/>
@@ -640,18 +640,18 @@ btn.onclick = function()
 						var id = 'serialNo' + index ; 
 						if(value.type == 'Document'){
 							console.log("print doc");
-							document.getElementById("showFile").innerHTML += '<div><img id="' +  index + '" src="/assets/icons/doctype/pdf_120.png" onclick="imageinsert(\'' + key + '\')" width="100" height="120" style="margin:3px;"><br><span>'+ value.filename +'</span></div>';
+							document.getElementById("showFile").innerHTML += '<div width="33%"><img id="' +  index + '" src="/assets/icons/doctype/pdf_120.png" onclick="imageinsert(\'' + key + '\')" width="100" height="120" style="margin:3px;"><br><span>'+ value.filename +'</span></div>';
 
 							
 
 						}else if(value.type == 'Image'){
 							console.log("print image");
-							document.getElementById("showFile").innerHTML += '<div><img id="' +  index + '" src="' + key + '" onclick="imageinsert(\'' + key + '\' \''+ value.type +'\'\''+ value.filename+'\')" width="100" height="120" style="margin:3px;"><br><span>'+ value.filename +'</span></div>';
+							document.getElementById("showFile").innerHTML += '<div width="33%"><img id="' +  index + '" src="' + key + '" onclick="imageinsert(\'' + key + '\' \''+ value.type +'\'\''+ value.filename+'\')" width="100" height="120" style="margin:3px;"><br><span>'+ value.filename +'</span></div>';
 
 
 						}else if(value.type == 'Audio'){
 								console.log("print audio");
-								document.getElementById("showFile").innerHTML += '<img id="' +  index + '" src="/assets/icons/doctype/audio_120.png" onclick="imageinsert(\'' + key + '\')" width="100" height="120" style="margin:3px;"><span>'+ value.filename +'</span>';
+								document.getElementById("showFile").innerHTML += '<div width="33%"><img id="' +  index + '" src="/assets/icons/doctype/audio_120.png" onclick="imageinsert(\'' + key + '\')" width="100" height="120" style="margin:3px;"><span>'+ value.filename +'</span></div>';
 
 						}else{
 							console.log("invadid file format");
