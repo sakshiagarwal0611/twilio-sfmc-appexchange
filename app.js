@@ -107,7 +107,7 @@ console.log("Execute function is executed successfully");
                                           {
                                             var json = {
                                             type:URLarr[jsonArr].assetType.displayName,
-                                            token:URLarr[jsonArr].fileProperties.fileName
+                                            filename:URLarr[jsonArr].fileProperties.fileName
                                           }
                                             urlmap[URLarr[jsonArr].fileProperties.publishedURL] = json;            
                                           }
