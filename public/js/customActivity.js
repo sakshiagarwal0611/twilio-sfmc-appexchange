@@ -262,12 +262,12 @@ define([
 		            document.getElementById("template").value = val;
                 }
                 if(key === 'MSID'){
-                    
-                    document.getElementById("Msid").innerHTML = val;
+
+                    document.getElementById("Msid").textContent = val;
 
                 }
                 if(key === 'MsName'){
-                    document.getElementById("MSname").innerHTML = val;
+                    document.getElementById("MSname").textContent = val;
                 }
                 if(key === 'charCount'){
                     console.log("character count------------>" + val);
