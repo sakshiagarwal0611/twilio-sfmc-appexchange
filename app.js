@@ -139,8 +139,8 @@ console.log("Execute function is executed successfully");
     //             .list({limit: 20})
     //             .then(services => services.forEach(s => console.log(s.sid))
     // );
-    var url = {};
-    res.json({url:url});
+    //var url = {};
+   // res.json({url:url});
         
   });
  
