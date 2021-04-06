@@ -99,40 +99,21 @@ console.log("Execute function is executed successfully");
                                           //console.log("body--------->"+body);
                                           //console.log("response--------->"+response);
                                           console.log("error-------->"+error);
-                                          var arr =[];
+
                                           var urlmap={};  
- 
- 
-                                          var URLarr = response.body.items;
-                                          console.log("Array of URL---------------------------->>>>>>>>>>>>>>>>>" + URLarr);
-                                          console.log("Stringify array of response----->" + JSON.stringify(URLarr));
-                                          //console.log("Array of URL---------------------------->>>>>>>>>>>>>>>" + URLarr.fileProperties);
+                                          var URLarr = response.body.items;                                        
+                                          console.log("Stringify array of response----->" + JSON.stringify(URLarr));                                         
                                           for(var jsonArr in  URLarr)
                                           {
                                             var json = {
                                             type:URLarr[jsonArr].assetType.displayName,
-                                          token:URLarr[jsonArr].fileProperties.fileName}
-
-
-                                          var url =  URLarr[jsonArr].fileProperties.publishedURL;
-                                          var fileType =  URLarr[jsonArr].assetType.displayName;
-                                          var filename = URLarr[jsonArr].fileProperties.fileName;
-                                          console.log("url of image------------->   " + url);
-                                          urlmap[URLarr[jsonArr].fileProperties.publishedURL] = json;
-                                          //arr.push(url);
-                                          //urlmap.set(url,fileType); 
+                                            token:URLarr[jsonArr].fileProperties.fileName
                                           }
-                                          console.log("url map" + JSON.stringify(urlmap));
-                                          //console.log("url of image------------->   " + arr);
-                                          //console.log("map with values" + urlmap.get('https://image.s11.sfmc-content.com/lib/fe3811717164047a751476/m/1/49a978ba-5cb5-4d25-b8cf-a763f4db157b.pdf'));
-                                          //console.log(urlmap.keys());
-                                          //console.log(urlmap.values());                                       
+                                            urlmap[URLarr[jsonArr].fileProperties.publishedURL] = json;            
+                                          }
+                                          console.log("url map" + JSON.stringify(urlmap));                                 
                                           res.json({urlmap:urlmap});
-                                          //var resp= response.toString();
-                                          //console.log(" published url list --------------------------------------------------------->" + JSON.stringify(response.body.items.fileproperties.publishedUrl);
-                                          //var asset = Platform.Function.ParseJSON(resp);
-                                          //var publishedUrl = asset.fileProperties.publishedURL;
-                                          //console.log("publishedUrl------------------>" + publishedUrl);
+                                         
                                           });
   });       
   }); 

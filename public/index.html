@@ -628,14 +628,17 @@ btn.onclick = function()
                 }).then(response => response.json())
                 .then((body) => 
                 {
-                	var map = {};
-					map = body.urlmap;
+                	//var map = {};
+					var map = body.urlmap;
 					console.log("url map" + JSON.stringify(body.urlmap));
 					console.log("url map" + JSON.stringify(map));
-                    //console.log("map keys------------------>"+ map.keys());
-					//console.log("map values------------------>"+ map.values());
-
-		            /*var arry = map;
+					for(const [key,value] of Object.entries(map))
+					{
+						console.log(key);
+						console.log(value);
+						
+					}
+					
 					arry.forEach(myFunction);  
 					function myFunction(item, index) {
 					var id = 'serialNo' + index ; 
