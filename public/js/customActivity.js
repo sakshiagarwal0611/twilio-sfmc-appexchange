@@ -542,6 +542,8 @@ define([
         var msid = document.getElementById("Msid").textContent;
         var MsName = document.getElementById("MSname").textContent;
 
+        console.log(msid);
+        console.log(MsName);
         console.log("charCount------>" + charCount);
 	    console.log(wpMessageType + template);    
 	    console.log("selected phone number attribute---->"+ to);
