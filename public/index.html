@@ -566,7 +566,7 @@ function insertTextAtCaret(text)
 }
 
 //Function to insert image when selected
-function imageinsert(url)
+function imageinsert(url,filename,type)
 	{
 		console.log("url as it is received by the insert image function--->" + url);
 		console.log("We are inserting the image now");
@@ -640,13 +640,13 @@ btn.onclick = function()
 						var id = 'serialNo' + index ; 
 						if(value.type == 'Document'){
 							console.log("print doc");
-							document.getElementById("showFile").innerHTML += '<img id="' +  index + '" src="/assets/icons/doctype/pdf_120.png" onclick="imageinsert(\'' + key + '\')" width="100" height="120" style="margin:3px;"><span>'+ value.filename +'</span>';
+							document.getElementById("showFile").innerHTML += '<div><img id="' +  index + '" src="/assets/icons/doctype/pdf_120.png" onclick="imageinsert(\'' + key + '\')" width="100" height="120" style="margin:3px;"><br><span>'+ value.filename +'</span></div>';
 
 							
 
 						}else if(value.type == 'Image'){
 							console.log("print image");
-							document.getElementById("showFile").innerHTML += '<img id="' +  index + '" src="' + key + '" onclick="imageinsert(\'' + key + '\')" width="100" height="120" style="margin:3px;"><span>'+ value.filename +'</span>';
+							document.getElementById("showFile").innerHTML += '<div><img id="' +  index + '" src="' + key + '" onclick="imageinsert(\'' + key + '\' \''+ value.type +'\'\''+ value.filename+'\')" width="100" height="120" style="margin:3px;"><br><span>'+ value.filename +'</span></div>';
 
 
 						}else if(value.type == 'Audio'){
