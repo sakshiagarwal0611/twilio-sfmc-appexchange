@@ -398,7 +398,7 @@
 	<br><br>
 
 <!-- Div to show images after API callout  -->
-<div id="showimage"></div> 
+<div id="showFile"></div> 
 </div>
 </div>
 
@@ -620,7 +620,7 @@ function recipientChange()
 btn.onclick = function() 
 {
   	modal.style.display = "block";	
-  	document.getElementById("showimage").innerHTML = '';
+  	document.getElementById("showFile").innerHTML = '';
   	var url = '/imagesContent';  	
 	fetch( url, {
                    method: "POST",
@@ -638,17 +638,19 @@ btn.onclick = function()
 						console.log(value);
 						if(value.type == 'Document'){
 							console.log("print doc");
-							//document.getElementById("showimage").innerHTML += '<img id="' +  id + '" src="' + item + '" onclick="imageinsert(\'' + item + '\')" width="100" height="120" style="margin:3px;">';
+							document.getElementById("showFile").innerHTML += '<img id="' +  id + '" src="' + item + '" onclick="imageinsert(\'' + item + '\')" width="100" height="120" style="margin:3px;">';
 
 							
 
 						}else if(value.type == 'Image'){
 							console.log("print image");
-							//document.getElementById("showimage").innerHTML += '<img id="' +  id + '" src="' + item + '" onclick="imageinsert(\'' + item + '\')" width="100" height="120" style="margin:3px;">';
+							document.getElementById("showFile").innerHTML += '<img id="' +  id + '" src="' + key + '" onclick="imageinsert(\'' + key + '\')" width="100" height="120" style="margin:3px;">';
 
 
 						}else{
 								console.log("print audio");
+								document.getElementById("showFile").innerHTML += '<img id="' +  id + '" src="' + item + '" onclick="imageinsert(\'' + item + '\')" width="100" height="120" style="margin:3px;">';
+
 						}
 
 					}
@@ -746,7 +748,7 @@ function fetchMSID()
 		var url2 ='/messagingID';
 		fetch(url2, {
             method: "POST",
-            headers: {"Content-Type": "application/json"},
+            headers: {"Content-Type": "application/x-www-form-urlencoded"},
 			body:{"accountsid":id, "authToken": token}
          }).then(response => response.json())
          .then((body) => 
