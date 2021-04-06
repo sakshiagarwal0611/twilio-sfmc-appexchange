@@ -640,7 +640,7 @@ btn.onclick = function()
 						var id = 'serialNo' + index ; 
 						if(value.type == 'Document'){
 							console.log("print doc");
-							document.getElementById("showFile").innerHTML += '<img id="' +  index + '" src="/assets/salesforce-lightning-design-system-2.13.7/assets/icons/doctype/audio_120.png" onclick="imageinsert(\'' + key + '\')" width="100" height="120" style="margin:3px;">';
+							document.getElementById("showFile").innerHTML += '<img id="' +  index + '" src="/assets/icons/doctype/pdf_120.png" onclick="imageinsert(\'' + key + '\')" width="100" height="120" style="margin:3px;">';
 
 							
 
@@ -651,7 +651,7 @@ btn.onclick = function()
 
 						}else if(value.type == 'Audio'){
 								console.log("print audio");
-								//document.getElementById("showFile").innerHTML += '<img id="' +  index + '" src="/assets/salesforce-lightning-design-system-2.13.7/assets/icons/doctype/audio_120.png" onclick="imageinsert(\'' + key + '\')" width="100" height="120" style="margin:3px;">';
+								//document.getElementById("showFile").innerHTML += '<img id="' +  index + '" src="/assets/icons/doctype/audio_120.png" onclick="imageinsert(\'' + key + '\')" width="100" height="120" style="margin:3px;">';
 
 						}else{
 							console.log("invadid file format");
