@@ -628,7 +628,8 @@ btn.onclick = function()
                 }).then(response => response.json())
                 .then((body) => 
                 {
-                	var map=body.urlmap;
+                	var map = {};
+					map = body.urlmap;
 					console.log("url map" + JSON.stringify(body.urlmap));
 					console.log("url map" + JSON.stringify(map));
                     //console.log("map keys------------------>"+ map.keys());
