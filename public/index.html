@@ -749,15 +749,16 @@ function messagingServiceChange()
 function fetchMSID()	
 	{
 		console.log("This function is called to set the messaging service id");
-		var id = $('#accountSID').val();
-		var token = $('#authToken').val();
-		var url2 ='/messagingID';
-		fetch(url2, {
+		//var id = $('#accountSID').val();
+		//var token = $('#authToken').val();
+		//var url2 ='/messagingID';
+		fetch('/messagingID', {
             method: "POST",
             headers: {"Content-Type": "application/x-www-form-urlencoded"}
          }).then(response => response.json())
          .then((body) => 
          {
+			 console.log("we have received a response--" + body.url);
 			 //var services = body.services;
 			 //,
 			 //body:{"accountsid":id, "authToken": token}

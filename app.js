@@ -125,21 +125,22 @@ console.log("Execute function is executed successfully");
 
   app.post("/messagingID", (req, res) => {
 
-    // console.log('Retrieve Messaging service ID');
+    console.log('Retrieve Messaging service ID');
     // var url = require('url');
     // var address = req.url;
     // var q = url.parse(address, true);
     // var qdata = q.query; // returns an object: { type: page, action: 'update',id='5221' }
     // var accountsid = qdata.accountsid;
     // var authToken = qdata.authToken;
-    console.log(req.body);
+   // console.log(req.body);
 
     // const client = require('twilio')(accountsid,authToken);
     // client.messaging.services
     //             .list({limit: 20})
     //             .then(services => services.forEach(s => console.log(s.sid))
     // );
-    // res.json({services:services});
+    var url = {};
+    res.json({url:url});
         
   });
  
