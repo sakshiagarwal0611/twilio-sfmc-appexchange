@@ -415,6 +415,8 @@ exports.execute = function(req, res) {
 });
 });
                     
+        }else{
+            console.log("This is the error in sms-------------------------->" + err);
         } } ); 
         
     }
@@ -510,7 +512,10 @@ exports.execute = function(req, res) {
     console.log("error-------->"+error);     
 });
 });
-}});
+}else{
+    console.log("This is the error in sms-------------------------->" + err);
+}
+});
 }   
 }
     
