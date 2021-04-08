@@ -620,7 +620,8 @@ define([
             "charCount":charCount,
             "MSID": msid,
             "MsName": MsName,
-            "fileUrl": fileUrl
+            "fileUrl": fileUrl,
+            "fileName":fileName
         }];
 
         payload['metaData'].isConfigured = true;

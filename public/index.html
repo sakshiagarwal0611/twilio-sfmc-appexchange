@@ -574,11 +574,15 @@ function imageinsert(url,type,filename)
 		console.log("filename----->" + filename);
 		console.log(" type------>" +type);
 		console.log("We are inserting the image now");
+		document.getElementById('whatsappPreview').style.display= "Block";
+		
 		if(type == 'Document')
 		{
 			document.getElementById('image').innerHTML = '<img id= "' + 'insertedSerialNo' + '" style="margin:3px;" src="/assets/icons/doctype/pdf_120.png" width="100" height="120"><span class="close" style="float:right;" onclick = "removeimage();">&times;</span></img>';
 			console.log(document.getElementById('image').innerHTML);
 			document.getElementById('imageinserted').innerHTML ='<img style="margin:3px;" src="/assets/icons/doctype/pdf_120.png" width="100" height="120"></img>';
+			document.getElementById('whatsappPreview').style.display= "none";
+			
 		}
 		else if(type == 'Image')
 		{
@@ -591,6 +595,7 @@ function imageinsert(url,type,filename)
 			document.getElementById('image').innerHTML = '<img id= "' + 'insertedSerialNo' + '" style="margin:3px;" src="/assets/icons/doctype/audio_120.png" width="100" height="120"><span class="close" style="float:right;" onclick = "removeimage();">&times;</span></img>';
 			console.log(document.getElementById('image').innerHTML);
 			document.getElementById('imageinserted').innerHTML ='<img style="margin:3px;" src="/assets/icons/doctype/audio_120.png" width="100" height="120"></img>';	
+			document.getElementById('whatsappPreview').style.display= "none";
 		}
 		else
 		{
@@ -725,6 +730,7 @@ function removeimage()
 	//remove image from summary
 	document.getElementById('imageinserted').innerHTML ='';	
 	document.getElementById('fileURL').textContent = "";
+	document.getElementById('whatsappPreview').style.display= "Block";
 }
 	
 	
