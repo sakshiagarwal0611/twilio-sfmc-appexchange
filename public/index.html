@@ -798,16 +798,16 @@ function fetchMSID()
 		fetch('/messagingID', {
             method: "POST",
             headers: {"Content-Type": "application/json"}
-         }).then(response => response.json())
-         .then((body) => 
+         }).then(response => console.log(response.json()))
+        /* .then((body) => 
          {
 			 //console.log("we have received a response--" + body.url);
 			
 			 var name = "sakshi";
 			 var sid = "sakshiid";
              console.log("We have received the response for MSIDs");
-			 document.getElementById('messageservice').innerHTML +=  '<option value = "' + name + '}}">'+ sid +'</option>' ; 
-			})
+			 //document.getElementById('messageservice').innerHTML +=  '<option value = "' + name + '}}">'+ sid +'</option>' ; 
+			})*/
 	};
 
 </script>		
