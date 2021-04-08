@@ -128,7 +128,7 @@ console.log("Execute function is executed successfully");
    console.log('Retrieve Messaging service ID');
    console.log("request body----------------->" + JSON.stringify(req));
 
-    const client = require('twilio')(accountsid,authToken);
+    const client = require('twilio')('AC5c725b3abe2ddbeab8d8d468deb42427','736c3aca47e0362c6b7c6b26578f0a8e');
     client.messaging.services
                 .list({limit: 20})
                 .then(services => services.forEach(s => console.log(s.sid))
