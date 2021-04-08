@@ -604,6 +604,8 @@ function imageinsert(url,type,filename)
 		}
 			document.getElementById('fileName').textContent = filename;
 			document.getElementById('fileURL').textContent = url;
+			document.getElementById('fileType').textContent = type;
+
 		
 		//replace the html of image section on step 3
 		//document.getElementById('image').innerHTML = '<img id= "' + 'insertedSerialNo' + '" style="margin:3px;" src="/assets/icons/doctype/audio_120.png" width="100" height="120"><span>'+ filename +'</span><span class="close" style="float:right;" onclick = "removeimage();">&times;</span></img>';

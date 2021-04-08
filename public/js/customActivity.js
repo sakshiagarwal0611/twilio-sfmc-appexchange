@@ -278,6 +278,7 @@ define([
                 }
                 if(key === 'fileType'){
                     if(val == 'Audio' || val == 'Document'){
+                        console.log("fileType" + val);
                     document.getElementById('whatsappPreview').style.display= "none";
                     }
                 }
