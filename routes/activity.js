@@ -308,6 +308,7 @@ exports.execute = function(req, res) {
     const email = requestBody.email; 
     const wpMessageType = requestBody.wpMessageType;
     const MSID = requestBody.MSID;
+    const fileUrl = requestBody.fileUrl;
     
     console.log(" This is SMS DE--------------------------------------------------->" + sms_Ek);
     console.log(" This is WhatsApp DE--------------------------------------------------->" + whatsapp_Ek);
@@ -320,13 +321,13 @@ exports.execute = function(req, res) {
     if(whatsapp == true)
     {
 // Send sessional message with image
-    if(wpMessageType == 'Sessional Message' && imageURL != "null")  
+    if(wpMessageType == 'Sessional Message' && fileUrl != "null")  
     {
         console.log('-------------------------This is sessional---------------------'); 
         const client = require('twilio')(accountSid, authToken);
         client.messages
         .create({
-            mediaUrl: [imageURL],
+            mediaUrl: [fileUrl],
             from: 'whatsapp:+14155238886',
             body: wPmessage,
             to: 'whatsapp:+917790909761'

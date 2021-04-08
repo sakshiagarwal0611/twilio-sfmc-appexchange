@@ -216,7 +216,7 @@ define([
                     document.getElementById('image').innerHTML = '<img id= "' + 'insertedSerialNo' + '" style="margin:3px;" src="' + val + '" width="100" height="120"><span class="close" style="float:right;" onclick = "removeimage();">&times;</span></img>';
                     document.getElementById("isInserted").checked = true;
                   var whatsappsms = $("#WhatsApp").is(":checked");  
-		        //var url = 'url';
+		   
 		        if(whatsappsms == true)
                        
                     {
@@ -268,6 +268,10 @@ define([
                 }
                 if(key === 'MsName'){
                     document.getElementById("MSname").textContent = val;
+                }
+                if(key === 'fileUrl'){
+                  val = document.getElementById('fileURL').textContent ; 
+
                 }
                 if(key === 'charCount'){
                     console.log("character count------------>" + val);
@@ -542,6 +546,7 @@ define([
         var charCount = document.getElementById("char-count").textContent;
         var msid = document.getElementById("Msid").textContent;
         var MsName = document.getElementById("MSname").textContent;
+        var fileUrl = document.getElementById('fileURL').textContent;
 
         console.log(msid);
         console.log(MsName);
@@ -553,8 +558,8 @@ define([
         console.log("Content of division image" + document.getElementById('image').innerHTML);
         var isimage = $("#isInserted").is(":checked");
         if(isimage == true){
-           //insertedImage = document.getElementById('insertedSerialNo').src ; 
-           insertedImage = document.getElementById('fileURL').textContent ; 
+           insertedImage = document.getElementById('insertedSerialNo').src ; 
+           //insertedImage = document.getElementById('fileURL').textContent ; 
            console.log("inserted file  url------>" + insertedImage);
            }
         else
@@ -610,7 +615,8 @@ define([
 	        "template" : template,
             "charCount":charCount,
             "MSID": msid,
-            "MsName": MsName
+            "MsName": MsName,
+            "fileUrl": fileUrl
         }];
 
         payload['metaData'].isConfigured = true;

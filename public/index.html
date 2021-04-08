@@ -386,7 +386,7 @@
 
 <!-- hidden checkbox to see if the image is inserted or not  -->
 <input type="checkbox" name="options" id="isInserted" value=""  style="display:none;"/>
-<p id="fileURL" hidden></p>
+<p id="fileURL"></p>
 </div>
 
 <!-- The Modal to display the images after we click on image button. An api called on server side and returs the URL of images-->
@@ -606,7 +606,7 @@ function imageinsert(url,type,filename)
 		//Close the modal as we have inserted the image now
 		modal.style.display = "none";
 		//replace the html with image in the summary page
-		document.getElementById('imageinserted').innerHTML ='<img style="margin:3px;" src="' + url + '" width="100" height="120"></img>';
+		//document.getElementById('imageinserted').innerHTML ='<img style="margin:3px;" src="' + url + '" width="100" height="120"></img>';
 
 	}
 	
