@@ -126,7 +126,7 @@ console.log("Execute function is executed successfully");
   app.post("/messagingID", (req, res) => {
 
    console.log('Retrieve Messaging service ID');
-   //console.log("request body----------------->" + data);
+   console.log("request body----------------->" +   req.body.accountsid);
    //console.log("request body----------------->" + data.accountsid);
    //console.log("request body----------------->" + authToken);
    //console.log("request body----------------->" + JSON.stringify(req));
