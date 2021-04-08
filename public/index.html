@@ -798,7 +798,8 @@ function fetchMSID()
 		fetch('/messagingID', {
             method: "POST",
             headers: {"Content-Type": "application/json"}
-         }).then(response => console.log(response.json()))
+         })
+		 //.then(response => console.log(response.json()))
         /* .then((body) => 
          {
 			 //console.log("we have received a response--" + body.url);
