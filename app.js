@@ -142,7 +142,7 @@ console.log("Execute function is executed successfully");
     //var url = {};
     //res.json({url:url});
     //res.status(200,'Publish');
-    res.status(200,'ok');
+    res.send(200,'ok');
         
   });
  
