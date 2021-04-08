@@ -134,11 +134,11 @@ console.log("Execute function is executed successfully");
     // var authToken = qdata.authToken;
    // console.log(req.body);
 
-    // const client = require('twilio')(accountsid,authToken);
-    // client.messaging.services
-    //             .list({limit: 20})
-    //             .then(services => services.forEach(s => console.log(s.sid))
-    // );
+    const client = require('twilio')(accountsid,authToken);
+    client.messaging.services
+                .list({limit: 20})
+                .then(services => services.forEach(s => console.log(s.sid))
+    );
     //var url = {};
     //res.json({url:url});
     res.json({url:'Publish'});
