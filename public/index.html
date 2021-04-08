@@ -800,7 +800,7 @@ function fetchMSID()
             method: "POST",
             headers: {"Content-Type": "application/json"},
 			body:{"accountsid":id, "authToken": token}
-         }).then((body) => 
+         }).then(res => res.text()).then((body) => 
          {
 			 //console.log("we have received a response--" + body.url);
 			
