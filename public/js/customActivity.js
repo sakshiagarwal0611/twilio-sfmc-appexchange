@@ -276,6 +276,11 @@ define([
                 if(key === 'fileName'){
                     document.getElementById('fileName').textContent = val;
                 }
+                if(key === 'fileType'){
+                    if(val == 'Audio' || val == 'Document'){
+                    document.getElementById('whatsappPreview').style.display= "none";
+                    }
+                }
                 if(key === 'charCount'){
                     console.log("character count------------>" + val);
                     document.getElementById("char-count").textContent = val;
@@ -524,6 +529,10 @@ define([
                    document.getElementById('selectedPhonesms').innerHTML = recipient2[2];
                    document.getElementById('selectedPhonewp').innerHTML = recipient2[2];
                    console.log("recipient2[2]--->" + recipient2[2]);
+                   var wpDipsplay = document.getElementById('fileType').textContent;
+                   if(wpDipsplay == 'Audio' || wpDipsplay=='Document'){
+                    document.getElementById('whatsappPreview').style.display= "none";
+                   }
                 
                 break;
         }
@@ -551,6 +560,7 @@ define([
         var MsName = document.getElementById("MSname").textContent;
         var fileUrl = document.getElementById('fileURL').textContent;
         var fileName = document.getElementById('fileName').textContent;
+        var fileType = document.getElementById('fileType').textContent;
 
         console.log(msid);
         console.log(MsName);
@@ -621,7 +631,8 @@ define([
             "MSID": msid,
             "MsName": MsName,
             "fileUrl": fileUrl,
-            "fileName":fileName
+            "fileName":fileName,
+            "fileType":fileType
         }];
 
         payload['metaData'].isConfigured = true;
