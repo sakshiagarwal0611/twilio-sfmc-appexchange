@@ -270,7 +270,7 @@ define([
                     document.getElementById("MSname").textContent = val;
                 }
                 if(key === 'fileUrl'){
-                  val = document.getElementById('fileURL').textContent ; 
+                  document.getElementById('fileURL').textContent= val; 
 
                 }
                 if(key === 'charCount'){
