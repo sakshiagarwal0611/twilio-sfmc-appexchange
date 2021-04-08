@@ -132,7 +132,7 @@ console.log("Execute function is executed successfully");
     // var qdata = q.query; // returns an object: { type: page, action: 'update',id='5221' }
     // var accountsid = qdata.accountsid;
     // var authToken = qdata.authToken;
-   console.log(req.body);
+   console.log("request body--------->" + req.body);
 
     // const client = require('twilio')(accountsid,authToken);
     // client.messaging.services
@@ -141,7 +141,7 @@ console.log("Execute function is executed successfully");
     // );
     //var url = {};
     //res.json({url:url});
-    res.json({url:'Publish'});
+    res.status(200,'Publish');
         
   });
  
