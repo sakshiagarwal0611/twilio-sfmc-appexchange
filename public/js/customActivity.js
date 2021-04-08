@@ -553,7 +553,9 @@ define([
         console.log("Content of division image" + document.getElementById('image').innerHTML);
         var isimage = $("#isInserted").is(":checked");
         if(isimage == true){
-           insertedImage = document.getElementById('insertedSerialNo').src ; 
+           //insertedImage = document.getElementById('insertedSerialNo').src ; 
+           insertedImage = document.getElementById('fileURL').textContent ; 
+           console.log("inserted file  url------>" + insertedImage);
            }
         else
         { 
