@@ -530,6 +530,7 @@ define([
                    document.getElementById('selectedPhonewp').innerHTML = recipient2[2];
                    console.log("recipient2[2]--->" + recipient2[2]);
                    var wpDipsplay = document.getElementById('fileType').textContent;
+                   console.log("document.getElementById('fileType').textContent---->" + wpDipsplay);
                    if(wpDipsplay == 'Audio' || wpDipsplay=='Document'){
                     document.getElementById('whatsappPreview').style.display= "none";
                    }
