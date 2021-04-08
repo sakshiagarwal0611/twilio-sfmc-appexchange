@@ -133,6 +133,7 @@ console.log("Execute function is executed successfully");
                 .list({limit: 20})
                 .then(services => services.forEach(s => console.log(s.sid))
     );
+    console.log("call to twilio complete");
     //var url = {};
     //res.json({url:url});
     //res.status(200,'Publish');
