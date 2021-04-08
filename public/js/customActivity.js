@@ -460,6 +460,7 @@ define([
                     document.getElementById('myBtn').style.display = "none";
                     document.getElementById('selected').style.display = "none";
                     document.getElementById('image').style.display = "none";
+                    document.getElementById('fileName').style.display = "none";
                     document.getElementById('imageinserted').style.display = "none";
                     
                 }else
@@ -467,6 +468,7 @@ define([
                      document.getElementById('myBtn').style.display = "inline";
                     document.getElementById('selected').style.display = "inline";
                     document.getElementById('image').style.display = "block";
+                    document.getElementById('fileName').style.display = "block";
                     document.getElementById('imageinserted').style.display = "block";
                 }
              
