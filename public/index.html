@@ -383,11 +383,11 @@
 <br>
 <div class="slds-text-heading_small instruction noselect" id="selected">SELECTED IMAGE: </div>
 <div  id="image"></div> <!-- Div to show image after it is selected  -->
-
+<p id="fileName"></p>
 <!-- hidden checkbox to see if the image is inserted or not  -->
 <input type="checkbox" name="options" id="isInserted" value=""  style="display:none;"/>
 <p id="fileURL" style="display:none;"></p>
-<p id="fileName" style="display:none;"></p>
+
 </div>
 
 <!-- The Modal to display the images after we click on image button. An api called on server side and returs the URL of images-->
@@ -576,31 +576,35 @@ function imageinsert(url,type,filename)
 		console.log("We are inserting the image now");
 		if(type == 'Document')
 		{
-		document.getElementById('image').innerHTML = '<img id= "' + 'insertedSerialNo' + '" style="margin:3px;" src="/assets/icons/doctype/pdf_120.png" width="100" height="120"><span>'+ filename +'</span><span class="close" style="float:right;" onclick = "removeimage();">&times;</span></img>';
+		document.getElementById('image').innerHTML = '<img id= "' + 'insertedSerialNo' + '" style="margin:3px;" src="/assets/icons/doctype/pdf_120.png" width="100" height="120"><span class="close" style="float:right;" onclick = "removeimage();">&times;</span></img>';
 		console.log(document.getElementById('image').innerHTML);
 		document.getElementById('imageinserted').innerHTML ='<img style="margin:3px;" src="/assets/icons/doctype/pdf_120.png" width="100" height="120"></img>';
-		document.getElementById('fileURL').textContent = url;
+		
+	
 
 	}
 		else if(type == 'Image')
 		{
-		document.getElementById('image').innerHTML = '<img id= "' + 'insertedSerialNo' + '" style="margin:3px;" src="' + url + '" width="100" height="120"><span>'+ filename +'</span><span class="close" style="float:right;" onclick = "removeimage();">&times;</span></img>';
+		document.getElementById('image').innerHTML = '<img id= "' + 'insertedSerialNo' + '" style="margin:3px;" src="' + url + '" width="100" height="120"><span class="close" style="float:right;" onclick = "removeimage();">&times;</span></img>';
 		console.log(document.getElementById('image').innerHTML);
 		document.getElementById('imageinserted').innerHTML ='<img style="margin:3px;" src="' + url + '" width="100" height="120"></img>';
-		document.getElementById('fileURL').textContent = url;
+		
+		
 	}
 		else if(type == 'Audio')
 		{
-			document.getElementById('image').innerHTML = '<img id= "' + 'insertedSerialNo' + '" style="margin:3px;" src="/assets/icons/doctype/audio_120.png" width="100" height="120"><span>'+ filename +'</span><span class="close" style="float:right;" onclick = "removeimage();">&times;</span></img>';
+			document.getElementById('image').innerHTML = '<img id= "' + 'insertedSerialNo' + '" style="margin:3px;" src="/assets/icons/doctype/audio_120.png" width="100" height="120"><span class="close" style="float:right;" onclick = "removeimage();">&times;</span></img>';
 			console.log(document.getElementById('image').innerHTML);
 			document.getElementById('imageinserted').innerHTML ='<img style="margin:3px;" src="/assets/icons/doctype/audio_120.png" width="100" height="120"></img>';
-			document.getElementById('fileURL').textContent = url;
+			
+			
 		}
 		else
 		{
 				console.log("Other file types not supported");
 		}
 		document.getElementById('fileName').textContent = filename;
+		document.getElementById('fileURL').textContent = url;
 		
 		//replace the html of image section on step 3
 		//document.getElementById('image').innerHTML = '<img id= "' + 'insertedSerialNo' + '" style="margin:3px;" src="/assets/icons/doctype/audio_120.png" width="100" height="120"><span>'+ filename +'</span><span class="close" style="float:right;" onclick = "removeimage();">&times;</span></img>';
