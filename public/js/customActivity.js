@@ -273,6 +273,9 @@ define([
                   document.getElementById('fileURL').textContent= val; 
 
                 }
+                if(key === 'fileName'){
+                    document.getElementById('fileName').textContent = val;
+                }
                 if(key === 'charCount'){
                     console.log("character count------------>" + val);
                     document.getElementById("char-count").textContent = val;
@@ -547,6 +550,7 @@ define([
         var msid = document.getElementById("Msid").textContent;
         var MsName = document.getElementById("MSname").textContent;
         var fileUrl = document.getElementById('fileURL').textContent;
+        var fileName = document.getElementById('fileName').textContent;
 
         console.log(msid);
         console.log(MsName);

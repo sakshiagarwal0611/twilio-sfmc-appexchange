@@ -206,6 +206,13 @@
                             "isNullable": true,
                             "direction": "in"
                         }
+                    },
+                    {
+                        "fileName": {
+                            "dataType": "String",
+                            "isNullable": true,
+                            "direction": "in"
+                        }
                     }
                 ],
                 "outArguments": []
