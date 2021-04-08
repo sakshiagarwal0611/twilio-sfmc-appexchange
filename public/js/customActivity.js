@@ -277,6 +277,7 @@ define([
                     document.getElementById('fileName').textContent = val;
                 }
                 if(key === 'fileType'){
+                    document.getElementById('fileType').textContent = val;
                     if(val == 'Audio' || val == 'Document'){
                         console.log("fileType" + val);
                     document.getElementById('whatsappPreview').style.display= "none";
