@@ -128,6 +128,8 @@ console.log("Execute function is executed successfully");
    console.log('Retrieve Messaging service ID');
    console.log(req);
    console.log("request body----------------->" +   req.body);
+   console.log("request body----------------->" +   req.body.accountSID);
+   console.log("request body----------------->" +   req.body.authToken);
    //console.log("request body----------------->" + data.accountsid);
    //console.log("request body----------------->" + authToken);
    //console.log("request body----------------->" + JSON.stringify(req));

@@ -801,11 +801,9 @@ function fetchMSID()
 		 //,body:{"accountsid":id, "authToken": token}
 		 //.then(response => console.log(response.json()))
 		 console.log(id +'--------' + token);
-		 var json1 = {"accountsid":id, "authToken":token};
-		 var jsonMain=JSON.stringify(json1);
 		 var data = {};
-					data.title = "title";
-					data.message = "message";
+					data.accountSID = id;
+					data.authToken = token;
 		/*
 		fetch('/messagingID', {
             method: "post",
