@@ -821,9 +821,8 @@ function fetchMSID()
 			$.ajax
                ({
                 url: '/messagingID',
-                data:jsonMain,
+                body:jsonMain,
                 type: "POST",
-				dataType: "json",
                 headers: {
                     'Content-type': 'application/x-www-form-urlencoded'
                 },
