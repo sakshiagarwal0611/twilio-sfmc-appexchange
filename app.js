@@ -9,6 +9,7 @@ var path        = require('path');
 var request     = require('request');
 var routes      = require('./routes');
 var activity    = require('./routes/activity');
+const { json } = require('body-parser');
 var app = express();
 
 
@@ -135,7 +136,17 @@ console.log("Execute function is executed successfully");
     const client = require('twilio')(req.body.accountSID,req.body.authToken);
     client.messaging.services
                 .list({limit: 20})
-                .then(services=>(s => map[myobject[attributename].s.sid] = s.friendlyName ));
+                .then((services=>
+                  { 
+                    services.forEach(createMap);
+function createMap(s){
+                    var id = s.sid;
+                    var name = s.friendlyName;
+
+                    map[id] = name ;
+                  }
+                  console.log("MSID map" + JSON.stringify(map))
+                  }));
                
 
                 
