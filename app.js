@@ -145,7 +145,8 @@ function createMap(s){
 
                     map[id] = name ;
                   }
-                  console.log("MSID map" + JSON.stringify(map))
+                  console.log("MSID map" + JSON.stringify(map));
+                  console.log("this is a map");
                   }));
                
 
