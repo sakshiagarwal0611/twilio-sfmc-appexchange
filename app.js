@@ -126,20 +126,17 @@ console.log("Execute function is executed successfully");
   app.post("/messagingID", (req, res) => {
 
    console.log('Retrieve Messaging service ID');
-   console.log(req);
-   console.log("request body----------------->" +   req.body);
-   console.log("request body----------------->" +   req.body.accountSID);
-   console.log("request body----------------->" +   req.body.authToken);
-   //console.log("request body----------------->" + data.accountsid);
-   //console.log("request body----------------->" + authToken);
-   //console.log("request body----------------->" + JSON.stringify(req));
-   //for (var i in req){ console.log(i); console.log(req[i]); }
+   //console.log(req);
+   //console.log("request body----------------->" +   req.body);
+   console.log("accountSID----------------->" +   req.body.accountSID);
+   console.log("authToken----------------->" +   req.body.authToken);
+  
 
-    // const client = require('twilio')('','');
-    // client.messaging.services
-    //             .list({limit: 20})
-    //             .then(services => services.forEach(s => console.log(s.sid))
-    // );
+    const client = require('twilio')(req.body.accountSID,req.body.authToken);
+    client.messaging.services
+                .list({limit: 20})
+                .then(services => services.forEach(s => console.log(s.sid))
+    );
     console.log("call to twilio complete");
     //var url = {};
     //res.json({url:url});
