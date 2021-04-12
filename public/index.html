@@ -827,7 +827,9 @@ function fetchMSID()
                 type: "POST",
                 success: function (data) {
                     console.log("data--------------->"+JSON.stringify(data));
-					console.log(JSON.stringify(data.map));
+					console.log(data.map);
+					var map1 = data.map;
+					console.log(map1);
 					//document.getElementById('messageservice').innerHTML +=  '<option value =' + id + '>'+ name +'</option>' ;
 
                    

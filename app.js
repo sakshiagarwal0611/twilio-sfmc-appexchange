@@ -144,15 +144,6 @@ console.log("Execute function is executed successfully");
 
                     }
                     console.log(JSON.stringify(map));
-                  //   services.forEach(createMap);
-                  //   function createMap(s){
-                  //   var id = s.sid;
-                  //   var name = s.friendlyName;
-
-                  //   map[id] = name ;
-                  // }
-                  // console.log("MSID map" + JSON.stringify(map));
-                  // console.log("this is a map");
                   });
                
 
