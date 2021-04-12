@@ -801,8 +801,8 @@ function fetchMSID()
 		 //,body:{"accountsid":id, "authToken": token}
 		 //.then(response => console.log(response.json()))
 		 console.log(id +'--------' + token);
-		 var json = {"accountsid":id, "authToken":token};
-		 var jsonMain=JSON.stringify(json);
+		 var json1 = {"accountsid":id, "authToken":token};
+		 var jsonMain=JSON.stringify(json1);
 		/*
 		fetch('/messagingID', {
             method: "post",
@@ -821,7 +821,8 @@ function fetchMSID()
 			$.ajax
                ({
                 url: '/messagingID',
-                body:jsonMain,
+                data: {json: jsonMain },
+                datatype: "text",
                 type: "POST",
                 headers: {
                     'Content-type': 'application/x-www-form-urlencoded'
