@@ -137,6 +137,13 @@ console.log("Execute function is executed successfully");
                 .then((services)=>
                   { 
                     console.log(services);
+                    for(var i in  services){
+                      console.log(services[i].sid);
+                      console.log(services[i].friendlyName);
+                      map[services[i].sid] = services[i].friendlyName ;
+
+                    }
+                    
                   //   services.forEach(createMap);
                   //   function createMap(s){
                   //   var id = s.sid;
