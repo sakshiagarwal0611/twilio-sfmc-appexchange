@@ -124,7 +124,7 @@ console.log("Execute function is executed successfully");
 
 
 
-   app.post("/messagingID", async(req, res) => {
+   app.post("/messagingID", async (req,res) => {
 
    console.log('Retrieve Messaging service ID');
    console.log("accountSID----------------->" +   req.body.accountSID);
@@ -132,10 +132,10 @@ console.log("Execute function is executed successfully");
    var map = {} ;
 
    
-   var service1 =  await createMapjson(req.body.accountSID,req.body.authToken );
+   var service1 =  await createMapjson(req.body.accountSID,req.body.authToken);
    
                
-        console.log(service1);
+    console.log(service1);
                 
     console.log("call to twilio complete");
     res.send({map:service1});
@@ -158,8 +158,9 @@ console.log("Execute function is executed successfully");
 
         }
         console.log(JSON.stringify(map));
+        resolve(map);
       });
-      resolve(map);
+      
     })
 
   }
