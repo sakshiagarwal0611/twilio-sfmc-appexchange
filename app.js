@@ -132,11 +132,11 @@ console.log("Execute function is executed successfully");
    //console.log("request body----------------->" + JSON.stringify(req));
    //for (var i in req){ console.log(i); console.log(req[i]); }
 
-    const client = require('twilio')('','');
-    client.messaging.services
-                .list({limit: 20})
-                .then(services => services.forEach(s => console.log(s.sid))
-    );
+    // const client = require('twilio')('','');
+    // client.messaging.services
+    //             .list({limit: 20})
+    //             .then(services => services.forEach(s => console.log(s.sid))
+    // );
     console.log("call to twilio complete");
     //var url = {};
     //res.json({url:url});
