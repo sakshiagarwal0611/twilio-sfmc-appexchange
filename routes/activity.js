@@ -528,7 +528,7 @@ if(sms == true)
 
     client.messaging.services
                 .list({limit: 20})
-                .then(services => (services.forEach(s => console.log("Service ids----------->" + s.sid +"Friendly name--------->" + s.friendlyName )));
+                .then(services => services.forEach(s => console.log("Service id"+s.sid + "Friendly name" + s.friendlyName)));
         client.messages
         .create({
            //from: '+12058914350',
