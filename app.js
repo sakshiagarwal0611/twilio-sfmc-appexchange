@@ -134,18 +134,19 @@ console.log("Execute function is executed successfully");
     const client = require('twilio')(req.body.accountSID,req.body.authToken);
     client.messaging.services
                 .list({limit: 20})
-                .then(services=> services.forEach(s =>  map[s.sid] = s.friendlyName));
-//                   { 
-//                     services.forEach(createMap);
-// function createMap(s){
-//                     var id = s.sid;
-//                     var name = s.friendlyName;
+                .then((services)=>
+                  { 
+                    console.log(services);
+                  //   services.forEach(createMap);
+                  //   function createMap(s){
+                  //   var id = s.sid;
+                  //   var name = s.friendlyName;
 
-//                     map[id] = name ;
-//                   }
+                  //   map[id] = name ;
+                  // }
                   // console.log("MSID map" + JSON.stringify(map));
                   // console.log("this is a map");
-                  // }));
+                  });
                
 
                 
