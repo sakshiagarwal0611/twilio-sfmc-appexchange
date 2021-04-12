@@ -149,7 +149,7 @@ console.log("Execute function is executed successfully");
 
                 
     console.log("call to twilio complete");
-    res.send(JSON.stringify(map));
+    res.send(200, map);
         
   });
  
