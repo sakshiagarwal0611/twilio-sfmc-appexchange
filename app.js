@@ -130,14 +130,17 @@ console.log("Execute function is executed successfully");
    //console.log("request body----------------->" +   req.body);
    console.log("accountSID----------------->" +   req.body.accountSID);
    console.log("authToken----------------->" +   req.body.authToken);
-  
+  var map = {} ;
 
     const client = require('twilio')(req.body.accountSID,req.body.authToken);
     client.messaging.services
                 .list({limit: 20})
-                .then(services => services.forEach(s => console.log("Service id"+s.sid + "Friendly name" + s.friendlyName)));
+                .then(services=>(s => map[myobject[attributename].s.sid] = s.friendlyName ));
+               
+
+                
     console.log("call to twilio complete");
-    res.send(200,'ok');
+    res.json({'map': map});
         
   });
  
