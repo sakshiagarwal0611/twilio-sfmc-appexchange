@@ -143,7 +143,7 @@ console.log("Execute function is executed successfully");
                       map[services[i].sid] = services[i].friendlyName ;
 
                     }
-                    
+                    console.log(JSON.stringify(map));
                   //   services.forEach(createMap);
                   //   function createMap(s){
                   //   var id = s.sid;
