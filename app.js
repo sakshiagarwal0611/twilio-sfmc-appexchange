@@ -135,12 +135,8 @@ console.log("Execute function is executed successfully");
     const client = require('twilio')(req.body.accountSID,req.body.authToken);
     client.messaging.services
                 .list({limit: 20})
-                .then(services => services.forEach(s => console.log(s.sid))
-    );
+                .then(services => services.forEach(s => console.log("Service id"+s.sid + "Friendly name" + s.friendlyName)));
     console.log("call to twilio complete");
-    //var url = {};
-    //res.json({url:url});
-    //res.status(200,'Publish');
     res.send(200,'ok');
         
   });
