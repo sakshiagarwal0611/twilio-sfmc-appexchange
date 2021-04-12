@@ -220,10 +220,10 @@
 	<div class="slds-form-element__control">
 		    <div class="slds-select_container">
 		      <select class="slds-select" id="messageservice" onchange="messagingServiceChange()">  
-				<option hidden selected>None</option>	  
+				<!-- <option hidden selected>None</option>	  
 			    <option value="Sessionalval">Sessional</option>
 				<option value="Sessional Message val">Sessional Message</option>
-				<option value="Message val">Message</option>
+				<option value="Message val">Message</option> -->
 			    
 		      </select>
 		    </div>
@@ -832,6 +832,8 @@ function fetchMSID()
                 success: function (data) {
                     console.log("data--------------->"+JSON.stringify(data.map));
 					console.log(map);
+					//document.getElementById('messageservice').innerHTML +=  '<option value =' + id + '>'+ name +'</option>' ;
+					
                    
                 }
               })
