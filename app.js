@@ -127,11 +127,9 @@ console.log("Execute function is executed successfully");
   app.post("/messagingID", (req, res) => {
 
    console.log('Retrieve Messaging service ID');
-   //console.log(req);
-   //console.log("request body----------------->" +   req.body);
    console.log("accountSID----------------->" +   req.body.accountSID);
    console.log("authToken----------------->" +   req.body.authToken);
-  var map = {} ;
+   var map = {} ;
 
     const client = require('twilio')(req.body.accountSID,req.body.authToken);
     client.messaging.services

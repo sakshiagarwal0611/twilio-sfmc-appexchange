@@ -801,9 +801,9 @@ function fetchMSID()
 		 //,body:{"accountsid":id, "authToken": token}
 		 //.then(response => console.log(response.json()))
 		 console.log(id +'--------' + token);
-		 var data = {};
-					data.accountSID = id;
-					data.authToken = token;
+		 var dataSMID = {};
+		 dataSMID.accountSID = id;
+		 dataSMID.authToken = token;
 		/*
 		fetch('/messagingID', {
             method: "post",
@@ -822,16 +822,13 @@ function fetchMSID()
 			$.ajax
                ({
                 url: '/messagingID',
-                data: JSON.stringify(data),
+                data: JSON.stringify(dataSMID),
 				contentType: 'application/json',
-                //datatype: "text",
+                
                 type: "POST",
-                /*headers: {
-                    'Content-type': 'application/x-www-form-urlencoded'
-                }, */
+            
                 success: function (data) {
                     console.log("data--------------->"+JSON.stringify(data));
-					//console.log(map);
 					//document.getElementById('messageservice').innerHTML +=  '<option value =' + id + '>'+ name +'</option>' ;
 
                    
