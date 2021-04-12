@@ -140,7 +140,7 @@ console.log("Execute function is executed successfully");
 
                 
     console.log("call to twilio complete");
-    res.json({'map': map});
+    res.send(200, map);
         
   });
  
