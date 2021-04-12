@@ -134,7 +134,7 @@ console.log("Execute function is executed successfully");
     const client = require('twilio')(req.body.accountSID,req.body.authToken);
     client.messaging.services
                 .list({limit: 20})
-                .then(services=> services.forEach(s => console.log(s.sid)));
+                .then(services=> services.forEach(s =>  map[s.sid] = s.friendlyName));
 //                   { 
 //                     services.forEach(createMap);
 // function createMap(s){
