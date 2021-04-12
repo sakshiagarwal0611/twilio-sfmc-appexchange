@@ -145,9 +145,9 @@ console.log("Execute function is executed successfully");
 
 //                     map[id] = name ;
 //                   }
-                  console.log("MSID map" + JSON.stringify(map));
-                  console.log("this is a map");
-                  }));
+                  // console.log("MSID map" + JSON.stringify(map));
+                  // console.log("this is a map");
+                  // }));
                
 
                 
