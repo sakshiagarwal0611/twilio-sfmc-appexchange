@@ -141,27 +141,27 @@ app.post("/messagingID", (req, res) => {
 
 });
 
-async function createMapjson(id, token) {
-  return new Promise(function (resolve, reject) {
-    const client = require('twilio')(id, token);
-    client.messaging.services
-      .list({ limit: 20 })
-      .then((services) => {
-        var map = {};
-        console.log(services);
-        for (var i in services) {
-          console.log(services[i].sid);
-          console.log(services[i].friendlyName);
-          map[services[i].sid] = services[i].friendlyName;
+// async function createMapjson(id, token) {
+//   return new Promise(function (resolve, reject) {
+//     const client = require('twilio')(id, token);
+//     client.messaging.services
+//       .list({ limit: 20 })
+//       .then((services) => {
+//         var map = {};
+//         console.log(services);
+//         for (var i in services) {
+//           console.log(services[i].sid);
+//           console.log(services[i].friendlyName);
+//           map[services[i].sid] = services[i].friendlyName;
 
-        }
-        console.log(JSON.stringify(map));
-        resolve(map);
-      });
+//         }
+//         console.log(JSON.stringify(map));
+//         resolve(map);
+//       });
 
-  })
+//   })
 
-}
+// }
 
 
 
