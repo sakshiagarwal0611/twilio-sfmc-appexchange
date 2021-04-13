@@ -129,7 +129,7 @@ app.post("/imagesContent", (req, res) => {
 
 
 
-app.post("/messagingID", async(function (req, res)
+app.post("/messagingID", async function (req, res)
  {
 
   console.log('Retrieve Messaging service ID');
@@ -145,7 +145,7 @@ app.post("/messagingID", async(function (req, res)
   console.log("call to twilio complete");
   res.send({ map: service1 });
 
-}));
+});
 
 async function createMapjson(id, token) {
   console.log('Calllll');
