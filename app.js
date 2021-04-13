@@ -127,45 +127,42 @@ app.post("/imagesContent", (req, res) => {
 
 
 
-app.post("/messagingID", (req, res) => {
+app.post("/messagingID", async(req, res) => {
 
   console.log('Retrieve Messaging service ID');
   console.log("accountSID----------------->" + req.body.accountSID);
   console.log("authToken----------------->" + req.body.authToken);
   var map = {};
   console.log("");
-  var service1;
-  // var service1 = await createMapjson(req.body.accountSID, req.body.authToken);
 
-
-  // console.log(service1);
-
-  // console.log("call to twilio complete");
+  var service1 = await createMapjson(req.body.accountSID, req.body.authToken);
+  console.log(service1);
+  console.log("call to twilio complete");
   res.send({ map: service1 });
 
 });
 
-// async function createMapjson(id, token) {
-//   return new Promise(function (resolve, reject) {
-//     const client = require('twilio')(id, token);
-//     client.messaging.services
-//       .list({ limit: 20 })
-//       .then((services) => {
-//         var map = {};
-//         console.log(services);
-//         for (var i in services) {
-//           console.log(services[i].sid);
-//           console.log(services[i].friendlyName);
-//           map[services[i].sid] = services[i].friendlyName;
+async function createMapjson(id, token) {
+  return new Promise(function (resolve, reject) {
+    const client = require('twilio')(id, token);
+    client.messaging.services
+      .list({ limit: 20 })
+      .then((services) => {
+        var map = {};
+        console.log(services);
+        for (var i in services) {
+          console.log(services[i].sid);
+          console.log(services[i].friendlyName);
+          map[services[i].sid] = services[i].friendlyName;
 
-//         }
-//         console.log(JSON.stringify(map));
-//         resolve(map);
-//       });
+        }
+        console.log(JSON.stringify(map));
+        resolve(map);
+      });
 
-//   })
+  })
 
-// }
+}
 
 
 
