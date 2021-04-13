@@ -136,8 +136,8 @@ app.post("/messagingID", async((req, res) => {
   console.log("");
   var accId=req.body.accountSID;
   var authTpken=req.body.authToken;
-
-  var service1 = await createMapjson(accId,authTpken);
+  var service1={};
+   service1 = await createMapjson(accId,authTpken);
   console.log(service1);
   console.log("call to twilio complete");
   res.send({ map: service1 });
@@ -145,6 +145,7 @@ app.post("/messagingID", async((req, res) => {
 }));
 
 async function createMapjson(id, token) {
+  console.log('Calllll');
   return new Promise(function (resolve, reject) {
     const client = require('twilio')(id, token);
     client.messaging.services
@@ -159,6 +160,7 @@ async function createMapjson(id, token) {
 
         }
         console.log(JSON.stringify(map));
+        console.log('Callll2345678l');
         resolve(map);
       });
 
