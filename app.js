@@ -134,9 +134,10 @@ app.post("/messagingID", async((req, res) => {
   console.log("authToken----------------->" + req.body.authToken);
   var map = {};
   console.log("");
-  var service1= {};
+  var accId=req.body.accountSID;
+  var authTpken=req.body.authToken;
 
-  await createMapjson(req.body.accountSID, req.body.authToken);
+  var service1 = await createMapjson(accId,authTpken);
   console.log(service1);
   console.log("call to twilio complete");
   res.send({ map: service1 });
