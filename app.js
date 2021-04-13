@@ -68,25 +68,29 @@ app.post("/imagesContent", (req, res) => {
     console.log("Access token after assigning it to a variable------------------>" + access_token);
     console.log("Response---------------------->" + response);
     var request = require('request');
+    var fileArray = ['image','document','audio'];
     request.post({
       headers: { 'content-type': 'application/json', 'Authorization': 'Bearer ' + access_token },
       url: 'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.rest.marketingcloudapis.com/asset/v1/content/assets/query',
       body: {
         "query":
         {
-          "leftOperand":
-          {
-            "property": "assetType.displayName",
-            "simpleOperator": "equal",
-            "value": 'image'
-          },
-          "logicalOperator": "OR",
-          "rightOperand":
-          {
-            "property": "assetType.displayName",
-            "simpleOperator": "equal",
-            "value": "document"
-          }
+          "property": "assetType.displayName",
+            "simpleOperator": "IN",
+            "value": fileArray
+          // "leftOperand":
+          // {
+          //   "property": "assetType.displayName",
+          //   "simpleOperator": "equal",
+          //   "value": 'image'
+          // },
+          // "logicalOperator": "OR",
+          // "rightOperand":
+          // {
+          //   "property": "assetType.displayName",
+          //   "simpleOperator": "equal",
+          //   "value": "document"
+          // }
         },
         "fields": [
           "name",
@@ -130,38 +134,38 @@ app.post("/messagingID", (req, res) => {
   console.log("authToken----------------->" + req.body.authToken);
   var map = {};
   console.log("");
+  var service1;
+  // var service1 = await createMapjson(req.body.accountSID, req.body.authToken);
 
-  var service1 = await createMapjson(req.body.accountSID, req.body.authToken);
 
+  // console.log(service1);
 
-  console.log(service1);
-
-  console.log("call to twilio complete");
+  // console.log("call to twilio complete");
   res.send({ map: service1 });
 
 });
 
-async function createMapjson(id, token) {
-  return new Promise(function (resolve, reject) {
-    const client = require('twilio')(id, token);
-    client.messaging.services
-      .list({ limit: 20 })
-      .then((services) => {
-        var map = {};
-        console.log(services);
-        for (var i in services) {
-          console.log(services[i].sid);
-          console.log(services[i].friendlyName);
-          map[services[i].sid] = services[i].friendlyName;
+// async function createMapjson(id, token) {
+//   return new Promise(function (resolve, reject) {
+//     const client = require('twilio')(id, token);
+//     client.messaging.services
+//       .list({ limit: 20 })
+//       .then((services) => {
+//         var map = {};
+//         console.log(services);
+//         for (var i in services) {
+//           console.log(services[i].sid);
+//           console.log(services[i].friendlyName);
+//           map[services[i].sid] = services[i].friendlyName;
 
-        }
-        console.log(JSON.stringify(map));
-        resolve(map);
-      });
+//         }
+//         console.log(JSON.stringify(map));
+//         resolve(map);
+//       });
 
-  })
+//   })
 
-}
+// }
 
 
 
