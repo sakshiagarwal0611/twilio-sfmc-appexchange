@@ -11,8 +11,8 @@ var routes = require('./routes');
 var activity = require('./routes/activity');
 const { json } = require('body-parser');
 var app = express();
-var async = require('asyncawait/async');
-var await = require('asyncawait/await');
+const async = require('asyncawait/async');
+const await = require('asyncawait/await');
 
 
 
@@ -129,7 +129,7 @@ app.post("/imagesContent", (req, res) => {
 
 
 
-app.post("/messagingID", async function (req, res)
+app.post("/messagingID", async (function (req, res)
  {
 
   console.log('Retrieve Messaging service ID');
@@ -140,12 +140,12 @@ app.post("/messagingID", async function (req, res)
   var accId=req.body.accountSID;
   var authToken=req.body.authToken;
   var service1={};
-   service1 = await createMapjson(accId,authToken);
+  service1 = await (createMapjson(accId,authToken));
   console.log(service1);
   console.log("call to twilio complete");
   res.send({ map: service1 });
 
-});
+}));
 
 async function createMapjson(id, token) {
   console.log('Calllll');
