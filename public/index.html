@@ -108,22 +108,24 @@
 		border-bottom: 1px dotted black;
 	  }
 	  
-	.tooltip .tooltiptext {
+	  .tooltip .tooltiptext {
 		visibility: hidden;
 		width: 120px;
-		background-color: black;
+		background-color: #555;
 		color: #fff;
 		text-align: center;
 		border-radius: 6px;
 		padding: 5px 0;
 		position: absolute;
 		z-index: 1;
-		bottom: 150%;
+		bottom: 125%;
 		left: 50%;
 		margin-left: -60px;
+		opacity: 0;
+		transition: opacity 0.3s;
 	  }
 	  
-	.tooltip .tooltiptext::after {
+	  .tooltip .tooltiptext::after {
 		content: "";
 		position: absolute;
 		top: 100%;
@@ -131,11 +133,12 @@
 		margin-left: -5px;
 		border-width: 5px;
 		border-style: solid;
-		border-color: black transparent transparent transparent;
+		border-color: #555 transparent transparent transparent;
 	  }
 	  
-	.tooltip:hover .tooltiptext {
+	  .tooltip:hover .tooltiptext {
 		visibility: visible;
+		opacity: 1;
 	  }
 
 	
@@ -374,7 +377,7 @@
 		    </div>
 		    </div>
 		</div>    
-		<div class="slds-text-heading_small instruction noselect" id="heading" style="text-align:right;">Message Length: <span id='char-count'></span></div>  
+		<div class="tooltip"><div class="slds-text-heading_small instruction noselect" id="heading" style="text-align:right;">Message Length: <span id='char-count'></span></div> <span class="tooltiptext">Tooltip text</span> </div>
 	 
     </div>
 </div>
