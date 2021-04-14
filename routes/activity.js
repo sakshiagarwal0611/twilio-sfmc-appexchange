@@ -532,7 +532,7 @@ if(sms == true)
         client.messages
         .create({
            //from: '+12058914350',
-           messagingServiceSid: 'MG1630b9dd89a4b8871ef70c798c609012',
+           messagingServiceSid: MSID,
             body: wPmessage,
             //body: "Please enter your order as such:\n" + "- 3 beers\n - 2 glasses of red wine",
             to: '+918114464775'
