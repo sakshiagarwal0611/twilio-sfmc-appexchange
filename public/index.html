@@ -48,6 +48,11 @@
             margin: 0;
 	        background-color: #ffffff;
         }
+	.fileName
+	{
+		color:black;
+
+	}
 	.imageContainer
 		{
 		
@@ -695,21 +700,31 @@ btn.onclick = function()
 					{
 						console.log(key);
 						console.log(value);
-						var id = 'serialNo' + index ; 
+						var id = 'serialNo' + index ;
+						var nameStr =  value.filename;
+						var shortFileName;
+						var nameLen = nameStr.length;
+						if(nameLen > 20){
+							shortFileName = str.slice(0, 20);
+							shortFileName += '...';
+							console.log("shortFileName" +shortFileName );
+						}else{
+							shortFileName =  value.filename;
+						}
 						if(value.type == 'Document'){
 							console.log("print doc");
-							document.getElementById("showFile").innerHTML += '<div width="33%" class="imageContainer"><img id="' +  index + '" src="/assets/icons/doctype/pdf_120.png" onclick="imageinsert(\'' + key + '\', \''+ value.type +'\',\''+ value.filename+'\')"style="margin:3px;height: 79%;width: auto;"><br><span>'+ value.filename +'</span></div>';
+							document.getElementById("showFile").innerHTML += '<div width="33%" class="imageContainer"><img id="' +  index + '" src="/assets/icons/doctype/pdf_120.png" onclick="imageinsert(\'' + key + '\', \''+ value.type +'\',\''+ value.filename+'\')"style="margin:3px;height: 79%;width: auto;"><br><span class="fileName">'+ shortFileName +'</span></div>';
 
 							
 
 						}else if(value.type == 'Image'){
 							console.log("print image");
-							document.getElementById("showFile").innerHTML += '<div width="33%" class="imageContainer"><img id="' +  index + '" src="' + key + '" onclick="imageinsert(\'' + key + '\', \''+ value.type +'\',\''+ value.filename+'\')"style="margin:3px;height: 79%;width: auto;"><br><span>'+ value.filename +'</span></div>';
+							document.getElementById("showFile").innerHTML += '<div width="33%" class="imageContainer"><img id="' +  index + '" src="' + key + '" onclick="imageinsert(\'' + key + '\', \''+ value.type +'\',\''+ value.filename+'\')"style="margin:3px;height: 79%;width: auto;"><br><span class="fileName">'+ shortFileName +'</span></div>';
 
 
 						}else if(value.type == 'Audio'){
 								console.log("print audio");
-								document.getElementById("showFile").innerHTML += '<div width="33%" class="imageContainer"><img id="' +  index + '" src="/assets/icons/doctype/audio_120.png" onclick="imageinsert(\'' + key + '\', \''+ value.type +'\',\''+ value.filename+'\')" style="margin:3px;height: 79%;width: auto;"><br><span>'+ value.filename +'</span></div>';
+								document.getElementById("showFile").innerHTML += '<div width="33%" class="imageContainer"><img id="' +  index + '" src="/assets/icons/doctype/audio_120.png" onclick="imageinsert(\'' + key + '\', \''+ value.type +'\',\''+ value.filename+'\')" style="margin:3px;height: 79%;width: auto;"><br><span class="fileName">'+ shortFileName +'</span></div>';
 
 						}else{
 							console.log("invadid file format");
