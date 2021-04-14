@@ -156,12 +156,12 @@ app.post("/messagingID", (req, res)=>{
         }
         console.log(JSON.stringify(map));
       })
-  
-  function Function() {
+      myFunction();
+  function myFunction() {
     setTimeout(setAlert, 6000);
 }
 function setAlert() {
-  alert("Hello World!");
+  console.log("Hello World!");
 }
 console.log("call to twilio complete");
   res.send({ map: map });
