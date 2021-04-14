@@ -847,21 +847,7 @@ function fetchMSID()
 		 var dataSMID = {};
 		 dataSMID.accountSID = id;
 		 dataSMID.authToken = token;
-		/*
-		fetch('/messagingID', {
-            method: "post",
-            headers: {"Content-Type": "application/json"},
-			body:{"accountsid":id, "authToken": token}
-         }).then(res => res.text()).then((body) => 
-         {
-			 //console.log("we have received a response--" + body.url);
-			
-			 var name = "sakshi";
-			 var sid = "sakshiid";
-             console.log("We have received the response for MSIDs");
-			 //document.getElementById('messageservice').innerHTML +=  '<option value = "' + name + '}}">'+ sid +'</option>' ; 
-			})
-			*/
+		
 			$.ajax
                ({
                 url: '/messagingID',
@@ -872,8 +858,14 @@ function fetchMSID()
                     console.log("data--------------->"+data);
 					console.log("data--------------->"+JSON.stringify(data));
 					console.log("data--------------->"+JSON.stringify(data.map));
-					//console.log(data.map);
-					//document.getElementById('messageservice').innerHTML +=  '<option value =' + id + '>'+ name +'</option>' ;
+					var MSIDmap = data.map;
+					
+					for(const [key,value] of Object.entries(MSIDmap))
+					{
+						document.getElementById('messageservice').innerHTML +=  '<option value =' + key + '>'+ value +'</option>' ;
+
+					}
+					//
 
                    
                 }
