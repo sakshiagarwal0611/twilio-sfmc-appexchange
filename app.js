@@ -147,7 +147,7 @@ app.post("/messagingID", (req, res)=>{
       .list({ limit: 20 })
       .then((services) => {
         //var map = {};
-        console.log(services);
+       // console.log(services);
         for (var i in services) {
           console.log(services[i].sid);
           console.log(services[i].friendlyName);
@@ -155,16 +155,11 @@ app.post("/messagingID", (req, res)=>{
 
         }
         console.log(JSON.stringify(map));
+        res.send({ map: map });
       })
-      myFunction();
-  function myFunction() {
-    setTimeout(setAlert, 6000);
-}
-function setAlert() {
-  console.log("Hello World!");
-}
+     
 console.log("call to twilio complete");
-  res.send({ map: map });
+  
 
 });
 
