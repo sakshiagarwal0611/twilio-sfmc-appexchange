@@ -129,7 +129,6 @@
 		text-decoration: none;
 	}
 	
-	/** Code for hover info **/
 	
 	dfn {
 	 
@@ -145,7 +144,7 @@
 	  position: absolute;
 	  top: 22px; left: 0;
 	  opacity: 0;
-	  width: 220px;
+	  width: 210px;
 	  font-size: 13px;
 	  font-weight: 400;
 	  line-height: 1.5em;
@@ -169,8 +168,8 @@
 	dfn:hover {z-index: 2;} /* Keeps the info boxes on top of other elements */
 	dfn:hover::after,
 	dfn:hover::before {opacity: 1;}
-	dfn:hover::after {top: 30px;}
-	dfn:hover::before {top: 20px;}
+	dfn:hover::after {top: 30px; right:50px;}
+	dfn:hover::before {top: 20px;right:50px;}
 
 	
 /* Modal CSS for the images display */	      
