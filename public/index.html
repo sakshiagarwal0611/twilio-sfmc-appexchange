@@ -124,7 +124,7 @@
 
 
 
-	  a.dfn-hover {
+	a.dfn-hover {
 		color: #333;
 		text-decoration: none;
 	}
@@ -132,46 +132,44 @@
 	/** Code for hover info **/
 	
 	dfn {
-	  
+	 
 	  padding: 0 0.4em;
+	  font-style: normal;
 	  position: relative;
-	font-style: normal;
-	font-weight: 400;
 	  
 	}
 	dfn::after {
-		content: attr(data-info);
-		display: inline;
-		position: absolute;
-		top: 22px;
-		opacity: 0;
-		width: 220px;
-		font-size: 13px;
-		
-		line-height: 1.5em;
-		padding: 0.5em 0.8em;
-		background: rgba(0,0,0,0.8);
-		color: #fff;
-		pointer-events: none; /* This prevents the box from apearing when hovered. */
-		transition: opacity 250ms, top 250ms;
-	  }
-	  dfn::before 
-	  {
-		content: '';
-		display: block;
-		position: absolute;
-		top: 12px; left: 20px;
-		opacity: 0;
-		width: 0; height: 0;
-		border: solid transparent 5px;
-		border-bottom-color: rgba(0,0,0,0.8);
-		transition: opacity 250ms, top 250ms;
-	  }
-	  dfn:hover {z-index: 2;} /* Keeps the info boxes on top of other elements */
-	  dfn:hover::after,
-	  dfn:hover::before {opacity: 1;}
-	  dfn:hover::after {top:30px; left:-50px;}
-	  dfn:hover::before {top: 20px;left:-50px;}
+	  content: attr(data-info);
+	  display: inline;
+	  position: absolute;
+	  top: 22px; left: 0;
+	  opacity: 0;
+	  width: 220px;
+	  font-size: 13px;
+	  font-weight: 400;
+	  line-height: 1.5em;
+	  padding: 0.5em 0.8em;
+	  background: rgba(0,0,0,0.8);
+	  color: #fff;
+	  pointer-events: none; /* This prevents the box from apearing when hovered. */
+	  transition: opacity 250ms, top 250ms;
+	}
+	dfn::before {
+	  content: '';
+	  display: block;
+	  position: absolute;
+	  top: 12px; left: 20px;
+	  opacity: 0;
+	  width: 0; height: 0;
+	  border: solid transparent 5px;
+	  border-bottom-color: rgba(0,0,0,0.8);
+	  transition: opacity 250ms, top 250ms;
+	}
+	dfn:hover {z-index: 2;} /* Keeps the info boxes on top of other elements */
+	dfn:hover::after,
+	dfn:hover::before {opacity: 1;}
+	dfn:hover::after {top: 30px;}
+	dfn:hover::before {top: 20px;}
 
 	
 /* Modal CSS for the images display */	      
