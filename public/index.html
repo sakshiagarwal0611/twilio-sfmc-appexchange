@@ -154,7 +154,8 @@
 		pointer-events: none; /* This prevents the box from apearing when hovered. */
 		transition: opacity 250ms, top 250ms;
 	  }
-	  dfn::before {
+	  dfn::before 
+	  {
 		content: '';
 		display: block;
 		position: absolute;
@@ -841,6 +842,7 @@ function fetchMSID()
 		console.log("This function is called to set the messaging service id");
 		var id = $('#accountSID').val();
 		var token = $('#authToken').val();
+		document.getElementById('messageservice').innerHTML ="";
 		 //,body:{"accountsid":id, "authToken": token}
 		 //.then(response => console.log(response.json()))
 		 console.log(id +'--------' + token);
