@@ -52,6 +52,14 @@
 	{
 		color:black;
 	}
+	.imageDisplayed{
+
+		margin:3px;
+		height: auto;
+		width: auto;
+
+
+	}
 	.imageContainer
 		{
 		
@@ -63,6 +71,7 @@
 		margin: 8px;
 		padding: 5px;
 		float: left;
+		text-align: center;
 	
 		}
     .step 
@@ -727,18 +736,18 @@ btn.onclick = function()
 						}
 						if(value.type == 'Document'){
 							console.log("print doc");
-							document.getElementById("showFile").innerHTML += '<div width="33%" class="imageContainer"><img id="' +  index + '" src="/assets/icons/doctype/pdf_120.png" onclick="imageinsert(\'' + key + '\', \''+ value.type +'\',\''+ value.filename+'\')"style="margin:3px;height: 79%;width: auto;"><br><dfn data-info=\"'+ value.filename +'\">'+ shortFileName +'</dfn></div>';
+							document.getElementById("showFile").innerHTML += '<div width="33%" class="imageContainer"><img id="' +  index + '" src="/assets/icons/doctype/pdf_120.png" onclick="imageinsert(\'' + key + '\', \''+ value.type +'\',\''+ value.filename+'\')" class="imageDisplayed"><br><dfn data-info=\"'+ value.filename +'\">'+ shortFileName +'</dfn></div>';
 
 							
 
 						}else if(value.type == 'Image'){
 							console.log("print image");
-							document.getElementById("showFile").innerHTML += '<div width="33%" class="imageContainer"><img id="' +  index + '" src="' + key + '" onclick="imageinsert(\'' + key + '\', \''+ value.type +'\',\''+ value.filename+'\')"style="margin:3px;height: 79%;width: auto;"><br><dfn data-info=\"'+ value.filename +'\">'+ shortFileName +'</dfn></div>';
+							document.getElementById("showFile").innerHTML += '<div width="33%" class="imageContainer"><img id="' +  index + '" src="' + key + '" onclick="imageinsert(\'' + key + '\', \''+ value.type +'\',\''+ value.filename+'\')" class="imageDisplayed"><br><dfn data-info=\"'+ value.filename +'\">'+ shortFileName +'</dfn></div>';
 
 
 						}else if(value.type == 'Audio'){
 								console.log("print audio");
-								document.getElementById("showFile").innerHTML += '<div width="33%" class="imageContainer"><img id="' +  index + '" src="/assets/icons/doctype/audio_120.png" onclick="imageinsert(\'' + key + '\', \''+ value.type +'\',\''+ value.filename+'\')" style="margin:3px;height: 79%;width: auto;"><br><dfn data-info=\"'+ value.filename +'\">'+ shortFileName +'</dfn></div>';
+								document.getElementById("showFile").innerHTML += '<div width="33%" class="imageContainer"><img id="' +  index + '" src="/assets/icons/doctype/audio_120.png" onclick="imageinsert(\'' + key + '\', \''+ value.type +'\',\''+ value.filename+'\')" class="imageDisplayed"><br><dfn data-info=\"'+ value.filename +'\">'+ shortFileName +'</dfn></div>';
 
 						}else{
 							console.log("invadid file format");
