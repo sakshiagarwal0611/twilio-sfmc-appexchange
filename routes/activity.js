@@ -285,7 +285,7 @@ exports.messagestatus = function(req,res)
 	
     
     var req3=req.body;
-    console.log("req3"+req3);
+    console.log("req3"+JSON.stringify(req3));
     var req4=req.body.To;
     console.log("to"+req4);
     res.send(200, 'messagestatus');
