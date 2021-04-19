@@ -20,12 +20,7 @@ exports.index = function(req, res){
     }
 };
 
-exports.messageresponse=function(req,res)
-{
-    console.log(req);
-    console.log("messageresponseres"+res);
-    console.log("body"+res.body);
-};
+
 
 exports.login = function( req, res ) {
     console.log( 'req.body: ', req.body ); 
