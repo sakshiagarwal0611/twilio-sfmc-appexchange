@@ -277,24 +277,18 @@ body: '<?xml version="1.0" encoding="UTF-8"?>\r\n<soapenv:Envelope xmlns:soapenv
  */
 exports.messagestatus = function(req,res)
 {
-   // var messageSid = req.body.MessageSid;
- // var messageStatus = req.body.MessageStatus;
- console.log("5 -- For Message Status");	
+    console.log("5 -- For Message Status");	
     console.log("4");	
     console.log("3");	
     console.log("2");	
     console.log("1");
-     console.log("5 -- For Message Status");	
-    var req2 = req.Body;
+	
+    
     var req3=req.body;
-    console.log("req2"+req2);
-        console.log("req3"+req3);
+    console.log("req3"+req3);
     var req4=req.body.To;
-     console.log("to"+req4);
-    
-    
- //console.log(`SID: ${messageSid}, Status: ${messageStatus}`);
-     res.send(200, 'messagestatus');
+    console.log("to"+req4);
+    res.send(200, 'messagestatus');
 
 };
 
