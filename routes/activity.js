@@ -297,6 +297,8 @@ exports.messageresponse=function(req,res)
     console.log(req);
     console.log("messageresponseres"+res);
     console.log("body"+res.body);
+
+    res.send(200, ok);
 };
 
 
