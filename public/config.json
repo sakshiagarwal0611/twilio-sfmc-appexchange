@@ -68,7 +68,14 @@
             "body": "",
             "format": "json",
             "useJwt": false
-       }
+       },
+       "messageresponse": {
+       "url": "https://twilio-sfmc-sakshi.herokuapp.com/journeybuilder/messageresponse",
+        "verb": "GET",
+        "body": "",
+        "format": "json",
+        "useJwt": false
+   }
     },
     "wizardSteps": [
         { "label": "Twilio Authentication", "key": "step1" },
