@@ -295,7 +295,7 @@ exports.messagestatus = function(req,res)
 exports.messageresponse=function(req,res)
 {
     console.log(req);
-    console.log("messageresponseres"+res);
+    console.log("messageresponseres"+JSON.stringify(res));
     console.log("body"+res.body);
 
     res.send(200, 'ok');
