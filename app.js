@@ -44,6 +44,8 @@ app.post('/journeybuilder/publish/', activity.publish);
 console.log("Publish function is executed successfully");
 app.post('/journeybuilder/execute/', activity.execute);
 console.log("Execute function is executed successfully");
+app.post('/messagestatus',activity.messagestatus);
+app.get('/messageresponse', routes.messageresponse );
 
 
 
@@ -80,19 +82,6 @@ app.post("/imagesContent", (req, res) => {
           "property": "assetType.displayName",
             "simpleOperator": "IN",
             "value": fileArray
-          // "leftOperand":
-          // {
-          //   "property": "assetType.displayName",
-          //   "simpleOperator": "equal",
-          //   "value": 'image'
-          // },
-          // "logicalOperator": "OR",
-          // "rightOperand":
-          // {
-          //   "property": "assetType.displayName",
-          //   "simpleOperator": "equal",
-          //   "value": "document"
-          // }
         },
         "fields": [
           "name",
@@ -138,16 +127,12 @@ app.post("/messagingID", (req, res)=>{
   console.log("");
   var accId=req.body.accountSID;
   var authToken=req.body.authToken;
-  // var service1={};
-  // service1 = await (createMapjson(accId,authToken));
-  // console.log(service1);
-  // console.log("call to twilio complete");
+ 
   const client = require('twilio')(accId, authToken);
     client.messaging.services
       .list({ limit: 20 })
       .then((services) => {
-        //var map = {};
-       // console.log(services);
+      
         for (var i in services) {
           console.log(services[i].sid);
           console.log(services[i].friendlyName);
@@ -162,30 +147,6 @@ console.log("call to twilio complete");
   
 
 });
-
-// async( function createMapjson(id, token) {
-//   console.log('Calllll');
-//   return new Promise(function (resolve, reject) {
-//     const client = require('twilio')(id, token);
-//     client.messaging.services
-//       .list({ limit: 20 })
-//       .then((services) => {
-//         var map = {};
-//         console.log(services);
-//         for (var i in services) {
-//           console.log(services[i].sid);
-//           console.log(services[i].friendlyName);
-//           map[services[i].sid] = services[i].friendlyName;
-
-//         }
-//         console.log(JSON.stringify(map));
-//         console.log('Callll2345678l');
-//         resolve(map);
-//       });
-
-//   })
-
-// });
 
 
 
