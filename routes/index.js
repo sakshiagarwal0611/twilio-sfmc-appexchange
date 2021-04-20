@@ -26,21 +26,20 @@ exports.messageresponse=function(req,res)
     console.log("messageresponseres"+res);
     console.log("body----->"+res.body);
     console.log("body------>"+req.url);
+    console.log(req.body);
 
     var url = require('url');
     var address =  req.url;
     var q = url.parse(address, true);
     console.log(q);
-console.log(q.host); //returns 'localhost:8080'
-console.log(q.pathname); //returns '/index.php'
-console.log(q.search); //returns '?type=page&action=update&id=5221'
-var qdata = q.query; // returns an object: { type: page, action: 'update',id='5221' }
- //returns 'page'
-var Body = qdata.Body; //returns 'update'
-var Tonumber = qdata.To; //returns '5221
-  var SmsMessageSid=qdata.SmsMessageSid;
-   // var ToCountry=qdata.ToCountry;
-   var SmsSid=qdata.SmsSid;
+console.log(q.host); 
+console.log(q.pathname); 
+console.log(q.search);
+var qdata = q.query; 
+var Body = qdata.Body; 
+var Tonumber = qdata.To; 
+var SmsMessageSid=qdata.SmsMessageSid;
+var SmsSid=qdata.SmsSid;
 
     console.log("Data" +Body +  Tonumber + SmsMessageSid + SmsSid);
 
