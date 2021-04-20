@@ -279,7 +279,7 @@ body: '<?xml version="1.0" encoding="UTF-8"?>\r\n<soapenv:Envelope xmlns:soapenv
 exports.messageresponse=function(req,res)
 {
     console.log(req);
-    console.log("messageresponseres"+JSON.stringify(res));
+    console.log("messageresponseres"+res);
     console.log("body----->"+res.body);
     console.log("body------>"+req.url);
 
