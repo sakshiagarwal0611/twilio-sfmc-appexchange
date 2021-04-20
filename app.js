@@ -121,6 +121,7 @@ app.post("/imagesContent", (req, res) => {
 app.post("/messagingID", (req, res)=>{
 
   console.log('Retrieve Messaging service ID');
+  console.log(req);
   console.log("accountSID----------------->" + req.body.accountSID);
   console.log("authToken----------------->" + req.body.authToken);
   var map = {};
