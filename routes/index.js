@@ -30,7 +30,7 @@ exports.messageresponse=function(req,res)
     var url = require('url');
     var address =  req.url;
     var q = url.parse(address, true);
- 
+    console.log(q);
 console.log(q.host); //returns 'localhost:8080'
 console.log(q.pathname); //returns '/index.php'
 console.log(q.search); //returns '?type=page&action=update&id=5221'
