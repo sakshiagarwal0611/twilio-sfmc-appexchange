@@ -44,8 +44,8 @@ app.post('/journeybuilder/publish/', activity.publish);
 console.log("Publish function is executed successfully");
 app.post('/journeybuilder/execute/', activity.execute);
 console.log("Execute function is executed successfully");
-//app.post('/journeybuilder/messagestatus',activity.messagestatus);
-app.get('/messageresponse', routes.messageresponse);
+
+app.post('/messageresponse', routes.messageresponse);
 
 
 
