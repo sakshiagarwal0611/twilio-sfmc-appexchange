@@ -275,46 +275,31 @@ body: '<?xml version="1.0" encoding="UTF-8"?>\r\n<soapenv:Envelope xmlns:soapenv
 /*
  * POST Handler for /message reponse/ route of Activity.
  */
-exports.messagestatus = function(req,res)
-{
-    console.log("5 -- For Message Status");	
-    console.log("4");	
-    console.log("3");	
-    console.log("2");	
-    console.log("1");
-	
-    
-    var req3=req.body;
-    console.log("req3"+JSON.stringify(req3));
-    var req4=req.body.To;
-    console.log("to"+req4);
-    res.send(200, 'messagestatus');
-
-};
 
 exports.messageresponse=function(req,res)
 {
     console.log(req);
     console.log("messageresponseres"+JSON.stringify(res));
-    console.log("body"+res.body);
+    console.log("body----->"+res.body);
+    console.log("body------>"+req.url);
 
-    var url = require('url');
-var address =  req.url;
-var q = url.parse(address, true);
+//     var url = require('url');
+//     var address =  req.url;
+//     var q = url.parse(address, true);
  
-console.log(q.host); //returns 'localhost:8080'
-console.log(q.pathname); //returns '/index.php'
-console.log(q.search); //returns '?type=page&action=update&id=5221'
+// console.log(q.host); //returns 'localhost:8080'
+// console.log(q.pathname); //returns '/index.php'
+// console.log(q.search); //returns '?type=page&action=update&id=5221'
  
-var qdata = q.query; // returns an object: { type: page, action: 'update',id='5221' }
- //returns 'page'
-var Body = qdata.Body; //returns 'update'
-var Tonumber = qdata.To; //returns '5221
-  var SmsMessageSid=qdata.SmsMessageSid;
-   // var ToCountry=qdata.ToCountry;
-   var SmsSid=qdata.SmsSid;
+// var qdata = q.query; // returns an object: { type: page, action: 'update',id='5221' }
+//  //returns 'page'
+// var Body = qdata.Body; //returns 'update'
+// var Tonumber = qdata.To; //returns '5221
+//   var SmsMessageSid=qdata.SmsMessageSid;
+//    // var ToCountry=qdata.ToCountry;
+//    var SmsSid=qdata.SmsSid;
 
-    console.log("Data" +Body +  Tonumber + SmsMessageSid + SmsSid);
+//     console.log("Data" +Body +  Tonumber + SmsMessageSid + SmsSid);
 
     res.send(200, 'ok');
 };

@@ -62,13 +62,6 @@
             "useJwt": false,
             "timeout": 2000
         },
-	       "messagestatus": {
-           "url": "https://twilio-sfmc-sakshi.herokuapp.com/journeybuilder/messagestatus",
-            "verb": "GET",
-            "body": "",
-            "format": "json",
-            "useJwt": false
-       },
        "messageresponse": {
        "url": "https://twilio-sfmc-sakshi.herokuapp.com/journeybuilder/messageresponse",
         "verb": "GET",
