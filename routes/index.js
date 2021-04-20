@@ -44,7 +44,6 @@ var Tonumber = qdata.To; //returns '5221
 
     console.log("Data" +Body +  Tonumber + SmsMessageSid + SmsSid);
 
-    res.send(200, 'ok');
 };
 
 
